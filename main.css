@@ -1,6 +1,7 @@
 body {
     background-color: #2c2f33;
     color: #99aab5;
+    font-family: 'Roboto', sans-serif;
 }
 
 #header {
@@ -28,6 +29,10 @@ hr {
     width: 40px;
 }
 
+#maxVowelsLabel {
+    margin-left: 20px;
+}
+
 #footer {
     display: flex;
     justify-content: center;
@@ -48,7 +53,7 @@ hr {
 }
 
 a {
-    color: grey;
+    color: rgb(146, 146, 146);
 }
 
 a:link {
@@ -61,6 +66,7 @@ a:visited {
 
 a:hover {
     text-decoration: underline;
+    color: lightgrey;
 }
 
 a:active {
@@ -74,4 +80,5 @@ a:active {
 #attribution {
     position: absolute;
     right: 10px;
+    color: grey;
 }
