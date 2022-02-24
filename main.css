@@ -3,7 +3,11 @@ body {
     color: #99aab5;
 }
 
+#header {
+    margin: 20px;
+    color: aquamarine;
+}
+
 #rhymeForm {
-    margin-top: 40px;
-    margin-left: 40px;
+    margin-left: 20px;
 }
