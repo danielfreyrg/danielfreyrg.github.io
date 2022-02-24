@@ -8,16 +8,16 @@ document.getElementById('rhymeForm').addEventListener('submit', function(event) 
     var rhyme = document.getElementById('rhymeWord').value
     var perfect = document.getElementById('perfectRhyme').checked
     if (rhyme.length > 0) {
-        var drasl = findEndRhymes(rhyme, perfect)
-        var prump = printRhymeCategories(drasl)
+        var allRhymes = findEndRhymes(rhyme, perfect)
+        var categories = printRhymeCategories(allRhymes)
         document.getElementById('result').innerHTML += '<h1>' + rhyme + ' er ' + findSyllables(rhyme) + ' atkvæði </h1>'
         var added = false
-        for (var item in prump) {
-            if (prump[item].length > 0) {
+        for (var item in categories) {
+            if (categories[item].length > 0) {
                 added = true
                 document.getElementById('result').innerHTML += '<h1>' + item + ' atkvæði: </h1>' + '\n'
                 document.getElementById('result').innerHTML += '<h2>' +
-                    prump[item].join(', ') + '</h2>\n' + '<h3>fjöldi: ' + prump[item].length + '</h3>'
+                    categories[item].join(', ') + '</h2>\n' + '<h3>fjöldi: ' + categories[item].length + '</h3>'
 
             }
         }
@@ -230,7 +230,7 @@ findEndRhymes = function(word, perfect) {
 
     return rhymes
 }
-x = 'hlægja'
+x = 'eggjahneta'
 console.log(alikeReplacer(x))
 if (words) {
 
