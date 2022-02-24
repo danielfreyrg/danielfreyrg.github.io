@@ -7,22 +7,31 @@ document.getElementById('rhymeForm').addEventListener('submit', function(event) 
     console.log(event.value)
     var rhyme = document.getElementById('rhymeWord').value
     var perfect = document.getElementById('perfectRhyme').checked
-    if (rhyme.length > 0) {
-        var allRhymes = findEndRhymes(rhyme, perfect)
+    var endRhyme = document.getElementById('endRhymes').checked
+    var innerRhyme = document.getElementById('innerRhymes').checked
+    if (rhyme.length > 0 && rhyme != ' ') {
+        if (endRhyme) {
+            var allRhymes = findEndRhymes(rhyme, perfect)
+        } else {
+            var allRhymes = findInnerRhymes(rhyme, perfect)
+        }
         var categories = printRhymeCategories(allRhymes)
         document.getElementById('result').innerHTML += '<h1>' + rhyme + ' er ' + findSyllables(rhyme) + ' atkvæði </h1>'
         var added = false
         for (var item in categories) {
             if (categories[item].length > 0) {
+                console.log(categories[item].join(', '))
                 added = true
-                document.getElementById('result').innerHTML += '<h1>' + item + ' atkvæði: </h1>' + '\n'
-                document.getElementById('result').innerHTML += '<h2>' +
+                result = document.getElementById('result')
+                result.innerHTML += '<hr>'
+                result.innerHTML += '<h1>' + item + ' atkvæði: </h1>' + '\n'
+                result.innerHTML += '<h2>' +
                     categories[item].join(', ') + '</h2>\n' + '<h3>fjöldi: ' + categories[item].length + '</h3>'
 
             }
         }
         if (!added) {
-            document.getElementById('result').innerHTML += '<h1> því miður fundust engin rímorð fyrir "' + rhyme + '"</h1>'
+            result.innerHTML += '<h1> því miður fundust engin rímorð fyrir "' + rhyme + '"</h1>'
         }
     }
 })
@@ -160,7 +169,49 @@ alikeReplacer = function(word) {
     }
     return word
 }
+findSyllableRhymes = function(word, perfect) {
+    var vowels = ["a", "e", "i", "o", "u", "á", "í", "ó", "ú", "ö", "æ", "é", 'y', 'ý']
+    if (!perfect) {
+        word = alikeReplacer(word)
+    }
+}
+findImperfectRhymes = function(rhyme) {
+    var rhymes = []
+    var rhyme = alikeReplacer(rhyme)
+    for (word of words) {
+        var realWord = word
+        word = alikeReplacer(word)
+        var end = 1
 
+        for (var i = 0; i < word.length - end; i++) {
+            if (word[word.length - end] == '_') {
+                end += 1
+            }
+            for (var j = 0; j < rhyme.length - end; j++) {
+                if (rhyme.slice(j) == word.slice(i) && !rhymes.includes(realWord)) {
+                    rhymes.push(realWord)
+                }
+            }
+        }
+    }
+    return rhymes
+}
+findInnerRhymes = function(word, perfect) {
+    var rhymes = []
+    if (!perfect) {
+        word = alikeReplacer(word)
+    }
+    for (var i of words) {
+        oldWord = i
+        if (!perfect) {
+            i = alikeReplacer(i)
+        }
+        if (i.slice(1).includes(word.slice(1) || i.slice(0).includes(word.slice(0)))) {
+            rhymes.push(oldWord)
+        }
+    }
+    return rhymes
+}
 findEndRhymes = function(word, perfect) {
     originalWord = word
     var oldindex = -3
@@ -230,8 +281,6 @@ findEndRhymes = function(word, perfect) {
 
     return rhymes
 }
-x = 'eggjahneta'
-console.log(alikeReplacer(x))
-if (words) {
-
-}
+x = 'högg'
+var y = findImperfectRhymes(x)
+printRhymeCategories(y)

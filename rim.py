@@ -64,7 +64,6 @@ def findStartRhymes(word):
 
 
 def findImperfectRhyme(rhyme):
-    other = rhyme
     rhymes = []
     rhyme = alikeReplacer(rhyme)
     for word in words:
@@ -125,7 +124,7 @@ def findEndRhymes(word, perfect=False, numToMatch=-3):
 now = time.time()
 
 
-rhyme = "pulsa"
+rhyme = "högg"
 # y = findEndRhymes(rhyme, False)
 # printRhymeCategories(y)
 # print(len(y))

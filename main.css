@@ -11,3 +11,15 @@ body {
 #rhymeForm {
     margin-left: 20px;
 }
+
+hr {
+    border: 1px solid grey;
+}
+
+.radioInputs {
+    margin-top: 15px;
+}
+
+#innerRhymes {
+    margin-left: 15px;
+}
