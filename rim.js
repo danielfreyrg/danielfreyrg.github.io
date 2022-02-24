@@ -30,7 +30,7 @@ findSyllables = function(word) {
     dict = {}
     var counter = 0
     var vowels = ["a", "e", "i", "o", "u", "á", "í", "ó", "ú", "ö", "æ", "é", 'y', 'ý']
-    var doubles = ["ey", "au", "ei"]
+    var doubles = ["ey", "au", "ei", "aí"]
     for (double of doubles) {
         if (word.includes(double)) {
             counter += 1
@@ -63,7 +63,7 @@ printRhymeCategories = function(wordList, maxVowels) {
     dict = {}
     var counter = 0
     var vowels = ["a", "e", "i", "o", "u", "á", "í", "ó", "ú", "ö", "æ", "é", 'y', 'ý']
-    var doubles = ["ey", "au", "ei"]
+    var doubles = ["ey", "au", "ei", "aí"]
     for (word of wordList) {
         for (double of doubles) {
             if (word.includes(double)) {
