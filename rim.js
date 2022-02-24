@@ -146,6 +146,12 @@ alikeReplacer = function(word) {
     if (word.includes('ægj')) {
         word = word.replace('ægj', 'æ')
     }
+    if (word.includes('mn')) {
+        word = word.replace('mn', 'nn')
+    }
+    if (word.includes('mm')) {
+        word = word.replace('mm', 'nn')
+    }
     for (letter of word) {
         if (alike.includes(letter)) {
             word = word.replace(letter, "_")
@@ -176,12 +182,12 @@ findEndRhymes = function(word, perfect) {
         if (word[word.length - 1] == 'ö') {
             oldindex = -1
         }
+        if (word.slice(oldindex).includes('nn') && word[word.length + oldindex] == 'n') {
+            oldindex -= 1
+        }
     } else {
         oldindex = -word.length + 1
     }
-    // if (word.length < 3) {
-    //     oldindex = 0
-    // }
     var j = word[word.length + oldindex]
     while (word[word.length + oldindex] == '_') {
         oldindex -= 1
