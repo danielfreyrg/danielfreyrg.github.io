@@ -10,11 +10,6 @@
 </head>
 <html>
 
-<head>
-    <title>Read Text File</title>
-
-</head>
-
 <body>
     <h1 id="header">rímorðabók vol. 2</h1>
     <hr>
@@ -28,14 +23,43 @@
         <label for="endRhymes" id="endRhymeLabel" class="radioInputs">endarím</label>
         <input type="radio" class="radioInputs" id="innerRhymes" name="rhymeType">
         <label for="innerRhymes" id="innerRhymeLabel" class="radioInputs">innrirím</label>
+        <input type="radio" class="radioInputs" id="startRhymes" name="rhymeType">
+        <label for="allRhymes" id="startRhymesLabel" class="radioInputs">byrjunar rím</label>
+        <input type="radio" class="radioInputs" id="allRhymes" name="rhymeType">
+        <label for="allRhymes" id="allRhymesLabel" class="radioInputs">allt (varúð, hægt)</label>
+        <br>
+        <label for="maxVowels">Hámarksfjöldi atkvæða: </label>
+
+        <select name="maxVowels" id="maxVowels">
+          <option value=1>1</option>
+          <option value=2>2</option>
+          <option value=3>3</option>
+          <option value=4>4</option>
+          <option value=5>5</option>
+          <option value=6>6</option>
+          <option value=7>7</option>
+          <option value=8>8</option>
+          <option value=9>9</option>
+          <option value=10 selected>10</option>
+          <option value=11>11</option>
+          <option value=12>12</option>
+          <option value=13>13</option>
+          <option value=14>14</option>
+          <option value=15>15</option>
+          <option value=16>16</option>
+          <option value=17>17</option>
+          <option value=18>18</option>
+          <option value=19>19</option>
+          <option value=20>20</option>
+
+        </select>
 
     </form>
     <div id="result"></div>
 
     <br>
 
-    <pre id="output"></pre>
-
+    <div id="footer"><a href="https://github.com/danielfreyrg/danielfreyrg.github.io" id="github">source kóði á Github</a><span>hugmynd og orðalisti stolin frá <a href="http://borgar.net/borgar/">Borgari Þorsteynssyni</a> og upprunalegu <a href="http://islenska.org/rima/">rímorðabókinni</a></span></div>
 
 </body>
 <script src="./rim.js"></script>

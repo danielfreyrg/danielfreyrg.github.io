@@ -23,3 +23,49 @@ hr {
 #innerRhymes {
     margin-left: 15px;
 }
+
+#maxVowels {
+    width: 40px;
+}
+
+#footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    place-content: center;
+    place-items: center;
+    border-top: 1px solid white;
+    margin: 0;
+    /* margin-top: 80vh; */
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    height: 100px;
+    width: 100%;
+    background-color: rgb(49, 48, 48);
+}
+
+#github {
+    position: relative;
+    left: -25%;
+}
+
+a {
+    color: grey;
+}
+
+a:link {
+    text-decoration: none;
+}
+
+a:visited {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+a:active {
+    text-decoration: underline;
+}
