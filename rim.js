@@ -39,6 +39,7 @@ document.getElementById('rhymeForm').addEventListener('submit', function(event) 
             }
         }
         if (!added) {
+            document.getElementById('footer').style.position = 'fixed'
             result.innerHTML += '<h1> því miður fundust engin rímorð fyrir "' + rhyme + '"</h1>'
         }
     }

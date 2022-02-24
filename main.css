@@ -32,22 +32,19 @@ hr {
     display: flex;
     justify-content: center;
     align-items: center;
-    place-content: center;
-    place-items: center;
     border-top: 1px solid white;
     margin: 0;
-    /* margin-top: 80vh; */
     position: fixed;
     left: 0;
     bottom: 0;
-    height: 100px;
+    height: 75px;
     width: 100%;
     background-color: rgb(49, 48, 48);
 }
 
 #github {
-    position: relative;
-    left: -25%;
+    position: absolute;
+    left: 20px;
 }
 
 a {
@@ -68,4 +65,13 @@ a:hover {
 
 a:active {
     text-decoration: underline;
+}
+
+#author {
+    margin-right: 100px;
+}
+
+#attribution {
+    position: absolute;
+    right: 10px;
 }
