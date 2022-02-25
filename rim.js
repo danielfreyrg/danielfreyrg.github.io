@@ -175,6 +175,9 @@ alikeReplacer = function(word) {
         word = word.replace('erl', 'ell')
 
     }
+    if (word.includes('ugl')) {
+        word = word.replace('ugl', 'ull')
+    }
     for (letter of word) {
         if (alike.includes(letter)) {
             word = word.replace(letter, "_")
