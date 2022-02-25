@@ -191,7 +191,7 @@ findSyllableRhymes = function(word, perfect) {
 }
 findStartRhymes = function(rhyme, perfect) {
     var original = rhyme
-    var rhymes = ['byrjunarrím: ']
+    var rhymes = []
     if (!perfect) {
 
         rhyme = alikeReplacer(rhyme)
@@ -235,7 +235,7 @@ findAllRhymes = function(word, perfect) {
     return all
 }
 findImperfectRhymes = function(rhyme) {
-    var rhymes = ['imperfectRhymes: ']
+    var rhymes = []
     var rhyme = alikeReplacer(rhyme)
     for (word of words) {
         var realWord = word
@@ -257,7 +257,7 @@ findImperfectRhymes = function(rhyme) {
 }
 findInnerRhymes = function(word, perfect) {
     var original = word
-    var rhymes = ['innrirím: ']
+    var rhymes = []
     if (!perfect) {
         word = alikeReplacer(word)
     }
@@ -277,7 +277,7 @@ findInnerRhymes = function(word, perfect) {
 findEndRhymes = function(word, perfect) {
         originalWord = word
         var oldindex = -3
-        var rhymes = ['endarím: ']
+        var rhymes = []
         var different = ['nn', 'll', 'ei', 'ey', 'au', 'ss']
         if (!perfect) {
             word = alikeReplacer(word)
