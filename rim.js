@@ -308,6 +308,9 @@ findEndRhymes = function(word, perfect) {
             oldindex -= 1
         }
         for (var i of words) {
+            if (i == 'breika') {
+                var t = 0
+            }
             index = oldindex
             var add = true
             oldWord = i
@@ -316,8 +319,11 @@ findEndRhymes = function(word, perfect) {
             }
             var a = word[word.length + oldindex]
             var b = i[i.length + oldindex]
-            if ((word[word.length - 1] == 'í' && i[i.length] == 'í')) {
-                var o = 0
+            var lastletterinrange = i[i.length + oldindex]
+            var p = i.includes('ei')
+            if (lastletterinrange == 'i' && i[i.length + oldindex - 1] == 'e' && !word.includes('ei')) {
+                //edge case where 'ei' is just out of the slice for instance "monika" and breika don't rhyme
+                continue
             }
             if ((word.slice(index) == i.slice(index) && word[word.length - 1] == i[i.length - 1] && originalWord != oldWord) || (word[word.length - 1] == 'í' && i[i.length - 1] == 'í')) {
                 if (originalWord != oldWord) {
