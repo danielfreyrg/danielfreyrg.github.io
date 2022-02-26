@@ -320,8 +320,8 @@ findEndRhymes = function(word, perfect) {
             var a = word[word.length + oldindex]
             var b = i[i.length + oldindex]
             var lastletterinrange = i[i.length + oldindex]
-            var p = i.includes('ei')
-            if (lastletterinrange == 'i' && i[i.length + oldindex - 1] == 'e' && !word.includes('ei')) {
+            var nextlastletter = i[i.length + oldindex - 1]
+            if (lastletterinrange == 'i' && nextlastletter == 'e' && !word.slice(oldindex - 1).includes('ei') || (lastletterinrange == 'u' && nextlastletter == 'a' && !word.slice(oldindex - 1).includes('au'))) {
                 //edge case where 'ei' is just out of the slice for instance "monika" and breika don't rhyme
                 continue
             }
