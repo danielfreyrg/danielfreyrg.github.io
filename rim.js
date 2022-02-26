@@ -303,12 +303,17 @@ findEndRhymes = function(word, perfect) {
         } else {
             oldindex = -word.length + 1
         }
+        if (word.length == 2) {
+            oldindex = -2
+        } else if (word.length == 1) {
+            oldindex = -1
+        }
         var j = word[word.length + oldindex]
         while (word[word.length + oldindex] == '_') {
             oldindex -= 1
         }
         for (var i of words) {
-            if (i == 'breika') {
+            if (i == 'kvika') {
                 var t = 0
             }
             index = oldindex
@@ -322,7 +327,7 @@ findEndRhymes = function(word, perfect) {
             var lastletterinrange = i[i.length + oldindex]
             var nextlastletter = i[i.length + oldindex - 1]
             if (lastletterinrange == 'i' && nextlastletter == 'e' && !word.slice(oldindex - 1).includes('ei') || (lastletterinrange == 'u' && nextlastletter == 'a' && !word.slice(oldindex - 1).includes('au'))) {
-                //edge case where 'ei' is just out of the slice for instance "monika" and breika don't rhyme
+                //edge case where 'ei' or 'au is just out of the slice for instance "monika" and breika don't rhyme also 'luma' and 'sauma
                 continue
             }
             if ((word.slice(index) == i.slice(index) && word[word.length - 1] == i[i.length - 1] && originalWord != oldWord) || (word[word.length - 1] == 'í' && i[i.length - 1] == 'í')) {
