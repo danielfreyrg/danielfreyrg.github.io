@@ -3,6 +3,7 @@ if (true) {
 }
 document.getElementById('rhymeForm').addEventListener('submit', function(event) {
     document.getElementById('result').innerHTML = ''
+    document.getElementById('loader').classList.add('loader')
     event.preventDefault()
     event.stopPropagation()
     var rhymeCount = 0
@@ -13,7 +14,7 @@ document.getElementById('rhymeForm').addEventListener('submit', function(event) 
     var innerRhyme = document.getElementById('innerRhymes').checked
     var startRhyme = document.getElementById('startRhymes').checked
     var maxVowels = parseInt(document.getElementById('maxVowels').value)
-    if (rhyme.length > 0 && rhyme != ' ') {
+    if (rhyme.length > 0) {
         if (endRhyme) {
             var allRhymes = findEndRhymes(rhyme, perfect)
         } else if (innerRhyme) {
@@ -24,6 +25,7 @@ document.getElementById('rhymeForm').addEventListener('submit', function(event) 
             var allRhymes = findAllRhymes(rhyme, perfect)
         }
         var categories = printRhymeCategories(allRhymes)
+        document.getElementById('loader').classList = ''
         document.getElementById('result').innerHTML += '<h1>' + rhyme + ' er ' + findSyllables(rhyme) + ' atkvæði </h1>'
         var added = 0
         for (var key in categories) {
@@ -276,9 +278,9 @@ findInnerRhymes = function(word, perfect) {
     }
     return rhymes
 }
-findEndRhymes = function(word, perfect) {
+findEndRhymes = function(word, perfect, oldindex = -3) {
         originalWord = word
-        var oldindex = -3
+            // var oldindex = -3
         var rhymes = []
         var different = ['nn', 'll', 'ei', 'ey', 'au', 'ss']
         if (!perfect) {
@@ -322,8 +324,11 @@ findEndRhymes = function(word, perfect) {
             if (!perfect) {
                 i = alikeReplacer(i)
             }
-            var a = word[word.length + oldindex]
-            var b = i[i.length + oldindex]
+            var a = word.slice(word.length + oldindex)
+            if (i.length < word.length) {
+                var test = word.length - i.length
+            }
+            var b = i.slice(i.length + oldindex)
             var lastLetterInRange = i[i.length + oldindex]
             var secondLastInRange = i[i.length + oldindex - 1]
             if (lastLetterInRange == 'i' && secondLastInRange == 'e' && !word.slice(oldindex - 1).includes('ei') || (lastLetterInRange == 'u' && secondLastInRange == 'a' && !word.slice(oldindex - 1).includes('au'))) {
