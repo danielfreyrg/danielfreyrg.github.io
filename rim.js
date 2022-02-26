@@ -150,9 +150,6 @@ alikeReplacer = function(word) {
     if (word.includes('ý')) {
         word = word.replace('ý', 'í')
     }
-    if (word.includes('afl')) {
-        word = word.replace('afl', 'abl')
-    }
     if (word.includes('eigj')) {
         word = word.replace('eigj', 'eij')
     }
