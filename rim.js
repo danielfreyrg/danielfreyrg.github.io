@@ -324,9 +324,9 @@ findEndRhymes = function(word, perfect) {
             }
             var a = word[word.length + oldindex]
             var b = i[i.length + oldindex]
-            var lastletterinrange = i[i.length + oldindex]
-            var nextlastletter = i[i.length + oldindex - 1]
-            if (lastletterinrange == 'i' && nextlastletter == 'e' && !word.slice(oldindex - 1).includes('ei') || (lastletterinrange == 'u' && nextlastletter == 'a' && !word.slice(oldindex - 1).includes('au'))) {
+            var lastLetterInRange = i[i.length + oldindex]
+            var secondLastInRange = i[i.length + oldindex - 1]
+            if (lastLetterInRange == 'i' && secondLastInRange == 'e' && !word.slice(oldindex - 1).includes('ei') || (lastLetterInRange == 'u' && secondLastInRange == 'a' && !word.slice(oldindex - 1).includes('au'))) {
                 //edge case where 'ei' or 'au is just out of the slice for instance "monika" and breika don't rhyme also 'luma' and 'sauma
                 continue
             }
