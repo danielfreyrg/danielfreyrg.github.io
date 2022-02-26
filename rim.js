@@ -25,11 +25,11 @@ document.getElementById('rhymeForm').addEventListener('submit', function(event) 
         }
         var categories = printRhymeCategories(allRhymes)
         document.getElementById('result').innerHTML += '<h1>' + rhyme + ' er ' + findSyllables(rhyme) + ' atkvæði </h1>'
-        var added = false
+        var added = 0
         for (var key in categories) {
             if (categories[key].length > 0 && key <= maxVowels) {
                 rhymeCount += categories[key].length
-                added = true
+                added++
                 result = document.getElementById('result')
                 result.innerHTML += '<hr>'
                 result.innerHTML += '<h1>' + key + ' atkvæði: </h1>' + '\n'
@@ -38,9 +38,11 @@ document.getElementById('rhymeForm').addEventListener('submit', function(event) 
 
             }
         }
-        if (!added) {
+        if (added < 1) {
             document.getElementById('footer').style.position = 'fixed'
             result.innerHTML += '<h1> því miður fundust engin rímorð fyrir "' + rhyme + '"</h1>'
+        } else if (rhymeCount < 10) {
+            document.getElementById('footer').style.position = 'fixed'
         }
     }
     console.log(rhymeCount)
