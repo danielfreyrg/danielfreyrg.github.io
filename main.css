@@ -103,3 +103,9 @@ a:active {
         transform: rotate(360deg);
     }
 }
+
+#mylla {
+    position: absolute;
+    right: 30px;
+    top: 20px;
+}
