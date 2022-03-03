@@ -41,7 +41,7 @@ draw = async function(player, id) {
         } else {
 
             square.innerHTML = '<div id="container"><div id="halfclip"><div class="halfcircle" id="clipped"></div></div><div class="halfcircle" id="fixed"></div></div>'
-            await new Promise(r => setTimeout(r, 1000)); //wait for the circle drawing animation to end before turning it off and adding a static circle to that grid
+            await new Promise(r => setTimeout(r, 1000)); //wait for the circle drawing animation to end before turning it off and adding a static circle to that grid cell
             square.innerHTML = '<div id="circle"></div>'
         }
         checkwinner(player)
@@ -91,6 +91,7 @@ checkwinner = function(player) {
         }
         if (counter == 9 && !win) {
             document.getElementById('currentPlayer').innerHTML = 'draw!'
+            document.getElementById('box').style.animationName = 'boxDone'
             return
         }
     }
