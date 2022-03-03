@@ -1,0 +1,111 @@
+body {
+    background-color: #2c2f33;
+    color: #99aab5;
+    font-family: 'Roboto', sans-serif;
+}
+
+#header {
+    margin: 20px;
+    color: aquamarine;
+}
+
+#rhymeForm {
+    margin-left: 20px;
+}
+
+hr {
+    border: 1px solid grey;
+}
+
+.radioInputs {
+    margin-top: 15px;
+}
+
+#innerRhymes {
+    margin-left: 15px;
+}
+
+#maxVowels {
+    width: 40px;
+}
+
+#maxVowelsLabel {
+    margin-left: 20px;
+}
+
+#footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top: 1px solid white;
+    margin: 0;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    height: 75px;
+    width: 100%;
+    background-color: rgb(49, 48, 48);
+}
+
+#github {
+    position: absolute;
+    left: 20px;
+}
+
+a {
+    color: rgb(146, 146, 146);
+}
+
+a:link {
+    text-decoration: none;
+}
+
+a:visited {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+    color: lightgrey;
+}
+
+a:active {
+    text-decoration: underline;
+}
+
+#author {
+    margin-right: 100px;
+}
+
+#attribution {
+    position: absolute;
+    right: 10px;
+    color: grey;
+}
+
+.loader {
+    margin-left: 90px;
+    border: 16px solid #f3f3f3;
+    /* Light grey */
+    border-top: 16px solid #3498db;
+    /* Blue */
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+#mylla {
+    position: absolute;
+    right: 30px;
+    top: 20px;
+}

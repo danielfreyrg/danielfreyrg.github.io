@@ -112,7 +112,7 @@ body {
 .box {
     position: relative;
     font-size: 1vw;
-    margin-top: 100px;
+    margin-top: 200px;
     align-self: center;
     display: flex;
     flex-direction: row;
@@ -358,7 +358,21 @@ body {
     float: left;
     position: absolute;
     left: 45%;
-    bottom: 17%;
+    top: 16%;
+}
+
+h1 {
+    position: absolute;
+    top: 5%;
+    left: 40%;
+}
+
+hr {
+    width: 100%;
+    position: absolute;
+    top: 10%;
+    left: 0%;
+    color: grey;
 }
 
 #currentPlayer {
