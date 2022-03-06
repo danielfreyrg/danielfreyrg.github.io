@@ -54,7 +54,14 @@ document.getElementById('rhymeForm').addEventListener('submit', function(event) 
         }
         if (added < 1) {
             document.getElementById('footer').style.position = 'fixed'
-            result.innerHTML += '<h1> því miður fundust engin rímorð fyrir "' + rhyme + '"</h1>'
+            var error = '<h1> því miður fundust engin rímorð fyrir "' + rhyme + '" '
+
+            if (maxVowels != 10) {
+                error += 'með færri en ' + maxVowels + ' atkvæði </h1>'
+            } else {
+                error += '</h1>'
+            }
+            result.innerHTML += error
         } else if (rhymeCount < 10) {
             document.getElementById('footer').style.position = 'fixed'
         }
