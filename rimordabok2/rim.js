@@ -147,7 +147,7 @@ printRhymeCategories = function(wordList, maxVowels) {
     return dict
 }
 alikeReplacer = function(word) {
-    var alike = { ígja: 'ía', aí: 'æ', y: 'i', gg: '__', íja: 'ía', ingja: 'ía', ægja: 'æja', íe: 'é', ý: 'í', eigj: 'eij', ægj: 'æ', mn: 'nn', mm: 'nn', erl: 'ell', ugl: 'ull', k: '_', t: '_', d: '_', p: '_', b: '_' }
+    var alike = { ígja: 'ía', aí: 'æ', y: 'i', gg: '__', íja: 'ía', ingja: 'ía', ægja: 'æja', íe: 'é', ý: 'í', eigj: 'eij', ægj: 'æ', mn: 'nn', mm: 'nn', erl: 'ell', ugl: 'ull', k: '_', t: '_', d: '_', p: '_', b: '_', rl: 'll' }
     for (var i of Object.keys(alike)) {
         if (word.includes(i)) {
             word = word.replace(i, alike[i])
