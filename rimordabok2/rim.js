@@ -141,68 +141,12 @@ printRhymeCategories = function(wordList, maxVowels) {
     return dict
 }
 alikeReplacer = function(word) {
-    // var alike = ["k", "t", "d", "p", "b"]
     var alike = { ígja: 'ía', aí: 'æ', y: 'i', gg: '__', íja: 'ía', ingja: 'ía', ægja: 'æja', íe: 'é', ý: 'í', eigj: 'eij', ægj: 'æ', mn: 'nn', mm: 'nn', erl: 'ell', ugl: 'ull', k: '_', t: '_', d: '_', p: '_', b: '_' }
     for (var i of Object.keys(alike)) {
         if (word.includes(i)) {
             word = word.replace(i, alike[i])
         }
     }
-    // if (word.includes('y')) {
-    //     word = word.replace("y", "i")
-    // }
-    // if (word.includes('gg')) {
-    //     word = word.replace('gg', '__')
-    // }
-    // if (word.includes('ígja')) {
-    //     word = word.replace('ígja', 'ía')
-    // }
-    // if (word.includes('íja')) {
-    //     word = word.replace('íja', 'ía')
-    // }
-    // if (word.includes('ingja')) {
-    //     word = word.replace('ingja', 'ía')
-    // }
-    // if (word.includes('ægja')) {
-    //     word = word.replace('ægja', 'æja')
-    // }
-    // if (word.includes('íe')) {
-    //     word = word.replace('íe', 'é')
-    // }
-    // if (word.includes('ý')) {
-    //     word = word.replace('ý', 'í')
-    // }
-    // if (word.includes('eigj')) {
-    //     word = word.replace('eigj', 'eij')
-    // }
-    // if (word.includes('aí')) {
-    //     word = word.replace('aí', 'æ')
-    // }
-    // if (word.includes('æj')) {
-    //     word = word.replace('æj', 'æ')
-    // }
-    // if (word.includes('ægj')) {
-    //     word = word.replace('ægj', 'æ')
-    // }
-    // if (word.includes('mn')) {
-    //     word = word.replace('mn', 'nn')
-    // }
-    // if (word.includes('mm')) {
-    //     word = word.replace('mm', 'nn')
-    // }
-    // if (word.includes('erl')) {
-    //     word = word.replace('erl', 'ell')
-
-    // }
-    // if (word.includes('ugl')) {
-    //     word = word.replace('ugl', 'ull')
-    // }
-    // for (letter of word) {
-    //     if (alike.includes(letter)) {
-    //         word = word.replace(letter, "_")
-    //     }
-
-    // }
     return word
 }
 findSyllableRhymes = function(word, perfect) {
