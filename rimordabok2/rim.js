@@ -279,8 +279,11 @@ findEndRhymes = function(word, perfect, oldindex = -3) {
     while (word[word.length + oldindex] == '_') {
         oldindex -= 1
     }
+    if (word.length == 4) {
+        oldindex = -3
+    }
     for (var i of words) {
-        if (i == 'kvika') {
+        if (i == 'kirtli') {
             var t = 0
         }
         index = oldindex
