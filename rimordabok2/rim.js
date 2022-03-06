@@ -8,10 +8,11 @@ function httpGet(theUrl) {
 var words = httpGet("https://raw.githubusercontent.com/danielfreyrg/danielfreyrg.github.io/main/rimordabok2/allwords.txt")
 words = words.split(', ')
 
-console.log(typeof words)
 document.getElementById('rhymeForm').addEventListener('submit', function(event) {
     document.getElementById('result').innerHTML = ''
-    document.getElementById('loader').classList.add('loader')
+    if (document.getElementById('rhymeWord').value.length > 0) {
+        document.getElementById('loader').classList.add('loader')
+    }
     event.preventDefault()
     event.stopPropagation()
     var rhymeCount = 0
@@ -61,6 +62,8 @@ document.getElementById('rhymeForm').addEventListener('submit', function(event) 
         } else if (rhymeCount < 10) {
             document.getElementById('footer').style.position = 'fixed'
         }
+    } else {
+        document.getElementById('footer').style.position = 'fixed'
     }
     console.log(rhymeCount)
 })
