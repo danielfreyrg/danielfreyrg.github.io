@@ -35,7 +35,7 @@ document.getElementById('rhymeForm').addEventListener('submit', function(event) 
         }
         var categories = printRhymeCategories(allRhymes)
         document.getElementById('loader').classList = ''
-        document.getElementById('result').innerHTML += '<h1>' + rhyme + ' er ' + findSyllables(rhyme) + ' atkvæði </h1>'
+        document.getElementById('result').innerHTML += '<h1> "' + rhyme + '" er ' + findSyllables(rhyme) + ' atkvæði </h1>'
         var added = 0
         for (var key in categories) {
             if (categories[key].length > 0 && key <= maxVowels) {
