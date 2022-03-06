@@ -248,7 +248,6 @@ findInnerRhymes = function(word, perfect) {
 }
 findEndRhymes = function(word, perfect, oldindex = -3) {
     originalWord = word
-        // var oldindex = -3
     var rhymes = []
     var different = ['nn', 'll', 'ei', 'ey', 'au', 'ss']
     if (!perfect) {
@@ -286,7 +285,7 @@ findEndRhymes = function(word, perfect, oldindex = -3) {
         oldindex = -3
     }
     for (var i of words) {
-        if (i == 'kirtli') {
+        if (i == 'bæ') {
             var t = 0
         }
         index = oldindex
@@ -306,7 +305,7 @@ findEndRhymes = function(word, perfect, oldindex = -3) {
             //edge case where 'ei' or 'au is just out of the slice for instance "monika" and breika don't rhyme also 'luma' and 'sauma
             continue
         }
-        if ((word.slice(index) == i.slice(index) && word[word.length - 1] == i[i.length - 1] && originalWord != oldWord) || (word[word.length - 1] == 'í' && i[i.length - 1] == 'í')) {
+        if ((word.slice(index) == i.slice(index) && word[word.length - 1] == i[i.length - 1] && originalWord != oldWord) || (word[word.length - 1] == 'í' && i[i.length - 1] == 'í') || (word[word.length - 1] == 'æ' && i[i.length - 1] == 'æ')) {
             if (originalWord != oldWord) {
                 for (double of different) {
                     var z = originalWord.slice(index)
