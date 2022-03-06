@@ -24,6 +24,7 @@ document.getElementById('rhymeForm').addEventListener('submit', function(event) 
     var startRhyme = document.getElementById('startRhymes').checked
     var maxVowels = parseInt(document.getElementById('maxVowels').value)
     if (rhyme.length > 0) {
+        rhyme = rhyme.toLowerCase()
         if (endRhyme) {
             var allRhymes = findEndRhymes(rhyme, perfect)
         } else if (innerRhyme) {
