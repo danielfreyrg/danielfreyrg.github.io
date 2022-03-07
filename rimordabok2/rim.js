@@ -329,3 +329,6 @@ findEndRhymes = function(word, perfect, oldindex = -3) {
 
     return rhymes
 }
+var e = $.get('https://raw.githubusercontent.com/danielfreyrg/danielfreyrg.github.io/main/rimordabok2/allwords.txt')
+setTimeout(200)
+console.log(e.responseText)
