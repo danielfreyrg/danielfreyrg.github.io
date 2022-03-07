@@ -7,6 +7,7 @@ body {
 
 a {
     color: rgb(0, 0, 0);
+    text-decoration: none;
 }
 
 #header {
@@ -24,7 +25,13 @@ h1 {
     margin-left: 20px;
 }
 
-#links {}
+#links {
+    margin-left: 20px;
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: auto;
+    grid-area: auto;
+}
 
 hr {
     width: 100%;
@@ -33,10 +40,7 @@ hr {
 }
 
 .link {
-    margin-left: 10px;
     margin-top: 50px;
-    padding: 10px;
-    float: left;
     display: grid;
     border: 1px solid black;
     color: rgb(0, 0, 0);
