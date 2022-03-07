@@ -397,6 +397,7 @@ input {
 a {
     position: absolute;
     right: 20px;
+    top: 5px;
     color: rgb(146, 146, 146);
 }
 
