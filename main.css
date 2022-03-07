@@ -4,5 +4,24 @@ body {
 }
 
 a {
+    color: rgb(0, 0, 0);
+}
+
+.link {
+    margin-top: 10%;
+    float: left;
+    display: grid;
+    border: 1px solid black;
+    background-color: rgb(88, 85, 85);
+    height: 100px;
+    width: 200px;
+    align-items: center;
+    place-items: center;
+    place-content: center;
+    align-content: center;
+}
+
+a :hover {
     color: antiquewhite;
+    background-color: #6b6b6b;
 }
