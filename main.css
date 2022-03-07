@@ -10,6 +10,7 @@ a {
 #header {
     width: 100%;
     height: 100px;
+    margin-left: 0px;
 }
 
 h1 {
@@ -21,8 +22,8 @@ h1 {
 
 hr {
     width: 100%;
-    background-color: red;
     color: red;
+    margin: 0px;
 }
 
 .link {
@@ -60,6 +61,7 @@ a :hover {
         width: 200px;
     }
     to {
+        font-size: 20px;
         height: 101px;
         width: 201px;
         border: 1px solid white;
