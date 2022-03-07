@@ -16,12 +16,11 @@ h1 {
 
 hr {
     width: 100%;
-    color: red;
+    border: 1px solid grey;
     margin: 0px;
 }
 
 a {
     position: absolute;
-    top: 20px;
     right: 20px;
 }
