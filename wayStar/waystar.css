@@ -1,0 +1,395 @@
+/* #FFBC00 */
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.navbar {
+    border-radius: 0;
+    box-shadow: none;
+    margin-bottom: 0;
+    padding: 0;
+    position: fixed;
+    background-color: white;
+    z-index: 1030;
+    width: 100%;
+}
+
+body {
+    font-family: 'Inter';
+    font-style: normal;
+}
+
+nav ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+nav li {
+    display: inline-block;
+    margin-left: 70px;
+    padding-top: 23px;
+    position: relative;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+}
+
+a:visited {
+    color: #000;
+}
+
+.navTitle {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 800;
+    font-size: 30px;
+    line-height: 73px;
+    color: #333E47;
+}
+
+.navLogo {
+    margin-left: 200px;
+}
+
+.navLink {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 350;
+    font-size: 18px;
+    line-height: 22px;
+    /* identical to box height */
+    color: #000000;
+}
+
+.navInfo {
+    font-size: 14px;
+    margin-right: 230px;
+}
+
+.contactItem {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 800;
+    font-size: 22px;
+    line-height: 27px;
+    color: #FFBC00;
+}
+
+.container {
+    width: 100%;
+    display: grid;
+    grid-template-rows: repeat(5, 1fr);
+    gap: 0px 20px;
+}
+
+.main2 {
+    padding-right: 276px;
+    background-color: #333E47;
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-rows: 1fr;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 0px 0px;
+    grid-template-areas: "img title" "img info";
+}
+
+.triangle {
+    position: absolute;
+    left: 300px;
+    top: 1000px;
+    /* grid-row: 1/2; */
+    /* grid-area: 1/2 1/2; */
+}
+
+.main2 h2 {
+    grid-area: title;
+    /* grid-row: 2; */
+    color: #FFBC00;
+}
+
+.main2 p {
+    grid-area: info;
+    /* grid-column: 2;
+    grid-row: 3; */
+    color: white
+}
+
+.main3 {
+    background-image: url('./images/triangle.svg');
+    background-repeat: no-repeat;
+    background-position-x: -325px;
+    background-position-y: 100px;
+    background-size: 650px;
+    max-height: 700px;
+    width: 100%;
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-rows: 1fr;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: 0px 0px;
+    grid-template-areas: "title title" ". ." ". .";
+}
+
+.contactContainer {
+    text-align: center;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 1fr;
+}
+
+#address {
+    max-width: 200px;
+    margin-left: 175px;
+}
+
+.contact {
+    text-align: center;
+    max-height: 400px;
+}
+
+#contactTitle {
+    font-size: 60px;
+    color: #FFBC00;
+}
+
+.faq {
+    background-image: url('./images/upsideDown.svg');
+    background-repeat: no-repeat;
+    display: grid;
+    background-color: #333E47;
+    font-size: 18px;
+    /* justify-content: center; */
+}
+
+.faq ol {
+    color: white;
+    list-style: decimal-leading-zero;
+    list-style-position: inside;
+    margin-left: 310px;
+}
+
+.faq ol li::marker {
+    color: #FFBC00;
+}
+
+.faq li {
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+
+.faq h1 {
+    color: #FFBC00;
+    text-align: center;
+}
+
+#faqCheckbox,
+#faqCheckbox1,
+#faqCheckbox2,
+#faqCheckbox3 {
+    display: none;
+}
+
+#faqCheckbox:checked~#faqInfo,
+#faqCheckbox1:checked~#faqInfo1,
+#faqCheckbox2:checked~#faqInfo2,
+#faqCheckbox3:checked~#faqInfo3 {
+    display: block;
+}
+
+#faqInfo,
+#faqInfo1,
+#faqInfo2,
+#faqInfo3 {
+    display: none;
+    color: #FFBC00;
+}
+
+.faqPlus {
+    color: #FFBC00;
+    font-weight: lighter;
+    font-size: 50px;
+    position: absolute;
+    right: 323px;
+}
+
+nav a::before {
+    content: '';
+    display: block;
+    height: 5px;
+    background-color: #FFBC00;
+    position: absolute;
+    bottom: -4px;
+    width: 0%;
+    transition: all ease-in-out 250ms;
+}
+
+nav a:hover::before {
+    width: 100%;
+}
+
+div h2::before {
+    position: absolute;
+    /* left: -5px; */
+    margin-right: 5px;
+    content: '';
+    display: block;
+    height: 58px;
+    width: 5px;
+    background-color: #FFBC00;
+}
+
+h2 {
+    font-size: 60px;
+}
+
+.main {
+    max-height: 700px;
+    width: 100%;
+    margin-top: 50px;
+    display: grid;
+    background-image: url('./images/triangle.svg');
+    background-repeat: no-repeat;
+    background-size: 850px;
+    background-position-x: 150%;
+    background-position-y: -70px;
+}
+
+.btn {
+    margin-left: 200px;
+    background-color: white;
+    border: 2px solid #FFBC00;
+    color: black;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 30px;
+}
+
+.btn:hover {
+    background-color: #FFBC00;
+}
+
+nav {
+    background-color: #333e4700;
+}
+
+label {
+    cursor: pointer;
+}
+
+#fouras {
+    text-align: center;
+    color: #FFBC00;
+    grid-area: title;
+}
+
+.main3 div h2::before {
+    background-color: #000;
+}
+
+.main3 h4 {
+    font-size: 30px;
+}
+
+.fourasGrid {
+    max-width: 475px;
+    margin-left: 239px;
+}
+
+.main h2 {
+    color: #333E47;
+    margin-left: 200px;
+    max-width: 637px;
+}
+
+.aboutImages {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    margin-left: 150px;
+}
+
+.about p {
+    margin-left: 150px;
+    max-width: 675px;
+}
+
+.about h2 {
+    margin-left: 150px;
+}
+
+#messageForm label {
+    color: #FFBC00;
+    margin-top: 30px;
+}
+
+#messageForm {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(6, 1fr);
+}
+
+#messageForm input {
+    border: none;
+    background-color: #333E47;
+    border-bottom: 2px solid white;
+}
+
+.messageContainer {
+    margin-top: 30px;
+    padding: 100px;
+    background-color: #333E47;
+    width: 64%;
+    margin-left: 150px;
+}
+
+input[type=text] {
+    color: white;
+    width: 60%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+}
+
+#about {
+    margin-top: -100px;
+    padding-left: 200px;
+    background-image: url('images/triangle.svg'), url('images/upsideDown.svg');
+    background-repeat: no-repeat;
+    background-size: auto, 500px;
+    background-position-x: -435px, 20px;
+    background-position-y: 300px, 1050px;
+    padding-bottom: 500px;
+}
+
+.socials {
+    position: absolute;
+    right: 200px;
+    margin-top: 40px;
+}
+
+.main h2::before {
+    left: 190px;
+}
+
+.main2 h2::before {
+    display: none;
+}
+
+.main3 h2::before {
+    left: 410px;
+}
+
+#about h2::before {
+    left: 330px;
+}
