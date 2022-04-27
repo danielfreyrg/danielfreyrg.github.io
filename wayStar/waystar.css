@@ -83,7 +83,7 @@ a:visited {
 .container {
     width: 100%;
     display: grid;
-    grid-template-rows: repeat(5, 1fr);
+    grid-template-rows: 740px 523px 700px 892px 653px;
     gap: 0px 20px;
 }
 
@@ -97,12 +97,13 @@ a:visited {
     grid-template-rows: 1fr 1fr;
     gap: 0px 0px;
     grid-template-areas: "img title" "img info";
+    max-height: 523px;
 }
 
 .triangle {
     position: absolute;
     left: 300px;
-    top: 1000px;
+    top: 900px;
     /* grid-row: 1/2; */
     /* grid-area: 1/2 1/2; */
 }
