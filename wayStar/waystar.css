@@ -187,6 +187,7 @@ a:visited {
 .faq h1 {
     color: #FFBC00;
     text-align: center;
+    padding-top: 40px;
 }
 
 #faqCheckbox,
@@ -200,15 +201,21 @@ a:visited {
 #faqCheckbox1:checked~#faqInfo1,
 #faqCheckbox2:checked~#faqInfo2,
 #faqCheckbox3:checked~#faqInfo3 {
-    display: block;
+    /* display: block; */
+    transform: scale(1, 1);
+    transition: transform ease-in-out 0.2s;
+    transform-origin: top;
 }
 
 #faqInfo,
 #faqInfo1,
 #faqInfo2,
 #faqInfo3 {
-    display: none;
+    /* display: none; */
     color: #FFBC00;
+    transform: scale(1, 0);
+    transition: transform ease-in-out 0.2s;
+    transform-origin: top;
 }
 
 .faqPlus {
