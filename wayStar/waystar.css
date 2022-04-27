@@ -208,6 +208,20 @@ a:visited {
     transform-origin: top;
 }
 
+#faqPlus::after,
+#faqPlus1::after,
+#faqPlus2::after,
+#faqPlus3::after {
+    content: '+';
+}
+
+#faqCheckbox:checked~#faqPlus::after,
+#faqCheckbox1:checked~#faqPlus1::after,
+#faqCheckbox2:checked~#faqPlus2::after,
+#faqCheckbox3:checked~#faqPlus3::after {
+    content: '-';
+}
+
 #faqInfo,
 #faqInfo1,
 #faqInfo2,
@@ -367,6 +381,10 @@ input[type=text] {
     padding: 12px 20px;
     margin: 8px 0;
     box-sizing: border-box;
+}
+
+input[type=text]:focus {
+    outline: none;
 }
 
 #about {
