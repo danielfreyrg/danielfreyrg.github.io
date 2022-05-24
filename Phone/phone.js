@@ -1,11 +1,8 @@
 const check = function() {
     var ua = navigator.userAgent.toLowerCase();
-    document.getElementById("phone").innerHTML = ua
-    if (navigator.userAgent.match(/Android/i)) {
-        console.log('Android');
+    if (navigator.userAgent.match(/android/i)) {
         document.location.href = "https://www.android.com"
-    } else if (navigator.userAgent.match(/iPhone/i) || navigator.userAgent.match(/iPad/i)) {
-        console.log('iOS');
+    } else if (navigator.userAgent.match(/iphone/i) || navigator.userAgent.match(/ipad/i)) {
         document.location.href = "https://www.apple.com"
     }
 }
