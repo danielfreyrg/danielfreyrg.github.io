@@ -71,6 +71,8 @@ var info = [{ "name": 'K03', "src": "images/K03-2.png", "T": 18, "L": 18, "H": 6
     { 'name': 'K09', "src": "images/K09-4.png", "T": 18, "L": 18, "H": 606, "W": 266 },
     { 'name': 'K14', "src": "images/K14-2.png", "T": 18, "L": 118, "H": 600, "W": 266 }
 ];
+var doorimg = document.getElementById("door");
+var outerimg = document.getElementById("outer");
 
 for (var i = 0; i < Object.keys(filesdict).length; i++) {
     var key = Object.keys(filesdict)[i];
@@ -112,9 +114,7 @@ const changeOuter = () => {
     var SelectedOuter = document.getElementById("outerselect").value;
     var outer = findOuter(SelectedOuter);
     console.log(outer);
-    var outerimg = document.getElementById("outer");
     outerimg.src = outer.src;
-    var doorimg = document.getElementById("door");
     doorimg.style.top = 200 + outer.T + "px";
     doorimg.style.left = 200 + outer.L + "px";
     doorimg.style.height = outer.H + "px";
