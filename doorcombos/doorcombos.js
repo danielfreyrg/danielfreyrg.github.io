@@ -60,7 +60,7 @@ var filesdict = {
 for (var i = 0; i < Object.keys(filesdict).length; i++) {
     var key = Object.keys(filesdict)[i];
     var value = filesdict[key];
-    if (key[0] == "H") {
+    if (key[0] == "H" || key[0] == "S") {
         var doorselector = document.getElementById("doorselect");
         doorselector.innerHTML +=
             "<option value='" + value + "'>" + key + "</option>";
