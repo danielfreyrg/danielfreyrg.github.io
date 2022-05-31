@@ -6,7 +6,6 @@ var filesdict = {
     "K03-2": "K03-2.png",
     "H2030-2": "H2030-2.png",
     "K23-2": "K23-2.png",
-    "": ".DS_Store",
     "K07-2": "K07-2.png",
     "H5102": "H5102.png",
     "H1000-1": "H1000-1.png",
@@ -57,7 +56,6 @@ var filesdict = {
     "H4000": "H4000.png",
 };
 
-console.log(filesdict["H5110"]);
 
 for (var i = 0; i < Object.keys(filesdict).length; i++) {
     var key = Object.keys(filesdict)[i];
