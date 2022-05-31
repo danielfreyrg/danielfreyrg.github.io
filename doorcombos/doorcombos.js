@@ -55,21 +55,21 @@ var filesdict = {
     "H5120": "H5120.png",
     "H4000": "H4000.png",
 };
-var info = [{ "name": 'K03-2', "src": "images/K03-2.png", "T": 18, "L": 18, "H": 620, "W": 273 },
-    { 'name': 'K23-2', "src": "images/K23-2.png", "T": 18, "L": 18, "H": 600, "W": 266 },
-    { 'name': 'K07-2', "src": "images/K07-2.png", "T": 18, "L": 18, "H": 612, "W": 270 },
-    { 'name': 'K05-2', "src": "images/K05-2.png", "T": 18, "L": 18, "H": 620, "W": 270 },
-    { 'name': 'K21-2', "src": "images/K21-2.png", "T": 18, "L": 118, "H": 606, "W": 260 },
-    { 'name': 'K02-2', "src": "images/K02-2.png", "T": 18, "L": 15, "H": 490, "W": 215 },
-    { 'name': 'K24-3', "src": "images/K24-3.png", "T": 50, "L": 12, "H": 370, "W": 166 },
-    { 'name': 'K20-3', "src": "images/K20-3.png", "T": 18, "L": 120, "H": 606, "W": 266 },
-    { 'name': 'K22-2', "src": "images/K22-2.png", "T": 18, "L": 20, "H": 606, "W": 265 },
-    { 'name': 'K06-2', "src": "images/K06-2.png", "T": 18, "L": 18, "H": 615, "W": 270 },
-    { 'name': 'K13-2', "src": "images/K13-2.png", "T": 18, "L": 118, "H": 606, "W": 266 },
-    { 'name': 'K08-2', "src": "images/K08-2.png", "T": 18, "L": 18, "H": 606, "W": 266 },
-    { 'name': 'K10-2', "src": "images/K10-2.png", "T": 18, "L": 18, "H": 606, "W": 266 },
-    { 'name': 'K09-4', "src": "images/K09-4.png", "T": 18, "L": 18, "H": 606, "W": 266 },
-    { 'name': 'K14-2', "src": "images/K14-2.png", "T": 18, "L": 118, "H": 600, "W": 266 }
+var info = [{ "name": 'K03', "src": "images/K03-2.png", "T": 18, "L": 18, "H": 620, "W": 273 },
+    { 'name': 'K23', "src": "images/K23-2.png", "T": 18, "L": 18, "H": 600, "W": 266 },
+    { 'name': 'K07', "src": "images/K07-2.png", "T": 18, "L": 18, "H": 612, "W": 270 },
+    { 'name': 'K05', "src": "images/K05-2.png", "T": 18, "L": 18, "H": 620, "W": 270 },
+    { 'name': 'K21', "src": "images/K21-2.png", "T": 18, "L": 118, "H": 606, "W": 260 },
+    { 'name': 'K02', "src": "images/K02-2.png", "T": 18, "L": 15, "H": 490, "W": 215 },
+    { 'name': 'K24', "src": "images/K24-3.png", "T": 50, "L": 12, "H": 370, "W": 166 },
+    { 'name': 'K20', "src": "images/K20-3.png", "T": 18, "L": 120, "H": 606, "W": 266 },
+    { 'name': 'K22', "src": "images/K22-2.png", "T": 18, "L": 20, "H": 606, "W": 265 },
+    { 'name': 'K06', "src": "images/K06-2.png", "T": 18, "L": 18, "H": 615, "W": 270 },
+    { 'name': 'K13', "src": "images/K13-2.png", "T": 18, "L": 118, "H": 606, "W": 266 },
+    { 'name': 'K08', "src": "images/K08-2.png", "T": 18, "L": 18, "H": 606, "W": 266 },
+    { 'name': 'K10', "src": "images/K10-2.png", "T": 18, "L": 18, "H": 606, "W": 266 },
+    { 'name': 'K09', "src": "images/K09-4.png", "T": 18, "L": 18, "H": 606, "W": 266 },
+    { 'name': 'K14', "src": "images/K14-2.png", "T": 18, "L": 118, "H": 600, "W": 266 }
 ];
 
 for (var i = 0; i < Object.keys(filesdict).length; i++) {
@@ -80,10 +80,15 @@ for (var i = 0; i < Object.keys(filesdict).length; i++) {
         doorselector.innerHTML +=
             "<option value='" + value + "'>" + key + "</option>";
     } else {
-        var outerselector = document.getElementById("outerselect");
-        outerselector.innerHTML +=
-            "<option value='" + value + "'>" + key + "</option>";
+        // var outerselector = document.getElementById("outerselect");
+        // outerselector.innerHTML +=
+        //     "<option value='" + value + "'>" + key + "</option>";
     }
+}
+for (var i = 0; i < info.length; i++) {
+    var outerselector = document.getElementById("outerselect");
+    outerselector.innerHTML +=
+        "<option value='" + info[i].name + "'>" + info[i].name + "</option>";
 }
 const findOuter = (name) => {
     for (var i = 0; i < info.length; i++) {
@@ -96,7 +101,7 @@ const changeDoor = () => {
     var door = document.getElementById("doorselect").value;
     var doorimg = document.getElementById("door");
     var SelectedOuter = document.getElementById("outerselect").value;
-    var outer = findOuter(SelectedOuter.slice(0, -4));
+    var outer = findOuter(SelectedOuter);
     doorimg.src = "images/" + door;
     doorimg.style.top = 200 + outer.T + "px";
     doorimg.style.left = 200 + outer.L + "px";
@@ -105,8 +110,8 @@ const changeDoor = () => {
 }
 const changeOuter = () => {
     var SelectedOuter = document.getElementById("outerselect").value;
-    console.log(SelectedOuter);
-    var outer = findOuter(SelectedOuter.slice(0, -4));
+    var outer = findOuter(SelectedOuter);
+    console.log(outer);
     var outerimg = document.getElementById("outer");
     outerimg.src = outer.src;
     var doorimg = document.getElementById("door");
