@@ -1,0 +1,13 @@
+#outer {
+    position: absolute;
+    top: 200px;
+    left: 200px;
+}
+
+#door {
+    position: absolute;
+    top: 218px;
+    left: 218px;
+    max-height: 620px;
+    max-width: 300px;
+}
