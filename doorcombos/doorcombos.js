@@ -63,7 +63,7 @@ var info = [{ "name": 'K03', "src": "images/K03-2.png", "T": 18, "L": 18, "H": 6
     { 'name': 'K02', "src": "images/K02-2.png", "T": 18, "L": 15, "H": 490, "W": 215 },
     { 'name': 'K24', "src": "images/K24-3.png", "T": 50, "L": 12, "H": 370, "W": 166 },
     { 'name': 'K20', "src": "images/K20-3.png", "T": 18, "L": 120, "H": 606, "W": 266 },
-    { 'name': 'K22', "src": "images/K22-2.png", "T": 18, "L": 20, "H": 606, "W": 265 },
+    { 'name': 'K22', "src": "images/K22-2.png", "T": 18, "L": 18, "H": 606, "W": 265 },
     { 'name': 'K06', "src": "images/K06-2.png", "T": 18, "L": 18, "H": 615, "W": 270 },
     { 'name': 'K13', "src": "images/K13-2.png", "T": 18, "L": 118, "H": 606, "W": 266 },
     { 'name': 'K08', "src": "images/K08-2.png", "T": 18, "L": 18, "H": 606, "W": 266 },
