@@ -1,12 +1,13 @@
 <script>
   var mobile =
-    !(document.getElementById("show-door-mobile").style.display == "none");
+    !( window.getComputedStyle(document.querySelector('#show-door-mobile')).display == "none");
+
   var scale;
   var leftAlign
   var topAlign
   if (mobile) {
     scale = 0.2;
-    leftAlign = 20
+    leftAlign = 250
     topAlign = 10
   } else {
     scale = 1;
@@ -127,8 +128,8 @@
       if (frame.name !== "") {
         frameimg.style.width = frame.totalWidth * scale + "px";
         frameimg.style.height = frame.totalHeight * scale + "px";
-        doorimg.style.top = topAlign + frame.TopMargin * scale + "px";
-        doorimg.style.left = leftAlign + frame.LeftMargin * scale + "px";
+        doorimg.style.top = topAlign + (frame.TopMargin * scale)  + "px";
+        doorimg.style.left = leftAlign + (frame.LeftMargin * scale) + "px";
         doorimg.style.height = frame.Height * scale + "px";
         doorimg.style.width = frame.Width + 2 * scale + "px";
       }
@@ -147,8 +148,8 @@
       if (door.name !== "") {
         frameimg.style.width = frame.totalWidth * scale + "px";
         frameimg.style.height = frame.totalHeight * scale + "px";
-        doorimg.style.top = topAlign + frame.TopMargin  + "px";
-        doorimg.style.left = leftAlign + frame.LeftMargin  + "px";
+        doorimg.style.top = topAlign + frame.TopMargin * scale  + "px";
+        doorimg.style.left = leftAlign + frame.LeftMargin * scale + "px";
         doorimg.style.height = frame.Height * scale + "px";
         doorimg.style.width = frame.Width * scale + 2 + "px";
       }
