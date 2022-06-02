@@ -1,0 +1,120 @@
+<script>
+
+    const sleep = (time) => {
+      return new Promise((resolve) => setTimeout(resolve, Math.ceil(time * 1000)));
+    };
+    const currenturl = window.location.href;
+    const siteArr = currenturl.split("/");
+    var currentLocation = siteArr[siteArr.length - 2];
+    
+    if (currentLocation == "image-testing") {
+      const doorButton = document.getElementById("show-door-desktop");
+      const doorModal = document.getElementById("door-modal");
+      doorButton.addEventListener("click", async function () {
+        doorModal.style.display = "block";
+        await sleep(0.1); //wait 0.25 seconds so the two events don't fire at once
+        window.addEventListener(
+          "click",
+          function close(event) {
+            doorModal.style.display = "none";
+          },
+          { once: true }
+        );
+      });
+      const frameselector = document.getElementsByClassName("wpcf7-select")[1];
+      const doorselector = document.getElementsByClassName("wpcf7-select")[0];
+    
+    
+      function dynamicSort(property) {
+        var sortOrder = 1;
+        if (property[0] === "-") {
+          sortOrder = -1;
+          property = property.substr(1);
+        }
+        return function (a, b) {
+          /* next line works with strings and numbers,
+           * and you may want to customize it to your needs
+           */
+          var result =
+            a[property] < b[property] ? -1 : a[property] > b[property] ? 1 : 0;
+          return result * sortOrder;
+        };
+      }
+      doorInfo.sort(dynamicSort("name"));
+      frameInfo.sort(dynamicSort("name"));
+      var doorimg = document.getElementById("door");
+      var frameimg = document.getElementById("frame");
+    
+      for (var i = 0; i < doorInfo.length; i++) {
+        doorselector.innerHTML +=
+          "<option value='" +
+          doorInfo[i].src +
+          "'>" +
+          doorInfo[i].name +
+          "</option>";
+      }
+      for (var i = 0; i < frameInfo.length; i++) {
+        frameselector.innerHTML +=
+          "<option value='" +
+          frameInfo[i].src +
+          "'>" +
+          frameInfo[i].name +
+          "</option>";
+      }
+      const findFrame = (name) => {
+        for (var i = 0; i < frameInfo.length; i++) {
+          if (frameInfo[i].src == name) {
+            return frameInfo[i];
+          }
+        }
+        return {name: '', src: '', TopMargin: 50, LeftMargin: 300, Width: 0, Height: 0}
+      };
+    
+      const findDoor = (name) => {
+        for (var i = 0; i < doorInfo.length; i++) {
+          if (doorInfo[i].src == name) {
+            return doorInfo[i];
+          }
+        }
+        return { name: "", src: "" }
+      };
+      const changeDoor = () => {
+        var door = findDoor(doorselector.value);
+        var doorimg = document.getElementById("door");
+        var frame = findFrame(frameselector.value);
+        if (door == undefined || (door == undefined && frame == undefined)) {
+          return;
+        }
+        doorimg.src =
+          "https://dev.starkup.ee/kambar/wp-content/uploads/2022/05/" + door.src;
+          if (frame.name !== ''){
+        doorimg.style.top = 50 + frame.TopMargin + "px";
+        doorimg.style.left = 300 + frame.LeftMargin + "px";
+        doorimg.style.height = frame.Height + "px";
+        doorimg.style.width = frame.Width + 2 + "px";
+          }
+    
+        document.getElementById("doorcombo-title").innerHTML =
+          "<h3> Hurð: " + door.name + ", karmur: " + frame.name + "</h3>";
+      };
+      const changeFrame = () => {
+        var frame = findFrame(frameselector.value);
+        var door = findDoor(doorselector.value);
+        if (frame == undefined || (door == undefined && frame == undefined)) {
+                    return;
+          }
+        frameimg.src =
+          "https://dev.starkup.ee/kambar/wp-content/uploads/2022/05/" + frame.src;
+          if (door.name !== ''){
+        doorimg.style.top = 50 + frame.TopMargin + "px";
+        doorimg.style.left = 300 + frame.LeftMargin + "px";
+        doorimg.style.height = frame.Height + "px";
+        doorimg.style.width = frame.Width + 2 + "px";
+          }
+        document.getElementById("doorcombo-title").innerHTML =
+          "<h3> Hurð: " + door.name + ", karmur: " + frame.name + "</h3>";
+      };
+      frameselector.addEventListener("change", changeFrame);
+      doorselector.addEventListener("change", changeDoor);
+    }
+    </script>

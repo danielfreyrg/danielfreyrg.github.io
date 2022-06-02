@@ -3,7 +3,7 @@ from os.path import isfile, join
 import os
 import shutil
 
-mypath = "/Users/danielfreyrgylfason/Documents/forrit/danielfreyrg.github.io/doorcombos/images"
+mypath = "/Users/danielwork/Documents/GitHub/danielfreyrg.github.io/doorcombos/images"
 files = [f for f in listdir(mypath) if isfile(join(mypath, f))]
 y = "{"
 for x in files: 
@@ -14,3 +14,7 @@ for x in files:
 #     y += f'"{formatted}":"{x}",'
 # y += "}"
 # print(y)
+
+#function that returns the width and height of an image
+def measure(img):
+    
