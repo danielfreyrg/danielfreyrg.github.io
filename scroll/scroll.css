@@ -10,6 +10,7 @@ html {
     background: #000;
     scroll-behavior: smooth;
   }
+
   .head1 h1 {
     position: absolute;
     bottom: 60%;
@@ -75,3 +76,9 @@ html {
     color: white;
     font-family: sans-serif;
   }
+@media screen  and (max-width: 700px){
+  canvas{
+    min-height: 100vh;
+  }
+  
+}
