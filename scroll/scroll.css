@@ -1,0 +1,32 @@
+html {
+    height: 100vh;
+  }
+  
+  body {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    height: 500vh;
+    background: #000;
+  }
+  h1 {
+    position: absolute;
+    bottom: 60%;
+    z-index: 99;
+    color: white;
+  }
+
+  h2 {
+    position: absolute;
+    bottom: 40%;
+    z-index: 99;
+    color: white;
+  }
+  canvas {
+    position: fixed;
+    /* left: 50%;
+    top: 50%; */
+    max-width: 100vw;
+    max-height: 100vh;
+    aspect-ratio: auto 1920 / 1080;
+  }
