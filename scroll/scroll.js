@@ -42,4 +42,4 @@ const currentFrame = index => (
     requestAnimationFrame(() => updateImage(frameIndex + 1))
   });
   
-//   preloadImages()
+  preloadImages()
