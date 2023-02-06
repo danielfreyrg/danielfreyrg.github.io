@@ -4,3 +4,5 @@
 rim.py
 setup.py
 .DS_Store
+*.icloud
+.DS_Store
