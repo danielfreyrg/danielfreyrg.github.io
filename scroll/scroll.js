@@ -41,9 +41,11 @@ const currentFrame = index => (
       hero.style.opacity = 1;
     }
     if (scrollY > html.scrollHeight*0.7) {
+      hero.style.display = "none";
       canvas.style.position = "static";
     } else {
       canvas.style.position = "fixed";
+      hero.style.display = "flex";
     }
     const scrollTop = html.scrollTop;
     const maxScrollTop = html.scrollHeight - window.innerHeight;
