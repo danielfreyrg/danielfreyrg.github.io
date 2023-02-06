@@ -1,6 +1,7 @@
 const html = document.documentElement;
 const canvas = document.getElementById("canvas");
 const context = canvas.getContext("2d");
+const hero = document.querySelector(".hero");
 const frameCount = 269;
 
 const currentFrame = index => (
@@ -33,6 +34,12 @@ const currentFrame = index => (
   window.addEventListener('scroll', () => {  
     //get current scroll position
     var scrollY = window.pageYOffset;
+    if (scrollY > 0) {
+      hero.style.opacity = 0;
+    } 
+      else {
+      hero.style.opacity = 1;
+    }
     if (scrollY > html.scrollHeight*0.7) {
       canvas.style.position = "static";
     } else {
