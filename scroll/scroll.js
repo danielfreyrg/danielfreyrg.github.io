@@ -41,7 +41,7 @@ const currentFrame = index => (
       else {
       hero.style.opacity = 1;
     }
-    if (scrollY > html.scrollHeight*0.8) {
+    if (scrollY > html.scrollHeight*0.78) {
       hero.style.display = "none";
       canvas.style.position = "static";
     } else {
