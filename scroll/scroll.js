@@ -31,6 +31,13 @@ const currentFrame = index => (
   }
   
   window.addEventListener('scroll', () => {  
+    //get current scroll position
+    var scrollY = window.pageYOffset;
+    if (scrollY > html.scrollHeight*0.7) {
+      canvas.style.position = "static";
+    } else {
+      canvas.style.position = "fixed";
+    }
     const scrollTop = html.scrollTop;
     const maxScrollTop = html.scrollHeight - window.innerHeight;
     const scrollFraction = scrollTop / maxScrollTop;
