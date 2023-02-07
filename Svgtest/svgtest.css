@@ -10,8 +10,7 @@ img{
 
 }
 .wrapper{
-  display: flex;
-  justify-content: center;
+  margin: 5% 10% 0 10%;
 }
 
 path {
@@ -54,9 +53,8 @@ area{
   transform-origin: bottom;
   z-index: 2;
   top: 28%;
-  left: 43%;
-  width: 400px;
-  height: 100px;
+  left: 53%;
+  padding: 10px 25px 0 25px;
   background-color: white;
   border: 5px solid rgb(196, 37, 244);;
   border-top-right-radius: 50px;
@@ -74,8 +72,7 @@ area{
   z-index: 2;
   top: 50px;
   left: 50px;
-  width: 388px;
-  height: 100px;
+  padding: 10px 25px 0 25px;
   background-color: white;
   border: 5px solid rgb(196, 37, 244);;
   border-bottom: none;
@@ -161,9 +158,8 @@ background: white;
   /* max-width: 100%; */
   overflow: hidden;
   inset: 0;
-  width: auto;
-  height: 90vh;
-  /* height: auto; */
+  width: 100%;
+  height: auto;
   aspect-ratio: 20/12;
   background-image: url(Borgarhofdi_torg-adal.jpeg);
   background-size: cover;
