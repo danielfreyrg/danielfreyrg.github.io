@@ -98,8 +98,6 @@ canvas {
 }
 
 #header h1 {
-  position: absolute;
-  top: 30px;
   color: aquamarine;
   margin-left: 20px;
 }

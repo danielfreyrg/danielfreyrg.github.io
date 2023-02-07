@@ -24,35 +24,36 @@
     background-color: rgb(43, 62, 104);
   }
 
+
   #header h1 {
     color: aquamarine;
     margin-left: 20px;
-}
-
-hr {
+  }
+  
+  hr {
     width: 100%;
     border: 1px solid grey;
     margin: 0px;
-}
-
-#back {
+  }
+  
+  #back {
     position: absolute;
     right: 30px;
     top: 20px;
-}
-a:link {
+  }
+  a:link {
     text-decoration: none;
-}
-
-a:visited {
+  }
+  
+  a:visited {
     text-decoration: none;
-}
-
-a:hover {
+  }
+  
+  a:hover {
     text-decoration: underline;
     color: lightgrey;
-}
-
-a:active {
+  }
+  
+  a:active {
     text-decoration: underline;
-}
+  }
