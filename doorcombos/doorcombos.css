@@ -11,3 +11,11 @@
     max-height: 620px;
     max-width: 300px;
 }
+
+#header {
+    display: block;
+    width: 100%;
+    height: 100px;
+    margin-left: 0px;
+    background-color: rgb(43, 62, 104);
+  }
