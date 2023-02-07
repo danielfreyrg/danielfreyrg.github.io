@@ -25,8 +25,6 @@
   }
 
   #header h1 {
-    position: absolute;
-    top: 30px;
     color: aquamarine;
     margin-left: 20px;
 }
@@ -35,4 +33,26 @@ hr {
     width: 100%;
     border: 1px solid grey;
     margin: 0px;
+}
+
+#back {
+    position: absolute;
+    right: 30px;
+    top: 20px;
+}
+a:link {
+    text-decoration: none;
+}
+
+a:visited {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+    color: lightgrey;
+}
+
+a:active {
+    text-decoration: underline;
 }
