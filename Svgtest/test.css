@@ -1,0 +1,134 @@
+
+img{
+  position: absolute;
+  z-index: 1;
+
+}
+
+path {
+  fill: rgba(42, 49, 57, 0.5);
+  opacity: 0;
+  cursor: pointer;
+}
+svg{
+  width: 2000px;
+  height: 1200px;
+  position: absolute;
+  z-index: 99;
+  transition: all 0.1s ease-in-out;
+  
+}
+
+area{
+  display: none;
+  position: absolute;
+  z-index: 99;
+}
+
+  path:hover, .buildinghover{
+  opacity: 1;
+  stroke: rgb(196, 37, 244);
+  stroke-width: 5px;
+  stroke-linejoin: round;
+  transition: all 0.1s ease-in-out;
+}
+
+#middle-div{
+  position: absolute;
+  transform: scaleY(0);
+  transform-origin: bottom;
+  z-index: 2;
+  top: 363px;
+  left: 1112px;
+  width: 400px;
+  height: 100px;
+  background-color: white;
+  border: 5px solid rgb(196, 37, 244);;
+  border-top-right-radius: 50px;
+  border-top-left-radius: 50px;
+  transition: all 0.1s ease-in-out;
+
+}
+#left-div{
+  position: absolute;
+
+  transform: scaleY(0) skewy(5deg);
+  transform-origin: bottom;
+  z-index: 2;
+  top: 111px;
+  left: 367px;
+  width: 388px;
+  height: 100px;
+  background-color: white;
+  border: 5px solid rgb(196, 37, 244);;
+  border-bottom: none;
+  border-top-right-radius: 50px;
+  border-top-left-radius: 50px;
+  transition: all 0.1s ease-in-out;
+
+}
+button{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 99;
+}
+.open{
+
+  transform: scaleY(1) translateY(-10%) !important;
+  transition: all 0.1s ease-in-out;
+}
+
+.open-left{
+
+  transform: scaleY(1)  skewY(5deg) !important;
+  transition: all 0.1s ease-in-out;
+}
+#info{
+  cursor: pointer;
+  position: absolute;
+  right: 1000px;
+  top: 500px;
+  z-index: 99;
+  font-size: 2em;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+}
+#building1, #building2, #building3{
+  transition: all 0.6s ease-in-out;
+  border: 1px solid gray;
+  padding: 20px;
+}
+.hover, #info div:hover{
+  background-color: rgba(104, 152, 207, 1);
+}
+
+#building1-checkbox, #building2-checkbox, #building3-checkbox{
+  display:none;
+}
+#building1-info, #building2-info, #building3-info{
+  transform-style: preserve-3d;
+  transform: rotateY(90deg);
+  transform-origin: left;
+  transition: transform 0.6s ease-in-out;
+  background-color: lightblue;
+  padding: 20px;
+}
+#building1-checkbox:checked ~ #building1-info, #building2-checkbox:checked ~ #building2-info, #building3-checkbox:checked ~ #building3-info{
+
+  transform-style: preserve-3d;
+  transform: rotateY(0deg) translateX(-227px)!important;
+  transform-origin: left;
+  transition: transform 0.6s ease-in-out;
+
+}
+
+.checked{
+  transform-style: preserve-3d;
+  transform: rotateY(90deg);
+  transform-origin: left;
+  transition: transform 0.6s ease-in-out;
+}
