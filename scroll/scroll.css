@@ -101,6 +101,8 @@ canvas {
   background: #2D2F33;
   padding: 20px;
   color: aquamarine;
+  max-height: 50px;
+  min-width: 100vw;
 }
 #header h1 {
   color: aquamarine;
