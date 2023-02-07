@@ -1,5 +1,5 @@
-const outerselector = document.getElementsByClassName('wpcf7-select')[1]
-const doorselector = document.getElementsByClassName('wpcf7-select')[0]
+const outerselector = document.getElementById('outerselect')
+const doorselector = document.getElementById('doorselect')
 
 var doorInfo = {
     "H5111": "H5111.png",
@@ -84,9 +84,9 @@ const changeDoor = () => {
     var doorimg = document.getElementById("door");
     var SelectedOuter = outerselector.value;
     var outer = findOuter(SelectedOuter);
-    doorimg.src = "https://dev.starkup.ee/kambar/wp-content/uploads/2022/05/" + door;
-    doorimg.style.top = 50 + outer.T + "px";
-    doorimg.style.left = 50 + outer.L + "px";
+    doorimg.src = "images/" + door;
+    // doorimg.style.top = 50 + outer.T + "px";
+    // doorimg.style.left = 50 + outer.L + "px";
     doorimg.style.height = outer.H + "px";
     doorimg.style.width = outer.W + "px";
 }
@@ -94,9 +94,9 @@ const changeOuter = () => {
     var SelectedOuter = outerselector.value;
     var outer = findOuter(SelectedOuter);
     console.log(outer);
-    outerimg.src = "https://dev.starkup.ee/kambar/wp-content/uploads/2022/05/" + outer.src;
-    doorimg.style.top = 50 + outer.T + "px";
-    doorimg.style.left = 50 + outer.L + "px";
+    outerimg.src = "images/" + outer.src;
+    // doorimg.style.top = 50 + outer.T + "px";
+    // doorimg.style.left = 50 + outer.L + "px";
     doorimg.style.height = outer.H + "px";
     doorimg.style.width = outer.W + "px";
 
