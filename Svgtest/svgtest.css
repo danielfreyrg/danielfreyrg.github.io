@@ -210,3 +210,10 @@ a:hover {
 a:active {
   text-decoration: underline;
 }
+
+@media screen and (max-width: 1000px) {
+#info-container{
+  display: none;
+}
+}
+  
