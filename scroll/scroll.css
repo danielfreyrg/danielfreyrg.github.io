@@ -21,6 +21,7 @@ body {
   bottom: 60%;
   z-index: 99;
   color: white;
+  right: 50%;
 
 }
 
@@ -42,11 +43,7 @@ canvas {
   aspect-ratio: auto 1920 / 1080;
 }
 
-.head1 {
-  width: 100px;
-  height: 100px;
-  overflow: hidden;
-}
+
 
 .end {
   position: absolute;
@@ -102,7 +99,7 @@ canvas {
   padding: 20px;
   color: aquamarine;
   max-height: 50px;
-  min-width: 100vw;
+  min-width: 100%;
 }
 #header h1 {
   color: aquamarine;
