@@ -22,7 +22,7 @@ svg{
   /* position: absolute; */
   z-index: 99;
   transition: all 0.1s ease-in-out;
-  max-height:  480px;
+  /* max-height:  480px; */
   
 }
 
@@ -142,9 +142,8 @@ button{
 .main{
   position: relative;
   display: block;
-  max-height: 480px;
-  height: 480px;
-  max-width: 800px;
+  /* max-height: 480px; */
+  /* max-width: 100%; */
   overflow: hidden;
   inset: 0;
   width: 100%;
@@ -152,4 +151,5 @@ button{
   aspect-ratio: 20/12;
   background-image: url(Borgarhofdi_torg-adal.jpeg);
   background-size: cover;
+  background-repeat: no-repeat;
 }
