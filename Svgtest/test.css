@@ -165,3 +165,16 @@ background: white;
   margin-left: 0px;
   background-color: rgb(43, 62, 104);
 }
+
+#header h1 {
+  position: absolute;
+  top: 30px;
+  color: aquamarine;
+  margin-left: 20px;
+}
+
+hr {
+  width: 100%;
+  border: 1px solid grey;
+  margin: 0px;
+}
