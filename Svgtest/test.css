@@ -162,12 +162,18 @@ background: white;
   background-size: cover;
   background-repeat: no-repeat;
 }
-#header {
+/* #header {
   display: block;
   width: 100%;
   height: 100px;
   margin-left: 0px;
   background-color: rgb(43, 62, 104);
+} */
+
+#header {
+  background: #2D2F33;
+  padding: 20px;
+  color: aquamarine;
 }
 
 
@@ -183,6 +189,7 @@ hr {
 }
 
 #back {
+color:white;
   position: absolute;
   right: 30px;
   top: 20px;

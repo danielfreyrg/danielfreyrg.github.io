@@ -105,6 +105,7 @@ a:active {
 }
 
 #back {
+color:white;
     position: absolute;
     right: 30px;
     top: 20px;
