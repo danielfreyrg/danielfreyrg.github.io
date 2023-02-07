@@ -212,7 +212,7 @@ a:active {
 }
 
 @media screen and (max-width: 1000px) {
-#info-container{
+.info-container{
   display: none;
 }
 }
