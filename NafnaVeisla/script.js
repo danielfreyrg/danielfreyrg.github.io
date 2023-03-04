@@ -44602,6 +44602,7 @@ var user = {
 var currentUser = "BPG";
 var userSelect = document.getElementById("user");
 var modalOpen = false;
+var gender = document.getElementById("gender").value;
 
 function getRandomName() {
   var random = Math.floor(Math.random() * names.length);
@@ -44622,12 +44623,12 @@ function getRandomName() {
 }
 
 window.addEventListener("load", function () {
-  // if (this.localStorage.getItem('user')) {
-  //     user = JSON.parse(this.localStorage.getItem('user'))
-  // }
-  // else {
-  //     this.localStorage.setItem('user', JSON.stringify(user))
-  // }
+  if (this.localStorage.getItem('user')) {
+      user = JSON.parse(this.localStorage.getItem('user'))
+  }
+  else {
+      this.localStorage.setItem('user', JSON.stringify(user))
+  }
   UpdateNamesLeft();
 
   document.querySelector(".currentName").innerHTML =
