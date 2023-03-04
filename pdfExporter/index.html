@@ -171,7 +171,7 @@ SnazzyDataForSnazzyMaps={"id":416769,"name":"Verkis map 2","description":null,"u
                        justify-content: center;
                    }
               }
-          }
+          
 
          @media print {
              .printfriendly {
@@ -1059,7 +1059,6 @@ Svið: Byggingar<br />
 	<div id="text-1983113568" class="text footer-logos">
 		
 
-<p><img class="size-full wp-image-11304" src="https://dev.starkup.ee/verkis/wp-content/uploads/2022/01/Verkis_footer_4.png" alt="" width="158" height="88" style="margin-right: 30px; margin-bottom: 30px;" /> <img class="size-full wp-image-11305" src="https://dev.starkup.ee/verkis/wp-content/uploads/2022/01/Verkis_footer_5.png" alt="" width="172" height="74" style="margin-right: 30px; margin-bottom: 30px;" /><img class="size-full wp-image-752" style="margin-right: 30px; margin-bottom: 30px;" src="https://dev.starkup.ee/verkis/wp-content/uploads/2022/01/Verkis_footer_2.png" alt="" width="76" height="80" /><img class="size-full wp-image-753" style="margin-right: 30px; margin-bottom: 20px;" src="https://dev.starkup.ee/verkis/wp-content/uploads/2022/01/Verkis_footer_3.png" alt="" width="59" height="82" /><img class="size-full wp-image-751" style="margin-right: 30px; margin-bottom: 30px; <a href="https://dev.starkup.ee/verkis/fyrirtaekid/vottanir/"" src="https://dev.starkup.ee/verkis/wp-content/uploads/2022/01/Verkis_footer_1.png" alt="" width="328" height="57"/></a></p>
 <p><a title="Tölvupóstur" href="https://outlook.office.com/" target="_blank" rel="noopener">@</a>|<a title="Tímaskráning" href="https://timar.stofa.is/" target="_blank" rel="noopener">™</a></p>
 
 		
@@ -1534,36 +1533,55 @@ jQuery(document).ready(function(){
     jQuery('.match_height').matchHeight();
 });
 
-
-var header = document.querySelector('.service-header')
-var body = document.querySelector('.border-right')
-// var specs = document.querySelector(' .project-specs')
-var image = document.querySelector('.service-image')
+var header = document.querySelector('.service-header');
+var body = document.querySelector('.border-right');
+var image = document.querySelector('.service-image');
+var imageStyle = getComputedStyle(image);
+var backgroundImage = imageStyle.getPropertyValue("background-image");
+var imageUrl = backgroundImage.match(/url\("?(.+?)"?\)/)[1];
+var heading = document.querySelector('.col-inner-dark h1')
+var projectInfo = document.querySelector('col.border-right')
 
 function exportPDF() {
-const canvas = document.createElement("canvas");
-canvas.width = image.width;
-canvas.height = image.height;
-const context = canvas.getContext("2d");
-context.drawImage(image, 0, 0);
-const imageDataURL = canvas.toDataURL("image/jpeg");
-      // add the header image to the PDF
-  pdf.addImage(imageDataURL, 'JPEG', 15, 15, 170, 50);
-    // get the content of the HTML element
-    const content = document.getElementById("main").innerHTML;
-  
-    // initialize a new instance of jsPDF
-    const pdf = new jsPDF();
-  
-    // set the content as the HTML content, and pass a callback function
-    pdf.fromHTML(content, 15, 15, {
-      'width': 170,
-      'elementHandlers': {}
-    }, function() {
-      // save the PDF with a filename
-      pdf.save("file.pdf");
-    });
+    // create a new image element and set its source to the image URL
+    const img = new Image();
+    img.onload = function() {
+        // create a new canvas element and draw the image onto it
+        const canvas = document.createElement("canvas");
+        canvas.width = img.width;
+        canvas.height = img.height;
+        const context = canvas.getContext("2d");
+        context.drawImage(img, 0, 0);
+        const imageDataURL = canvas.toDataURL("image/jpeg");
+      
+        // create a new instance of jsPDF
+        const pdf = new jsPDF();
+      
+        // add the image to the PDF
+        pdf.addImage(imageDataURL, "JPEG", 15, 15, 170, 50);
+      
+        // set the font to Arial, bold, size 16 for the heading
+        pdf.setFont("Arial", "bold");
+        pdf.setFontSize(16);
+      
+        // add the heading to the PDF
+        pdf.text(15, 80, heading.textContent);
+      
+        // set the font back to normal
+        pdf.setFont("Arial", "normal");
+      
+        // add the project info to the PDF
+        pdf.fromHTML(projectInfo.outerHTML, 15, 90, {
+          width: 170,
+          elementHandlers: {}
+        });
+      
+        // save the PDF with a filename
+        pdf.save("file.pdf");
+    };
+    img.src = imageUrl;
   }
+
 
 </script>     <script type="text/javascript" id="pf_script">
                       var pfHeaderImgUrl = '';

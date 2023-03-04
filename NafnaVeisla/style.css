@@ -1,0 +1,61 @@
+body {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+.voteContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr 2fr;
+    grid-template-rows: 1fr;
+    width: 500px;
+    height: 200px;
+}
+.agree {
+    background: green;
+
+}
+.voteButton button{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-weight: bold;
+    font-size: 90px;
+}
+.disagree {
+    background: red;
+}
+.currentName {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 50px;
+    height: 200px;
+}
+.nameQuizContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.userSelect {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.seenNameModal {
+    display: none;
+    position: absolute;
+    top:40%;
+    left: 40%;
+    width: 500px;
+    word-wrap: break-word;
+}
+.seeNamesButton{
+    margin-top: 300px;
+    width: max-content;
+}
