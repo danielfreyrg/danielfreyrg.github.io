@@ -44649,6 +44649,7 @@ document.querySelector(".skip").addEventListener("click", function() {
 })
 
 userSelect.addEventListener("change", function() {
+    document.querySelector(".currentName").innerHTML = '<h1>' + getRandomName() + '</h1>'
     currentUser = userSelect.value
 })
  function saveToLocalStorage() {
