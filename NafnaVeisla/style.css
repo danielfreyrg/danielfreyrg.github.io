@@ -34,6 +34,7 @@ body {
     align-items: center;
     font-size: 50px;
     height: 200px;
+    width: 500px;
 }
 .nameQuizContainer {
     display: flex;
@@ -58,4 +59,12 @@ body {
 .seeNamesButton{
     margin-top: 300px;
     width: max-content;
+}
+.ST{
+    background:  pink;
+
+}
+.DR{
+    background:  lightblue;
+
 }

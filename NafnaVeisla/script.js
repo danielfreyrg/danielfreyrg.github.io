@@ -44630,10 +44630,10 @@ window.addEventListener("load", function () {
   else {
       this.localStorage.setItem('user', JSON.stringify(user))
   }
+  getRandomName();
   UpdateNamesLeft();
+  UpdateChosenName();
 
-  document.querySelector(".currentName").innerHTML =
-    "<h1>" + getRandomName() + "</h1>";
 });
 document.querySelector(".agree").addEventListener("click", function () {
   user[currentUser].agreedNames.push(
@@ -44702,4 +44702,5 @@ document.getElementById("gender").addEventListener("change", function () {
 });
 function UpdateChosenName() {
     document.querySelector(".currentName").innerHTML = "<h1>" + chosenName.Nafn + "</h1>";
+    document.querySelector(".currentName").classList = [chosenName.Tegund +  " currentName"]
 }
