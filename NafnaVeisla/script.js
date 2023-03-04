@@ -44603,10 +44603,11 @@ var currentUser = "BPG";
 var userSelect = document.getElementById("user");
 var modalOpen = false;
 var gender = document.getElementById("gender").value;
+var chosenName = ""
 
 function getRandomName() {
   var random = Math.floor(Math.random() * names.length);
-  var chosenName = names[random]
+  chosenName = names[random]
   var gender = document.getElementById("gender").value;
   console.log(gender)
   if (
@@ -44657,8 +44658,8 @@ document.querySelector(".skip").addEventListener("click", function () {
     document.querySelector(".currentName").innerText
   );
   saveToLocalStorage();
-  document.querySelector(".currentName").innerHTML =
-    "<h1>" + getRandomName() + "</h1>";
+  getRandomName()
+  UpdateChosenName()
   UpdateNamesLeft();
 });
 document
@@ -44671,8 +44672,8 @@ document
   });
 
 userSelect.addEventListener("change", function () {
-  document.querySelector(".currentName").innerHTML =
-    "<h1>" + getRandomName() + "</h1>";
+    getRandomName()
+    UpdateChosenName()
   currentUser = userSelect.value;
 });
 function saveToLocalStorage() {
@@ -44696,5 +44697,9 @@ window.onclick = function (event) {
 document.getElementById("gender").addEventListener("change", function () {
   gender = document.getElementById("gender").value
   UpdateNamesLeft();
-  document.querySelector(".currentName").innerHTML = "<h1>" + getRandomName() + "</h1>";
+  getRandomName()
+  UpdateChosenName()
 });
+function UpdateChosenName() {
+    document.querySelector(".currentName").innerHTML = "<h1>" + chosenName.Nafn + "</h1>";
+}
