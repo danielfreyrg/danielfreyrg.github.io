@@ -44595,7 +44595,9 @@ var names = [
     disagreedNames: [], skippedNames: []},
     'SSG':{ seenNames: [],
     agreedNames: [],
-    disagreedNames: [], skippedNames: []}}
+    disagreedNames: [], skippedNames: []}, 'ADB':{ seenNames: [],
+        agreedNames: [],
+        disagreedNames: [], skippedNames: []}}
 var currentUser = 'BPG'
   var userSelect = document.getElementById("user")
   var modalOpen = false
@@ -44612,12 +44614,12 @@ var currentUser = 'BPG'
 }
 
 window.addEventListener('load', function() {
-    if (this.localStorage.getItem('user')) {
-        user = JSON.parse(this.localStorage.getItem('user'))
-    }
-    else {
-        this.localStorage.setItem('user', JSON.stringify(user))
-    }
+    // if (this.localStorage.getItem('user')) {
+    //     user = JSON.parse(this.localStorage.getItem('user'))
+    // }
+    // else {
+    //     this.localStorage.setItem('user', JSON.stringify(user))
+    // }
     UpdateNamesLeft()
     
     document.querySelector(".currentName").innerHTML = '<h1>' + getRandomName() + '</h1>'
