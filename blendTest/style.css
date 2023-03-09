@@ -24,6 +24,7 @@ h1 {
     mix-blend-mode: difference;
     position: fixed;
     top: 50%;
+    font-family: sans-serif;
 
 }
 
