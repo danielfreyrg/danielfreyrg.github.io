@@ -44606,21 +44606,22 @@ var gender = document.getElementById("gender").value;
 var chosenName = ""
 
 function getRandomName() {
-  var random = Math.floor(Math.random() * names.length);
-  chosenName = names[random]
-  var gender = document.getElementById("gender").value;
-  console.log(gender)
-  if (
-    user[currentUser].seenNames.includes(chosenName.Nafn) ||
-    chosenName.Tegund != gender
-  ) {
-    getRandomName();
-  } else {
-    user[currentUser].seenNames.push(chosenName.Nafn);
-    console.log(chosenName)
-    var retValue = chosenName.Nafn;
-    return retValue;
-  }
+  return new Promise((resolve, reject) => {
+    var random = Math.floor(Math.random() * names.length);
+    chosenName = names[random];
+    var gender = document.getElementById("gender").value;
+    console.log(gender);
+    if (
+      user[currentUser].seenNames.includes(chosenName.Nafn) ||
+      chosenName.Tegund != gender
+    ) {
+      getRandomName().then(resolve).catch(reject);
+    } else {
+      user[currentUser].seenNames.push(chosenName.Nafn);
+      console.log(chosenName);
+      resolve(chosenName);
+    }
+  });
 }
 
 window.addEventListener("load", function () {
@@ -44635,31 +44636,33 @@ window.addEventListener("load", function () {
   UpdateChosenName();
 
 });
-document.querySelector(".agree").addEventListener("click", function () {
+document.querySelector(".agree").addEventListener("click", async function () {
   user[currentUser].agreedNames.push(
     document.querySelector(".currentName").innerText
   );
   saveToLocalStorage();
-  document.querySelector(".currentName").innerHTML =
-    "<h1>" + getRandomName() + "</h1>";
+  chosenName = await getRandomName();
+  UpdateChosenName();
   UpdateNamesLeft();
 });
-document.querySelector(".disagree").addEventListener("click", function () {
+
+document.querySelector(".disagree").addEventListener("click", async function () {
   user[currentUser].disagreedNames.push(
     document.querySelector(".currentName").innerText
   );
   saveToLocalStorage();
-  document.querySelector(".currentName").innerHTML =
-    "<h1>" + getRandomName() + "</h1>";
+  chosenName = await getRandomName();
+  UpdateChosenName();
   UpdateNamesLeft();
 });
-document.querySelector(".skip").addEventListener("click", function () {
+
+document.querySelector(".skip").addEventListener("click", async function () {
   user[currentUser].skippedNames.push(
     document.querySelector(".currentName").innerText
   );
   saveToLocalStorage();
-  getRandomName()
-  UpdateChosenName()
+  chosenName = await getRandomName();
+  UpdateChosenName();
   UpdateNamesLeft();
 });
 document
@@ -44701,6 +44704,9 @@ document.getElementById("gender").addEventListener("change", function () {
   UpdateChosenName()
 });
 function UpdateChosenName() {
-    document.querySelector(".currentName").innerHTML = "<h1>" + chosenName.Nafn + "</h1>";
-    document.querySelector(".currentName").classList = [chosenName.Tegund +  " currentName"]
+  document.querySelector(".currentName").innerHTML =
+    "<h1>" + chosenName.Nafn + "</h1>";
+  document.querySelector(".currentName").classList = [
+    chosenName.Tegund + " currentName",
+  ];
 }

@@ -1,0 +1,42 @@
+.full {
+    width: 100vw;
+    height: 100vh;
+}
+.black {
+    background-color: black;
+}
+.white {
+    background-color: white;
+}
+.red {
+    background-color: red;
+}
+h1 {
+    color: white;
+    font-size: 10vw;
+    font-weight: bold;
+    mix-blend-mode: difference;
+    position: fixed;
+    top: 50%;
+    left: 40%;
+}
+.orange {
+    background-color: orange;
+}
+.green {
+    background-color: green;
+}
+.yellow {
+    background-color: yellow;
+}
+.purple {
+    background-color: purple;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.blue {
+    background-color: blue;
+}
