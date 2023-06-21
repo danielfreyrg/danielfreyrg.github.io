@@ -9,7 +9,7 @@ const clouds = document.querySelector('.clouds');
 
 
 var scrollpercent = (document.body.scrollTop + document.documentElement.scrollTop) / (document.documentElement.scrollHeight - document.documentElement.clientHeight);
-if((scrollpercent * 100) + 20 < 60){
+if((scrollpercent * 100) + 20 < 58){
 title.style.backgroundPosition ='center ' +  ((scrollpercent*100) + 20) + '%';
 }
 if ((scrollpercent + 54 < 55)){
@@ -17,15 +17,19 @@ if ((scrollpercent + 54 < 55)){
 
 }
 
-//limit rotation between -10 and 10
-if ((scrollpercent * 100) < 10){
-    flipped = false;
-
-    boat.style.transform = 'rotate(' + ((scrollpercent * 100)) + 'deg)';
-    currentRotation = (scrollpercent * 100);
-}
-else if ((scrollpercent * 100) > 10){
+if (currentRotation > 10){
     flipped = true;
-    boat.style.transform = 'rotate(' + (currentRotation -(scrollpercent* 100) ) + 'deg)';
 }
+else if (currentRotation <= -10) {
+    flipped = false;
+}
+
+if (flipped){
+    currentRotation -= (scrollpercent/2);
+}
+else {
+    currentRotation += (scrollpercent/2);
+}
+
+boat.style.transform = 'rotate(' + (currentRotation) + 'deg)';
 })
