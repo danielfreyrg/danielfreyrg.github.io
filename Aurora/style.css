@@ -1,0 +1,86 @@
+.hero {
+    min-height: 100vh;
+    min-width: 100vw;
+    position: relative;
+}
+.clouds {
+    position: absolute;
+    inset: 0;
+    background-image: url(images/himinn.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    z-index: 0;
+}
+.boat {
+    position: absolute;
+    inset: 0;
+    background-image: url(images/klettur.png);
+    background-size: 31%;
+    background-position: 63% 54%;
+    background-repeat: no-repeat;
+    z-index: 2;
+    -webkit-transform-origin: 64% 50%;
+    transform-origin: 64% 50%;
+    
+}
+.waves {
+    position: absolute;
+    inset: 0;
+    background-image: url(images/aldan.png);
+    background-size: 100% 70%;
+    background-repeat: no-repeat;
+    background-position: bottom;
+    z-index: 4;
+}
+.overlay {
+    position: absolute;
+    inset: 0;
+    background-image: url(images/overlay.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    z-index: 7;
+}
+.fish {
+    position: absolute;
+    inset: 0;
+    background-image: url(images/fish-top.png);
+    background-size: 10%;
+    background-repeat: no-repeat;
+    background-position: center 5%;
+    z-index: 6;
+}
+.kanji {
+    position: absolute;
+    inset: 0;
+    background-image: url(kanji.svg);
+    background-size: 4%;
+    background-repeat: no-repeat;
+    background-position: center 90%;
+    z-index: 7;
+}
+.hero-title {
+    position: absolute;
+    inset: 0;
+    background-image: url(images/Aurora-Seafood.png);
+    background-size: 30%;
+    background-repeat: no-repeat;
+    background-position: center 20%;
+    z-index: 1;
+    animation: rise 2s ease-out 1;
+}
+* {
+    margin: 0;
+    padding: 0;
+}
+body {
+    min-height: 300vh;
+}
+@keyframes rise {
+    from {
+        background-position: center 60%;
+    }
+    to {
+        background-position: center 20%;
+    }
+    
+}

@@ -1,0 +1,108 @@
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>CSS3 Pizza Chart</title>
+<style>
+body {
+    font-family:Tahoma, Geneva, sans-serif;
+}
+h2 {
+    text-align:center;
+}
+.chart {
+    position:relative;
+    width:500px;
+    height:250px;
+}
+.hold {
+    position:absolute;
+    width:200px;
+    height:200px;
+    clip:rect(0px,200px,200px,100px);
+    left:300px;
+}
+.Pizza {
+    position:absolute;
+/*  width:100px;
+    height:200px;
+    border-radius:100px 0 0 100px;
+    transform-origin:right center; */
+    width:200px;
+    height:200px;
+    clip:rect(0px,100px,200px,0px);
+    border-radius:100px; 
+}
+</style>
+</head>
+<body>
+<style>
+     .PizzaContainer {
+          height: 100px;
+          width: 100px;
+          float: right;
+          margin: 0 0 20px 20px;
+     }
+     #PizzaSliceYellow .Pizza {
+          background-color: #f2cd00;
+          transform:rotate(60deg);
+     }
+     #PizzaSliceBlue {
+          transform:rotate(60deg);
+     }
+     #PizzaSliceBlue .Pizza {
+          background-color: #002095;
+          transform:rotate(60deg);
+     }
+     #PizzaSliceRed {
+          transform:rotate(120deg);
+     }
+     #PizzaSliceRed .Pizza {
+          background-color: #950000;
+          transform:rotate(60deg);
+     }
+      #PizzaSliceOlive {
+          transform:rotate(180deg);
+     }
+     #PizzaSliceOlive .Pizza {
+          background-color: #a5a000;
+          transform:rotate(60deg);
+     }
+     #PizzaSliceOrange {
+          transform:rotate(240deg);
+     }
+     #PizzaSliceOrange .Pizza {
+          background-color: #f5a010;
+          transform:rotate(60deg);
+     }
+      #PizzaSliceLime {
+          transform:rotate(300deg);
+     }
+     #PizzaSliceLime .Pizza {
+          background-color: #99FF00;
+          transform:rotate(60deg);
+     }
+</style>
+<div class="PizzaContainer">
+<div class="PizzaBackground"></div>
+<div id="PizzaSliceYellow" class="hold">
+<div class="Pizza">Test</div>
+</div>
+<div id="PizzaSliceBlue" class="hold">
+<div class="Pizza"></div>
+</div>
+<div id="PizzaSliceRed" class="hold">
+<div class="Pizza"></div>
+</div>
+<div id="PizzaSliceOlive" class="hold">
+<div class="Pizza"></div>
+</div>
+<div id="PizzaSliceOrange" class="hold">
+<div class="Pizza"></div>
+</div>
+<div id="PizzaSliceLime" class="hold">
+<div class="Pizza"></div>
+</div>
+</div>
+</body>
+</html>
