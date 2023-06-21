@@ -69,6 +69,8 @@
     background-repeat: no-repeat;
     background-position: center 20%;
     z-index: 1;
+}
+.loaded .hero-title {
     animation: rise 2s ease-out 1;
 }
 * {

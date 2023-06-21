@@ -39,10 +39,6 @@ boat.style.transform = 'rotate(' + (currentRotation) + 'deg)';
 }
 })
 
-function waitForLoad(){
-    setTimeout(function(){
-        clouds.style.opacity = '1';
-    }, 1000);
-    console.log('loaded');
-}
-waitForLoad();
+$('.hero').waitForImages(function() {
+    $('.hero').addClass('loaded');
+});
