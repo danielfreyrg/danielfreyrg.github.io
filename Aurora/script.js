@@ -38,7 +38,53 @@ boat.style.transform = 'rotate(' + (currentRotation) + 'deg)';
 
 }
 })
-
+function waitforAll(){
+    all = [];
+    $('.hero-title').waitForImages(function() {
+        if (all.length == 6){
+            $('.hero').addClass('loaded');
+        }
+        else {
+            all.push('hero');
+        }
+    });
+    $('.clouds').waitForImages(function() {
+        if (all.length == 6){
+            $('.hero').addClass('loaded');
+        }
+        else {
+            all.push('clouds');
+        }
+    }
+    );
+    $('.wave').waitForImages(function() {
+        if (all.length == 6){
+            $('.hero').addClass('loaded');
+        }
+        else {
+            all.push('wave');
+        }
+    }
+    );
+    $('.boat').waitForImages(function() {
+        if (all.length == 6){
+            $('.hero').addClass('loaded');
+        }
+        else {
+            all.push('boat');
+        }
+    }
+    );
+    $('.hero-title').waitForImages(function() {
+        if (all.length == 6){
+            $('.hero').addClass('loaded');
+        }
+        else {
+            all.push('hero-title');
+        }
+    }
+    );
+}
 $('.hero-title').waitForImages(function() {
     $('.hero').addClass('loaded');
 });
