@@ -39,6 +39,6 @@ boat.style.transform = 'rotate(' + (currentRotation) + 'deg)';
 }
 })
 
-$('.hero').waitForImages(function() {
+$('..hero-title').waitForImages(function() {
     $('.hero').addClass('loaded');
 });
