@@ -2,6 +2,7 @@
     min-height: 100vh;
     min-width: 100vw;
     position: relative;
+    overflow-x: hidden;
 }
 .clouds {
     position: absolute;
@@ -11,6 +12,7 @@
     background-repeat: no-repeat;
     z-index: 0;
 }
+
 .boat {
     position: absolute;
     inset: 0;
@@ -35,9 +37,10 @@
 .overlay {
     position: absolute;
     inset: 0;
-    background-image: url(images/overlay.png);
+    /* background-image: url(images/overlay.png);
     background-size: cover;
-    background-repeat: no-repeat;
+    background-repeat: no-repeat; */
+    background: linear-gradient(0deg, #000000 0%, rgba(0, 0, 0, 0) 57.81%);
     z-index: 7;
 }
 .fish {
@@ -74,6 +77,7 @@
 }
 body {
     min-height: 300vh;
+    background-color: black;
 }
 @keyframes rise {
     from {
