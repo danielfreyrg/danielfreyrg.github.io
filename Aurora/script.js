@@ -1,14 +1,16 @@
 var currentRotation = 0;
 var flipped = false;
-window.addEventListener('scroll', function() {
-    
-    const boat = document.querySelector('.boat');
-    const wave = document.querySelector('.wave');
+const boat = document.querySelector('.boat');
+const wave = document.querySelector('.wave');
 const title = document.querySelector('.hero-title');
 const clouds = document.querySelector('.clouds');
 
+window.addEventListener('scroll', function() {
+    
+
 
 var scrollpercent = (document.body.scrollTop + document.documentElement.scrollTop) / (document.documentElement.scrollHeight - document.documentElement.clientHeight);
+if ((scrollpercent * 100) < 50){
 if((scrollpercent * 100) + 20 < 58){
 title.style.backgroundPosition ='center ' +  ((scrollpercent*100) + 20) + '%';
 }
@@ -32,4 +34,7 @@ else {
 }
 
 boat.style.transform = 'rotate(' + (currentRotation) + 'deg)';
+
+
+}
 })
