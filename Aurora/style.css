@@ -52,10 +52,10 @@
     background-position: center 5%;
     z-index: 6;
 }
-.kanji {
+.hanzi {
     position: absolute;
     inset: 0;
-    background-image: url(kanji.svg);
+    background-image: url(images/hanzi.svg);
     background-size: 4%;
     background-repeat: no-repeat;
     background-position: center 90%;
@@ -87,4 +87,58 @@ body {
         background-position: center 20%;
     }
     
+}
+.wheel {
+    margin-left: 50px;
+    transform: rotate(0deg);
+    transition: transform 0.5s ease-in-out;
+}
+.wheel-container:hover .wheel {
+    transform: rotate(180deg);
+}
+.anchor {
+    transform: translateY(0px);
+    transition: transform 0.5s ease-in-out;
+}
+.anchor-container:hover .anchor {
+    transform: translateY(50px);
+}
+.footer {
+    position: absolute;
+    bottom:  0;
+    height: 100px;
+}
+.container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+
+.cucumber-container {
+    position: relative;
+    width: 122px;
+    height: 106px;
+}
+.small {
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translate(0px, 0px) rotate(0deg);
+    transition: transform 0.5s ease-in-out;
+    transform-origin: center;
+}
+.big {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transform: translate(0px, 0px);
+    transition: transform 0.5s ease-in-out;
+}
+.cucumber-container:hover .small {
+    transform: translate(-10px, 10px) rotate(-90deg);
+}
+.cucumber-container:hover .big {
+    transform: translate(10px, -10px);
 }
