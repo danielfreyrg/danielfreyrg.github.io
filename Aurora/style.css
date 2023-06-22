@@ -25,7 +25,7 @@
     z-index: 2;
     -webkit-transform-origin: 64% 50%;
     transform-origin: 64% 50%;
-    animation: rug 7.5s linear infinite alternate;
+    /* animation: rug 7.5s linear infinite alternate; */
     
 }
 .waves {
