@@ -2,7 +2,7 @@
     min-height: 100vh;
     min-width: 100vw;
     position: relative;
-    overflow-x: hidden;
+    overflow: hidden;
 }
 .clouds {
     opacity: 0;
@@ -25,6 +25,7 @@
     z-index: 2;
     -webkit-transform-origin: 64% 50%;
     transform-origin: 64% 50%;
+    animation: rug 7.5s linear infinite alternate;
     
 }
 .waves {
@@ -33,9 +34,10 @@
     inset: 0;
     background-image: url(images/aldan.png);
     background-size: 100% 70%;
-    background-repeat: no-repeat;
-    background-position: bottom;
+    background-repeat: repeat-x;
+    background-position: 0 bottom;
     z-index: 4;
+    /* animation: waves 20s linear infinite alternate; */
 }
 .overlay {
     opacity: 0;
@@ -150,4 +152,23 @@ body {
 }
 .cucumber-container:hover .big {
     transform: translate(10px, -10px);
+}
+@keyframes rug {
+    0% {
+        transform: rotate(-10deg);
+
+    }
+    100% {
+        transform: rotate(10deg);
+    }
+
+    
+}
+@keyframes waves {
+    0% {
+        background-position: 0% bottom;
+    }
+    100% {
+        background-position: 100% bottom;
+    }
 }
