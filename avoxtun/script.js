@@ -14,7 +14,9 @@ function calculate() {
     var totalValues = [];
     var differenceValues = [];
     var difference = 0;
-
+if (isNaN(amount) || isNaN(tax) || isNaN(interest) || isNaN(years)) {
+    return;
+}
     for (var i = 0; i < years; i++) {
         difference = total;
         var currentInterest = total * (interest/12);
