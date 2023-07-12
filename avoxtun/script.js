@@ -115,3 +115,8 @@ function calculate() {
 }
 
 document.getElementById('submit').onclick = calculate;
+document.getElementById('amount').onchange = calculate;
+document.getElementById('tax').onchange = calculate;
+document.getElementById('interest').onchange = calculate;
+document.getElementById('years').onchange = calculate;
+
