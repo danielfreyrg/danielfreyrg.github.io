@@ -110,11 +110,11 @@ function calculate() {
     document.getElementById('totalresult').innerHTML = "Heildarupphæð eftir " + years/12 + " ár: " + totalFormatted + "kr";
     document.getElementById('interestresult').innerHTML = "meðalvextir á mánuði: " + interestFormatted + "kr";
     document.getElementById('taxresult').innerHTML = "meðalskattur á mánuði: " + taxFormatted + "kr";
-    document.getElementById('profitresult').innerHTML = "hagnaður: " + profit + "kr";
+    document.getElementById('profitresult').innerHTML = "heildar hagnaður: " + profit + "kr";
     document.getElementById('monthlyprofit').innerHTML = "hagnaður á mánuði: " + monthlyProfit + "kr";
 }
 
-document.getElementById('submit').onclick = calculate;
+// document.getElementById('submit').onclick = calculate;
 document.getElementById('amount').onchange = calculate;
 document.getElementById('tax').onchange = calculate;
 document.getElementById('interest').onchange = calculate;

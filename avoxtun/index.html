@@ -8,24 +8,26 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
+<!-- <div class="content"> -->
+    <div class="input-container">
     <h1>Ávöxtun</h1>
 
-    <div class="input-container">
-        <label for="years">Fjöldi ára</label>
-        <input type="number" id="years" value="2">
+
         <label for="interest">Vextir</label>
-        <div style="display: inline-flex; align-content: center;">
+        <div class="percent">
             <input type="number" id="interest" name="interest" value="8.5">
             <span>%</span>
         </div>
         <label for="tax">Fjármagnstekjuskattur</label>
-        <div style="display: inline-flex; align-content: center;">
+        <div class="percent">
             <input type="number" id="tax" name="tax" value="22">
             <span>%</span>
         </div>
+        <label for="years">Fjöldi ára</label>
+        <input type="number" id="years" value="2">
         <label for="amount">Upprunaleg upphæð</label>
         <input type="number" id="amount" name="amount" value="">
-        <button id="submit">Reikna</button>
+        <!-- <button id="submit">Reikna</button> -->
     </div>
     
     <div class="result-container">
@@ -36,6 +38,7 @@
         <p id="monthlyprofit"></p>
 
 
+    <!-- </div> -->
     </div>
     <div class="chart-container">
         <canvas id="myChart" width="750" height="375"></canvas>
