@@ -16,3 +16,12 @@ body {
     align-items: center;
     
 }
+* {
+    font-family: 'Roboto', sans-serif;
+}
+.red {
+    color: red;
+}
+.green {
+    color: green;
+}
