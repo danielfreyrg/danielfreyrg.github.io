@@ -8,7 +8,10 @@ function calculate() {
     var totalInterest = 0
     var totalTax = 0
     var originalAmount = amount
-
+    var taxValues = [];
+    var interestValues = [];
+    var totalValues = [];
+    
 
     for (var i = 0; i < years; i++) {
         var currentInterest = total * (interest/12)
@@ -16,9 +19,67 @@ function calculate() {
         totalInterest += currentInterest
         totalTax += currentTax
         total += (currentInterest - currentTax) // Subtracts the tax from the interest before adding to the total
-        console.log(totalTax)
-
+        taxValues.push(totalTax);
+        interestValues.push(totalInterest);
+        totalValues.push(total);
+        
     }
+    var ctx = document.getElementById('myChart').getContext('2d');
+
+new Chart(ctx, {
+    type: 'line',
+    data: {
+        labels: [...Array(years).keys()].map(i => i+1), // labels are the months
+        datasets: [{
+            label: 'Tax',
+            data: taxValues,
+            borderColor: 'rgb(255, 99, 132)',
+            fill: false
+        }, {
+            label: 'Interest',
+            data: interestValues,
+            borderColor: 'rgb(54, 162, 235)',
+            fill: false
+        }, {
+            label: 'Total',
+            data: totalValues,
+            borderColor: 'rgb(75, 192, 192)',
+            fill: false
+        }]
+    },
+    options: {
+        responsive: true,
+        title: {
+            display: true,
+            text: 'Financial Overview'
+        },
+        tooltips: {
+            mode: 'index',
+            intersect: false,
+        },
+        hover: {
+            mode: 'nearest',
+            intersect: true
+        },
+        scales: {
+            x: {
+                display: true,
+                scaleLabel: {
+                    display: true,
+                    labelString: 'Month'
+                }
+            },
+            y: {
+                display: true,
+                scaleLabel: {
+                    display: true,
+                    labelString: 'Value'
+                }
+            }
+        }
+    }
+});
+
     
 
 
