@@ -1,0 +1,18 @@
+.input-container {
+    max-width:  50%;
+  display: grid;
+grid-template-columns: 1fr 1fr;
+  width: 100%;
+  margin-bottom: 15px;
+}
+input {
+    max-width: 100px;
+    margin-bottom: 20px;
+}
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}

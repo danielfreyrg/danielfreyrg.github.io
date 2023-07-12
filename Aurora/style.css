@@ -8,7 +8,7 @@
     opacity: 0;
     position: absolute;
     inset: 0;
-    background-image: url(images/himinn.png);
+    background-image: url(images/himinn.svg);
     background-size: cover;
     background-repeat: no-repeat;
     z-index: 0;
@@ -18,13 +18,15 @@
     opacity: 0;
     position: absolute;
     inset: 0;
-    background-image: url(images/klettur.png);
+    background-image: url(images/klettur.svg);
     background-size: 31%;
     background-position: 63% 54%;
     background-repeat: no-repeat;
     z-index: 2;
     -webkit-transform-origin: 64% 50%;
     transform-origin: 64% 50%;
+    transform: rotate(-10deg);
+    transition: transform 0.5s linear;
     /* animation: rug 7.5s linear infinite alternate; */
     
 }
@@ -50,7 +52,7 @@
     opacity: 0;
     position: absolute;
     inset: 0;
-    background-image: url(images/fish-top.png);
+    background-image: url(images/fish-top.svg);
     background-size: 10%;
     background-repeat: no-repeat;
     background-position: center 5%;
@@ -70,7 +72,7 @@
     opacity: 0;
     position: absolute;
     inset: 0;
-    background-image: url(images/Aurora-Seafood.png);
+    background-image: url(images/title.svg);
     background-size: 30%;
     background-repeat: no-repeat;
     background-position: center 20%;
