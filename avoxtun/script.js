@@ -64,7 +64,7 @@ if (isNaN(amount) || isNaN(tax) || isNaN(interest) || isNaN(years)) {
             }]
         },
         options: {
-            responsive: true,
+            // responsive: true,
             title: {
                 display: true,
                 text: 'Financial Overview'
@@ -108,12 +108,14 @@ if (isNaN(amount) || isNaN(tax) || isNaN(interest) || isNaN(years)) {
     let taxFormatted = formatISK(totalTax/years);
     let profit = formatISK(total - originalAmount);
     let monthlyProfit = formatISK(totalInterest/years - totalTax/years);
+    let totalTaxFormatted = formatISK(totalTax);
 
     document.getElementById('totalresult').innerHTML = "Heildarupphæð eftir " + years/12 + " ár: " + totalFormatted + "kr";
     document.getElementById('interestresult').innerHTML = "meðalvextir á mánuði: " + interestFormatted + "kr";
     document.getElementById('taxresult').innerHTML = "meðalskattur á mánuði: " + taxFormatted + "kr";
     document.getElementById('profitresult').innerHTML = "heildar hagnaður: " + profit + "kr";
     document.getElementById('monthlyprofit').innerHTML = "hagnaður á mánuði: " + monthlyProfit + "kr";
+    document.getElementById('totaltax').innerHTML = "heildar skattur: " + totalTaxFormatted + "kr";
 }
 
 // document.getElementById('submit').onclick = calculate;
