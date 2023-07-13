@@ -7,7 +7,7 @@ function formatIcelandic(amount) {
     return parts.join(',');
 }
 function formatISK(amount) {
-  const suffixes = ['', 'þúsund', 'milljón', 'milljarður', 'billjón', 'billjarður', 'trilljón', 'trilljarður', 'kvadrilljón', 'kvadrilljarður'];
+  const suffixes = ['', 'þúsund', 'milljónir', 'milljarður', 'billjón', 'billjarður', 'trilljón', 'trilljarður', 'kvadrilljón', 'kvadrilljarður'];
   let suffixIndex = 0;
   let originalAmount = amount;
 
