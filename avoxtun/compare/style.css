@@ -1,0 +1,49 @@
+.input-container {
+    max-width:  50%;
+  display: grid;
+grid-template-columns: 1fr 1fr;
+  width: 100%;
+  margin-bottom: 15px;
+  justify-items: stretch;
+}
+h1 {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    text-align: center;
+}
+input {
+    /* max-width: 100px; */
+    margin-bottom: 20px;
+    border-radius: 5px;
+    padding: 3px;
+    margin-left: 5px;
+}
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+.percent {
+    /* display: inline-flex;
+    justify-content: center; */
+}
+/* .content {
+    display: grid;
+    grid-auto-flow: column;
+    align-items: center;
+    grid-template-columns: 1fr 1fr;
+} */
+* {
+    font-family: 'Roboto', sans-serif;
+}
+.red {
+    color: red;
+}
+.green {
+    color: green;
+}
+canvas {
+    margin: 100px;
+}

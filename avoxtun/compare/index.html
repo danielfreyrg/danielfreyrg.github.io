@@ -3,14 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>´vöxtun</title>
+    <title>Ávöxtun</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <div>
+    <input type="checkbox" id="compare" checked>
+    <label for="compare">Compare with second value</label>
     <div class="input-container">
         <!-- inputs for the first investment -->
-        <h2>Investment 1</h2>
+        <!-- <h2>Investment 1</h2> -->
         <label for="years">Fjöldi ára</label>
         <input type="number" id="years1" value="2">
         <label for="interest">Vextir (prósenta)</label>
@@ -20,8 +23,7 @@
         <label for="amount">Upprunaleg upphæð</label>
         <input type="number" id="amount1" value="50000000">
 
-        <input type="checkbox" id="compare" checked>
-        <label for="compare">Compare with second value</label>
+
 
         <!-- inputs for the second investment -->
         <div id="investment2">
@@ -30,8 +32,9 @@
             <input type="number" id="amount2" value="76000000">
         </div>
     </div>
-    <canvas id="myChart"></canvas>
 </div>
+<canvas id="myChart"></canvas>
+
 
 <script>
     var myChart;
