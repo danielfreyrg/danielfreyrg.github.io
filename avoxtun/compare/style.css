@@ -1,10 +1,20 @@
 .input-container {
-    /* max-width:  50%; */
   display: grid;
-grid-template-columns: 1fr 1fr;
+grid-template-columns: 1fr;
   width: 100%;
   margin-bottom: 15px;
   justify-items: stretch;
+    align-items: center;
+}
+.investment-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    justify-items: stretch;
+    align-items: center;
+}
+label {
+    text-align: right;
 }
 h1 {
     grid-column-start: 1;
@@ -13,7 +23,6 @@ h1 {
 }
 input {
     /* max-width: 100px; */
-    margin-bottom: 20px;
     border-radius: 5px;
     padding: 3px;
     margin-left: 5px;
