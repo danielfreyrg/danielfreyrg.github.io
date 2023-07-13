@@ -48,9 +48,9 @@
             if (document.getElementById('compare').checked) {
                 result2 = calculate('2');
             } else {
-                result2 = { totalValues: [], interestValues: [], taxValues: [], profitValues: [], totalProfitValues: [] };
+                result2 = { totalValues: [], interestValues: [], taxValues: [], profitValues: [], totalProfitValues: [], currentProfitValues: [] };
             }
-            generateChart(result1.totalValues, result2.totalValues, result1.interestValues, result2.interestValues, result1.taxValues, result2.taxValues, result1.profitValues, result2.profitValues, result1.totalProfitValues, result2.totalProfitValues, result1.years);
+            generateChart(result1.totalValues, result2.totalValues, result1.interestValues, result2.interestValues, result1.taxValues, result2.taxValues, result1.profitValues, result2.profitValues, result1.totalProfitValues, result2.totalProfitValues, result1.currentProfitValues, result2.currentProfitValues, result1.years);
         }
 
         function calculate(suffix) {
@@ -67,6 +67,7 @@
             const interestValues = [];
             const profitValues = [];
             const totalProfitValues = [];
+            const currentProfitValues = [];
 
             for (let i = 0; i < years; i++) {
                 const currentInterest = total * (interest / 12);
@@ -79,12 +80,13 @@
                 totalValues.push(total);
                 profitValues.push(currentInterest - currentTax);
                 totalProfitValues.push(total - amount);
+                currentProfitValues.push(currentInterest - currentTax);
             }
 
-            return { totalValues, interestValues, taxValues, profitValues, totalProfitValues, years, tax, interest };
+            return { totalValues, interestValues, taxValues, profitValues, totalProfitValues, currentProfitValues, years, tax, interest };
         }
 
-        function generateChart(totalValues1, totalValues2, interestValues1, interestValues2, taxValues1, taxValues2, profitValues1, profitValues2, totalProfitValues1, totalProfitValues2, years) {
+        function generateChart(totalValues1, totalValues2, interestValues1, interestValues2, taxValues1, taxValues2, profitValues1, profitValues2, totalProfitValues1, totalProfitValues2, currentProfitValues1, currentProfitValues2, years) {
             const ctx = document.getElementById('myChart').getContext('2d');
 
             if (myChart) {
@@ -119,6 +121,11 @@
                         label: 'Total Profit 1',
                         data: totalProfitValues1,
                         borderColor: 'rgb(255, 206, 86)',
+                        fill: false
+                    }, {
+                        label: 'Current Profit 1',
+                        data: currentProfitValues1,
+                        borderColor: 'rgb(255, 159, 64)',
                         fill: false
                     }]
                 },
@@ -181,6 +188,11 @@
                     label: 'Total Profit 2',
                     data: totalProfitValues2,
                     borderColor: 'rgb(255, 206, 86)',
+                    fill: false
+                }, {
+                    label: 'Current Profit 2',
+                    data: currentProfitValues2,
+                    borderColor: 'rgb(255, 99, 132)',
                     fill: false
                 });
                 myChart.update();
