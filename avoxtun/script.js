@@ -97,11 +97,20 @@ if (isNaN(amount) || isNaN(tax) || isNaN(interest) || isNaN(years)) {
     });
 
     function formatISK(amount) {
-        let amountStr = amount.toFixed(2);
-        let parts = amountStr.split('.');
-        parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, '.');
-        return parts.join(',');
-    }
+        const suffixes = ['', 'þúsund', 'milljónir', 'milljarður', 'billjón', 'billjarður', 'trilljón', 'trilljarður', 'kvadrilljón', 'kvadrilljarður'];
+        let suffixIndex = 0;
+        let originalAmount = amount;
+      
+        while (amount >= 1000 && suffixIndex < suffixes.length - 1) {
+          amount /= 1000;
+          suffixIndex++;
+        }
+      
+        const formattedAmount = amount.toLocaleString('is-IS');
+        const textAmount = formattedAmount + ' ' + suffixes[suffixIndex];
+        const fullAmountText ='<span class="amount">' + originalAmount.toLocaleString('is-IS') + 'kr (' + textAmount + ') </span>';
+        return fullAmountText;
+      }
 
     let totalFormatted = formatISK(total);
     let interestFormatted = formatISK(totalInterest/years);
@@ -110,12 +119,12 @@ if (isNaN(amount) || isNaN(tax) || isNaN(interest) || isNaN(years)) {
     let monthlyProfit = formatISK(totalInterest/years - totalTax/years);
     let totalTaxFormatted = formatISK(totalTax);
 
-    document.getElementById('totalresult').innerHTML = "Heildarupphæð eftir " + years/12 + " ár: " + totalFormatted + "kr";
-    document.getElementById('interestresult').innerHTML = "meðalvextir á mánuði: " + interestFormatted + "kr";
-    document.getElementById('taxresult').innerHTML = "meðalskattur á mánuði: " + taxFormatted + "kr";
-    document.getElementById('profitresult').innerHTML = "heildar hagnaður: " + profit + "kr";
-    document.getElementById('monthlyprofit').innerHTML = "hagnaður á mánuði: " + monthlyProfit + "kr";
-    document.getElementById('totaltax').innerHTML = "heildar skattur: " + totalTaxFormatted + "kr";
+    document.getElementById('totalresult').innerHTML = "Heildarupphæð eftir " + years/12 + " ár: " + totalFormatted;
+    document.getElementById('interestresult').innerHTML = "meðalvextir á mánuði: " + interestFormatted;
+    document.getElementById('taxresult').innerHTML = "meðalskattur á mánuði: " + taxFormatted;
+    document.getElementById('profitresult').innerHTML = "heildar hagnaður: " + profit;
+    document.getElementById('monthlyprofit').innerHTML = "hagnaður á mánuði: " + monthlyProfit;
+    document.getElementById('totaltax').innerHTML = "heildar skattur: " + totalTaxFormatted;
 }
 
 // document.getElementById('submit').onclick = calculate;

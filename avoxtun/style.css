@@ -47,3 +47,6 @@ body {
 canvas {
     margin: 100px;
 }
+.amount {
+    font-weight: bold;
+}
