@@ -1,11 +1,12 @@
 var myChart; // Declare myChart as a global variable
 
 function formatIcelandic(amount) {
-    let amountStr = amount.toFixed(2);
-    let parts = amountStr.split('.');
-    parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, '.');
-    return parts.join(',');
+  let amountStr = amount.toFixed(2);
+  let parts = amountStr.split('.');
+  parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+  return parts.join(',');
 }
+
 function formatISK(amount) {
   const suffixes = ['', 'þúsund', 'milljónir', 'milljarður', 'billjón', 'billjarður', 'trilljón', 'trilljarður', 'kvadrilljón', 'kvadrilljarður'];
   let suffixIndex = 0;
@@ -18,22 +19,18 @@ function formatISK(amount) {
   let amountStr = amount.toFixed(2);
   let parts = amountStr.split('.');
   parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, '.');
-//   formattedAmount
-  const integerPart = Math.floor(amount).toLocaleString('is-IS');
-  const decimalPart = (amount % 1).toFixed(3).substring(2).replace('.', ',');
-//   const formattedAmount = integerPart + '.' + decimalPart;
-const formattedAmount =   parts.join(',');
+  const formattedAmount = parts.join(',');
 
   const textAmount = formattedAmount + ' ' + suffixes[suffixIndex];
-  const fullAmountText = formatIcelandic(originalAmount) + 'kr (' + textAmount + ')';
+  const fullAmountText = formatIcelandic(originalAmount) + 'kr' + (originalAmount > 999 ? ' (' + textAmount + ')' : '');
   return fullAmountText;
 }
 
 function calculate() {
-  var amount = parseFloat(document.getElementById('amount').value);
+  var amount = parseInt(document.getElementById('amount').value.replace(/\./g, ''));
   var tax = parseFloat(document.getElementById('tax').value) / 100;
   var interest = parseFloat(document.getElementById('interest').value) / 100;
-  var years = parseFloat(document.getElementById('years').value) * 12;
+  var years = parseInt(document.getElementById('years').value) * 12;
   var total = amount;
   var totalInterest = 0;
   var totalTax = 0;
@@ -146,8 +143,26 @@ function calculate() {
 }
 
 // document.getElementById('submit').onclick = calculate;
-document.getElementById('amount').onchange = calculate;
-document.getElementById('tax').onchange = calculate;
-document.getElementById('interest').onchange = calculate;
-document.getElementById('years').onchange = calculate;
+document.getElementById('amount').addEventListener('input', calculate);
+document.getElementById('tax').addEventListener('input', calculate);
+document.getElementById('interest').addEventListener('input', calculate);
+document.getElementById('years').addEventListener('input', calculate);
 window.onload = calculate;
+
+
+function formatInputValue(inputElement) {
+  const inputValue = inputElement.value.replace(/\./g, ''); // Remove existing dots
+  const formattedValue = inputValue.replace(/\B(?=(\d{3})+(?!\d))/g, '.'); // Add dots as thousands separator
+  inputElement.value = formattedValue;
+}
+
+const yearsInput = document.getElementById('years');
+const amountInput = document.getElementById('amount');
+
+yearsInput.addEventListener('input', function() {
+  formatInputValue(this);
+});
+
+amountInput.addEventListener('input', function() {
+  formatInputValue(this);
+});
