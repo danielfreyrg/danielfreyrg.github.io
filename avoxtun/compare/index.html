@@ -10,29 +10,51 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <div>
         <h1>Bera saman ávöxtun</h1>
-        <div class="input-container">
-            <label for="years">Fjöldi ára</label>
-            <input type="number" id="years" value="2">
-            <label for="interest">Vextir (prósenta)</label>
-            <input type="number" id="interest" value="8.25">
-            <label for="tax">Fjármagnstekjuskattur (prósenta)</label>
-            <input type="number" id="tax" value="22">
-            <label for="amount">Upprunaleg upphæð</label>
-            <input type="number" id="amount1" value="50000000">
-            <div id="investment2">
-                <h2>Fjárfesting 2</h2>
+        <div class="wrapper">
+            <div class="input-container">
+                <label for="years">Fjöldi ára</label>
+                <input type="number" id="years" value="2">
+                <label for="interest">Vextir (prósenta)</label>
+                <input type="number" id="interest" value="8.25">
+                <label for="tax">Fjármagnstekjuskattur (prósenta)</label>
+                <input type="number" id="tax" value="22">
                 <label for="amount">Upprunaleg upphæð</label>
-                <input type="number" id="amount2" value="76000000">
+                <input type="number" id="amount1" value="50000000">
+                <div id="investment2">
+                    <h2>Fjárfesting 2</h2>
+                    <label for="amount">Upprunaleg upphæð</label>
+                    <input type="number" id="amount2" value="76000000">
+                </div>
+            </div>
+            <div class="result-container">
+                <h2>Ávöxtun 1</h2>
+                <div class="results1">
+                    <p id="totalresult1"></p>
+                    <p id="interestresult1"></p>
+                    <p id="taxresult1"></p>
+                    <p id="totaltax1"></p>
+                </div>
+                <div class="results2">
+                    <h2>Ávöxtun 2</h2>
+                    <p id="totalresult2"></p>
+                    <p id="interestresult2"></p>
+                    <p id="taxresult2"></p>
+                    <p id="totaltax2"></p>
+                </div>
             </div>
         </div>
-        <input type="checkbox" id="compare" checked>
-        <label for="compare">Ber saman við önnur gildi</label>
-        <br/>
-        <input type="checkbox" id="toggleScale">
-        <label for="toggleScale">Skala frá núlli</label>
-        <br/>
-        <button id="disablePlots">Gera öll plott óvirk</button>
     </div>
+    <div class="checkbox-container">
+    <input type="checkbox" id="compare" checked>
+    <label for="compare">Bera saman við önnur gildi</label>
+</div>
+    <br/>
+    <div class="checkbox-container">
+    <input type="checkbox" id="toggleScale">
+    <label for="toggleScale">Skala frá núlli</label>
+</div>
+    <br/>
+    <button id="disablePlots">Gera öll gröf óvirk</button>
     <canvas id="myChart"></canvas>
     <script>
         let myChart;
@@ -47,15 +69,32 @@
             disableAllPlots();
         });
 
+        function formatISK(amount) {
+            let amountStr = amount.toFixed(2);
+            let parts = amountStr.split('.');
+            parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+            return parts.join(',');
+        }
+
         function calculateAndCompare() {
             const result1 = calculate('1');
             let result2;
             if (document.getElementById('compare').checked) {
                 result2 = calculate('2');
             } else {
-                result2 = { totalValues: [], interestValues: [], taxValues: [], profitValues: [], totalProfitValues: [], currentProfitValues: [] };
+                result2 = { totalValues: [], interestValues: [], taxValues: [], totalProfitValues: [] };
             }
-            generateChart(result1.totalValues, result2.totalValues, result1.interestValues, result2.interestValues, result1.taxValues, result2.taxValues, result1.profitValues, result2.profitValues, result1.totalProfitValues, result2.totalProfitValues, result1.currentProfitValues, result2.currentProfitValues, result1.years);
+            generateChart(result1.totalValues, result2.totalValues, result1.interestValues, result2.interestValues, result1.taxValues, result2.taxValues, result1.totalProfitValues, result2.totalProfitValues, result1.years);
+            updateResults(
+                result1.totalValues[result1.totalValues.length - 1],
+                result1.interestValues[result1.interestValues.length - 1] / result1.years,
+                result1.taxValues[result1.taxValues.length - 1] / result1.years,
+                result1.totalValues[result1.totalValues.length - 1] - result1.totalValues[0],
+                result2.totalValues[result2.totalValues.length - 1],
+                result2.interestValues[result2.interestValues.length - 1] / result2.years,
+                result2.taxValues[result2.taxValues.length - 1] / result2.years,
+                result2.totalValues[result2.totalValues.length - 1] - result2.totalValues[0]
+            );
         }
 
         function calculate(suffix) {
@@ -70,9 +109,7 @@
             const totalValues = [amount];
             const taxValues = [];
             const interestValues = [];
-            const profitValues = [];
             const totalProfitValues = [];
-            const currentProfitValues = [];
 
             for (let i = 0; i < years; i++) {
                 const currentInterest = total * (interest / 12);
@@ -83,126 +120,113 @@
                 taxValues.push(totalTax);
                 interestValues.push(totalInterest);
                 totalValues.push(total);
-                profitValues.push(currentInterest - currentTax);
                 totalProfitValues.push(total - amount);
-                currentProfitValues.push(currentInterest - currentTax);
             }
 
-            return { totalValues, interestValues, taxValues, profitValues, totalProfitValues, currentProfitValues, years, tax, interest };
+            return { totalValues, interestValues, taxValues, totalProfitValues, years, tax, interest };
         }
 
-        function generateChart(totalValues1, totalValues2, interestValues1, interestValues2, taxValues1, taxValues2, profitValues1, profitValues2, totalProfitValues1, totalProfitValues2, currentProfitValues1, currentProfitValues2, years) {
-            const ctx = document.getElementById('myChart').getContext('2d');
+        function generateChart(totalValues1, totalValues2, interestValues1, interestValues2, taxValues1, taxValues2, totalProfitValues1, totalProfitValues2, years) {
+  const ctx = document.getElementById('myChart').getContext('2d');
 
-            if (myChart) {
-                myChart.destroy();
-            }
+  if (myChart) {
+    myChart.destroy();
+  }
 
-            myChart = new Chart(ctx, {
-                type: 'line',
-                data: {
-                    labels: [...Array(years).keys()].map(i => i + 1),
-                    datasets: [{
-                        label: 'Heildarupphæð 1',
-                        data: totalValues1,
-                        borderColor: 'rgb(75, 192, 192)',
-                        fill: false
-                    }, {
-                        label: 'Vextir 1',
-                        data: interestValues1,
-                        borderColor: 'rgb(54, 162, 235)',
-                        fill: false
-                    }, {
-                        label: 'Fjármagnstekjuskattur 1',
-                        data: taxValues1,
-                        borderColor: 'rgb(255, 99, 132)',
-                        fill: false
-                    }, {
-                        label: 'Hagnaður á mánuði 1',
-                        data: profitValues1,
-                        borderColor: 'rgb(153, 102, 255)',
-                        fill: false
-                    }, {
-                        label: 'Heildarhagnaður 1',
-                        data: totalProfitValues1,
-                        borderColor: 'rgb(255, 206, 86)',
-                        fill: false
-                    }, {
-                        label: 'Núverandi hagnaður 1',
-                        data: currentProfitValues1,
-                        borderColor: 'rgb(255, 99, 132)',
-                        fill: false
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    title: {
-                        display: true,
-                        text: 'Fjárhagurleg áhorfun'
-                    },
-                    tooltips: {
-                        mode: 'index',
-                        intersect: false,
-                    },
-                    hover: {
-                        mode: 'nearest',
-                        intersect: true
-                    },
-                    scales: {
-                        x: {
-                            display: true,
-                            title: {
-                                display: true,
-                                text: 'Mánuðir'
-                            }
-                        },
-                        y: {
-                            display: true,
-                            title: {
-                                display: true,
-                                text: 'Upphæð'
-                            },
-                            beginAtZero: scaleFromZero
-                        }
-                    }
-                }
-            });
+  const datasets = [
+    {
+      label: 'Heildarupphæð 1',
+      data: totalValues1,
+      borderColor: 'rgb(75, 192, 192)',
+      fill: false
+    },
+    {
+      label: 'Heildarupphæð 2',
+      data: totalValues2,
+      borderColor: 'rgb(255, 159, 64)',
+      fill: false
+    },
+    {
+      label: 'Vextir 1',
+      data: interestValues1,
+      borderColor: 'rgb(54, 162, 235)',
+      fill: false
+    },
+    {
+      label: 'Vextir 2',
+      data: interestValues2,
+      borderColor: 'rgb(153, 102, 255)',
+      fill: false
+    },
+    {
+      label: 'Fjármagnstekjuskattur 1',
+      data: taxValues1,
+      borderColor: 'rgb(255, 99, 132)',
+      fill: false
+    },
+    {
+      label: 'Fjármagnstekjuskattur 2',
+      data: taxValues2,
+      borderColor: 'rgb(255, 99, 132)',
+      fill: false
+    },
+    {
+      label: 'Heildarhagnaður 1',
+      data: totalProfitValues1,
+      borderColor: 'rgb(255, 206, 86)',
+      fill: false
+    },
+    {
+      label: 'Heildarhagnaður 2',
+      data: totalProfitValues2,
+      borderColor: 'rgb(255, 206, 86)',
+      fill: false
+    }
+  ];
 
-            if (document.getElementById('compare').checked) {
-                myChart.data.datasets.push({
-                    label: 'Heildarupphæð 2',
-                    data: totalValues2,
-                    borderColor: 'rgb(255, 159, 64)',
-                    fill: false
-                }, {
-                    label: 'Vextir 2',
-                    data: interestValues2,
-                    borderColor: 'rgb(153, 102, 255)',
-                    fill: false
-                }, {
-                    label: 'Fjármagnstekjuskattur 2',
-                    data: taxValues2,
-                    borderColor: 'rgb(255, 99, 132)',
-                    fill: false
-                }, {
-                    label: 'Hagnaður á mánuði 2',
-                    data: profitValues2,
-                    borderColor: 'rgb(75, 192, 192)',
-                    fill: false
-                }, {
-                    label: 'Heildarhagnaður 2',
-                    data: totalProfitValues2,
-                    borderColor: 'rgb(255, 206, 86)',
-                    fill: false
-                }, {
-                    label: 'Núverandi hagnaður 2',
-                    data: currentProfitValues2,
-                    borderColor: 'rgb(255, 99, 132)',
-                    fill: false
-                });
-                myChart.update();
-            }
+  const chartData = {
+    labels: [...Array(years).keys()].map(i => i + 1),
+    datasets: datasets
+  };
+
+  myChart = new Chart(ctx, {
+    type: 'line',
+    data: chartData,
+    options: {
+      responsive: true,
+      title: {
+        display: true,
+        text: 'Fjárhagurleg áhorfun'
+      },
+      tooltips: {
+        mode: 'index',
+        intersect: false,
+      },
+      hover: {
+        mode: 'nearest',
+        intersect: true
+      },
+      scales: {
+        x: {
+          display: true,
+          title: {
+            display: true,
+            text: 'Mánuðir'
+          }
+        },
+        y: {
+          display: true,
+          title: {
+            display: true,
+            text: 'Upphæð'
+          },
+          beginAtZero: scaleFromZero
         }
+      }
+    }
+  });
+}
+
 
         function disableAllPlots() {
             if (myChart) {
@@ -211,6 +235,27 @@
                 });
                 myChart.update();
             }
+        }
+
+        function updateResults(total1, interest1, tax1, totalProfit1, total2, interest2, tax2, totalProfit2) {
+            const totalFormatted1 = formatISK(total1);
+            const interestFormatted1 = formatISK(interest1);
+            const taxFormatted1 = formatISK(tax1);
+            const totalProfitFormatted1 = formatISK(totalProfit1);
+            const totalFormatted2 = formatISK(total2);
+            const interestFormatted2 = formatISK(interest2);
+            const taxFormatted2 = formatISK(tax2);
+            const totalProfitFormatted2 = formatISK(totalProfit2);
+            var years = document.getElementById('years').value;
+
+            document.querySelector('.results1 #totalresult1').innerHTML = `Heildarupphæð 1 eftir ${years} ár: <span class="amount">${totalFormatted1}</span> kr`;
+            document.querySelector('.results1 #interestresult1').innerHTML = `Vextir 1: <span class="amount">${interestFormatted1}</span> kr`;
+            document.querySelector('.results1 #taxresult1').innerHTML = `Fjármagnstekjuskattur 1: <span class="amount">${taxFormatted1}</span> kr`;
+            document.querySelector('.results1 #totaltax1').innerHTML = `Heildarhagnaður 1: <span class="amount">${totalProfitFormatted1}</span> kr`;
+            document.querySelector('.results2 #totalresult2').innerHTML = `Heildarupphæð 2 eftir ${years} ár: <span class="amount">${totalFormatted2}</span> kr`;
+            document.querySelector('.results2 #interestresult2').innerHTML = `Vextir 2: <span class="amount">${interestFormatted2}</span> kr`;
+            document.querySelector('.results2 #taxresult2').innerHTML = `Fjármagnstekjuskattur 2: <span class="amount">${taxFormatted2}</span> kr`;
+            document.querySelector('.results2 #totaltax2').innerHTML = `Heildarhagnaður 2: <span class="amount">${totalProfitFormatted2}</span> kr`;
         }
 
         ['amount1', 'amount2', 'years', 'tax', 'interest', 'compare'].forEach(id => {
@@ -226,4 +271,3 @@
     </script>
 </body>
 </html>
-<!--  -->

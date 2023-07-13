@@ -51,3 +51,10 @@ body {
     max-width: 80%;
 margin: 100px;
 }
+.wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+.amount {
+    font-weight: bold;
+}
