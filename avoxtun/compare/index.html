@@ -31,6 +31,8 @@
         <br/>
         <input type="checkbox" id="toggleScale">
         <label for="toggleScale">Scale from Zero</label>
+        <br/>
+        <button id="disablePlots">Disable All Plots</button>
     </div>
     <canvas id="myChart"></canvas>
     <script>
@@ -40,6 +42,10 @@
         document.getElementById('toggleScale').addEventListener('change', function() {
             scaleFromZero = this.checked;
             calculateAndCompare();
+        });
+
+        document.getElementById('disablePlots').addEventListener('click', function() {
+            disableAllPlots();
         });
 
         function calculateAndCompare() {
@@ -177,7 +183,7 @@
                 }, {
                     label: 'Tax 2',
                     data: taxValues2,
-                    borderColor: 'rgb(255, 159, 64)',
+                    borderColor: 'rgb(255, 99, 132)',
                     fill: false
                 }, {
                     label: 'Profit per month 2',
@@ -194,6 +200,15 @@
                     data: currentProfitValues2,
                     borderColor: 'rgb(255, 99, 132)',
                     fill: false
+                });
+                myChart.update();
+            }
+        }
+
+        function disableAllPlots() {
+            if (myChart) {
+                myChart.data.datasets.forEach(dataset => {
+                    dataset.hidden = true;
                 });
                 myChart.update();
             }
