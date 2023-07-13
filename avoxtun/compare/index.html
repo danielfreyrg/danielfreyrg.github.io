@@ -8,181 +8,181 @@
 </head>
 <body>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<div>
-    <input type="checkbox" id="compare" checked>
-    <label for="compare">Compare with second value</label>
-    <div class="input-container">
-        <!-- inputs for the first investment -->
-        <!-- <h2>Investment 1</h2> -->
-        <label for="years">Fjöldi ára</label>
-        <input type="number" id="years1" value="2">
-        <label for="interest">Vextir (prósenta)</label>
-        <input type="number" id="interest1" value="8.25">
-        <label for="tax">Fjármagnstekjuskattur (prósenta)</label>
-        <input type="number" id="tax1" value="22">
-        <label for="amount">Upprunaleg upphæð</label>
-        <input type="number" id="amount1" value="50000000">
-
-
-
-        <!-- inputs for the second investment -->
-        <div id="investment2">
-            <h2>Investment 2</h2>
+    <div>
+        <div class="input-container">
+            <label for="years">Fjöldi ára</label>
+            <input type="number" id="years" value="2">
+            <label for="interest">Vextir (prósenta)</label>
+            <input type="number" id="interest" value="8.25">
+            <label for="tax">Fjármagnstekjuskattur (prósenta)</label>
+            <input type="number" id="tax" value="22">
             <label for="amount">Upprunaleg upphæð</label>
-            <input type="number" id="amount2" value="76000000">
+            <input type="number" id="amount1" value="50000000">
+            <div id="investment2">
+                <h2>Investment 2</h2>
+                <label for="amount">Upprunaleg upphæð</label>
+                <input type="number" id="amount2" value="76000000">
+            </div>
         </div>
+        <input type="checkbox" id="compare" checked>
+        <label for="compare">Compare with second value</label>
+        <br/>
+        <input type="checkbox" id="toggleScale">
+        <label for="toggleScale">Scale from Zero</label>
     </div>
-</div>
-<canvas id="myChart"></canvas>
+    <canvas id="myChart"></canvas>
+    <script>
+        let myChart;
+        let scaleFromZero = false;
 
+        document.getElementById('toggleScale').addEventListener('change', function() {
+            scaleFromZero = this.checked;
+            calculateAndCompare();
+        });
 
-<script>
-    var myChart;
-
-    function calculateAndCompare() {
-        const result1 = calculate('1');
-        var result2 = null;
-        if (document.getElementById('compare').checked) {
-            result2 = calculate('2', result1.years, result1.tax, result1.interest);
-        } else {
-            result2 = { totalValues: [], interestValues: [], taxValues: [], profitValues: [] };
-        }
-        generateChart(result1.totalValues, result2.totalValues, result1.interestValues, result2.interestValues, result1.taxValues, result2.taxValues, result1.profitValues, result2.profitValues, result1.years);
-    }
-
-    function calculate(suffix, years, tax, interest) {
-        var amount = parseFloat(document.getElementById('amount' + suffix).value);
-
-        if (suffix === '1') {
-            years = parseFloat(document.getElementById('years' + suffix).value) * 12;
-            tax = parseFloat(document.getElementById('tax' + suffix).value) / 100;
-            interest = parseFloat(document.getElementById('interest' + suffix).value) / 100;
+        function calculateAndCompare() {
+            const result1 = calculate('1');
+            let result2;
+            if (document.getElementById('compare').checked) {
+                result2 = calculate('2');
+            } else {
+                result2 = { totalValues: [], interestValues: [], taxValues: [], profitValues: [] };
+            }
+            generateChart(result1.totalValues, result2.totalValues, result1.interestValues, result2.interestValues, result1.taxValues, result2.taxValues, result1.profitValues, result2.profitValues, result1.years);
         }
 
-        var total = amount;
-        var totalInterest = 0;
-        var totalTax = 0;
-        var totalValues = [];
-        var taxValues = [];
-        var interestValues = [];
-        var profitValues = [];
+        function calculate(suffix) {
+            const amount = parseFloat(document.getElementById('amount' + suffix).value);
+            const years = parseFloat(document.getElementById('years').value) * 12;
+            const tax = parseFloat(document.getElementById('tax').value) / 100;
+            const interest = parseFloat(document.getElementById('interest').value) / 100;
 
-        for (var i = 0; i < years; i++) {
-            var currentInterest = total * (interest / 12);
-            var currentTax = currentInterest * tax;
-            totalInterest += currentInterest;
-            totalTax += currentTax;
-            total += (currentInterest - currentTax);
-            taxValues.push(totalTax);
-            interestValues.push(totalInterest);
-            totalValues.push(total);
-            profitValues.push(currentInterest - currentTax);
+            let total = amount;
+            let totalInterest = 0;
+            let totalTax = 0;
+            const totalValues = [];
+            const taxValues = [];
+            const interestValues = [];
+            const profitValues = [];
+
+            for (let i = 0; i < years; i++) {
+                const currentInterest = total * (interest / 12);
+                const currentTax = currentInterest * tax;
+                totalInterest += currentInterest;
+                totalTax += currentTax;
+                total += (currentInterest - currentTax);
+                taxValues.push(totalTax);
+                interestValues.push(totalInterest);
+                totalValues.push(total);
+                profitValues.push(currentInterest - currentTax);
+            }
+
+            return { totalValues, interestValues, taxValues, profitValues, years, tax, interest };
         }
 
-        return { totalValues, interestValues, taxValues, profitValues, years, tax, interest };
-    }
+        function generateChart(totalValues1, totalValues2, interestValues1, interestValues2, taxValues1, taxValues2, profitValues1, profitValues2, years) {
+            const ctx = document.getElementById('myChart').getContext('2d');
 
-    function generateChart(totalValues1, totalValues2, interestValues1, interestValues2, taxValues1, taxValues2, profitValues1, profitValues2, years) {
-        var ctx = document.getElementById('myChart').getContext('2d');
+            if (myChart) {
+                myChart.destroy();
+            }
 
-        if (myChart instanceof Chart) {
-            myChart.destroy();
-        }
-
-        myChart = new Chart(ctx, {
-            type: 'line',
-            data: {
-                labels: [...Array(years).keys()].map(i => i+1),
-                datasets: [{
-                    label: 'Total 1',
-                    data: totalValues1,
-                    borderColor: 'rgb(75, 192, 192)',
-                    fill: false
-                }, {
-                    label: 'Interest 1',
-                    data: interestValues1,
-                    borderColor: 'rgb(54, 162, 235)',
-                    fill: false
-                }, {
-                    label: 'Tax 1',
-                    data: taxValues1,
-                    borderColor: 'rgb(255, 99, 132)',
-                    fill: false
-                }, {
-                    label: 'Profit per month 1',
-                    data: profitValues1,
-                    borderColor: 'rgb(153, 102, 255)',
-                    fill: false
-                }]
-            },
-            options: {
-                responsive: true,
-                title: {
-                    display: true,
-                    text: 'Financial Overview'
+            myChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: [...Array(years).keys()].map(i => i+1),
+                    datasets: [{
+                        label: 'Total 1',
+                        data: totalValues1,
+                        borderColor: 'rgb(75, 192, 192)',
+                        fill: false
+                    }, {
+                        label: 'Interest 1',
+                        data: interestValues1,
+                        borderColor: 'rgb(54, 162, 235)',
+                        fill: false
+                    }, {
+                        label: 'Tax 1',
+                        data: taxValues1,
+                        borderColor: 'rgb(255, 99, 132)',
+                        fill: false
+                    }, {
+                        label: 'Profit per month 1',
+                        data: profitValues1,
+                        borderColor: 'rgb(153, 102, 255)',
+                        fill: false
+                    }]
                 },
-                tooltips: {
-                    mode: 'index',
-                    intersect: false,
-                },
-                hover: {
-                    mode: 'nearest',
-                    intersect: true
-                },
-                scales: {
-                    x: {
+                options: {
+                    responsive: true,
+                    title: {
                         display: true,
-                        title: {
-                            display: true,
-                            text: 'Mánuðir'
-                        }
+                        text: 'Financial Overview'
                     },
-                    y: {
-                        display: true,
-                        title: {
+                    tooltips: {
+                        mode: 'index',
+                        intersect: false,
+                    },
+                    hover: {
+                        mode: 'nearest',
+                        intersect: true
+                    },
+                    scales: {
+                        x: {
                             display: true,
-                            text: 'upphæð'
+                            title: {
+                                display: true,
+                                text: 'Mánuðir'
+                            }
+                        },
+                        y: {
+                            display: true,
+                            title: {
+                                display: true,
+                                text: 'upphæð'
+                            },
+                            beginAtZero: scaleFromZero
                         }
                     }
                 }
+            });
+
+            if (document.getElementById('compare').checked) {
+                myChart.data.datasets.push({
+                    label: 'Total 2',
+                    data: totalValues2,
+                    borderColor: 'rgb(255, 159, 64)',
+                    fill: false
+                }, {
+                    label: 'Interest 2',
+                    data: interestValues2,
+                    borderColor: 'rgb(153, 102, 255)',
+                    fill: false
+                }, {
+                    label: 'Tax 2',
+                    data: taxValues2,
+                    borderColor: 'rgb(255, 159, 64)',
+                    fill: false
+                }, {
+                    label: 'Profit per month 2',
+                    data: profitValues2,
+                    borderColor: 'rgb(75, 192, 192)',
+                    fill: false
+                });
+                myChart.update();
             }
+        }
+
+        ['amount1', 'amount2', 'years', 'tax', 'interest', 'compare'].forEach(id => {
+            document.getElementById(id).onchange = calculateAndCompare;
         });
 
-        if (document.getElementById('compare').checked) {
-            myChart.data.datasets.push({
-                label: 'Total 2',
-                data: totalValues2,
-                borderColor: 'rgb(255, 159, 64)',
-                fill: false
-            }, {
-                label: 'Interest 2',
-                data: interestValues2,
-                borderColor: 'rgb(153, 102, 255)',
-                fill: false
-            }, {
-                label: 'Tax 2',
-                data: taxValues2,
-                borderColor: 'rgb(255, 159, 64)',
-                fill: false
-            }, {
-                label: 'Profit per month 2',
-                data: profitValues2,
-                borderColor: 'rgb(75, 192, 192)',
-                fill: false
-            });
-            myChart.update();
-        }
-    }
+        document.getElementById('compare').onchange = function() {
+            document.getElementById('investment2').style.display = this.checked ? 'block' : 'none';
+            calculateAndCompare();
+        };
 
-    ['amount1', 'amount2', 'years1', 'tax1', 'interest1', 'compare'].forEach(id => {
-        document.getElementById(id).onchange = calculateAndCompare;
-    });
-
-    document.getElementById('compare').onchange = function() {
-        document.getElementById('investment2').style.display = this.checked ? 'block' : 'none';
         calculateAndCompare();
-    };
-</script>
-
+    </script>
 </body>
 </html>
