@@ -47,3 +47,7 @@ body {
 canvas {
     margin: 100px;
 }
+body {
+    max-width: 80%;
+margin: 100px;
+}
