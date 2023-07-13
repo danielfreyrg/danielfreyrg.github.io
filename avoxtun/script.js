@@ -156,12 +156,12 @@ function formatInputValue(inputElement) {
   inputElement.value = formattedValue;
 }
 
-const yearsInput = document.getElementById('years');
+// const yearsInput = document.getElementById('years');
 const amountInput = document.getElementById('amount');
 
-yearsInput.addEventListener('input', function() {
-  formatInputValue(this);
-});
+// yearsInput.addEventListener('input', function() {
+//   formatInputValue(this);
+// });
 
 amountInput.addEventListener('input', function() {
   formatInputValue(this);
