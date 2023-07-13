@@ -59,3 +59,12 @@ margin: 100px;
 .amount {
     font-weight: bold;
 }
+.amount2 {
+    transform: scaleY(1);
+    transition: all 0.5s ease-in-out;
+    transform-origin: top;
+}
+.hidden {
+    transform: scaleY(0);
+    transition: all 0.5s ease-in-out;
+}
