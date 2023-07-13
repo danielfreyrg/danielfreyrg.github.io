@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ávöxtun</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <div>
@@ -46,9 +48,9 @@
             if (document.getElementById('compare').checked) {
                 result2 = calculate('2');
             } else {
-                result2 = { totalValues: [], interestValues: [], taxValues: [], profitValues: [] };
+                result2 = { totalValues: [], interestValues: [], taxValues: [], profitValues: [], totalProfitValues: [] };
             }
-            generateChart(result1.totalValues, result2.totalValues, result1.interestValues, result2.interestValues, result1.taxValues, result2.taxValues, result1.profitValues, result2.profitValues, result1.years);
+            generateChart(result1.totalValues, result2.totalValues, result1.interestValues, result2.interestValues, result1.taxValues, result2.taxValues, result1.profitValues, result2.profitValues, result1.totalProfitValues, result2.totalProfitValues, result1.years);
         }
 
         function calculate(suffix) {
@@ -60,10 +62,11 @@
             let total = amount;
             let totalInterest = 0;
             let totalTax = 0;
-            const totalValues = [];
+            const totalValues = [amount];
             const taxValues = [];
             const interestValues = [];
             const profitValues = [];
+            const totalProfitValues = [];
 
             for (let i = 0; i < years; i++) {
                 const currentInterest = total * (interest / 12);
@@ -75,12 +78,13 @@
                 interestValues.push(totalInterest);
                 totalValues.push(total);
                 profitValues.push(currentInterest - currentTax);
+                totalProfitValues.push(total - amount);
             }
 
-            return { totalValues, interestValues, taxValues, profitValues, years, tax, interest };
+            return { totalValues, interestValues, taxValues, profitValues, totalProfitValues, years, tax, interest };
         }
 
-        function generateChart(totalValues1, totalValues2, interestValues1, interestValues2, taxValues1, taxValues2, profitValues1, profitValues2, years) {
+        function generateChart(totalValues1, totalValues2, interestValues1, interestValues2, taxValues1, taxValues2, profitValues1, profitValues2, totalProfitValues1, totalProfitValues2, years) {
             const ctx = document.getElementById('myChart').getContext('2d');
 
             if (myChart) {
@@ -90,7 +94,7 @@
             myChart = new Chart(ctx, {
                 type: 'line',
                 data: {
-                    labels: [...Array(years).keys()].map(i => i+1),
+                    labels: [...Array(years).keys()].map(i => i + 1),
                     datasets: [{
                         label: 'Total 1',
                         data: totalValues1,
@@ -110,6 +114,11 @@
                         label: 'Profit per month 1',
                         data: profitValues1,
                         borderColor: 'rgb(153, 102, 255)',
+                        fill: false
+                    }, {
+                        label: 'Total Profit 1',
+                        data: totalProfitValues1,
+                        borderColor: 'rgb(255, 206, 86)',
                         fill: false
                     }]
                 },
@@ -168,6 +177,11 @@
                     data: profitValues2,
                     borderColor: 'rgb(75, 192, 192)',
                     fill: false
+                }, {
+                    label: 'Total Profit 2',
+                    data: totalProfitValues2,
+                    borderColor: 'rgb(255, 206, 86)',
+                    fill: false
                 });
                 myChart.update();
             }
@@ -185,4 +199,5 @@
         calculateAndCompare();
     </script>
 </body>
+
 </html>
