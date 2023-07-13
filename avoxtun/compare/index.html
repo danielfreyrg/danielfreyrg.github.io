@@ -1,13 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="is">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ávöxtun</title>
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <div>
@@ -21,18 +19,18 @@
             <label for="amount">Upprunaleg upphæð</label>
             <input type="number" id="amount1" value="50000000">
             <div id="investment2">
-                <h2>Investment 2</h2>
+                <h2>Fjárfesting 2</h2>
                 <label for="amount">Upprunaleg upphæð</label>
                 <input type="number" id="amount2" value="76000000">
             </div>
         </div>
         <input type="checkbox" id="compare" checked>
-        <label for="compare">Compare with second value</label>
+        <label for="compare">Ber saman við önnur gildi</label>
         <br/>
         <input type="checkbox" id="toggleScale">
-        <label for="toggleScale">Scale from Zero</label>
+        <label for="toggleScale">Skala frá núlli</label>
         <br/>
-        <button id="disablePlots">Disable All Plots</button>
+        <button id="disablePlots">Gera öll plott óvirk</button>
     </div>
     <canvas id="myChart"></canvas>
     <script>
@@ -104,34 +102,34 @@
                 data: {
                     labels: [...Array(years).keys()].map(i => i + 1),
                     datasets: [{
-                        label: 'Total 1',
+                        label: 'Heildarupphæð 1',
                         data: totalValues1,
                         borderColor: 'rgb(75, 192, 192)',
                         fill: false
                     }, {
-                        label: 'Interest 1',
+                        label: 'Vextir 1',
                         data: interestValues1,
                         borderColor: 'rgb(54, 162, 235)',
                         fill: false
                     }, {
-                        label: 'Tax 1',
+                        label: 'Fjármagnstekjuskattur 1',
                         data: taxValues1,
                         borderColor: 'rgb(255, 99, 132)',
                         fill: false
                     }, {
-                        label: 'Profit per month 1',
+                        label: 'Hagnaður á mánuði 1',
                         data: profitValues1,
                         borderColor: 'rgb(153, 102, 255)',
                         fill: false
                     }, {
-                        label: 'Total Profit 1',
+                        label: 'Heildarhagnaður 1',
                         data: totalProfitValues1,
                         borderColor: 'rgb(255, 206, 86)',
                         fill: false
                     }, {
-                        label: 'Current Profit 1',
+                        label: 'Núverandi hagnaður 1',
                         data: currentProfitValues1,
-                        borderColor: 'rgb(255, 159, 64)',
+                        borderColor: 'rgb(255, 99, 132)',
                         fill: false
                     }]
                 },
@@ -139,7 +137,7 @@
                     responsive: true,
                     title: {
                         display: true,
-                        text: 'Financial Overview'
+                        text: 'Fjárhagurleg áhorfun'
                     },
                     tooltips: {
                         mode: 'index',
@@ -161,7 +159,7 @@
                             display: true,
                             title: {
                                 display: true,
-                                text: 'upphæð'
+                                text: 'Upphæð'
                             },
                             beginAtZero: scaleFromZero
                         }
@@ -171,32 +169,32 @@
 
             if (document.getElementById('compare').checked) {
                 myChart.data.datasets.push({
-                    label: 'Total 2',
+                    label: 'Heildarupphæð 2',
                     data: totalValues2,
                     borderColor: 'rgb(255, 159, 64)',
                     fill: false
                 }, {
-                    label: 'Interest 2',
+                    label: 'Vextir 2',
                     data: interestValues2,
                     borderColor: 'rgb(153, 102, 255)',
                     fill: false
                 }, {
-                    label: 'Tax 2',
+                    label: 'Fjármagnstekjuskattur 2',
                     data: taxValues2,
                     borderColor: 'rgb(255, 99, 132)',
                     fill: false
                 }, {
-                    label: 'Profit per month 2',
+                    label: 'Hagnaður á mánuði 2',
                     data: profitValues2,
                     borderColor: 'rgb(75, 192, 192)',
                     fill: false
                 }, {
-                    label: 'Total Profit 2',
+                    label: 'Heildarhagnaður 2',
                     data: totalProfitValues2,
                     borderColor: 'rgb(255, 206, 86)',
                     fill: false
                 }, {
-                    label: 'Current Profit 2',
+                    label: 'Núverandi hagnaður 2',
                     data: currentProfitValues2,
                     borderColor: 'rgb(255, 99, 132)',
                     fill: false
@@ -226,5 +224,4 @@
         calculateAndCompare();
     </script>
 </body>
-
 </html>
