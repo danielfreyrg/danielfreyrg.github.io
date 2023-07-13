@@ -41,7 +41,10 @@
                     <p id="interestresult1"></p>
                     <p id="taxresult1"></p>
                     <p id="totaltax1"></p>
+                    <p id="avginterest1"></p>
+                    <p id="avgtax1"></p>
                     <p id="monthlyprofit1"></p>
+
                 </div>
                 <div class="results2">
                     <h2>Ávöxtun 2</h2>
@@ -49,7 +52,10 @@
                     <p id="interestresult2"></p>
                     <p id="taxresult2"></p>
                     <p id="totaltax2"></p>
+                    <p id="avginterest2"></p>
+                    <p id="avgtax2"></p>
                     <p id="monthlyprofit2"></p>
+
                 </div>
             </div>
         </div>
@@ -79,25 +85,22 @@
           document.getElementById('disablePlots').addEventListener('click', function() {
             disableAllPlots();
           });
-function formatISK(amount) {
-  const suffixes = ['', 'þúsund', 'milljón', 'milljarður', 'billjón', 'billjarður', 'trilljón', 'trilljarður', 'kvadrilljón', 'kvadrilljarður'];
-  let suffixIndex = 0;
-  let originalAmount = amount;
-
-  while (amount >= 1000 && suffixIndex < suffixes.length - 1) {
-    amount /= 1000;
-    suffixIndex++;
-  }
-
-  const formattedAmount = amount.toLocaleString('is-IS');
-  const textAmount = formattedAmount + ' ' + suffixes[suffixIndex];
-  const fullAmountText = originalAmount.toLocaleString('is-IS') + 'kr (' + textAmount + ')';
-  return fullAmountText;
-}
-
-
-
-
+          
+          function formatISK(amount) {
+            const suffixes = ['', 'þúsund', 'milljón', 'milljarður', 'billjón', 'billjarður', 'trilljón', 'trilljarður', 'kvadrilljón', 'kvadrilljarður'];
+            let suffixIndex = 0;
+            let originalAmount = amount;
+          
+            while (amount >= 1000 && suffixIndex < suffixes.length - 1) {
+              amount /= 1000;
+              suffixIndex++;
+            }
+          
+            const formattedAmount = amount.toLocaleString('is-IS');
+            const textAmount = formattedAmount + ' ' + suffixes[suffixIndex];
+            const fullAmountText = originalAmount.toLocaleString('is-IS') + 'kr (' + textAmount + ')';
+            return fullAmountText;
+          }
 
           function calculateAndCompare() {
             const result1 = calculate('1');
@@ -105,17 +108,17 @@ function formatISK(amount) {
             if (document.getElementById('compare').checked) {
               result2 = calculate('2');
             } else {
-              result2 = { totalValues: [], interestValues: [], taxValues: [], totalProfitValues: [], years: 0 };
+              result2 = { totalValues: [], interestValues: [], taxValues: [], totalProfitValues: [], monthlyProfitValues: [], years: 0 };
             }
             generateChart([result1, result2]);
             updateResults(
               result1.totalValues[result1.totalValues.length - 1],
-              result1.interestValues[result1.interestValues.length - 1] / result1.years,
-              result1.taxValues[result1.taxValues.length - 1] / result1.years,
+              result1.interestValues[result1.interestValues.length - 1],
+              result1.taxValues[result1.taxValues.length - 1],
               result1.totalValues[result1.totalValues.length - 1] - result1.totalValues[0],
               result2.totalValues[result2.totalValues.length - 1],
-              result2.interestValues[result2.interestValues.length - 1] / result2.years,
-              result2.taxValues[result2.taxValues.length - 1] / result2.years,
+              result2.interestValues[result2.interestValues.length - 1],
+              result2.taxValues[result2.taxValues.length - 1],
               result2.totalValues[result2.totalValues.length - 1] - result2.totalValues[0]
             );
           }
@@ -133,10 +136,13 @@ function formatISK(amount) {
             const taxValues = [];
             const interestValues = [];
             const totalProfitValues = [];
+            const monthlyProfitValues = [];
 
             for (let i = 0; i < years; i++) {
               const currentInterest = total * (interest / 12);
               const currentTax = currentInterest * tax;
+              const monthlyProfit = currentInterest - currentTax;
+
               totalInterest += currentInterest;
               totalTax += currentTax;
               total += currentInterest - currentTax;
@@ -144,145 +150,246 @@ function formatISK(amount) {
               interestValues.push(totalInterest);
               totalValues.push(total);
               totalProfitValues.push(total - amount);
+              monthlyProfitValues.push(monthlyProfit);
             }
 
-            return { totalValues, interestValues, taxValues, totalProfitValues, years, tax, interest };
+            return { totalValues, interestValues, taxValues, totalProfitValues, monthlyProfitValues, years, tax, interest };
+          }
+
+          function calculateMonthlyProfitDifference(values1, values2) {
+            return values1.map((value, index) => value - values2[index]);
           }
 
           function generateChart(results) {
-  const ctx = document.getElementById('myChart').getContext('2d');
+            const ctx = document.getElementById('myChart').getContext('2d');
 
-  if (myChart) {
-    myChart.destroy();
-  }
-
-  const datasets = results.flatMap((result, index) => {
-    const suffix = index > 0 ? ` ${index + 1}` : '';
-    return [
-      {
-        label: `Heildarupphæð${suffix}`,
-        data: result.totalValues,
-        borderColor: 'rgb(75, 192, 192)',
-        fill: false
-      },
-      {
-        label: `Vextir${suffix}`,
-        data: result.interestValues,
-        borderColor: 'rgb(54, 162, 235)',
-        fill: false
-      },
-      {
-        label: `Fjármagnstekjuskattur${suffix}`,
-        data: result.taxValues,
-        borderColor: 'rgb(255, 99, 132)',
-        fill: false
-      },
-      {
-        label: `Heildarhagnaður${suffix}`,
-        data: result.totalProfitValues,
-        borderColor: 'rgb(255, 206, 86)',
-        fill: false
-      },
-      {
-        label: `Mánaðarlegur hagnaður${suffix}`,
-        data: result.totalProfitValues.map(profit => profit / result.years),
-        borderColor: 'rgb(153, 102, 255)',
-        fill: false
-      }
-    ];
-  });
-
-  const chartData = {
-    labels: [...Array(results[0].years).keys()].map(i => i + 1),
-    datasets: datasets
-  };
-
-  const investmentCount = results.length;
-  const chartTitle = investmentCount > 1 ? `Fjárhagurleg áhorfunt (Fjárfestingar: ${investmentCount})` : 'Fjárhagurleg áhorfunt';
-
-  myChart = new Chart(ctx, {
-    type: 'line',
-    data: chartData,
-    options: {
-      responsive: true,
-      title: {
-        display: true,
-        text: chartTitle
-      },
-      tooltips: {
-        mode: 'index',
-        intersect: false
-      },
-      hover: {
-        mode: 'nearest',
-        intersect: true
-      },
-      scales: {
-        x: {
-          display: true,
-          title: {
-            display: true,
-            text: 'Mánuðir'
-          }
-        },
-        y: {
-          display: true,
-          title: {
-            display: true,
-            text: 'Upphæð'
-          },
-          beginAtZero: scaleFromZero
-        }
-      }
-    }
-  });
-}
-
-
-
-          function disableAllPlots() {
             if (myChart) {
-              myChart.data.datasets.forEach(dataset => {
-                dataset.hidden = true;
-              });
-              myChart.update();
+              myChart.destroy();
+            }
+
+            const colors = [
+              'rgb(75, 192, 192)',
+              'rgb(54, 162, 235)',
+              'rgb(255, 99, 132)',
+              'rgb(255, 206, 86)',
+              'rgb(153, 102, 255)',
+              'rgb(255, 159, 64)',
+              'rgb(255, 159, 243)',
+              'rgb(61, 169, 255)',
+              'rgb(51, 204, 153)',
+              'rgb(204, 255, 153)',
+              'rgb(102, 153, 153)',
+              'rgb(128, 0, 128)',
+              'rgb(102, 0, 0)',
+              'rgb(0, 0, 153)',
+              'rgb(255, 0, 0)',
+              'rgb(0, 0, 102)',
+              'rgb(102, 102, 153)',
+              'rgb(204, 204, 0)',
+              'rgb(255, 204, 153)',
+              'rgb(0, 153, 0)',
+              'rgb(153, 102, 0)',
+              'rgb(51, 0, 51)',
+              'rgb(51, 102, 0)',
+              'rgb(153, 0, 0)',
+              'rgb(204, 0, 204)',
+              'rgb(204, 204, 204)',
+              'rgb(255, 153, 51)',
+              'rgb(255, 255, 102)',
+              'rgb(204, 0, 0)',
+              'rgb(255, 0, 255)',
+              'rgb(0, 0, 0)',
+              'rgb(102, 102, 102)',
+              'rgb(255, 255, 0)',
+              'rgb(255, 0, 102)',
+              'rgb(0, 102, 0)',
+              'rgb(102, 0, 102)',
+              'rgb(0, 255, 255)',
+              'rgb(153, 204, 255)',
+              'rgb(0, 255, 0)',
+              'rgb(102, 51, 0)',
+              'rgb(204, 204, 255)',
+              'rgb(0, 204, 0)',
+              'rgb(0, 51, 102)',
+              'rgb(153, 153, 255)',
+              'rgb(255, 255, 204)',
+              'rgb(0, 153, 153)',
+              'rgb(51, 0, 0)',
+              'rgb(51, 0, 153)',
+              'rgb(153, 0, 153)',
+              'rgb(204, 153, 255)',
+              'rgb(204, 255, 204)',
+              'rgb(51, 51, 102)',
+              'rgb(255, 255, 153)',
+              'rgb(255, 153, 153)',
+              'rgb(255, 204, 255)',
+              'rgb(153, 51, 51)',
+              'rgb(204, 204, 153)',
+              'rgb(204, 255, 102)',
+              'rgb(0, 204, 204)',
+              'rgb(102, 0, 51)',
+              'rgb(153, 0, 204)',
+              'rgb(204, 153, 153)',
+              'rgb(153, 153, 204)',
+              'rgb(153, 255, 204)',
+              'rgb(255, 255, 255)'
+            ];
+
+            const datasets = results.flatMap((result, index) => {
+              const suffix = index > 0 ? ` ${index + 1}` : '';
+              const colorIndex = index * 6;
+
+              const differenceValues = calculateMonthlyProfitDifference(result.monthlyProfitValues, results[0].monthlyProfitValues);
+
+              return [
+                {
+                  label: `Heildarupphæð${suffix}`,
+                  data: result.totalValues,
+                  borderColor: colors[colorIndex],
+                  fill: false
+                },
+                {
+                  label: `Vextir${suffix}`,
+                  data: result.interestValues,
+                  borderColor: colors[colorIndex + 1],
+                  fill: false
+                },
+                {
+                  label: `Fjármagnstekjuskattur${suffix}`,
+                  data: result.taxValues,
+                  borderColor: colors[colorIndex + 2],
+                  fill: false
+                },
+                {
+                  label: `Heildarhagnaður${suffix}`,
+                  data: result.totalProfitValues,
+                  borderColor: colors[colorIndex + 3],
+                  fill: false
+                },
+                {
+                  label: `Mánaðarlegur hagnaður${suffix}`,
+                  data: result.monthlyProfitValues,
+                  borderColor: colors[colorIndex + 4],
+                  fill: false
+                }
+              ].concat(
+                index > 0
+                  ? [
+                      {
+                        label: `Mánaðarlegur hagnaður mismunur`,
+                        data: differenceValues,
+                        borderColor: colors[colorIndex + 5],
+                        fill: false
+                      }
+                    ]
+                  : []
+              );
+            });
+
+            const chartData = {
+              labels: [...Array(results[0].years).keys()].map(i => i + 1),
+              datasets: datasets
+            };
+
+            const investmentCount = results.length;
+            const chartTitle = investmentCount > 1 ? `Fjárhagurleg áhorfunt (Fjárfestingar: ${investmentCount})` : 'Fjárhagurleg áhorfunt';
+
+            myChart = new Chart(ctx, {
+              type: 'line',
+              data: chartData,
+              options: {
+                responsive: true,
+                title: {
+                  display: true,
+                  text: chartTitle
+                },
+                tooltips: {
+                  mode: 'index',
+                  intersect: false
+                },
+                hover: {
+                  mode: 'nearest',
+                  intersect: true
+                },
+                scales: {
+                  x: {
+                    display: true,
+                    title: {
+                      display: true,
+                      text: 'Mánuðir'
+                    }
+                  },
+                  y: {
+                    display: true,
+                    title: {
+                      display: true,
+                      text: 'Upphæð'
+                    },
+                    beginAtZero: scaleFromZero
+                  }
+                }
+              }
+            });
+          }
+
+          function updateResults(
+            total1,
+            interest1,
+            tax1,
+            totalProfit1,
+            total2,
+            interest2,
+            tax2,
+            totalProfit2
+          ) {
+            const totalResult1 = document.getElementById('totalresult1');
+            const interestResult1 = document.getElementById('interestresult1');
+            const taxResult1 = document.getElementById('taxresult1');
+            const totalTax1 = document.getElementById('totaltax1');
+            const avgInterest1 = document.getElementById('avginterest1');
+            const avgTax1 = document.getElementById('avgtax1');
+            const monthlyProfit1 = document.getElementById('monthlyprofit1');
+
+            totalResult1.textContent = 'Heildarupphæð: ' + formatISK(total1);
+            interestResult1.textContent = 'Vextir: ' + formatISK(interest1);
+            taxResult1.textContent = 'Fjármagnstekjuskattur: ' + formatISK(tax1);
+            totalTax1.textContent = 'Samtals fjármagnstekjuskattur: ' + formatISK(totalProfit1);
+            avgInterest1.textContent = 'Meðalvextir á mánuði: ' + formatISK(interest1 / (years * 12));
+            avgTax1.textContent = 'Meðalfjármagnstekjuskattur á mánuði: ' + formatISK(tax1 / (years * 12));
+            monthlyProfit1.textContent = 'Mánaðarlegur hagnaður: ' + formatISK(totalProfit1 / (years * 12));
+
+            if (document.getElementById('compare').checked) {
+              const totalResult2 = document.getElementById('totalresult2');
+              const interestResult2 = document.getElementById('interestresult2');
+              const taxResult2 = document.getElementById('taxresult2');
+              const totalTax2 = document.getElementById('totaltax2');
+              const avgInterest2 = document.getElementById('avginterest2');
+              const avgTax2 = document.getElementById('avgtax2');
+              const monthlyProfit2 = document.getElementById('monthlyprofit2');
+
+              totalResult2.textContent = 'Heildarupphæð: ' + formatISK(total2);
+              interestResult2.textContent = 'Vextir: ' + formatISK(interest2);
+              taxResult2.textContent = 'Fjármagnstekjuskattur: ' + formatISK(tax2);
+              totalTax2.textContent = 'Samtals fjármagnstekjuskattur: ' + formatISK(totalProfit2);
+              avgInterest2.textContent = 'Meðalvextir á mánuði: ' + formatISK(interest2 / (years * 12));
+              avgTax2.textContent = 'Meðalfjármagnstekjuskattur á mánuði: ' + formatISK(tax2 / (years * 12));
+              monthlyProfit2.textContent = 'Mánaðarlegur hagnaður: ' + formatISK(totalProfit2 / (years * 12));
             }
           }
 
-          function updateResults(total1, interest1, tax1, totalProfit1, total2, interest2, tax2, totalProfit2) {
-  const totalFormatted1 = formatISK(total1);
-  const interestFormatted1 = formatISK(interest1);
-  const taxFormatted1 = formatISK(tax1);
-  const totalProfitFormatted1 = formatISK(totalProfit1);
-  const totalFormatted2 = formatISK(total2);
-  const interestFormatted2 = formatISK(interest2);
-  const taxFormatted2 = formatISK(tax2);
-  const totalProfitFormatted2 = formatISK(totalProfit2);
-  const years = document.getElementById('years1').value;
-  const monthlyprofit1Formatted = formatISK(totalProfit1 / (parseFloat(years) * 12));
-  const monthlyprofit2Formatted = formatISK(totalProfit2 / (parseFloat(years) * 12));
-
-  document.querySelector('.results1 #totalresult1').innerHTML = `Heildarupphæð eftir ${years} ár: <span class="amount">${totalFormatted1}</span>`;
-  document.querySelector('.results1 #interestresult1').innerHTML = `Samtals vextir eftir ${years} ár: <span class="amount">${interestFormatted1}</span>`;
-  document.querySelector('.results1 #taxresult1').innerHTML = `Samtals fjármagnstekjuskattur eftir ${years} ár: <span class="amount">${taxFormatted1}</span>`;
-  document.querySelector('.results1 #totaltax1').innerHTML = `Heildarhagnaður eftir ${years} ár: <span class="amount">${totalProfitFormatted1}</span>`;
-  document.querySelector('.results2 #totalresult2').innerHTML = `Heildarupphæð eftir ${years} ár: <span class="amount">${totalFormatted2}</span>`;
-  document.querySelector('.results2 #interestresult2').innerHTML = `Samtals vextir eftir ${years} ár: <span class="amount">${interestFormatted2}</span>`;
-  document.querySelector('.results2 #taxresult2').innerHTML = `Samtals fjármagnstekjuskattur eftir ${years} ár: <span class="amount">${taxFormatted2}</span>`;
-  document.querySelector('.results2 #totaltax2').innerHTML = `Heildarhagnaður eftir ${years} ár: <span class="amount">${totalProfitFormatted2}</span>`;
-  document.querySelector('.results1 #monthlyprofit1').innerHTML = `Mánaðarlegur hagnaður: <span class="amount">${monthlyprofit1Formatted}</span>`;
-  document.querySelector('.results2 #monthlyprofit2').innerHTML = `Mánaðarlegur hagnaður: <span class="amount">${monthlyprofit2Formatted}</span>`;
+          function disableAllPlots() {
+  if (myChart) {
+    myChart.data.datasets.forEach(dataset => {
+      dataset.hidden = true;
+    });
+    myChart.update();
+  }
+  const checkboxes = document.querySelectorAll('input[type=checkbox]:not(#disablePlots)');
+  checkboxes.forEach(checkbox => {
+    checkbox.checked = false;
+  });
 }
 
-
-          ['amount1', 'amount2', 'years1', 'years2', 'tax1', 'interest1', 'tax2', 'interest2', 'compare'].forEach(id => {
-            document.getElementById(id).addEventListener('change', calculateAndCompare);
-          });
-
-          document.getElementById('compare').addEventListener('change', function() {
-            document.getElementById('investment2').style.display = this.checked ? 'block' : 'none';
-            calculateAndCompare();
-          });
 
           calculateAndCompare();
         });
