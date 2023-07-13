@@ -33,6 +33,7 @@
                     <p id="interestresult1"></p>
                     <p id="taxresult1"></p>
                     <p id="totaltax1"></p>
+                    <p id="monthlyprofit1"></p>
                 </div>
                 <div class="results2">
                     <h2>Ávöxtun 2</h2>
@@ -40,6 +41,7 @@
                     <p id="interestresult2"></p>
                     <p id="taxresult2"></p>
                     <p id="totaltax2"></p>
+                    <p id="monthlyprofit2"></p>
                 </div>
             </div>
         </div>
@@ -247,15 +249,20 @@
             const taxFormatted2 = formatISK(tax2);
             const totalProfitFormatted2 = formatISK(totalProfit2);
             var years = document.getElementById('years').value;
+            const monthlyprofit1Formatted = formatISK(totalProfit1 / (years * 12));
+            const monthlyprofit2Formatted = formatISK(totalProfit2 / (years * 12));
+            
 
             document.querySelector('.results1 #totalresult1').innerHTML = `Heildarupphæð 1 eftir ${years} ár: <span class="amount">${totalFormatted1}</span> kr`;
-            document.querySelector('.results1 #interestresult1').innerHTML = `Vextir 1: <span class="amount">${interestFormatted1}</span> kr`;
-            document.querySelector('.results1 #taxresult1').innerHTML = `Fjármagnstekjuskattur 1: <span class="amount">${taxFormatted1}</span> kr`;
-            document.querySelector('.results1 #totaltax1').innerHTML = `Heildarhagnaður 1: <span class="amount">${totalProfitFormatted1}</span> kr`;
+            document.querySelector('.results1 #interestresult1').innerHTML = `Samtals vextir 1 eftir ${years} ár: <span class="amount">${interestFormatted1}</span> kr`;
+            document.querySelector('.results1 #taxresult1').innerHTML = `Samtals fjármagnstekjuskattur 1 eftir ${years} ár: <span class="amount">${taxFormatted1}</span> kr`;
+            document.querySelector('.results1 #totaltax1').innerHTML = `Heildarhagnaður 1 eftir ${years} ár: <span class="amount">${totalProfitFormatted1}</span> kr`;
             document.querySelector('.results2 #totalresult2').innerHTML = `Heildarupphæð 2 eftir ${years} ár: <span class="amount">${totalFormatted2}</span> kr`;
-            document.querySelector('.results2 #interestresult2').innerHTML = `Vextir 2: <span class="amount">${interestFormatted2}</span> kr`;
-            document.querySelector('.results2 #taxresult2').innerHTML = `Fjármagnstekjuskattur 2: <span class="amount">${taxFormatted2}</span> kr`;
-            document.querySelector('.results2 #totaltax2').innerHTML = `Heildarhagnaður 2: <span class="amount">${totalProfitFormatted2}</span> kr`;
+            document.querySelector('.results2 #interestresult2').innerHTML = `Samtals vextir 2  eftir ${years} ár: <span class="amount">${interestFormatted2}</span> kr`;
+            document.querySelector('.results2 #taxresult2').innerHTML = `Samtals fjármagnstekjuskattur 2 eftir ${years} ár: <span class="amount">${taxFormatted2}</span> kr`;
+            document.querySelector('.results2 #totaltax2').innerHTML = `Heildarhagnaður 2 eftir ${years} ár: <span class="amount">${totalProfitFormatted2}</span> kr`;
+            document.querySelector('.results1 #monthlyprofit1').innerHTML = `Mánaðarlegur hagnaður 1: <span class="amount">${monthlyprofit1Formatted}</span> kr`;
+            document.querySelector('.results2 #monthlyprofit2').innerHTML = `Mánaðarlegur hagnaður 2: <span class="amount">${monthlyprofit2Formatted}</span> kr`;
         }
 
         ['amount1', 'amount2', 'years', 'tax', 'interest', 'compare'].forEach(id => {
