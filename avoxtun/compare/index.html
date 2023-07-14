@@ -236,55 +236,48 @@ function generateChart(results) {
     'rgb(255, 255, 255)'
   ];
 
-  const datasets = results.flatMap((result, index) => {
-    const suffix = index > 0 ? ` ${index + 1}` : '';
-    const colorIndex = index * 6;
+  const datasetTypes = [
+    {
+      label: 'Heildarupphæð',
+      dataKey: 'totalValues'
+    },
+    {
+      label: 'Vextir',
+      dataKey: 'interestValues'
+    },
+    {
+      label: 'Fjármagnstekjuskattur',
+      dataKey: 'taxValues'
+    },
+    {
+      label: 'Heildarhagnaður',
+      dataKey: 'totalProfitValues'
+    },
+    {
+      label: 'Mánaðarlegur hagnaður',
+      dataKey: 'monthlyProfitValues'
+    },
+    {
+      label: 'Mismunur í mánaðarlegum hagnaði',
+      dataKey: 'differenceValues'
+    },
+  ];
 
-    const differenceValues = calculateMonthlyProfitDifference(result.monthlyProfitValues, results[0].monthlyProfitValues);
+  const datasets = datasetTypes.flatMap((datasetType, typeIndex) => {
+    return results.flatMap((result, index) => {
+      const colorIndex = index * 6 + typeIndex;
+      const suffix = index > 0 ? ` ${index + 1}` : '';
+      const data = datasetType.dataKey === 'differenceValues' && index > 0
+        ? calculateMonthlyProfitDifference(result.monthlyProfitValues, results[0].monthlyProfitValues)
+        : result[datasetType.dataKey];
 
-    return [
-      {
-        label: `Heildarupphæð${suffix}`,
-        data: result.totalValues,
+      return data ? [{
+        label: `${datasetType.label}${suffix}`,
+        data,
         borderColor: colors[colorIndex],
         fill: false
-      },
-      {
-        label: `Vextir${suffix}`,
-        data: result.interestValues,
-        borderColor: colors[colorIndex + 1],
-        fill: false
-      },
-      {
-        label: `Fjármagnstekjuskattur${suffix}`,
-        data: result.taxValues,
-        borderColor: colors[colorIndex + 2],
-        fill: false
-      },
-      {
-        label: `Heildarhagnaður${suffix}`,
-        data: result.totalProfitValues,
-        borderColor: colors[colorIndex + 3],
-        fill: false
-      },
-      {
-        label: `Mánaðarlegur hagnaður${suffix}`,
-        data: result.monthlyProfitValues,
-        borderColor: colors[colorIndex + 4],
-        fill: false
-      }
-    ].concat(
-      index > 0
-        ? [
-            {
-              label: `Mismunur í mánaðarlegum hagnaði`,
-              data: differenceValues,
-              borderColor: colors[colorIndex + 5],
-              fill: false
-            }
-          ]
-        : []
-    );
+      }] : [];
+    });
   });
 
   const chartData = {
@@ -332,7 +325,6 @@ function generateChart(results) {
     }
   });
 }
-
 
           function disableAllPlots() {
             if (myChart) {
