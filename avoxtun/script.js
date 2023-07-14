@@ -109,7 +109,7 @@ function calculate() {
           display: true,
           title: {
             display: true,
-            text: 'Mánuðir'
+            text: (monthly ? "mánuðir" : "ár")
           }
         },
         y: {
