@@ -1,5 +1,5 @@
 var myChart; // Declare myChart as a global variable
-
+var monthly = document.getElementById('monthly').checked;
 function formatIcelandic(amount) {
   let amountStr = amount.toFixed(2);
   let parts = amountStr.split('.');
@@ -30,7 +30,7 @@ function calculate() {
   var amount = parseInt(document.getElementById('amount').value.replace(/\./g, ''));
   var tax = parseFloat(document.getElementById('tax').value) / 100;
   var interest = parseFloat(document.getElementById('interest').value) / 100;
-  var years = parseInt(document.getElementById('years').value) * 12;
+  var years = parseInt(document.getElementById('years').value) * (monthly ? 12 : 1);
   var total = amount;
   var totalInterest = 0;
   var totalTax = 0;
@@ -45,7 +45,8 @@ function calculate() {
   }
   for (var i = 0; i < years; i++) {
     difference = total;
-    var currentInterest = total * (interest / 12);
+    var currentInterest = total * (interest / (monthly ? 12 : 1));
+    console.log('interest: '+interest / (monthly ? 12 : 1));
     var currentTax = currentInterest * tax;
     totalInterest += currentInterest;
     totalTax += currentTax;
@@ -134,7 +135,7 @@ function calculate() {
   let monthlyProfit = formatISK(totalInterest / years - totalTax / years);
   let totalTaxFormatted = formatISK(totalTax);
 
-  document.getElementById('totalresult').innerHTML = "Heildarupphæð eftir " + years / 12 + " ár: " + totalFormatted;
+  document.getElementById('totalresult').innerHTML = "Heildarupphæð eftir " + years / (monthly ? 12 : 1) + " ár: " + totalFormatted;
   document.getElementById('interestresult').innerHTML = "meðalvextir á mánuði: " + interestFormatted;
   document.getElementById('taxresult').innerHTML = "meðalskattur á mánuði: " + taxFormatted;
   document.getElementById('profitresult').innerHTML = "heildar hagnaður: " + profit;
@@ -147,6 +148,7 @@ document.getElementById('amount').addEventListener('input', calculate);
 document.getElementById('tax').addEventListener('input', calculate);
 document.getElementById('interest').addEventListener('input', calculate);
 document.getElementById('years').addEventListener('input', calculate);
+document.getElementById('monthly').addEventListener('change', calculate);
 window.onload = calculate;
 
 
@@ -166,3 +168,9 @@ const amountInput = document.getElementById('amount');
 amountInput.addEventListener('input', function() {
   formatInputValue(this);
 });
+
+document.getElementById('monthly').addEventListener('change', function() {
+  monthly = this.checked;
+  calculate();
+}
+);
