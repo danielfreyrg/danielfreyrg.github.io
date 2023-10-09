@@ -136,7 +136,7 @@ function spin(d) {
     
     
     // audioElement.play();
-    playPegHitSound();
+    playPegHitSound(0);
     vis.transition()
         .duration(spinDuration)
         .ease("bounce")
