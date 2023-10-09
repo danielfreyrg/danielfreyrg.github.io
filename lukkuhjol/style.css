@@ -1,0 +1,62 @@
+text{
+    color:  white;
+    font-family:Helvetica, Arial, sans-serif;
+    font-size:16px;
+    pointer-events:none;
+}
+#chart{
+ 
+}
+#prize{
+display: grid;
+grid-auto-flow: row;
+}
+#prize h1{
+    font-size: 50px;
+    font-weight: bold;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+.wheel-container {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    grid-auto-flow: row;
+    text-align: center;
+}
+/* Mobile Styles */
+@media only screen and (max-width: 767px) {
+    #chart {
+        width: 100%;
+        max-width: 450px;
+        margin: 0 auto;
+    }
+
+    #prize h1 {
+        font-size: 16px;
+    }
+
+    #prize img {
+        max-width: 60px;
+        display: block;
+        margin: 0 auto;
+    }
+}
+
+/* Tablet and Desktop Styles */
+@media only screen and (min-width: 768px) {
+    #chart {
+        width: 100%;
+        max-width: 750px;
+        margin: 0 auto;
+    }
+
+    #prize h1 {
+        font-size: 24px;
+    }
+
+    #prize img {
+        max-width: 100px;
+        display: block;
+        margin: 0 auto;
+    }
+}
