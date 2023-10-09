@@ -20,13 +20,13 @@ var padding = {top:20, right: paddingRight, bottom:0, left:0};
         
             var data = [
                     {"label":"BÍLL",  "value":1,  "question":"ÞÚ VANNST NÝJAN BÍL", "src": "bill.png"}, 
-                    {"label":"ÓHEPPNI",  "value":2,  "question":"ÞÚ ERT LOSER", "src": ""}, 
+                    {"label":"ÓHEPPNI",  "value":2,  "question":"ADIOS AMIGO", "src": ""}, 
                     {"label":"SÚKKULAÐI",  "value":3,  "question":"SÚKKULAÐI", "src": "kitkat.png"},
                     {"label":"SORRY",  "value":4,  "question":"ÞÚ ERT LOSER", "src": ""}, //font-weight
                     {"label":"SÚKKULAÐI",  "value":5,  "question":"ÞÚ VANNST GLÆNÝTT SÚKKULAÐI", "src": "kitkat.png"}, 
-                    {"label":"ENGIN VINNINGUR",  "value":6,  "question":"ÞÚ ERT LOSER", "src": ""}, 
+                    {"label":"ENGIN VINNINGUR",  "value":6,  "question":"KANNSKI Í NÆSTA LÍFI AUMINGI", "src": ""}, 
                     {"label":"SÚKKULAÐI",  "value":7,  "question":"PRETTYBOYTJOKKO", "src": "kitkat.png"},
-                    {"label":"AFSAKIÐ",  "value":8,  "question":"ÞÚ ERT LOSER", "src": ""},
+                    {"label":"AFSAKIÐ",  "value":8,  "question":"TIL AÐ SNÚA AFTUR LEGGÐU 5000KR INN Á RKNR: 511-14-25266, KT: 020498-2859", "src": ""},
         ];
         function easeInOutBack(x) {
             return Math.sqrt(1 - Math.pow(x - 1, 2));
@@ -128,6 +128,7 @@ arcs.each(function(d, i) {
         
             rotation = (Math.round(rng / ps) * ps);
             picked = Math.round(data.length - (rotation % 360)/ps);
+            console.log(picked)
             picked = picked >= data.length ? (picked % data.length) : picked;
         
             rotation += 90 - Math.round(ps/2);
@@ -137,7 +138,8 @@ arcs.each(function(d, i) {
         
             vis.transition()
             .duration(spinDuration) // Use the random spin duration
-            .ease("bounce") // Use the custom easing function
+            .ease("bounce") 
+            // .ease("cubic-in-out")
             .attrTween("transform", rotTween)
             .each("end", function(){
                 d3.select("#prize h1")
