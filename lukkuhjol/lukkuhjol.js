@@ -12,7 +12,7 @@ var w = baseSize - padding.left - padding.right,
     oldpick = [],
     color = d3.scale.category20();
 var customColors = ['#F9C200', 'rgba(255, 255, 255, 1)', '#F9C200', 'rgba(255, 255, 255, 1)', '#F9C200', 'rgba(255, 255, 255, 1)', '#F9C200', 'rgba(255, 255, 255, 1)'];
-
+var HasSpun = false;
 var data = [
     {"label":"BÍLL", "value":1, "question":"ÞÚ VANNST NÝJAN BÍL", "src": "bill.png"},
     {"label":"ÓHEPPNI", "value":2, "question":"ADIOS AMIGO", "src": ""},
@@ -98,6 +98,9 @@ arcs.each(function(d, i) {
 container.on("click", spin);
 
 function spin(d) {
+    if (HasSpun) {
+        return;
+    }
     d3.select("#prize").html("<h1></h1>");
     var ps = 360/data.length,
         pieslice = Math.round(1440/data.length),
@@ -154,6 +157,7 @@ function spin(d) {
             // audioElement.pause();
             // audioElement.currentTime = 0;
         });
+        HasSpun = true;
 }
 
 svg.append("g")
