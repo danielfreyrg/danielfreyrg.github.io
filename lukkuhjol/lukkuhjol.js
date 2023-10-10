@@ -1,6 +1,7 @@
 var viewportWidth = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
-var baseSize = viewportWidth < 768 ? 450 : 750;
-var imgSize = viewportWidth < 768 ? 60 : 100;
+var baseSize = viewportWidth < 768 ? 400 : 750;
+var imgSize = viewportWidth < 768 ? 100 : 120;
+var wheelImgAngle = viewportWidth < 768 ? 0.6 : 0.5;
 var paddingRight = viewportWidth < 768 ? 20 : 40;
 var padding = {top:20, right: paddingRight, bottom:0, left:0};
 var w = baseSize - padding.left - padding.right,
@@ -29,14 +30,14 @@ if (savedPrize) {
     }
 }
 var data = [
-    {"label":"BÍLL", "value":1, "question":"ÞÚ VANNST NÝJAN BÍL", "src": "bill.png"},
+    {"label":"", "value":1, "question":"ÞÚ VANNST NÝJAN BÍL", "src": "bill.png"},
     {"label":"ÓHEPPNI", "value":2, "question":"ADIOS AMIGO", "src": ""},
     {"label":"", "value":3, "question":"SÚKKULAÐI", "src": "apollo.png"},
     {"label":"SORRY", "value":4, "question":"ÞÚ ERT LOSER", "src": ""},
     {"label":"", "value":5, "question":"ÞÚ VANNST GLÆNÝTT SÚKKULAÐI", "src": "hraun.png"},
-    {"label":"ENGIN VINNINGUR", "value":6, "question":"KANNSKI Í NÆSTA LÍFI AUMINGI", "src": ""},
+    {"label":"STÖNGIN ÚT", "value":6, "question":"KANNSKI Í NÆSTA LÍFI AUMINGI", "src": ""},
     {"label":"", "value":7, "question":"PRETTYBOYTJOKKO", "src": "Prins_Polo.webp"},
-    {"label":"AFSAKIÐ", "value":8, "question":"TIL AÐ SNÚA AFTUR LEGGÐU 5000KR INN Á RKNR: 511-14-25266, KT: 020498-2859", "src": ""}
+    {"label":"ÚFF", "value":8, "question":"TIL AÐ SNÚA AFTUR LEGGÐU 5000KR INN Á RKNR: 511-14-25266, KT: 020498-2859", "src": ""}
 ];
 
 function easeInOutBack(x) {
@@ -98,8 +99,8 @@ arcs.append("text").attr("transform", function(d){
 arcs.each(function(d, i) {
     if (d.data.src && d.data.src.trim() !== "") {
         var midAngle = (d.startAngle + d.endAngle) / 2;
-        var x = (0.6 * r) * Math.sin(midAngle);
-        var y = -(0.6 * r) * Math.cos(midAngle);
+        var x = ((wheelImgAngle) * r) * Math.sin(midAngle);
+        var y = -((wheelImgAngle) * r) * Math.cos(midAngle);
         d3.select(this).append("image")
             .attr("xlink:href", d.data.src)
             .attr("x", x)
@@ -135,8 +136,6 @@ function spin(d) {
     var currentTime = 0;
 
     function playPegHitSound() {
-        // We'll need to adjust this logic to account for the "bounce" easing.
-        // This is a rough approximation of delays based on the bounce easing behavior.
         var delays = [50, 45, 40, 35, 30, 28, 27, 26, 25, 25, 26, 27, 28, 30, 35, 40, 45, 50, 60, 70, 80, 100, 120, 150, 180, 220, 260, 300, 350, 400, 450, 500];
         var totalDelays = delays.reduce(function(a, b) { return a + b; }, 0);
         
