@@ -16,12 +16,12 @@ var customColors = ['#F9C200', 'rgba(255, 255, 255, 1)', '#F9C200', 'rgba(255, 2
 var data = [
     {"label":"BÍLL", "value":1, "question":"ÞÚ VANNST NÝJAN BÍL", "src": "bill.png"},
     {"label":"ÓHEPPNI", "value":2, "question":"ADIOS AMIGO", "src": ""},
-    {"label":"", "value":3, "question":"SÚKKULAÐI", "src": "kitkat.png"},
+    {"label":"", "value":3, "question":"SÚKKULAÐI", "src": "apollo.png"},
     {"label":"SORRY", "value":4, "question":"ÞÚ ERT LOSER", "src": ""},
-    {"label":"", "value":5, "question":"ÞÚ VANNST GLÆNÝTT SÚKKULAÐI", "src": "kitkat.png"},
+    {"label":"", "value":5, "question":"ÞÚ VANNST GLÆNÝTT SÚKKULAÐI", "src": "hraun.png"},
     {"label":"ENGIN VINNINGUR", "value":6, "question":"KANNSKI Í NÆSTA LÍFI AUMINGI", "src": ""},
-    {"label":"", "value":7, "question":"PRETTYBOYTJOKKO", "src": "kitkat.png"},
-    {"label":"AFSAKIÐ", "value":8, "question":"TIL AÐ SNÚA AFTUR LEGGÐU 5000KR INN Á RKNR: 511-14-25266, KT: 020498-2859", "src": ""},
+    {"label":"", "value":7, "question":"PRETTYBOYTJOKKO", "src": "Prins_Polo.webp"},
+    {"label":"AFSAKIÐ", "value":8, "question":"TIL AÐ SNÚA AFTUR LEGGÐU 5000KR INN Á RKNR: 511-14-25266, KT: 020498-2859", "src": ""}
 ];
 
 function easeInOutBack(x) {
