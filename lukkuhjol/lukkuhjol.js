@@ -139,8 +139,7 @@ function spin(d) {
     playPegHitSound(0);
     vis.transition()
         .duration(spinDuration)
-        // .ease("cubic-in-out")
-        .ease("bounce") 
+        .ease("bounce")
         .attrTween("transform", rotTween)
         .each("end", function() {
             d3.select("#prize h1").text(data[picked].question);
