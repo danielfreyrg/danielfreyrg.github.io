@@ -12,7 +12,22 @@ var w = baseSize - padding.left - padding.right,
     oldpick = [],
     color = d3.scale.category20();
 var customColors = ['#F9C200', 'rgba(255, 255, 255, 1)', '#F9C200', 'rgba(255, 255, 255, 1)', '#F9C200', 'rgba(255, 255, 255, 1)', '#F9C200', 'rgba(255, 255, 255, 1)'];
-var HasSpun = false;
+var hasSpun = localStorage.getItem('hasSpun') === 'true'; // If 'hasSpun' is 'true' in localStorage, set hasSpun to true
+var savedPrize = localStorage.getItem('savedPrize');
+if (savedPrize) {
+    document.querySelector("#prize h1").innerHTML = savedPrize;
+    document.querySelector('#chart').style.opacity = 0.5;
+    // Assuming you have the image saved as well
+    var savedPrizeImage = localStorage.getItem('savedPrizeImage');
+    if (savedPrizeImage && savedPrizeImage.trim() !== "") {
+        let prizeElement = d3.select("#prize");
+        if (prizeElement.select("img").empty()) {
+            prizeElement.append("img").attr("src", savedPrizeImage).attr("alt", savedPrize);
+        } else {
+            prizeElement.select("img").attr("src", savedPrizeImage).attr("alt", savedPrize);
+        }
+    }
+}
 var data = [
     {"label":"BÍLL", "value":1, "question":"ÞÚ VANNST NÝJAN BÍL", "src": "bill.png"},
     {"label":"ÓHEPPNI", "value":2, "question":"ADIOS AMIGO", "src": ""},
@@ -98,9 +113,12 @@ arcs.each(function(d, i) {
 container.on("click", spin);
 
 function spin(d) {
-    if (HasSpun) {
-        return;
+    if (hasSpun) {
+        return;  // Exit the function if the wheel has already been spun
     }
+    hasSpun = true;  // Mark the wheel as having been spun
+    localStorage.setItem('hasSpun', 'true');  // Save the spin status to local storage
+
     d3.select("#prize").html("<h1></h1>");
     var ps = 360/data.length,
         pieslice = Math.round(1440/data.length),
@@ -153,11 +171,16 @@ function spin(d) {
                 } else {
                     prizeElement.select("img").attr("src", data[picked].src).attr("alt", data[picked].label);
                 }
+                
+            }
+            localStorage.setItem('savedPrize', data[picked].question);
+            localStorage.setItem('savedPrizeImage', data[picked].src);
+            if (hasSpun) {
+                document.querySelector('#chart').style.opacity = 0.5;
             }
             // audioElement.pause();
             // audioElement.currentTime = 0;
         });
-        HasSpun = true;
 }
 
 svg.append("g")
@@ -187,3 +210,17 @@ function rotTween(to) {
         return "rotate(" + i(t) + ")";
     };
 }
+// Get the reset button by its ID
+var resetButton = document.getElementById("resetButton");
+
+// Add a click event listener to the button
+resetButton.addEventListener("click", function() {
+    // Reset local storage
+    localStorage.removeItem('hasSpun');
+    localStorage.removeItem('savedPrize');
+    localStorage.removeItem('savedPrizeImage');
+
+    // Refresh the page
+    location.reload();
+});
+
