@@ -16,6 +16,7 @@ var customColors = ['#F9C200', 'rgba(255, 255, 255, 1)', '#F9C200', 'rgba(255, 2
 var hasSpun = localStorage.getItem('hasSpun') === 'true'; // If 'hasSpun' is 'true' in localStorage, set hasSpun to true
 var savedPrize = localStorage.getItem('savedPrize');
 if (savedPrize) {
+ 
     document.querySelector("#prize h1").innerHTML = savedPrize;
     document.querySelector('#chart').style.opacity = 0.5;
     // Assuming you have the image saved as well
@@ -28,6 +29,7 @@ if (savedPrize) {
             prizeElement.select("img").attr("src", savedPrizeImage).attr("alt", savedPrize);
         }
     }
+
 }
 var data = [
     {"label":"", "value":1, "question":"ÞÚ VANNST NÝJAN BÍL", "src": "bill.png"},
@@ -54,7 +56,11 @@ var container = svg.append("g")
     .attr("transform", "translate(" + (w/2 + padding.left) + "," + (h/2 + padding.top) + ")");
 var vis = container
     .append("g");
-
+    var savedRotation = localStorage.getItem('wheelRotation');
+    if (savedRotation) {
+        rotation = +savedRotation; // Convert the saved string to a number
+        vis.attr("transform", "rotate(" + rotation + ")");
+    }
 var pie = d3.layout.pie().sort(null).value(function(d){return 1;});
 var arc = d3.svg.arc().outerRadius(r);
 var arcs = vis.selectAll("g.slice")
@@ -180,6 +186,8 @@ function spin(d) {
             // audioElement.pause();
             // audioElement.currentTime = 0;
         });
+        localStorage.setItem('wheelRotation', rotation);
+
 }
 
 svg.append("g")
@@ -218,6 +226,7 @@ resetButton.addEventListener("click", function() {
     localStorage.removeItem('hasSpun');
     localStorage.removeItem('savedPrize');
     localStorage.removeItem('savedPrizeImage');
+    localStorage.removeItem('wheelRotation');  // Also remove the saved rotation
 
     // Refresh the page
     location.reload();
