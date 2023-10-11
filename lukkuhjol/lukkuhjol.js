@@ -50,7 +50,7 @@ function easeInOutBack(x) {
 var svg = d3.select('#chart')
     .append("svg")
     .data([data])
-    .attr("width", w + (viewportWidth < 768 ? 100 : 220) + padding.left + padding.right)  // increased width
+    .attr("width", w + (viewportWidth < 768 ? 100 : 220) + padding.left + padding.right + (viewportWidth < 768 ? 30 : 0))  // increased width
     .attr("height", h + (viewportWidth < 768 ? 100 : 220) + padding.top + padding.bottom);
 
 var container = svg.append("g")

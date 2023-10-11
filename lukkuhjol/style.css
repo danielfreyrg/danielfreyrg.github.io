@@ -40,6 +40,9 @@ align-items: center;
 }
 /* Mobile Styles */
 @media only screen and (max-width: 767px) {
+    #prize.info {
+        left: 0%;
+    } 
     #chart {
         width: 100%;
         max-width: 450px;
