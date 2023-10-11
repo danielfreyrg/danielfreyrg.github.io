@@ -33,7 +33,7 @@ if (savedPrize) {
 
 }
 var data = [
-    {"label":"ÚT AÐ BORÐA", "value":1, "question":"ÞÚ VANNST NÝJAN BÍL", "src": "skull.png"},
+    {"label":"ÚT AÐ BORÐA", "value":1, "question":"Þú ert kominn í pott og verður dreginn út í lok sýningar", "src": "skull.png"},
     {"label":"ENGIN VINNINGUR", "value":2, "question":"ADIOS AMIGO", "src": ""},
     {"label":"SÚKKULAÐI", "value":3, "question":"SÚKKULAÐI", "src": "apollo.png"},
     {"label":"ENGIN VINNINGUR", "value":4, "question":"ÞÚ ERT LOSER", "src": ""},
