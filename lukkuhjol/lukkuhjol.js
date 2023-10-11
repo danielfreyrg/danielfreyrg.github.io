@@ -1,5 +1,5 @@
 var viewportWidth = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
-var baseSize = viewportWidth < 768 ? (viewportWidth*0.8) : 800;
+var baseSize = viewportWidth < 768 ? (viewportWidth*0.9) : 800;
 var imgSize = viewportWidth < 768 ? 100 : 120;
 var wheelImgAngle = viewportWidth < 768 ? 0.6 : 0.5;
 var strokeWidth = viewportWidth < 768 ? 10 : 20;
@@ -248,26 +248,26 @@ svg.append("g")
 
     .style({"fill":"red"});
 
+    // MIDDLE CIRCLE
 container.append("circle")
     .attr("cx", 0)
     .attr("cy", 0)
-    .attr("r", viewportWidth < 768 ? 60 : 100)
+    .attr("r", viewportWidth < 768 ? 40 : 100)
     .attr("fill", "#000000")
     .attr("stroke", "rgba(250,215,102,1)")
     .attr("stroke-width", strokeWidth/2)
     .style({"cursor":"pointer"});
-
+// SNÚA
 container.append("text")
     .attr("x", 0)
-    .attr("y", viewportWidth < 768 ? 45 : 75)
+    .attr("y", viewportWidth < 768 ? 30 : 75)
     .attr("text-anchor", "middle")
     .text("SNÚA")
-    .style({"font-weight":"bold", "font-size":"20px", 'fill': '#fff'});
+    .style({"font-weight":"bold", "font-size":(viewportWidth < 768 ? '14px' : '20px'), 'fill': '#fff'});
 container.append('image')
-.attr('x', viewportWidth < 768 ? -45 : -70)
-.attr('y', viewportWidth < 768 ? -55 : -90)
-.attr('width', viewportWidth < 768 ? 90 : 150)
-// .attr('height', 10)
+.attr('x', viewportWidth < 768 ? -30 : -70)
+.attr('y', viewportWidth < 768 ? -35 : -90)
+.attr('width', viewportWidth < 768 ? 60 : 150)
 .attr('href', 'skull.png')
 function rotTween(to) {
     var i = d3.interpolate(oldrotation % 360, rotation);

@@ -13,6 +13,12 @@ grid-auto-flow: row;
 background: #FFCC00;
 border: 2px solid;
 border-radius: 20px;
+position: absolute;
+top: 20%;
+left: 40%;
+min-width: 400px;
+min-height: 200px;
+align-items: center;
 }
 #prize h1{
     font-size: 50px;
@@ -52,7 +58,7 @@ border-radius: 20px;
         margin: 0 auto;
     }
     .slice text {
-        font-size: 16px !important;
+        font-size: 10px !important;
     }
 }
 
