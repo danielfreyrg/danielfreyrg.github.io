@@ -41,16 +41,14 @@ var data = [
     {"label":"ENGINN VINNINGUR", "value":8, "question":"Stöngin út", "src": ""}
 ];
 
-function easeInOutBack(x) {
-    return Math.sqrt(1 - Math.pow(x - 1, 2));
-}
+
 
 var svg = d3.select('#chart')
     .append("svg")
     .data([data])
     .attr("width", w + (viewportWidth < 768 ? 100 : 220) + padding.left + padding.right + (viewportWidth < 768 ? 30 : 0))
     .attr("height", h + (viewportWidth < 768 ? 100 : 220) + padding.top + padding.bottom);
-var mobileOffset = viewportWidth < 768 ? 10 : 0;
+var mobileOffset = viewportWidth < 768 ? 35 : 0;
 var container = svg.append("g")
     .attr("class", "chartholder")
     .attr("transform", "translate(" + ((w/2)+50 + padding.left + 20 - mobileOffset) + "," + ((h/2)+50 + padding.top) + ")");
