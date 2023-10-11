@@ -1,5 +1,5 @@
 var viewportWidth = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
-var baseSize = viewportWidth < 768 ? 400 : 800;
+var baseSize = viewportWidth < 768 ? (viewportWidth*0.8) : 800;
 var imgSize = viewportWidth < 768 ? 100 : 120;
 var wheelImgAngle = viewportWidth < 768 ? 0.6 : 0.5;
 var strokeWidth = viewportWidth < 768 ? 10 : 20;
@@ -17,9 +17,9 @@ var customColors = ['#F9C200', 'rgba(0, 0, 0, 1)', '#F9C200', 'rgba(0, 0, 0, 1)'
 var hasSpun = localStorage.getItem('hasSpun') === 'true'; // If 'hasSpun' is 'true' in localStorage, set hasSpun to true
 var savedPrize = localStorage.getItem('savedPrize');
 if (savedPrize) {
- 
+    document.getElementById("prize").classList.add('info')
     document.querySelector("#prize h1").innerHTML = savedPrize;
-    document.querySelector('#chart').style.opacity = 0.5;
+    document.querySelector('#chart').style.opacity = 0.6;
     // Assuming you have the image saved as well
     var savedPrizeImage = localStorage.getItem('savedPrizeImage');
     if (savedPrizeImage && savedPrizeImage.trim() !== "") {
@@ -114,37 +114,7 @@ var arcs = vis.selectAll("g.slice")
     .enter()
     .append("g")
     .attr("class", "slice");
-    var defs = svg.append("defs");
 
-    var filter = defs.append("filter")
-        .attr("id", "dropshadow")
-        .attr("x", "-50%")
-        .attr("y", "-50%")
-        .attr("width", "200%")
-        .attr("height", "200%");
-    
-    filter.append("feOffset")
-        .attr("result", "offOut")
-        .attr("in", "SourceAlpha")
-        .attr("dx", "7")
-        .attr("dy", "20");
-    
-    filter.append("feGaussianBlur")
-        .attr("result", "blurOut")
-        .attr("in", "offOut")
-        .attr("stdDeviation", "28");
-    
-    filter.append("feColorMatrix")
-        .attr("result", "matrixOut")
-        .attr("in", "blurOut")
-        .attr("type", "matrix")
-        .attr("values", "0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.75 0");
-    
-    filter.append("feBlend")
-        .attr("in", "SourceGraphic")
-        .attr("in2", "matrixOut")
-        .attr("mode", "normal");
-    
 arcs.append("path")
     .attr("fill", function(d, i) { return customColors[i]; })
     .attr("stroke", "#000")
@@ -252,13 +222,13 @@ function spin(d) {
                 } else {
                     prizeElement.select("img").attr("src", data[picked].src).attr("alt", data[picked].label);
                 }
-                document.getElementById("prize").classList.add('info')
                 
             }
+            document.getElementById("prize").classList.add('info')
             localStorage.setItem('savedPrize', data[picked].question);
             localStorage.setItem('savedPrizeImage', data[picked].src);
             if (hasSpun) {
-                document.querySelector('#chart').style.opacity = 0.5;
+                document.querySelector('#chart').style.opacity = 0.6;
             }
             // audioElement.pause();
             // audioElement.currentTime = 0;
@@ -268,7 +238,7 @@ function spin(d) {
 }
 // ARROW
 svg.append("g")
-    .attr("transform", "translate(" + (w + padding.left + padding.right) + "," + ((h/2)+padding.top) + ")")
+    .attr("transform", "translate(" + (w + padding.left + padding.right) + "," + ((h/2) + 30 +padding.top) + ")")
     .append("path")
     .attr("d", "M92.74,76.12C71.72,76.12,0,38.06,0,38.06,0,38.06,71.72,0,92.74,0s38.06,17.04,38.06,38.06-17.04,38.06-38.06,38.06Z")
     .attr("stroke", "rgba(250,215,102,1)")
