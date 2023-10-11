@@ -54,8 +54,8 @@ var container = svg.append("g")
     .attr("class", "chartholder")
     .attr("transform", "translate(" + ((w/2)+50 + padding.left + 20 - mobileOffset) + "," + ((h/2)+50 + padding.top) + ")");
 var defs = svg.append("defs");
-container.on("touchstart", touchStart);
-container.on("touchend", touchEnd);
+// container.on("touchstart", touchStart);
+// container.on("touchend", touchEnd);
 
 let touchStartY;
 let touchEndY;
@@ -71,17 +71,21 @@ function touchEnd(event) {
     spinWithSwipe(swipeDistance);
     console.log(touchEndY);
 }
-container.on("touchmove", touchMove);
+// container.on("touchmove", touchMove);
 
 function touchMove(event) {
     d3.event.preventDefault();
 }
 function dragStart(d) {
-    // Capture the starting angle at the beginning of the drag
     var dx = d3.event.x,
         dy = d3.event.y;
+    console.log("Type of dx:", typeof dx, "dx:", dx);
+    console.log("Type of dy:", typeof dy,);
     startAngle = Math.atan2(dy, dx) * (180 / Math.PI);
+    console.log("startAngle:", startAngle);
+
     if (isNaN(startAngle)) {
+        startAngle = 0;
         console.error("startAngle is NaN", dx, dy);
     }
 }
@@ -90,6 +94,8 @@ function drag(d) {
     // Calculate the angle based on the drag distance
     var dx = d3.event.x,
         dy = d3.event.y;
+        console.log("dx:", dx, "dy:", dy);  // Add this line
+
     var currentAngle = Math.atan2(dy, dx) * (180 / Math.PI);
     var deltaAngle = currentAngle - startAngle;
 
@@ -112,9 +118,20 @@ function drag(d) {
 }
 
 function dragEnd(d) {
-    // You can define any actions to be performed at the end of the drag here
-    // For example, you can continue the spin or just stop it based on some criteria
+    spinWithSwipe(rotation);
 }
+container.on("touchmove", touchMove);
+
+function touchMove(event) {
+    d3.event.preventDefault();
+}
+
+var dragBehavior = d3.behavior.drag()
+    .on("dragstart", dragStart)
+    .on("drag", drag)
+    .on("dragend", dragEnd);
+container.call(dragBehavior);
+
 function spinWithSwipe(swipeDistance) {
     // Use swipeDistance to adjust the spin strength/duration
     let spinDuration = 3000 + Math.abs(swipeDistance)*10; // example calculation
