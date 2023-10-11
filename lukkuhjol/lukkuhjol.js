@@ -18,6 +18,8 @@ var customColors = ['#F9C200', 'rgba(0, 0, 0, 1)', '#F9C200', 'rgba(0, 0, 0, 1)'
 var hasSpun = localStorage.getItem('hasSpun') === 'true'; // If 'hasSpun' is 'true' in localStorage, set hasSpun to true
 var savedPrize = localStorage.getItem('savedPrize');
 if (savedPrize) {
+    container.on('.drag', null);
+    container.on('touchMove', null);
     document.getElementById("prize").classList.add('info')
     document.querySelector("#prize h1").innerHTML = savedPrize;
     // document.querySelector('#chart').style.opacity = 0.6;
@@ -30,6 +32,8 @@ if (savedPrize) {
             prizeElement.select("img").attr("src", savedPrizeImage).attr("alt", savedPrize);
         }
     }
+} else {
+
 }
 var data = [
     {"label":"ÚT AÐ BORÐA", "value":1, "question":"Þú ert kominn í pottinn. Vinningshafi verður dreginn út í lok sýningar.", "src": "skull.png"},
@@ -54,24 +58,20 @@ var container = svg.append("g")
     .attr("class", "chartholder")
     .attr("transform", "translate(" + ((w/2)+50 + padding.left + 20 - mobileOffset) + "," + ((h/2)+50 + padding.top) + ")");
 var defs = svg.append("defs");
-// container.on("touchstart", touchStart);
-// container.on("touchend", touchEnd);
+
 
 let touchStartY;
 let touchEndY;
 
 function touchStart(event) {
     touchStartY = d3.event.touches[0].clientY;
-    console.log(touchStartY);
 }
 
 function touchEnd(event) {
     touchEndY = d3.event.changedTouches[0].clientY;
     let swipeDistance = touchEndY - touchStartY;
     spinWithSwipe(swipeDistance);
-    console.log(touchEndY);
 }
-// container.on("touchmove", touchMove);
 
 function touchMove(event) {
     d3.event.preventDefault();
@@ -79,14 +79,11 @@ function touchMove(event) {
 function dragStart(d) {
     var dx = d3.event.x,
         dy = d3.event.y;
-    console.log("Type of dx:", typeof dx, "dx:", dx);
-    console.log("Type of dy:", typeof dy,);
+
     startAngle = Math.atan2(dy, dx) * (180 / Math.PI);
-    console.log("startAngle:", startAngle);
 
     if (isNaN(startAngle)) {
         startAngle = 0;
-        console.error("startAngle is NaN", dx, dy);
     }
 }
 
@@ -94,7 +91,6 @@ function drag(d) {
     // Calculate the angle based on the drag distance
     var dx = d3.event.x,
         dy = d3.event.y;
-        console.log("dx:", dx, "dy:", dy);  // Add this line
 
     var currentAngle = Math.atan2(dy, dx) * (180 / Math.PI);
     var deltaAngle = currentAngle - startAngle;
@@ -120,18 +116,22 @@ function drag(d) {
 function dragEnd(d) {
     spinWithSwipe(rotation);
 }
-container.on("touchmove", touchMove);
 
-function touchMove(event) {
-    d3.event.preventDefault();
-}
+
 
 var dragBehavior = d3.behavior.drag()
     .on("dragstart", dragStart)
     .on("drag", drag)
     .on("dragend", dragEnd);
-container.call(dragBehavior);
 
+    if (!hasSpun) {
+        container.on("touchmove", touchMove);
+        container.call(dragBehavior);
+        
+        } else {
+            container.on('.drag', null);
+            container.on('touchMove', null);
+        }
 function spinWithSwipe(swipeDistance) {
     // Use swipeDistance to adjust the spin strength/duration
     let spinDuration = 3000 + Math.abs(swipeDistance)*10; // example calculation
