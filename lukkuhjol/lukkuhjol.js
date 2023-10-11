@@ -214,12 +214,12 @@ container.append('circle')
 // Add this gradient definition after your existing defs declaration.
 defs.append("linearGradient")
     .attr("id", "linear-gradient")
-    .attr("x1", "")
-    .attr("y1", "")
-    .attr("x2", "")
-    .attr("y2", "")
+    .attr("x1", "0")
+    .attr("y1", ".14")
+    .attr("x2", ".29")
+    .attr("y2", "0")
     .attr("gradientTransform", "rotate(45)")
-    .attr("gradientUnits", "")
+    .attr("gradientUnits", "objectBoundingBox")
     .selectAll("stop")
     .data([
         {"offset": "0", "color": "#fad766"},
