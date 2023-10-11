@@ -4,8 +4,9 @@ text{
     font-size:21px;
     pointer-events:none;
 }
-#chart{
- 
+#prize {
+    transform: scaleX(0);
+transition: transform 0.5s ease-in-out;
 }
 #prize.info{
     position: absolute;
@@ -21,7 +22,12 @@ padding: 70px;
 min-width: 400px;
 min-height: 200px;
 align-items: center;
+transform: scaleX(1);
+transform-origin: left;
+transition: transform 0.5s ease-in-out;
+
 }
+
 #prize h1{
     font-size: 50px;
     font-weight: bold;
