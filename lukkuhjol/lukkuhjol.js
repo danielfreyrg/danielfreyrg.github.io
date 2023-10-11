@@ -192,9 +192,9 @@ container.append("text")
     .attr("y", viewportWidth < 768 ? 30 : 75)
     .attr("text-anchor", "middle")
     .text("SNÚA")
-    .style({"font-weight":"bold", "font-size":(viewportWidth < 768 ? '14px' : '20px'), 'fill': '#fff'});
+    .style({"font-weight":"bold", "font-size":(viewportWidth < 768 ? '14px' : '24px'), 'fill': '#fff'});
 container.append('image')
-.attr('x', viewportWidth < 768 ? -30 : -70)
+.attr('x', viewportWidth < 768 ? -30 : -75)
 .attr('y', viewportWidth < 768 ? -35 : -90)
 .attr('width', viewportWidth < 768 ? 60 : 150)
 .attr('href', 'skull.png')
@@ -204,6 +204,7 @@ function rotTween(to) {
         return "rotate(" + i(t) + ")";
     };
 }
+//outer circle
 container.append('circle')
 .attr('cx', 0)
 .attr('cy', 0)
