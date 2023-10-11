@@ -40,6 +40,10 @@ align-items: center;
 }
 /* Mobile Styles */
 @media only screen and (max-width: 767px) {
+    .wheel-container {
+        max-width: 100vw;
+        overflow-x: hidden;
+    }
     #prize.info {
         left: 0%;
     } 
