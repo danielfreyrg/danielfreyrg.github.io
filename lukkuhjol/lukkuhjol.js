@@ -113,6 +113,36 @@ defs.append("linearGradient")
     .enter().append("stop")
     .attr("offset", function(d) { return d.offset; })
     .attr("stop-color", function(d) { return d.color; });
+    var filter = defs.append("filter")
+    .attr("id", "arrow-shadow")
+    .attr("x", "-50%")
+    .attr("y", "-50%")
+    .attr("width", "200%")
+    .attr("height", "200%");
+
+filter.append("feOffset")
+    .attr("result", "offOut")
+    .attr("in", "SourceAlpha")
+    .attr("dx", "6.7393")
+    .attr("dy", "19.2553");
+
+filter.append("feGaussianBlur")
+    .attr("result", "blurOut")
+    .attr("in", "offOut")
+    .attr("stdDeviation", "9.6276");
+
+filter.append("feColorMatrix")
+    .attr("result", "matrixOut")
+    .attr("in", "blurOut")
+    .attr("type", "matrix")
+    .attr("values", "0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.75 0");
+
+var feMerge = filter.append("feMerge");
+
+feMerge.append("feMergeNode")
+    .attr("in", "matrixOut");  // This merges the shadow first
+feMerge.append("feMergeNode")
+    .attr("in", "SourceGraphic");  // This merges the original graphic on top of the shadow
 
 var vis = container.append("g")
     .attr("class", "the-wheel");
@@ -205,16 +235,16 @@ function spin(d) {
         localStorage.setItem('wheelRotation', rotation);
 
 }
-
+//ARROW
 svg.append("g")
     .attr("transform", "translate(" + (w + (viewportWidth < 768 ? 20 : 0)- (mobileOffset+5) + padding.left + padding.right) + "," + ((h/2) + 30 +padding.top) + ")")
     .append("path")
     .attr("d", "M92.74,76.12C71.72,76.12,0,38.06,0,38.06,0,38.06,71.72,0,92.74,0s38.06,17.04,38.06,38.06-17.04,38.06-38.06,38.06Z")
     .attr("stroke", "url(#linear-gradient)")
-    .attr("filter", "url(#dropshadow)")
+    .attr("filter", "url(#arrow-shadow)")
     .attr('stroke-width', 5)
     .attr('class', 'arrow')
-    .style({"fill":"red"});
+    .style({"fill":"#C20000"});
 
 container.append("circle")
     .attr("cx", 0)
