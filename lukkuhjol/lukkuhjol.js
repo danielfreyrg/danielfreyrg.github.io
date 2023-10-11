@@ -169,10 +169,10 @@ function spinWithSwipe(swipeDistance) {
             localStorage.setItem('savedPrize', data[picked].question);
             localStorage.setItem('savedPrizeImage', data[picked].src);
             if (hasSpun) {
-            //     document.querySelector('#chart').style.opacity = 0.6;
-            }
+                container.on('.drag', null);            }
         });
         localStorage.setItem('wheelRotation', rotation);
+        container.on('.drag', null);
 
 }
 
