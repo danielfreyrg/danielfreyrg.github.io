@@ -34,13 +34,13 @@ if (savedPrize) {
 }
 var data = [
     {"label":"ÚT AÐ BORÐA", "value":1, "question":"Þú ert kominn í pott og verður dreginn út í lok sýningar", "src": "skull.png"},
-    {"label":"ENGINN VINNINGUR", "value":2, "question":"ADIOS AMIGO", "src": ""},
+    {"label":"ENGINN VINNINGUR", "value":2, "question":"Gengur kannski betur næst", "src": ""},
     {"label":"SÚKKULAÐI", "value":3, "question":"SÚKKULAÐI", "src": "apollo.png"},
-    {"label":"ENGINN VINNINGUR", "value":4, "question":"ÞÚ ERT LOSER", "src": ""},
+    {"label":"ENGINN VINNINGUR", "value":4, "question":"Þú grípur í tómt", "src": ""},
     {"label":"SÚKKULAÐI", "value":5, "question":"ÞÚ VANNST GLÆNÝTT SÚKKULAÐI", "src": "hraun.png"},
-    {"label":"ENGINN VINNINGUR", "value":6, "question":"KANNSKI Í NÆSTA LÍFI AUMINGI", "src": ""},
+    {"label":"ENGINN VINNINGUR", "value":6, "question":"Farðu á rúntinn með Sigga sýru", "src": ""},
     {"label":"SÚKKULAÐI", "value":7, "question":"PRETTYBOYTJOKKO", "src": "Prins_Polo.webp"},
-    {"label":"ENGINN VINNINGUR", "value":8, "question":"TIL AÐ SNÚA AFTUR LEGGÐU 5000KR INN Á RKNR: 511-14-25266, KT: 020498-2859", "src": ""}
+    {"label":"ENGINN VINNINGUR", "value":8, "question":"Stöngin út", "src": ""}
 ];
 
 function easeInOutBack(x) {
