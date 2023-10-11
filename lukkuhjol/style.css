@@ -44,10 +44,15 @@ align-items: center;
     .wheel-container {
         max-width: 100vw;
         overflow-x: hidden;
+        min-height: 100vh;
+        align-content: center;
     }
     #prize.info {
         left: 0%;
         padding: 20px;
+        /* max-width: 50vw; */
+        min-width: unset; 
+        width: 90%;
     } 
     #chart {
         width: 100%;

@@ -19,7 +19,7 @@ var savedPrize = localStorage.getItem('savedPrize');
 if (savedPrize) {
     document.getElementById("prize").classList.add('info')
     document.querySelector("#prize h1").innerHTML = savedPrize;
-    document.querySelector('#chart').style.opacity = 0.6;
+    // document.querySelector('#chart').style.opacity = 0.6;
     var savedPrizeImage = localStorage.getItem('savedPrizeImage');
     if (savedPrizeImage && savedPrizeImage.trim() !== "") {
         let prizeElement = d3.select("#prize");
@@ -164,7 +164,7 @@ function spin(d) {
             localStorage.setItem('savedPrize', data[picked].question);
             localStorage.setItem('savedPrizeImage', data[picked].src);
             if (hasSpun) {
-                document.querySelector('#chart').style.opacity = 0.6;
+            //     document.querySelector('#chart').style.opacity = 0.6;
             }
         });
         localStorage.setItem('wheelRotation', rotation);
