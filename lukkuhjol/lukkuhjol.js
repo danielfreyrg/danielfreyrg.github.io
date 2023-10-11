@@ -91,6 +91,28 @@ container.append('circle')
     .attr("stroke", "rgba(250,215,102,1)")
     .attr('stroke-width', strokeWidth)
     .attr("filter", "url(#dropshadow)");
+// Add this gradient definition after your existing defs declaration.
+defs.append("linearGradient")
+    .attr("id", "linear-gradient")
+    .attr("x1", "")
+    .attr("y1", "")
+    .attr("x2", "")
+    .attr("y2", "")
+    .attr("gradientTransform", "rotate(45)")
+    .attr("gradientUnits", "")
+    .selectAll("stop")
+    .data([
+        {"offset": "0", "color": "#fad766"},
+        {"offset": ".14", "color": "#b4712a"},
+        {"offset": ".29", "color": "#cc943f"},
+        {"offset": ".47", "color": "#e5b854"},
+        {"offset": ".61", "color": "#f4ce61"},
+        {"offset": ".71", "color": "#fad766"},
+        {"offset": "1", "color": "#b4712a"}
+    ])
+    .enter().append("stop")
+    .attr("offset", function(d) { return d.offset; })
+    .attr("stop-color", function(d) { return d.color; });
 
 var vis = container.append("g")
     .attr("class", "the-wheel");
@@ -188,7 +210,7 @@ svg.append("g")
     .attr("transform", "translate(" + (w + (viewportWidth < 768 ? 20 : 0)- (mobileOffset+5) + padding.left + padding.right) + "," + ((h/2) + 30 +padding.top) + ")")
     .append("path")
     .attr("d", "M92.74,76.12C71.72,76.12,0,38.06,0,38.06,0,38.06,71.72,0,92.74,0s38.06,17.04,38.06,38.06-17.04,38.06-38.06,38.06Z")
-    .attr("stroke", "rgba(250,215,102,1)")
+    .attr("stroke", "url(#linear-gradient)")
     .attr("filter", "url(#dropshadow)")
     .attr('stroke-width', 5)
     .attr('class', 'arrow')
@@ -199,7 +221,7 @@ container.append("circle")
     .attr("cy", 0)
     .attr("r", viewportWidth < 768 ? 40 : 100)
     .attr("fill", "#000000")
-    .attr("stroke", "rgba(250,215,102,1)")
+    .attr("stroke", "url(#linear-gradient)")
     .attr("stroke-width", strokeWidth/2)
     .style({"cursor":"pointer"});
 container.append("text")
@@ -225,7 +247,7 @@ container.append('circle')
 .attr('cy', 0)
 .attr('r', baseSize/2 - (viewportWidth < 768 ? 8 : 20))
 .attr('fill', 'rgba(0,0,0,0)')
-.attr("stroke", "rgba(250,215,102,1)")
+.attr("stroke", "url(#linear-gradient)")
 .attr('stroke-width', strokeWidth);
 
 var resetButton = document.getElementById("resetButton");
