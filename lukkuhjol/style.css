@@ -7,9 +7,12 @@ text{
 #chart{
  
 }
-#prize{
+#prize.info{
 display: grid;
 grid-auto-flow: row;
+background: #FFCC00;
+border: 2px solid;
+border-radius: 20px;
 }
 #prize h1{
     font-size: 50px;
@@ -36,7 +39,9 @@ grid-auto-flow: row;
         max-width: 450px;
         margin: 0 auto;
     }
-
+    .arrow {
+        transform: scale(0.5);
+    }
     #prize h1 {
         font-size: 16px;
     }
@@ -74,8 +79,11 @@ grid-auto-flow: row;
 -moz-box-shadow: 7px 20px 28px 3px rgba(0,0,0,0.75);
 box-shadow: 7px 20px 28px 3px rgba(0,0,0,0.75);
 }
-body {
+html {
     background: rgb(255,204,0);
 background: linear-gradient(60deg, rgba(255,204,0,1) 0%, rgba(255,204,0,1) 25%, rgba(0,0,0,1) 25%, rgba(0,0,0,1) 45%, rgba(255,204,0,1) 45%, rgba(255,204,0,1) 45%);
 background-repeat: no-repeat;
+min-width: 100vw;
+min-height: 100vh;
+
 }

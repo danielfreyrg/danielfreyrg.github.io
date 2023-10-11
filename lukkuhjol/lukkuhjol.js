@@ -50,8 +50,8 @@ function easeInOutBack(x) {
 var svg = d3.select('#chart')
     .append("svg")
     .data([data])
-    .attr("width", w + 220 + padding.left + padding.right)  // increased width
-    .attr("height", h + 220 + padding.top + padding.bottom);
+    .attr("width", w + (viewportWidth < 768 ? 100 : 220) + padding.left + padding.right)  // increased width
+    .attr("height", h + (viewportWidth < 768 ? 100 : 220) + padding.top + padding.bottom);
 
 var container = svg.append("g")
     .attr("class", "chartholder")
@@ -252,6 +252,7 @@ function spin(d) {
                 } else {
                     prizeElement.select("img").attr("src", data[picked].src).attr("alt", data[picked].label);
                 }
+                document.getElementById("prize").classList.add('info')
                 
             }
             localStorage.setItem('savedPrize', data[picked].question);
@@ -265,7 +266,7 @@ function spin(d) {
         localStorage.setItem('wheelRotation', rotation);
 
 }
-
+// ARROW
 svg.append("g")
     .attr("transform", "translate(" + (w + padding.left + padding.right) + "," + ((h/2)+padding.top) + ")")
     .append("path")
@@ -273,6 +274,8 @@ svg.append("g")
     .attr("stroke", "rgba(250,215,102,1)")
     .attr("filter", "url(#dropshadow)")
     .attr('stroke-width', 5)
+    .attr('class', 'arrow')
+
     .style({"fill":"red"});
 
 container.append("circle")
