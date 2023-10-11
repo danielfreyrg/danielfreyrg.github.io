@@ -238,7 +238,7 @@ function spin(d) {
 }
 // ARROW
 svg.append("g")
-    .attr("transform", "translate(" + (w + padding.left + padding.right) + "," + ((h/2) + 30 +padding.top) + ")")
+    .attr("transform", "translate(" + (w + (viewportWidth < 768 ? 20 : 0) + padding.left + padding.right) + "," + ((h/2) + 30 +padding.top) + ")")
     .append("path")
     .attr("d", "M92.74,76.12C71.72,76.12,0,38.06,0,38.06,0,38.06,71.72,0,92.74,0s38.06,17.04,38.06,38.06-17.04,38.06-38.06,38.06Z")
     .attr("stroke", "rgba(250,215,102,1)")
