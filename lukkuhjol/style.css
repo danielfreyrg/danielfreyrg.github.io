@@ -1,7 +1,7 @@
 text{
     color:  white;
     font-family:Helvetica, Arial, sans-serif;
-    font-size:16px;
+    font-size:30px;
     pointer-events:none;
 }
 #chart{
@@ -23,6 +23,12 @@ grid-auto-flow: row;
     grid-auto-flow: row;
     text-align: center;
 }
+.slice:nth-of-type(2n) text {
+    fill:  white !important;
+}
+.slice text{
+    fill:  black;
+}
 /* Mobile Styles */
 @media only screen and (max-width: 767px) {
     #chart {
@@ -39,6 +45,9 @@ grid-auto-flow: row;
         max-width: 200px;
         display: block;
         margin: 0 auto;
+    }
+    .slice text {
+        font-size: 16px !important;
     }
 }
 

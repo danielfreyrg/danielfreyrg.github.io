@@ -2,6 +2,7 @@ var viewportWidth = Math.max(document.documentElement.clientWidth || 0, window.i
 var baseSize = viewportWidth < 768 ? 400 : 750;
 var imgSize = viewportWidth < 768 ? 100 : 120;
 var wheelImgAngle = viewportWidth < 768 ? 0.6 : 0.5;
+var strokeWidth = viewportWidth < 768 ? 10 : 20;
 var paddingRight = viewportWidth < 768 ? 20 : 40;
 var padding = {top:20, right: paddingRight, bottom:0, left:0};
 var w = baseSize - padding.left - padding.right,
@@ -12,7 +13,7 @@ var w = baseSize - padding.left - padding.right,
     picked = 100000,
     oldpick = [],
     color = d3.scale.category20();
-var customColors = ['#F9C200', 'rgba(255, 255, 255, 1)', '#F9C200', 'rgba(255, 255, 255, 1)', '#F9C200', 'rgba(255, 255, 255, 1)', '#F9C200', 'rgba(255, 255, 255, 1)'];
+var customColors = ['#F9C200', 'rgba(0, 0, 0, 1)', '#F9C200', 'rgba(0, 0, 0, 1)', '#F9C200', 'rgba(0, 0, 0, 1)', '#F9C200', 'rgba(0, 0, 0, 1)'];
 var hasSpun = localStorage.getItem('hasSpun') === 'true'; // If 'hasSpun' is 'true' in localStorage, set hasSpun to true
 var savedPrize = localStorage.getItem('savedPrize');
 if (savedPrize) {
@@ -32,13 +33,13 @@ if (savedPrize) {
 
 }
 var data = [
-    {"label":"", "value":1, "question":"ÞÚ VANNST NÝJAN BÍL", "src": "bill.png"},
+    {"label":"SIGUR", "value":1, "question":"ÞÚ VANNST NÝJAN BÍL", "src": "skull.png"},
     {"label":"ÓHEPPNI", "value":2, "question":"ADIOS AMIGO", "src": ""},
-    {"label":"", "value":3, "question":"SÚKKULAÐI", "src": "apollo.png"},
+    {"label":"SÚKKULAÐI", "value":3, "question":"SÚKKULAÐI", "src": "apollo.png"},
     {"label":"SORRY", "value":4, "question":"ÞÚ ERT LOSER", "src": ""},
-    {"label":"", "value":5, "question":"ÞÚ VANNST GLÆNÝTT SÚKKULAÐI", "src": "hraun.png"},
+    {"label":"SÚKKULAÐI", "value":5, "question":"ÞÚ VANNST GLÆNÝTT SÚKKULAÐI", "src": "hraun.png"},
     {"label":"STÖNGIN ÚT", "value":6, "question":"KANNSKI Í NÆSTA LÍFI AUMINGI", "src": ""},
-    {"label":"", "value":7, "question":"PRETTYBOYTJOKKO", "src": "Prins_Polo.webp"},
+    {"label":"SÚKKULAÐI", "value":7, "question":"PRETTYBOYTJOKKO", "src": "Prins_Polo.webp"},
     {"label":"ÚFF", "value":8, "question":"TIL AÐ SNÚA AFTUR LEGGÐU 5000KR INN Á RKNR: 511-14-25266, KT: 020498-2859", "src": ""}
 ];
 
@@ -78,44 +79,44 @@ arcs.append("path")
 var pegRadius = r + 10;
 var pegLength = 10;
 var pegWidth = 3;
-arcs.each(function(d, i) {
-    var angle = d.endAngle;
-    var x = pegRadius * Math.sin(angle);
-    var y = -pegRadius * Math.cos(angle);
-    vis.append("rect")
-        .attr("x", x - pegWidth / 2)
-        .attr("y", y)
-        .attr("width", pegWidth)
-        .attr("height", pegLength)
-        .attr("fill", "#000")
-        .attr("transform", "rotate(" + (angle * 180 / Math.PI) + "," + x + "," + y + ")");
-});
+// arcs.each(function(d, i) {
+//     var angle = d.endAngle;
+//     var x = pegRadius * Math.sin(angle);
+//     var y = -pegRadius * Math.cos(angle);
+//     vis.append("rect")
+//         .attr("x", x - pegWidth / 2)
+//         .attr("y", y)
+//         .attr("width", pegWidth)
+//         .attr("height", pegLength)
+//         .attr("fill", "#000")
+//         .attr("transform", "rotate(" + (angle * 180 / Math.PI) + "," + x + "," + y + ")");
+// });
 
 arcs.append("text").attr("transform", function(d){
         d.innerRadius = 0;
         d.outerRadius = r;
         d.angle = (d.startAngle + d.endAngle)/2;
-        return "rotate(" + (d.angle * 180 / Math.PI - 90) + ")translate(" + (d.outerRadius -10) +")";
+        return "rotate(" + (d.angle * 180 / Math.PI - 90) + ")translate(" + (viewportWidth < 768 ? d.outerRadius -20 : d.outerRadius -50) +")";
     })
     .attr("text-anchor", "end")
     .text(function(d, i) {
         return data[i].label;
-    });
+    })
 
-arcs.each(function(d, i) {
-    if (d.data.src && d.data.src.trim() !== "") {
-        var midAngle = (d.startAngle + d.endAngle) / 2;
-        var x = ((wheelImgAngle) * r) * Math.sin(midAngle);
-        var y = -((wheelImgAngle) * r) * Math.cos(midAngle);
-        d3.select(this).append("image")
-            .attr("xlink:href", d.data.src)
-            .attr("x", x)
-            .attr("y", y)
-            .attr("width", imgSize)
-            .attr("height", imgSize)
-            .attr("transform", "translate(-50,-50)");
-    }
-});
+// arcs.each(function(d, i) {
+//     if (d.data.src && d.data.src.trim() !== "") {
+//         var midAngle = (d.startAngle + d.endAngle) / 2;
+//         var x = ((wheelImgAngle) * r) * Math.sin(midAngle);
+//         var y = -((wheelImgAngle) * r) * Math.cos(midAngle);
+//         d3.select(this).append("image")
+//             .attr("xlink:href", d.data.src)
+//             .attr("x", x)
+//             .attr("y", y)
+//             .attr("width", imgSize)
+//             .attr("height", imgSize)
+//             .attr("transform", "translate(-50,-50)");
+//     }
+// });
 
 container.on("click", spin);
 
@@ -193,30 +194,47 @@ function spin(d) {
 svg.append("g")
     .attr("transform", "translate(" + (w + padding.left + padding.right) + "," + ((h/2)+padding.top) + ")")
     .append("path")
-    .attr("d", "M-" + (r*.15) + ",0L0," + (r*.05) + "L0,-" + (r*.05) + "Z")
-    .style({"fill":"black"});
+    .attr("d", "M-" + (r*.19) + ",0L0," + (r*.09) + "L0,-" + (r*.09) + "Z")
+    // .attr("stroke", "rgba(250,215,102,1)")
+    .attr('stroke', 'rgba(0,0,0,1)')
+    .attr('stroke-width', 5)
+    .style({"fill":"red"});
 
 container.append("circle")
     .attr("cx", 0)
     .attr("cy", 0)
-    .attr("r", 60)
-    .attr("stroke", "#000000")
-    .attr("stroke-width", "2")
-    .style({"fill":"white","cursor":"pointer"});
+    .attr("r", viewportWidth < 768 ? 60 : 100)
+    .attr("fill", "#000000")
+    .attr("stroke", "rgba(250,215,102,1)")
+    .attr("stroke-width", strokeWidth/2)
+    .style({"cursor":"pointer"});
 
 container.append("text")
     .attr("x", 0)
-    .attr("y", 15)
+    .attr("y", viewportWidth < 768 ? 45 : 75)
     .attr("text-anchor", "middle")
-    .text("SPIN")
-    .style({"font-weight":"bold", "font-size":"30px"});
-
+    .text("SNÚA")
+    .style({"font-weight":"bold", "font-size":"20px", 'fill': '#fff'});
+container.append('image')
+.attr('x', viewportWidth < 768 ? -45 : -70)
+.attr('y', viewportWidth < 768 ? -55 : -90)
+.attr('width', viewportWidth < 768 ? 90 : 150)
+// .attr('height', 10)
+.attr('href', 'skull.png')
 function rotTween(to) {
     var i = d3.interpolate(oldrotation % 360, rotation);
     return function(t) {
         return "rotate(" + i(t) + ")";
     };
 }
+container.append('circle')
+.attr('cx', 0)
+.attr('cy', 0)
+.attr('r', baseSize/2 - (viewportWidth < 768 ? 8 : 20))
+.attr('fill', 'rgba(0,0,0,0)')
+.attr("stroke", "rgba(250,215,102,1)")
+.attr('stroke-width', strokeWidth);
+
 // Get the reset button by its ID
 var resetButton = document.getElementById("resetButton");
 
