@@ -18,8 +18,6 @@ var customColors = ['#F9C200', 'rgba(0, 0, 0, 1)', '#F9C200', 'rgba(0, 0, 0, 1)'
 var hasSpun = localStorage.getItem('hasSpun') === 'true'; // If 'hasSpun' is 'true' in localStorage, set hasSpun to true
 var savedPrize = localStorage.getItem('savedPrize');
 if (savedPrize) {
-    container.on('.drag', null);
-    container.on('touchMove', null);
     document.getElementById("prize").classList.add('info')
     document.querySelector("#prize h1").innerHTML = savedPrize;
     // document.querySelector('#chart').style.opacity = 0.6;
