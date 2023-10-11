@@ -15,7 +15,8 @@ border: 2px solid;
 border-radius: 20px;
 position: absolute;
 top: 20%;
-left: 40%;
+left: 30%;
+padding: 70px;
 min-width: 400px;
 min-height: 200px;
 align-items: center;
@@ -46,6 +47,7 @@ align-items: center;
     }
     #prize.info {
         left: 0%;
+        padding: 20px;
     } 
     #chart {
         width: 100%;

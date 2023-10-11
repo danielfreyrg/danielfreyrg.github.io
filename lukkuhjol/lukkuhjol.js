@@ -20,7 +20,6 @@ if (savedPrize) {
     document.getElementById("prize").classList.add('info')
     document.querySelector("#prize h1").innerHTML = savedPrize;
     document.querySelector('#chart').style.opacity = 0.6;
-    // Assuming you have the image saved as well
     var savedPrizeImage = localStorage.getItem('savedPrizeImage');
     if (savedPrizeImage && savedPrizeImage.trim() !== "") {
         let prizeElement = d3.select("#prize");
@@ -30,7 +29,6 @@ if (savedPrize) {
             prizeElement.select("img").attr("src", savedPrizeImage).attr("alt", savedPrize);
         }
     }
-
 }
 var data = [
     {"label":"ÚT AÐ BORÐA", "value":1, "question":"Þú ert kominn í pottinn. Vinningshafi verður dreginn út í lok sýningar.", "src": "skull.png"},
@@ -50,46 +48,43 @@ function easeInOutBack(x) {
 var svg = d3.select('#chart')
     .append("svg")
     .data([data])
-    .attr("width", w + (viewportWidth < 768 ? 100 : 220) + padding.left + padding.right + (viewportWidth < 768 ? 30 : 0))  // increased width
+    .attr("width", w + (viewportWidth < 768 ? 100 : 220) + padding.left + padding.right + (viewportWidth < 768 ? 30 : 0))
     .attr("height", h + (viewportWidth < 768 ? 100 : 220) + padding.top + padding.bottom);
 var mobileOffset = viewportWidth < 768 ? 10 : 0;
 var container = svg.append("g")
     .attr("class", "chartholder")
-    // .attr("transform", ("translate(" + (viewportWidth < 768 ? w/2 + padding.left + ',' + (h/2) + padding.top + ')' : (w/2)+50 + padding.left - 30 + ',' + (h/2)+padding.top + ')') + "," + ((h/2)+50 + padding.top) + ")"));  // adjusted x-translation
+    .attr("transform", "translate(" + ((w/2)+50 + padding.left + 20 - mobileOffset) + "," + ((h/2)+50 + padding.top) + ")");
+var defs = svg.append("defs");
 
-    .attr("transform", "translate(" + ((w/2)+50 + padding.left + 20 - mobileOffset) + "," + ((h/2)+50 + padding.top) + ")");  // adjusted x-translation
-    var defs = svg.append("defs");
+var filter = defs.append("filter")
+    .attr("id", "dropshadow")
+    .attr("x", "-50%")
+    .attr("y", "-50%")
+    .attr("width", "200%")
+    .attr("height", "200%");
 
-    var filter = defs.append("filter")
-        .attr("id", "dropshadow")
-        .attr("x", "-50%")
-        .attr("y", "-50%")
-        .attr("width", "200%")
-        .attr("height", "200%");
-    
-    filter.append("feOffset")
-        .attr("result", "offOut")
-        .attr("in", "SourceAlpha")
-        .attr("dx", "6.7393")
-        .attr("dy", "19.2553");
-    
-    filter.append("feGaussianBlur")
-        .attr("result", "blurOut")
-        .attr("in", "offOut")
-        .attr("stdDeviation", "9.6276");
-    
-    filter.append("feColorMatrix")
-        .attr("result", "matrixOut")
-        .attr("in", "blurOut")
-        .attr("type", "matrix")
-        .attr("values", "0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.75 0");
-    
-    filter.append("feBlend")
-        .attr("in", "SourceGraphic")
-        .attr("in2", "matrixOut")
-        .attr("mode", "multiply");
-    
-// Add a static shadow circle to the container
+filter.append("feOffset")
+    .attr("result", "offOut")
+    .attr("in", "SourceAlpha")
+    .attr("dx", "6.7393")
+    .attr("dy", "19.2553");
+
+filter.append("feGaussianBlur")
+    .attr("result", "blurOut")
+    .attr("in", "offOut")
+    .attr("stdDeviation", "9.6276");
+
+filter.append("feColorMatrix")
+    .attr("result", "matrixOut")
+    .attr("in", "blurOut")
+    .attr("type", "matrix")
+    .attr("values", "0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.75 0");
+
+filter.append("feBlend")
+    .attr("in", "SourceGraphic")
+    .attr("in2", "matrixOut")
+    .attr("mode", "multiply");
+
 container.append('circle')
     .attr('cx', 0)
     .attr('cy', 0)
@@ -97,18 +92,16 @@ container.append('circle')
     .attr('fill', 'rgba(0,0,0,0)')
     .attr("stroke", "rgba(250,215,102,1)")
     .attr('stroke-width', strokeWidth)
-    .attr("filter", "url(#dropshadow)");  // Apply the shadow filter to the static circle
+    .attr("filter", "url(#dropshadow)");
 
-// Create the spinning wheel group
 var vis = container.append("g")
     .attr("class", "the-wheel");
 
-
-    var savedRotation = localStorage.getItem('wheelRotation');
-    if (savedRotation) {
-        rotation = +savedRotation; // Convert the saved string to a number
-        vis.attr("transform", "rotate(" + rotation + ")");
-    }
+var savedRotation = localStorage.getItem('wheelRotation');
+if (savedRotation) {
+    rotation = +savedRotation;
+    vis.attr("transform", "rotate(" + rotation + ")");
+}
 var pie = d3.layout.pie().sort(null).value(function(d){return 1;});
 var arc = d3.svg.arc().outerRadius(r);
 var arcs = vis.selectAll("g.slice")
@@ -123,22 +116,6 @@ arcs.append("path")
     .attr("stroke-width", 2)
     .attr("d", function (d) { return arc(d); });
 
-var pegRadius = r + 10;
-var pegLength = 10;
-var pegWidth = 3;
-// arcs.each(function(d, i) {
-//     var angle = d.endAngle;
-//     var x = pegRadius * Math.sin(angle);
-//     var y = -pegRadius * Math.cos(angle);
-//     vis.append("rect")
-//         .attr("x", x - pegWidth / 2)
-//         .attr("y", y)
-//         .attr("width", pegWidth)
-//         .attr("height", pegLength)
-//         .attr("fill", "#000")
-//         .attr("transform", "rotate(" + (angle * 180 / Math.PI) + "," + x + "," + y + ")");
-// });
-
 arcs.append("text").attr("transform", function(d){
         d.innerRadius = 0;
         d.outerRadius = r;
@@ -148,31 +125,16 @@ arcs.append("text").attr("transform", function(d){
     .attr("text-anchor", "end")
     .text(function(d, i) {
         return data[i].label;
-    })
-
-// arcs.each(function(d, i) {
-//     if (d.data.src && d.data.src.trim() !== "") {
-//         var midAngle = (d.startAngle + d.endAngle) / 2;
-//         var x = ((wheelImgAngle) * r) * Math.sin(midAngle);
-//         var y = -((wheelImgAngle) * r) * Math.cos(midAngle);
-//         d3.select(this).append("image")
-//             .attr("xlink:href", d.data.src)
-//             .attr("x", x)
-//             .attr("y", y)
-//             .attr("width", imgSize)
-//             .attr("height", imgSize)
-//             .attr("transform", "translate(-50,-50)");
-//     }
-// });
+    });
 
 container.on("click", spin);
 
 function spin(d) {
     if (hasSpun) {
-        return;  // Exit the function if the wheel has already been spun
+        return;
     }
-    hasSpun = true;  // Mark the wheel as having been spun
-    localStorage.setItem('hasSpun', 'true');  // Save the spin status to local storage
+    hasSpun = true;
+    localStorage.setItem('hasSpun', 'true');
 
     d3.select("#prize").html("<h1></h1>");
     var ps = 360/data.length,
@@ -183,34 +145,7 @@ function spin(d) {
     picked = picked >= data.length ? (picked % data.length) : picked;
     rotation += 90 - Math.round(ps/2);
     var spinDuration = Math.floor(Math.random() * (9000 - 3000 + 1)) + 3000;
-    // var audioElement = document.getElementById("spinSound");
-    var pegHitSound = document.getElementById("pegHitSound");
-    var totalPegs = data.length;
-    var timeForOnePegHit = spinDuration / (360 / (360 / totalPegs));
-    var currentTime = 0;
 
-    function playPegHitSound() {
-        var delays = [50, 45, 40, 35, 30, 28, 27, 26, 25, 25, 26, 27, 28, 30, 35, 40, 45, 50, 60, 70, 80, 100, 120, 150, 180, 220, 260, 300, 350, 400, 450, 500];
-        var totalDelays = delays.reduce(function(a, b) { return a + b; }, 0);
-        
-        var delayIndex = 0;
-        var playNextSound = function() {
-            pegHitSound.play();
-    
-            if (totalDelays < spinDuration) {
-                setTimeout(playNextSound, delays[delayIndex] || 500);  // Default to 500ms if we've run out of predefined values
-                totalDelays += delays[delayIndex] || 500;
-                delayIndex++;
-            }
-        };
-    
-        playNextSound();
-    }
-    
-    
-    
-    // audioElement.play();
-    playPegHitSound(0);
     vis.transition()
         .duration(spinDuration)
         .ease("bounce")
@@ -224,7 +159,6 @@ function spin(d) {
                 } else {
                     prizeElement.select("img").attr("src", data[picked].src).attr("alt", data[picked].label);
                 }
-                
             }
             document.getElementById("prize").classList.add('info')
             localStorage.setItem('savedPrize', data[picked].question);
@@ -232,25 +166,21 @@ function spin(d) {
             if (hasSpun) {
                 document.querySelector('#chart').style.opacity = 0.6;
             }
-            // audioElement.pause();
-            // audioElement.currentTime = 0;
         });
         localStorage.setItem('wheelRotation', rotation);
 
 }
-// ARROW
+
 svg.append("g")
-    .attr("transform", "translate(" + (w + (viewportWidth < 768 ? 20 : 0)- mobileOffset + padding.left + padding.right) + "," + ((h/2) + 30 +padding.top) + ")")
+    .attr("transform", "translate(" + (w + (viewportWidth < 768 ? 20 : 0)- (mobileOffset+15) + padding.left + padding.right) + "," + ((h/2) + 30 +padding.top) + ")")
     .append("path")
     .attr("d", "M92.74,76.12C71.72,76.12,0,38.06,0,38.06,0,38.06,71.72,0,92.74,0s38.06,17.04,38.06,38.06-17.04,38.06-38.06,38.06Z")
     .attr("stroke", "rgba(250,215,102,1)")
     .attr("filter", "url(#dropshadow)")
     .attr('stroke-width', 5)
     .attr('class', 'arrow')
-
     .style({"fill":"red"});
 
-    // MIDDLE CIRCLE
 container.append("circle")
     .attr("cx", 0)
     .attr("cy", 0)
@@ -259,7 +189,6 @@ container.append("circle")
     .attr("stroke", "rgba(250,215,102,1)")
     .attr("stroke-width", strokeWidth/2)
     .style({"cursor":"pointer"});
-// SNÚA
 container.append("text")
     .attr("x", 0)
     .attr("y", viewportWidth < 768 ? 30 : 75)
@@ -285,18 +214,12 @@ container.append('circle')
 .attr("stroke", "rgba(250,215,102,1)")
 .attr('stroke-width', strokeWidth);
 
-// Get the reset button by its ID
 var resetButton = document.getElementById("resetButton");
 
-// Add a click event listener to the button
 resetButton.addEventListener("click", function() {
-    // Reset local storage
     localStorage.removeItem('hasSpun');
     localStorage.removeItem('savedPrize');
     localStorage.removeItem('savedPrizeImage');
-    localStorage.removeItem('wheelRotation');  // Also remove the saved rotation
-
-    // Refresh the page
+    localStorage.removeItem('wheelRotation');
     location.reload();
 });
-
