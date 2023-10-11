@@ -33,14 +33,14 @@ if (savedPrize) {
 
 }
 var data = [
-    {"label":"SIGUR", "value":1, "question":"ÞÚ VANNST NÝJAN BÍL", "src": "skull.png"},
-    {"label":"ÓHEPPNI", "value":2, "question":"ADIOS AMIGO", "src": ""},
+    {"label":"ÚT AÐ BORÐA", "value":1, "question":"ÞÚ VANNST NÝJAN BÍL", "src": "skull.png"},
+    {"label":"ENGIN VINNINGUR", "value":2, "question":"ADIOS AMIGO", "src": ""},
     {"label":"SÚKKULAÐI", "value":3, "question":"SÚKKULAÐI", "src": "apollo.png"},
-    {"label":"SORRY", "value":4, "question":"ÞÚ ERT LOSER", "src": ""},
+    {"label":"ENGIN VINNINGUR", "value":4, "question":"ÞÚ ERT LOSER", "src": ""},
     {"label":"SÚKKULAÐI", "value":5, "question":"ÞÚ VANNST GLÆNÝTT SÚKKULAÐI", "src": "hraun.png"},
-    {"label":"STÖNGIN ÚT", "value":6, "question":"KANNSKI Í NÆSTA LÍFI AUMINGI", "src": ""},
+    {"label":"ENGIN VINNINGUR", "value":6, "question":"KANNSKI Í NÆSTA LÍFI AUMINGI", "src": ""},
     {"label":"SÚKKULAÐI", "value":7, "question":"PRETTYBOYTJOKKO", "src": "Prins_Polo.webp"},
-    {"label":"ÚFF", "value":8, "question":"TIL AÐ SNÚA AFTUR LEGGÐU 5000KR INN Á RKNR: 511-14-25266, KT: 020498-2859", "src": ""}
+    {"label":"ENGIN VINNINGUR", "value":8, "question":"TIL AÐ SNÚA AFTUR LEGGÐU 5000KR INN Á RKNR: 511-14-25266, KT: 020498-2859", "src": ""}
 ];
 
 function easeInOutBack(x) {
