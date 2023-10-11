@@ -80,16 +80,18 @@ align-items: center;
         margin: 0 auto;
     }
 }
-.the-wheel {
-    -webkit-box-shadow: 7px 20px 28px 3px rgba(0,0,0,0.75);
--moz-box-shadow: 7px 20px 28px 3px rgba(0,0,0,0.75);
-box-shadow: 7px 20px 28px 3px rgba(0,0,0,0.75);
-}
+
 html {
     background: rgb(255,204,0);
 background: linear-gradient(60deg, rgba(255,204,0,1) 0%, rgba(255,204,0,1) 25%, rgba(0,0,0,1) 25%, rgba(0,0,0,1) 45%, rgba(255,204,0,1) 45%, rgba(255,204,0,1) 45%);
 background-repeat: no-repeat;
-min-width: 100vw;
-min-height: 100vh;
+min-height: 100%;
+background-size: cover;
 
 }
+/* .wheel-container {
+    background: rgb(255,204,0);
+background: linear-gradient(60deg, rgba(255,204,0,1) 0%, rgba(255,204,0,1) 25%, rgba(0,0,0,1) 25%, rgba(0,0,0,1) 45%, rgba(255,204,0,1) 45%, rgba(255,204,0,1) 45%);
+background-repeat: no-repeat;
+
+} */
