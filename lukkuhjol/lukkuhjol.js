@@ -1,3 +1,4 @@
+
 var viewportWidth = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
 var baseSize = viewportWidth < 768 ? (viewportWidth*0.85) : 800;
 var imgSize = viewportWidth < 768 ? 100 : 120;
@@ -53,6 +54,110 @@ var container = svg.append("g")
     .attr("class", "chartholder")
     .attr("transform", "translate(" + ((w/2)+50 + padding.left + 20 - mobileOffset) + "," + ((h/2)+50 + padding.top) + ")");
 var defs = svg.append("defs");
+container.on("touchstart", touchStart);
+container.on("touchend", touchEnd);
+
+let touchStartY;
+let touchEndY;
+
+function touchStart(event) {
+    touchStartY = d3.event.touches[0].clientY;
+    console.log(touchStartY);
+}
+
+function touchEnd(event) {
+    touchEndY = d3.event.changedTouches[0].clientY;
+    let swipeDistance = touchEndY - touchStartY;
+    spinWithSwipe(swipeDistance);
+    console.log(touchEndY);
+}
+container.on("touchmove", touchMove);
+
+function touchMove(event) {
+    d3.event.preventDefault();
+}
+function dragStart(d) {
+    // Capture the starting angle at the beginning of the drag
+    var dx = d3.event.x,
+        dy = d3.event.y;
+    startAngle = Math.atan2(dy, dx) * (180 / Math.PI);
+    if (isNaN(startAngle)) {
+        console.error("startAngle is NaN", dx, dy);
+    }
+}
+
+function drag(d) {
+    // Calculate the angle based on the drag distance
+    var dx = d3.event.x,
+        dy = d3.event.y;
+    var currentAngle = Math.atan2(dy, dx) * (180 / Math.PI);
+    var deltaAngle = currentAngle - startAngle;
+
+    if (isNaN(deltaAngle)) {
+        console.error("deltaAngle is NaN", currentAngle, startAngle);
+        return;
+    }
+
+    // Update the rotation of the wheel
+    rotation += deltaAngle;
+    if (isNaN(rotation)) {
+        console.error("rotation is NaN", deltaAngle);
+        return;
+    }
+
+    vis.attr("transform", "rotate(" + rotation + ")");
+
+    // Update the start angle for the next drag event
+    startAngle = currentAngle;
+}
+
+function dragEnd(d) {
+    // You can define any actions to be performed at the end of the drag here
+    // For example, you can continue the spin or just stop it based on some criteria
+}
+function spinWithSwipe(swipeDistance) {
+    // Use swipeDistance to adjust the spin strength/duration
+    let spinDuration = 3000 + Math.abs(swipeDistance)*10; // example calculation
+    if (hasSpun) {
+        return;
+    }
+    hasSpun = true;
+    localStorage.setItem('hasSpun', 'true');
+
+    d3.select("#prize").html("<h1></h1>");
+    var ps = 360/data.length,
+        pieslice = Math.round(1440/data.length),
+        rng = Math.floor((Math.random() * 1440) + 360);
+    rotation = (Math.round(rng / ps) * ps);
+    picked = Math.round(data.length - (rotation % 360)/ps);
+    picked = picked >= data.length ? (picked % data.length) : picked;
+    rotation += 90 - Math.round(ps/2);
+    // var spinDuration = Math.floor(Math.random() * (9000 - 3000 + 1)) + 3000;
+
+    vis.transition()
+        .duration(spinDuration)
+        .ease("bounce")
+        .attrTween("transform", rotTween)
+        .each("end", function() {
+            d3.select("#prize h1").text(data[picked].question);
+            if (data[picked].src && data[picked].src.trim() !== "") {
+                let prizeElement = d3.select("#prize");
+                if (prizeElement.select("img").empty()) {
+                    prizeElement.append("img").attr("src", data[picked].src).attr("alt", data[picked].label);
+                } else {
+                    prizeElement.select("img").attr("src", data[picked].src).attr("alt", data[picked].label);
+                }
+            }
+            document.getElementById("prize").classList.add('info')
+            localStorage.setItem('savedPrize', data[picked].question);
+            localStorage.setItem('savedPrizeImage', data[picked].src);
+            if (hasSpun) {
+            //     document.querySelector('#chart').style.opacity = 0.6;
+            }
+        });
+        localStorage.setItem('wheelRotation', rotation);
+
+}
 
 var filter = defs.append("filter")
     .attr("id", "dropshadow")
@@ -88,7 +193,7 @@ container.append('circle')
     .attr('cy', 0)
     .attr('r', baseSize/2 - (viewportWidth < 768 ? 8 : 20))
     .attr('fill', 'rgba(0,0,0,0)')
-    .attr("stroke", "rgba(250,215,102,1)")
+    .attr("stroke", "url(#linear-gradient)")
     .attr('stroke-width', strokeWidth)
     .attr("filter", "url(#dropshadow)");
 // Add this gradient definition after your existing defs declaration.
