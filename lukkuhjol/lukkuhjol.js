@@ -1,5 +1,5 @@
 var viewportWidth = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
-var baseSize = viewportWidth < 768 ? (viewportWidth*0.9) : 800;
+var baseSize = viewportWidth < 768 ? (viewportWidth*0.85) : 800;
 var imgSize = viewportWidth < 768 ? 100 : 120;
 var wheelImgAngle = viewportWidth < 768 ? 0.6 : 0.5;
 var strokeWidth = viewportWidth < 768 ? 10 : 20;
@@ -48,7 +48,7 @@ var svg = d3.select('#chart')
     .data([data])
     .attr("width", w + (viewportWidth < 768 ? 100 : 220) + padding.left + padding.right + (viewportWidth < 768 ? 30 : 0))
     .attr("height", h + (viewportWidth < 768 ? 100 : 220) + padding.top + padding.bottom);
-var mobileOffset = viewportWidth < 768 ? 35 : 0;
+var mobileOffset = viewportWidth < 768 ? viewportWidth * 0.05 : 0;
 var container = svg.append("g")
     .attr("class", "chartholder")
     .attr("transform", "translate(" + ((w/2)+50 + padding.left + 20 - mobileOffset) + "," + ((h/2)+50 + padding.top) + ")");
@@ -114,17 +114,32 @@ arcs.append("path")
     .attr("stroke-width", 2)
     .attr("d", function (d) { return arc(d); });
 
-arcs.append("text").attr("transform", function(d){
+    arcs.append("text")
+    .attr("transform", function(d){
         d.innerRadius = 0;
         d.outerRadius = r;
         d.angle = (d.startAngle + d.endAngle)/2;
         return "rotate(" + (d.angle * 180 / Math.PI - 90) + ")translate(" + (viewportWidth < 768 ? d.outerRadius -20 : d.outerRadius -50) +")";
     })
     .attr("text-anchor", "end")
-    .text(function(d, i) {
-        return data[i].label;
+    .each(function(d, i) {
+        var label = data[i].label;
+        if (label === "ENGINN VINNINGUR") {
+            d3.select(this)
+                .append("tspan")
+                .attr("x", -18)
+                .attr("dy", "-0.5em")  // Adjust as necessary for line spacing
+                .text("ENGINN");
+            
+            d3.select(this)
+                .append("tspan")
+                .attr("x", 0)
+                .attr("dy", "1.2em")  // Adjust as necessary for line spacing
+                .text("VINNINGUR");
+        } else {
+            d3.select(this).text(label);
+        }
     });
-
 container.on("click", spin);
 
 function spin(d) {
@@ -170,7 +185,7 @@ function spin(d) {
 }
 
 svg.append("g")
-    .attr("transform", "translate(" + (w + (viewportWidth < 768 ? 20 : 0)- (mobileOffset+15) + padding.left + padding.right) + "," + ((h/2) + 30 +padding.top) + ")")
+    .attr("transform", "translate(" + (w + (viewportWidth < 768 ? 20 : 0)- (mobileOffset+5) + padding.left + padding.right) + "," + ((h/2) + 30 +padding.top) + ")")
     .append("path")
     .attr("d", "M92.74,76.12C71.72,76.12,0,38.06,0,38.06,0,38.06,71.72,0,92.74,0s38.06,17.04,38.06,38.06-17.04,38.06-38.06,38.06Z")
     .attr("stroke", "rgba(250,215,102,1)")
