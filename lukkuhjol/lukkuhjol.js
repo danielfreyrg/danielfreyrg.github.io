@@ -1,5 +1,5 @@
 var viewportWidth = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
-var baseSize = viewportWidth < 768 ? 400 : 750;
+var baseSize = viewportWidth < 768 ? 400 : 800;
 var imgSize = viewportWidth < 768 ? 100 : 120;
 var wheelImgAngle = viewportWidth < 768 ? 0.6 : 0.5;
 var strokeWidth = viewportWidth < 768 ? 10 : 20;
@@ -34,13 +34,13 @@ if (savedPrize) {
 }
 var data = [
     {"label":"ÚT AÐ BORÐA", "value":1, "question":"Þú ert kominn í pott og verður dreginn út í lok sýningar", "src": "skull.png"},
-    {"label":"ENGIN VINNINGUR", "value":2, "question":"ADIOS AMIGO", "src": ""},
+    {"label":"ENGINN VINNINGUR", "value":2, "question":"ADIOS AMIGO", "src": ""},
     {"label":"SÚKKULAÐI", "value":3, "question":"SÚKKULAÐI", "src": "apollo.png"},
-    {"label":"ENGIN VINNINGUR", "value":4, "question":"ÞÚ ERT LOSER", "src": ""},
+    {"label":"ENGINN VINNINGUR", "value":4, "question":"ÞÚ ERT LOSER", "src": ""},
     {"label":"SÚKKULAÐI", "value":5, "question":"ÞÚ VANNST GLÆNÝTT SÚKKULAÐI", "src": "hraun.png"},
-    {"label":"ENGIN VINNINGUR", "value":6, "question":"KANNSKI Í NÆSTA LÍFI AUMINGI", "src": ""},
+    {"label":"ENGINN VINNINGUR", "value":6, "question":"KANNSKI Í NÆSTA LÍFI AUMINGI", "src": ""},
     {"label":"SÚKKULAÐI", "value":7, "question":"PRETTYBOYTJOKKO", "src": "Prins_Polo.webp"},
-    {"label":"ENGIN VINNINGUR", "value":8, "question":"TIL AÐ SNÚA AFTUR LEGGÐU 5000KR INN Á RKNR: 511-14-25266, KT: 020498-2859", "src": ""}
+    {"label":"ENGINN VINNINGUR", "value":8, "question":"TIL AÐ SNÚA AFTUR LEGGÐU 5000KR INN Á RKNR: 511-14-25266, KT: 020498-2859", "src": ""}
 ];
 
 function easeInOutBack(x) {
@@ -50,13 +50,58 @@ function easeInOutBack(x) {
 var svg = d3.select('#chart')
     .append("svg")
     .data([data])
-    .attr("width", w + padding.left + padding.right)
-    .attr("height", h + padding.top + padding.bottom);
+    .attr("width", w + 220 + padding.left + padding.right)  // increased width
+    .attr("height", h + 220 + padding.top + padding.bottom);
+
 var container = svg.append("g")
     .attr("class", "chartholder")
-    .attr("transform", "translate(" + (w/2 + padding.left) + "," + (h/2 + padding.top) + ")");
-var vis = container
-    .append("g");
+    .attr("transform", "translate(" + ((w/2)+50 + padding.left + 20) + "," + ((h/2)+50 + padding.top) + ")");  // adjusted x-translation
+    var defs = svg.append("defs");
+
+    var filter = defs.append("filter")
+        .attr("id", "dropshadow")
+        .attr("x", "-50%")
+        .attr("y", "-50%")
+        .attr("width", "200%")
+        .attr("height", "200%");
+    
+    filter.append("feOffset")
+        .attr("result", "offOut")
+        .attr("in", "SourceAlpha")
+        .attr("dx", "6.7393")
+        .attr("dy", "19.2553");
+    
+    filter.append("feGaussianBlur")
+        .attr("result", "blurOut")
+        .attr("in", "offOut")
+        .attr("stdDeviation", "9.6276");
+    
+    filter.append("feColorMatrix")
+        .attr("result", "matrixOut")
+        .attr("in", "blurOut")
+        .attr("type", "matrix")
+        .attr("values", "0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.75 0");
+    
+    filter.append("feBlend")
+        .attr("in", "SourceGraphic")
+        .attr("in2", "matrixOut")
+        .attr("mode", "multiply");
+    
+// Add a static shadow circle to the container
+container.append('circle')
+    .attr('cx', 0)
+    .attr('cy', 0)
+    .attr('r', baseSize/2 - (viewportWidth < 768 ? 8 : 20))
+    .attr('fill', 'rgba(0,0,0,0)')
+    .attr("stroke", "rgba(250,215,102,1)")
+    .attr('stroke-width', strokeWidth)
+    .attr("filter", "url(#dropshadow)");  // Apply the shadow filter to the static circle
+
+// Create the spinning wheel group
+var vis = container.append("g")
+    .attr("class", "the-wheel");
+
+
     var savedRotation = localStorage.getItem('wheelRotation');
     if (savedRotation) {
         rotation = +savedRotation; // Convert the saved string to a number
@@ -69,7 +114,37 @@ var arcs = vis.selectAll("g.slice")
     .enter()
     .append("g")
     .attr("class", "slice");
+    var defs = svg.append("defs");
 
+    var filter = defs.append("filter")
+        .attr("id", "dropshadow")
+        .attr("x", "-50%")
+        .attr("y", "-50%")
+        .attr("width", "200%")
+        .attr("height", "200%");
+    
+    filter.append("feOffset")
+        .attr("result", "offOut")
+        .attr("in", "SourceAlpha")
+        .attr("dx", "7")
+        .attr("dy", "20");
+    
+    filter.append("feGaussianBlur")
+        .attr("result", "blurOut")
+        .attr("in", "offOut")
+        .attr("stdDeviation", "28");
+    
+    filter.append("feColorMatrix")
+        .attr("result", "matrixOut")
+        .attr("in", "blurOut")
+        .attr("type", "matrix")
+        .attr("values", "0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.75 0");
+    
+    filter.append("feBlend")
+        .attr("in", "SourceGraphic")
+        .attr("in2", "matrixOut")
+        .attr("mode", "normal");
+    
 arcs.append("path")
     .attr("fill", function(d, i) { return customColors[i]; })
     .attr("stroke", "#000")
@@ -194,9 +269,9 @@ function spin(d) {
 svg.append("g")
     .attr("transform", "translate(" + (w + padding.left + padding.right) + "," + ((h/2)+padding.top) + ")")
     .append("path")
-    .attr("d", "M-" + (r*.19) + ",0L0," + (r*.09) + "L0,-" + (r*.09) + "Z")
-    // .attr("stroke", "rgba(250,215,102,1)")
-    .attr('stroke', 'rgba(0,0,0,1)')
+    .attr("d", "M92.74,76.12C71.72,76.12,0,38.06,0,38.06,0,38.06,71.72,0,92.74,0s38.06,17.04,38.06,38.06-17.04,38.06-38.06,38.06Z")
+    .attr("stroke", "rgba(250,215,102,1)")
+    .attr("filter", "url(#dropshadow)")
     .attr('stroke-width', 5)
     .style({"fill":"red"});
 
