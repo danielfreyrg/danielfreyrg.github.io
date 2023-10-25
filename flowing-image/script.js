@@ -5,6 +5,33 @@ let grid = [];
 let particleImage;
 let ctx;
 var currentstep = 1;
+let isTouching = false;
+function touchStarted() {
+  console.log(touches)
+  if (touches.length > 0) {
+    let touchX = touches[0].x;
+    let touchY = touches[0].y;
+  
+  // Check if touch is over the slider
+  let slider = document.getElementById('step');
+  let sliderRect = slider.getBoundingClientRect();
+  
+  if (touchX >= sliderRect.left && touchX <= sliderRect.right && 
+      touchY >= sliderRect.top && touchY <= sliderRect.bottom) {
+    return true; // This allows the default behavior for the slider
+  }
+}
+try {
+  if (isInsideCanvas()) {
+    isTouching = true;
+    return false; // This prevents any default behavior for the canvas
+  }
+} catch (error) {
+  
+}
+
+}
+
 function preload() {
   // img = loadImage('Pipar_Staff_0313.jpg');
   // img = loadImage('Pipar_Staff_0313-nobg.png');
@@ -29,15 +56,23 @@ class Particle {
 
   }
   repelFromMouse() {
-    let d = dist(this.x, this.y, mouseX, mouseY);
-    if (d < 50) { // 50 is the distance of influence. Adjust as needed.
-      let diffY = this.y - mouseY;
-      this.y += map(d, 0, 50, diffY > 0 ? 10 : -10, 0); // 10 is the maximum shift. Adjust as needed.
+    let x = mouseX;
+    let y = mouseY;
+  
+    if (isTouching) {
+      x = touchX;
+      y = touchY;
+    }
+  
+    let d = dist(this.x, this.y, x, y);
+    if (d < 50 && (mouseIsPressed || isTouching)) {
+      let diffY = this.y - y;
+      this.y += map(d, 0, 50, diffY > 0 ? 10 : -10, 0);
     } else {
-      // When the particle is not influenced by the mouse, move it back to its original position
-      this.y = lerp(this.y, this.originalY, 0.05); // 0.05 is the interpolation amount. Adjust as needed.
+      this.y = lerp(this.y, this.originalY, 0.05);
     }
   }
+  
   
   
   update (speed) {
