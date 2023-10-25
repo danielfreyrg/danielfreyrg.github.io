@@ -9,7 +9,6 @@ let isTouching = false;
 let currentstep = 6
 
 function touchStarted() {
-  console.log(touches);
   if (touches.length > 0) {
     let touchX = touches[0].x;
     let touchY = touches[0].y;
@@ -120,20 +119,27 @@ function step6() {
   });
 }
 
-function setup () {
-    const canvas = createCanvas(100,100);
-    ctx = canvas.drawingContext;
-    
-    pixelDensity(1);
-    
-    particleImage = createGraphics(8, 8);
-    particleImage.fill(255);
-    particleImage.noStroke();
-    particleImage.circle(4, 4, 4);
-    if (p5Img) {
-        windowResized();
-    }
+function setup() {
+  const canvas = createCanvas(100, 100);
+  ctx = canvas.drawingContext;
+
+  pixelDensity(1);
+
+  particleImage = createGraphics(8, 8);
+  particleImage.fill(255);
+  particleImage.noStroke();
+  particleImage.circle(4, 4, 4);
+
+  // Position canvas where the original image was.
+  canvas.parent(domImg.parentElement);
+  canvas.elt.insertAdjacentElement('beforebegin', domImg);
+  domImg.style.display = 'none';
+
+  if (p5Img) {
+      windowResized();
+  }
 }
+
 
 function windowResized () {
     if (p5Img && p5Img.width && p5Img.height) {
