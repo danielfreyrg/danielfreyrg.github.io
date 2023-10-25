@@ -34,6 +34,7 @@ function preload() {
 
           // Hide the original image
           domImg.style.display = 'none';
+          domImg.style.transform = 'scaleY(0)';
 
           // Adjust canvas size and start the animation
           windowResized();
