@@ -7,11 +7,15 @@ let ctx;
 var currentstep = 1;
 function preload() {
   // img = loadImage('Pipar_Staff_0313.jpg');
-  img = loadImage('Pipar_Staff_0313-nobg.png');
+  // img = loadImage('Pipar_Staff_0313-nobg.png');
 
-  // img = loadImage('ru.jpg');
   // img = loadImage('https://s3-us-west-2.amazonaws.com/s.cdpn.io/127738/Meisje_met_de_parel.jpg?3');
-
+  //if running locally use this file
+  if (window.location.href.indexOf('file://') > -1) {
+    img = loadImage('https://danielfreyrg.github.io/flowing-image/Pipar_Staff_0313-nobg.png');
+  } else {
+    img = loadImage('Pipar_Staff_0313-nobg.png');
+  }
 }
 
 class Particle {
@@ -21,14 +25,20 @@ class Particle {
     this.prevX = this.x;
     this.speed = 0;
     this.v = random(0, 0.7);
+    this.originalY = this.y;
+
   }
   repelFromMouse() {
     let d = dist(this.x, this.y, mouseX, mouseY);
-    if (d < 30) { 
+    if (d < 50) { // 50 is the distance of influence. Adjust as needed.
       let diffY = this.y - mouseY;
       this.y += map(d, 0, 50, diffY > 0 ? 10 : -10, 0); // 10 is the maximum shift. Adjust as needed.
+    } else {
+      // When the particle is not influenced by the mouse, move it back to its original position
+      this.y = lerp(this.y, this.originalY, 0.05); // 0.05 is the interpolation amount. Adjust as needed.
     }
   }
+  
   
   update (speed) {
     if (grid.length) {
