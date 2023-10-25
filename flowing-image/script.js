@@ -6,7 +6,8 @@ let particleImage;
 let ctx;
 function preload() {
   // img = loadImage('https://s3-us-west-2.amazonaws.com/s.cdpn.io/127738/Meisje_met_de_parel.jpg?3');
-  img = loadImage('ru.jpg');
+  img = loadImage('Pipar_Staff_0313.jpg');
+  // img = loadImage('ru.jpg');
 }
 
 class Particle {
