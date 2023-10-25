@@ -65,7 +65,7 @@ class Particle {
     }
   
     let d = dist(this.x, this.y, x, y);
-    if (d < 50 && (mouseIsPressed || isTouching)) {
+    if (d < 50 && (mouseIsPressed || isTouching || window.innerWidth > 1000)) {
       let diffY = this.y - y;
       this.y += map(d, 0, 50, diffY > 0 ? 10 : -10, 0);
     } else {
