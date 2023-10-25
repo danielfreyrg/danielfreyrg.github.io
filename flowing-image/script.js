@@ -18,13 +18,20 @@ class Particle {
     this.speed = 0;
     this.v = random(0, 0.7);
   }
+  repelFromMouse() {
+    let d = dist(this.x, this.y, mouseX, mouseY);
+    if (d < 50) { // 50 is the distance of influence. Adjust as needed.
+      let diffY = this.y - mouseY;
+      this.y += map(d, 0, 50, diffY > 0 ? 10 : -10, 0); // 10 is the maximum shift. Adjust as needed.
+    }
+  }
   
   update (speed) {
     if (grid.length) {
       this.speed = grid[floor(this.y / detail)][floor(this.x / detail)] * 0.97;
     }
     this.x += (1 - this.speed) * 3 + this.v;
-    
+    this.repelFromMouse();
     if (this.x > width) {
       this.x = 0;
     }
