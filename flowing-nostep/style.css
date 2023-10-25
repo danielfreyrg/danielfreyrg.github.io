@@ -22,7 +22,8 @@ canvas {
 }
 
 img {
-  transform: scaleY(1);
-  transition: transform 0.5s ease-in-out;
-  transform-origin: top;
+  /* transform: scaleY(1); */
+  transform: translateY(0);
+  transition: transform 0.8s ease-in-out;
+  /* transform-origin: bottom; */
 }

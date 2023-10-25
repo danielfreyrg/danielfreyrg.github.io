@@ -33,8 +33,9 @@ function preload() {
           canvas.style.top = imgRect.top + 'px';
 
           // Hide the original image
-          domImg.style.display = 'none';
-          domImg.style.transform = 'scaleY(0)';
+          // domImg.style.display = 'none';
+          // domImg.style.transform = 'scaleY(0)';
+          domImg.style.transform = 'translateY(-100%)'
 
           // Adjust canvas size and start the animation
           windowResized();
@@ -139,7 +140,9 @@ function setup() {
   pixelDensity(1);
 
   particleImage = createGraphics(8, 8);
-  particleImage.fill(255);
+  // particleImage.fill(255);
+  particleImage.fill(0, 255, 0); 
+
   particleImage.noStroke();
   particleImage.circle(4, 4, 4);
 
