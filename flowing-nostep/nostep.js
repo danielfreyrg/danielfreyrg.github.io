@@ -21,14 +21,26 @@ function touchStarted() {
 }
 
 function preload() {
-    domImg = document.getElementById('sourceImg');
-    domImg.onclick = function() {
-        p5Img = loadImage(domImg.src, function() {
-            domImg.style.display = 'none';
-            windowResized();
-        });
-    }
+  domImg = document.getElementById('sourceImg');
+  domImg.onclick = function() {
+      // Load the image into p5
+      p5Img = loadImage(domImg.src, function() {
+          // After loading, adjust the canvas position to match the image
+          const imgRect = domImg.getBoundingClientRect();
+          const canvas = document.querySelector('canvas');
+          canvas.style.position = 'absolute';
+          canvas.style.left = imgRect.left + 'px';
+          canvas.style.top = imgRect.top + 'px';
+
+          // Hide the original image
+          domImg.style.display = 'none';
+
+          // Adjust canvas size and start the animation
+          windowResized();
+      });
+  }
 }
+
 
 class Particle {
   constructor (x, y) {
@@ -130,15 +142,21 @@ function setup() {
   particleImage.noStroke();
   particleImage.circle(4, 4, 4);
 
-  // Position canvas where the original image was.
-  canvas.parent(domImg.parentElement);
-  canvas.elt.insertAdjacentElement('beforebegin', domImg);
-  domImg.style.display = 'none';
+  // Get the image's position and dimensions
+  const imgRect = domImg.getBoundingClientRect();
+
+  // Set the canvas position to match the image
+  canvas.position(imgRect.left, imgRect.top);
+  canvas.style('position', 'absolute');
+
+  // Hide the original image
+  // domImg.style.display = 'none';
 
   if (p5Img) {
       windowResized();
   }
 }
+
 
 
 function windowResized () {
