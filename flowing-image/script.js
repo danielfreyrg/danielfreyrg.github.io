@@ -4,7 +4,7 @@ let particles = [];
 let grid = [];
 let particleImage;
 let ctx;
-var step = 1;
+var currentstep = 1;
 function preload() {
   // img = loadImage('https://s3-us-west-2.amazonaws.com/s.cdpn.io/127738/Meisje_met_de_parel.jpg?3');
   img = loadImage('Pipar_Staff_0313.jpg');
@@ -36,7 +36,7 @@ this.speed = grid[yIndex][xIndex] * 0.97;
       // this.speed = grid[floor(this.y / detail)][floor(this.x / detail)] * 0.97;
     }
     this.x += (1 - this.speed) * 3 + this.v;
-    if (step == 6) {
+    if (currentstep == 6) {
     this.repelFromMouse();
     }
     if (this.x > width) {
@@ -68,7 +68,7 @@ function step1 () {
 
 /* ====== STEP 2 ====== */
 function step2 () {
-  step = 2;
+  currentstep = 2;
   clear();
   ctx.globalAlpha = 1;
   noLoop();
@@ -101,7 +101,7 @@ function goToStep3 () {
 }
 
 function step3 () {
-  step = 3;
+  currentstep = 3;
 
   clear();
   particles.forEach(p => {
@@ -143,7 +143,7 @@ function goToStep4 () {
 }
 
 function step4 () {
-  step = 4;
+  currentstep = 4;
 
   clear();
   particles.forEach(p => {
@@ -185,7 +185,7 @@ function goToStep5 () {
 }
 
 function step5 () {
-  step = 5;
+  currentstep = 5;
 
   clear();
   particles.forEach(p => {
@@ -226,7 +226,7 @@ function goToStep6 () {
 }
 
 function step6 () {
-  step = 6;
+  currentstep = 6;
 
   ctx.globalAlpha = 0.05;
   fill(0);
