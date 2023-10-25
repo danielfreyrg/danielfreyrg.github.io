@@ -1,4 +1,5 @@
-let img;
+let domImg;
+let p5Img;
 const detail = 6;
 let particles = [];
 let grid = [];
@@ -21,23 +22,14 @@ function touchStarted() {
 }
 
 function preload() {
-    img = document.getElementById('sourceImg');
-    img.onclick = function() {
-        img = loadImage(img.src, function() {
-            img.style.display = 'none';
+    domImg = document.getElementById('sourceImg');
+    domImg.onclick = function() {
+        p5Img = loadImage(domImg.src, function() {
+            domImg.style.display = 'none';
             windowResized();
         });
     }
-    
-        // window['goToStep6']();
-    }
-//   if (window.location.href.indexOf('file://') > -1) {
-//     img = loadImage('https://danielfreyrg.github.io/flowing-image/Pipar_Staff_0313-nobg.png');
-
-//   } else {
-//     img = loadImage('Pipar_Staff_0313-nobg.png');
-//   }
-
+}
 
 class Particle {
   constructor (x, y) {
@@ -70,17 +62,15 @@ class Particle {
   update (speed) {
     if (grid.length) {
       let yIndex = constrain(floor(this.y / detail), 0, grid.length - 1);
-let xIndex = constrain(floor(this.x / detail), 0, grid[0].length - 1);
-this.speed = grid[yIndex][xIndex] * 0.97;
-
-      // this.speed = grid[floor(this.y / detail)][floor(this.x / detail)] * 0.97;
-    }
-    this.x += (1 - this.speed) * 3 + this.v;
-    if (currentstep == 6) {
-    this.repelFromMouse();
-    }
-    if (this.x > width) {
-      this.x = 0;
+      let xIndex = constrain(floor(this.x / detail), 0, grid[0].length - 1);
+      this.speed = grid[yIndex][xIndex] * 0.97;
+      this.x += (1 - this.speed) * 3 + this.v;
+      if (currentstep == 6) {
+        this.repelFromMouse();
+      }
+      if (this.x > width) {
+        this.x = 0;
+      }
     }
   }
 
@@ -93,7 +83,7 @@ function goToStep6 () {
     clear();
     ctx.globalAlpha = 1;
     loop();
-    image(img, 0, 0, width, height);
+    image(p5Img, 0, 0, width, height);
     loadPixels();
     clear();
     noStroke();
@@ -140,25 +130,24 @@ function setup () {
     particleImage.fill(255);
     particleImage.noStroke();
     particleImage.circle(4, 4, 4);
-    if (img) {
-    windowResized();
+    if (p5Img) {
+        windowResized();
     }
-  }
+}
 
-  function windowResized () {
-    if (img && img.width && img.height) {
-        const imgRatio = img.width/img.height;
+function windowResized () {
+    if (p5Img && p5Img.width && p5Img.height) {
+        const imgRatio = p5Img.width/p5Img.height;
     
-    if (windowWidth/windowHeight > imgRatio) {
-      resizeCanvas(floor(windowHeight * imgRatio), floor(windowHeight));
-    } else {
-      resizeCanvas(floor(windowWidth), floor(windowWidth / imgRatio));
+        if (windowWidth/windowHeight > imgRatio) {
+          resizeCanvas(floor(windowHeight * imgRatio), floor(windowHeight));
+        } else {
+          resizeCanvas(floor(windowWidth), floor(windowWidth / imgRatio));
+        }
+        noiseSeed(random(100));
+        goToStep6();
+        draw();
     }
-    noiseSeed(random(100));
-      window['goToStep6']();
-    
-    draw();
-  }
 }
 
 function draw() {
