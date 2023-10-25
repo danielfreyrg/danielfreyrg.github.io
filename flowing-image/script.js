@@ -4,6 +4,7 @@ let particles = [];
 let grid = [];
 let particleImage;
 let ctx;
+var step = 1;
 function preload() {
   // img = loadImage('https://s3-us-west-2.amazonaws.com/s.cdpn.io/127738/Meisje_met_de_parel.jpg?3');
   img = loadImage('Pipar_Staff_0313.jpg');
@@ -20,7 +21,7 @@ class Particle {
   }
   repelFromMouse() {
     let d = dist(this.x, this.y, mouseX, mouseY);
-    if (d < 50) { // 50 is the distance of influence. Adjust as needed.
+    if (d < 30) { 
       let diffY = this.y - mouseY;
       this.y += map(d, 0, 50, diffY > 0 ? 10 : -10, 0); // 10 is the maximum shift. Adjust as needed.
     }
@@ -28,10 +29,16 @@ class Particle {
   
   update (speed) {
     if (grid.length) {
-      this.speed = grid[floor(this.y / detail)][floor(this.x / detail)] * 0.97;
+      let yIndex = constrain(floor(this.y / detail), 0, grid.length - 1);
+let xIndex = constrain(floor(this.x / detail), 0, grid[0].length - 1);
+this.speed = grid[yIndex][xIndex] * 0.97;
+
+      // this.speed = grid[floor(this.y / detail)][floor(this.x / detail)] * 0.97;
     }
     this.x += (1 - this.speed) * 3 + this.v;
+    if (step == 6) {
     this.repelFromMouse();
+    }
     if (this.x > width) {
       this.x = 0;
     }
@@ -61,6 +68,7 @@ function step1 () {
 
 /* ====== STEP 2 ====== */
 function step2 () {
+  step = 2;
   clear();
   ctx.globalAlpha = 1;
   noLoop();
@@ -93,6 +101,8 @@ function goToStep3 () {
 }
 
 function step3 () {
+  step = 3;
+
   clear();
   particles.forEach(p => {
     p.update();
@@ -133,6 +143,8 @@ function goToStep4 () {
 }
 
 function step4 () {
+  step = 4;
+
   clear();
   particles.forEach(p => {
     p.update();
@@ -173,6 +185,8 @@ function goToStep5 () {
 }
 
 function step5 () {
+  step = 5;
+
   clear();
   particles.forEach(p => {
     p.update();
@@ -212,6 +226,8 @@ function goToStep6 () {
 }
 
 function step6 () {
+  step = 6;
+
   ctx.globalAlpha = 0.05;
   fill(0);
   rect(0,0,width,height);
