@@ -7,7 +7,6 @@ function httpGet(theUrl) {
 
 var words = httpGet("https://raw.githubusercontent.com/danielfreyrg/danielfreyrg.github.io/main/rimordabok2/allwords.txt")
 words = words.split(', ')
-
 document.getElementById('rhymeForm').addEventListener('submit', function(event) {
     document.getElementById('result').innerHTML = ''
     if (document.getElementById('rhymeWord').value.length > 0) {
@@ -152,7 +151,7 @@ printRhymeCategories = function(wordList, maxVowels) {
     return dict
 }
 alikeReplacer = function(word) {
-    var alike = { ígja: 'ía', aí: 'æ', y: 'i', gg: '__', íja: 'ía', ingja: 'ía', ægja: 'æja', íe: 'é', ý: 'í', eigj: 'eij', ægj: 'æ', mn: 'nn', mm: 'nn', erl: 'ell', ugl: 'ull', k: '_', t: '_', d: '_', p: '_', b: '_', rl: 'll' }
+    var alike = { ígja: 'ía', aí: 'æ', y: 'i', gg: '__', íja: 'ía', ingja: 'ía', ægja: 'æja', íe: 'é', ý: 'í', eigj: 'eij', eygj: 'eij', egj: 'eij', ægj: 'æ', mn: 'nn', mm: 'nn', erl: 'ell', ugl: 'ull', k: '_', t: '_', d: '_', p: '_', b: '_', rl: 'll', }
     for (var i of Object.keys(alike)) {
         if (word.includes(i)) {
             word = word.replace(i, alike[i])
@@ -177,9 +176,6 @@ findStartRhymes = function(rhyme, perfect) {
         var oldWord = word
         if (!perfect) {
             word = alikeReplacer(word)
-        }
-        if (oldWord == 'pulsa') {
-            var y = 9
         }
         if (word.slice(0, rhyme.length).includes(rhyme)) {
             if (oldWord != original) {
@@ -290,9 +286,6 @@ findEndRhymes = function(word, perfect, oldindex = -3) {
         oldindex = -3
     }
     for (var i of words) {
-        if (i == 'bæ') {
-            var t = 0
-        }
         index = oldindex
         var add = true
         oldWord = i
