@@ -5,13 +5,12 @@ body {
     background: #f5f5f5;
 }
 
-#header {
-    margin: 20px;
+header {
+    padding:  20px;
+    margin-bottom: 50px;
 }
 
-#rhymeForm {
-    margin-left: 20px;
-}
+
 
 
 .radioInputs {
@@ -154,12 +153,31 @@ form {
     border-bottom-left-radius: 20px;
     padding: 20px;
     font-size: 20px;
+    border: 1px solid #f5f5f5;
+    border-right: 0;
+    border-color: #f5f5f5;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+
+
 }
 #submit {
-    margin-left: -5px;
+    border-color: #f5f5f5;
+    background: white;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    margin-left: -50px;
     padding: 20px;
     font-size: 20px;  
+    border: 1px solid #f5f5f5;
+    border-left: 0;
+    
+    /* box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px; */
+
 }
+#submit:hover {
+    background: #f5f5f5;
+    cursor: pointer;
+}åå
 /* #perfectRhyme::after {
     background: #f5f5f5;
     position: absolute;
@@ -193,4 +211,22 @@ body {
 }
 #syllableCount {
     padding: 40px
+}
+#result:empty, #syllableCount:empty {
+    transform: translateY(100vh);
+    transition: transform 0.5s ease-in-out;
+}
+#result:not(:empty), #syllableCount:not(:empty) {
+    transform: translateY(0);
+    transition: transform 0.5s ease-in-out;
+}
+@media screen and (max-width: 600px) {
+    #result {
+        grid-template-columns: 1fr;
+    }
+    .search-bar {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+    
 }
