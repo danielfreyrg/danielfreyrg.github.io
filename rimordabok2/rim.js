@@ -55,7 +55,7 @@ var updateRhymes = function(event) {
         }
         if (added < 1) {
             document.getElementById('footer').style.position = 'fixed'
-            var error = '<21> því miður fundust engin rímorð fyrir "' + rhyme + '" '
+            var error = '<h2> því miður fundust engin rímorð fyrir "' + rhyme + '" '
 
             if (maxVowels != 10) {
                 error += 'með færri en ' + maxVowels + ' atkvæði </h2>'
