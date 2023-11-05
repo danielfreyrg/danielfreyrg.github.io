@@ -211,6 +211,9 @@ body {
 }
 
 @media screen and (max-width: 600px) {
+    #submit {
+        color:  black;
+    }
     #result {
         grid-template-columns: 1fr;
     }
