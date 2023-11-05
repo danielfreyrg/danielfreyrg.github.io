@@ -156,6 +156,7 @@ form {
     font-size: 20px;
 }
 #submit {
+    margin-left: -5px;
     padding: 20px;
     font-size: 20px;  
 }
@@ -186,4 +187,10 @@ form {
 body {
     padding: 0;
     margin: 0;
+}
+.amount {
+    font-weight: bold;
+}
+#syllableCount {
+    padding: 40px
 }
