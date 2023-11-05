@@ -7,10 +7,12 @@ function httpGet(theUrl) {
 
 var words = httpGet("https://raw.githubusercontent.com/danielfreyrg/danielfreyrg.github.io/main/rimordabok2/allwords.txt")
 words = words.split(', ')
-document.getElementById('rhymeForm').addEventListener('submit', function(event) {
+var updateRhymes = function(event) {
     document.getElementById('result').innerHTML = ''
     if (document.getElementById('rhymeWord').value.length > 0) {
         document.getElementById('loader').classList.add('loader')
+    } else {
+        return
     }
     event.preventDefault()
     event.stopPropagation()
@@ -43,7 +45,7 @@ document.getElementById('rhymeForm').addEventListener('submit', function(event) 
                 added++
                 // result = document.getElementById('result')
                 var inner = '<div class="rhyme-item">';
-                inner += '<h2>' + key + ' atkvæði: </h2>' + '\n'
+                inner += '<h3>' + key + ' atkvæði: </h3>' + '\n'
                 inner += '<p class="rhymes">' +
                     categories[key].join(', ') + '</p>\n' + '<p class="amount">fjöldi: ' + categories[key].length + '</p>'
                 inner += '</div>'
@@ -53,12 +55,12 @@ document.getElementById('rhymeForm').addEventListener('submit', function(event) 
         }
         if (added < 1) {
             document.getElementById('footer').style.position = 'fixed'
-            var error = '<h1> því miður fundust engin rímorð fyrir "' + rhyme + '" '
+            var error = '<21> því miður fundust engin rímorð fyrir "' + rhyme + '" '
 
             if (maxVowels != 10) {
-                error += 'með færri en ' + maxVowels + ' atkvæði </h1>'
+                error += 'með færri en ' + maxVowels + ' atkvæði </h2>'
             } else {
-                error += '</h1>'
+                error += '</h2>'
             }
             result.innerHTML += error
         } else if (rhymeCount < 10) {
@@ -68,9 +70,21 @@ document.getElementById('rhymeForm').addEventListener('submit', function(event) 
         document.getElementById('footer').style.position = 'fixed'
     }
     console.log(rhymeCount)
-    document.getElementById('syllableCount').innerHTML = '<h1> "' + rhyme + '" er ' + findSyllables(rhyme) + ' atkvæði og rímar við ' + rhymeCount + ' orð </h1>'
-
+    document.getElementById('syllableCount').innerHTML = '<h2> "' + rhyme + '" er ' + findSyllables(rhyme) + ' atkvæði og rímar við ' + rhymeCount + ' orð </h2>'
+}
+document.getElementById('rhymeForm').addEventListener('submit', function(event) {
+updateRhymes(event)
 })
+document.querySelectorAll('input[type="radio"]').forEach(element => {
+   element.addEventListener('change', function(event) {
+         updateRhymes(event)
+    }) 
+});
+document.getElementById('perfectRhyme').addEventListener('change', function(event) {
+updateRhymes(event)
+}
+)
+
 findSyllables = function(word) {
     dict = {}
     var counter = 0
@@ -151,7 +165,7 @@ printRhymeCategories = function(wordList, maxVowels) {
     return dict
 }
 alikeReplacer = function(word) {
-    var alike = { ígja: 'ía', aí: 'æ', y: 'i', gg: '__', íja: 'ía', ingja: 'ía', ægja: 'æja', íe: 'é', ý: 'í', eigj: 'eij', eygj: 'eij', egj: 'eij', ægj: 'æ', mn: 'nn', mm: 'nn', erl: 'ell', ugl: 'ull', k: '_', t: '_', d: '_', p: '_', b: '_', rl: 'll', }
+    var alike = { ígja: 'ía', aí: 'æ', ív: 'íf', y: 'i', gg: '__', íja: 'ía', ingja: 'ía', ægja: 'æja', íe: 'é', ý: 'í', eigj: 'eij', eygj: 'eij', egj: 'eij', ægj: 'æ', mn: 'nn', mm: 'nn', erl: 'ell', ugl: 'ull', k: '_', t: '_', d: '_', p: '_', b: '_', rl: 'll', }
     for (var i of Object.keys(alike)) {
         if (word.includes(i)) {
             word = word.replace(i, alike[i])
