@@ -1,21 +1,18 @@
 body {
-    background-color: #2c2f33;
-    color: #99aab5;
+    /* background-color: #2c2f33; */
+    color: black;
     font-family: 'Roboto', sans-serif;
+    background: #f5f5f5;
 }
 
 #header {
     margin: 20px;
-    color: aquamarine;
 }
 
 #rhymeForm {
     margin-left: 20px;
 }
 
-hr {
-    border: 1px solid grey;
-}
 
 .radioInputs {
     margin-top: 15px;
@@ -125,4 +122,67 @@ a:hover {
 
 a:active {
     text-decoration: underline;
+}
+#result {
+    max-width: 80%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+}
+.rhyme-item {
+    background: white;
+    border-radius: 20px;
+    padding: 50px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+#syllableCount {
+    text-align: center;
+}
+form {
+    display: grid;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+    gap: 20px;
+}
+#rhymeWord {
+    min-width: 60vw;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    padding: 20px;
+    font-size: 20px;
+}
+#submit {
+    padding: 20px;
+    font-size: 20px;  
+}
+/* #perfectRhyme::after {
+    background: #f5f5f5;
+    position: absolute;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 55px;
+    content: "";
+    width: 66.5px;
+    aspect-ratio: 1;
+    cursor: pointer;
+    border: 2px solid black;
+}
+#perfectRhyme:checked::after {
+    content: "✕";
+}
+#rhymeLabel {
+    margin-left: 60px;
+}
+#perfectRhyme {
+    position: relative;
+
+} */
+body {
+    padding: 0;
+    margin: 0;
 }

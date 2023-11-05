@@ -36,17 +36,19 @@ document.getElementById('rhymeForm').addEventListener('submit', function(event) 
         }
         var categories = printRhymeCategories(allRhymes)
         document.getElementById('loader').classList = ''
-        document.getElementById('result').innerHTML += '<h1> "' + rhyme + '" er ' + findSyllables(rhyme) + ' atkvæði </h1>'
+        
         var added = 0
         for (var key in categories) {
             if (categories[key].length > 0 && key <= maxVowels) {
                 rhymeCount += categories[key].length
                 added++
-                result = document.getElementById('result')
-                result.innerHTML += '<hr>'
-                result.innerHTML += '<h1>' + key + ' atkvæði: </h1>' + '\n'
-                result.innerHTML += '<h2>' +
-                    categories[key].join(', ') + '</h2>\n' + '<h3>fjöldi: ' + categories[key].length + '</h3>'
+                // result = document.getElementById('result')
+                var inner = '<div class="rhyme-item">';
+                inner += '<h2>' + key + ' atkvæði: </h2>' + '\n'
+                inner += '<p class="rhymes">' +
+                    categories[key].join(', ') + '</p>\n' + '<p class="amount">fjöldi: ' + categories[key].length + '</p>'
+                inner += '</div>'
+                document.getElementById('result').innerHTML += inner
 
             }
         }
@@ -67,6 +69,8 @@ document.getElementById('rhymeForm').addEventListener('submit', function(event) 
         document.getElementById('footer').style.position = 'fixed'
     }
     console.log(rhymeCount)
+    document.getElementById('syllableCount').innerHTML = '<h1> "' + rhyme + '" er ' + findSyllables(rhyme) + ' atkvæði og rímar við ' + rhymeCount + ' orð </h1>'
+
 })
 findSyllables = function(word) {
     dict = {}
