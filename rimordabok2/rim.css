@@ -6,16 +6,14 @@ body {
 }
 
 header {
-    padding:  20px;
+    padding: 20px;
     margin-bottom: 50px;
 }
 
-
-
-
-.radioInputs {
-    margin-top: 15px;
+h1#header {
+    color: #6e79d6;
 }
+
 
 #innerRhymes {
     margin-left: 15px;
@@ -96,17 +94,19 @@ a:active {
     0% {
         transform: rotate(0deg);
     }
+
     100% {
         transform: rotate(360deg);
     }
 }
 
 #back {
-color:white;
+    color: white;
     position: absolute;
     right: 30px;
     top: 20px;
 }
+
 a:link {
     text-decoration: none;
 }
@@ -123,6 +123,7 @@ a:hover {
 a:active {
     text-decoration: underline;
 }
+
 #result {
     max-width: 80%;
     margin: 0 auto;
@@ -130,15 +131,18 @@ a:active {
     grid-template-columns: 1fr 1fr;
     gap: 50px;
 }
+
 .rhyme-item {
     background: white;
     border-radius: 20px;
     padding: 50px;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
+
 #syllableCount {
     text-align: center;
 }
+
 form {
     display: grid;
     position: relative;
@@ -147,6 +151,7 @@ form {
     justify-items: center;
     gap: 20px;
 }
+
 #rhymeWord {
     min-width: 60vw;
     border-top-left-radius: 20px;
@@ -160,6 +165,7 @@ form {
 
 
 }
+
 #submit {
     border-color: #f5f5f5;
     background: white;
@@ -167,17 +173,20 @@ form {
     border-bottom-right-radius: 20px;
     margin-left: -50px;
     padding: 20px;
-    font-size: 20px;  
+    font-size: 20px;
     border: 1px solid #f5f5f5;
     border-left: 0;
-    
-    /* box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px; */
+
 
 }
+
 #submit:hover {
     background: #f5f5f5;
     cursor: pointer;
-}åå
+}
+
+åå
+
 /* #perfectRhyme::after {
     background: #f5f5f5;
     position: absolute;
@@ -206,27 +215,144 @@ body {
     padding: 0;
     margin: 0;
 }
+
 .amount {
     font-weight: bold;
 }
+
 #syllableCount {
     padding: 40px
 }
-#result:empty, #syllableCount:empty {
+
+#result:empty,
+#syllableCount:empty {
     transform: translateY(100vh);
     transition: transform 0.5s ease-in-out;
 }
-#result:not(:empty), #syllableCount:not(:empty) {
+
+#result:not(:empty),
+#syllableCount:not(:empty) {
     transform: translateY(0);
     transition: transform 0.5s ease-in-out;
 }
+
 @media screen and (max-width: 600px) {
     #result {
         grid-template-columns: 1fr;
     }
+
     .search-bar {
         display: grid;
         grid-template-columns: 1fr 1fr;
     }
-    
+
+}
+
+#rhymeLabel {
+    display: flex;
+    gap: 10px;
+    cursor: pointer;
+}
+
+
+.checkbox-wrapper-2 .ikxBAC {
+    appearance: none;
+    background-color: #dfe1e4;
+    border-radius: 72px;
+    border-style: none;
+    flex-shrink: 0;
+    height: 20px;
+    margin: 0;
+    position: relative;
+    width: 30px;
+}
+
+.checkbox-wrapper-2 .ikxBAC::before {
+    bottom: -6px;
+    content: "";
+    left: -6px;
+    position: absolute;
+    right: -6px;
+    top: -6px;
+}
+
+.checkbox-wrapper-2 .ikxBAC,
+.checkbox-wrapper-2 .ikxBAC::after {
+    transition: all 100ms ease-out;
+}
+
+.checkbox-wrapper-2 .ikxBAC::after {
+    background-color: #fff;
+    border-radius: 50%;
+    content: "";
+    height: 14px;
+    left: 3px;
+    position: absolute;
+    top: 3px;
+    width: 14px;
+}
+
+.checkbox-wrapper-2 input[type=checkbox] {
+    cursor: default;
+}
+
+.checkbox-wrapper-2 .ikxBAC:hover {
+    background-color: #c9cbcd;
+    transition-duration: 0s;
+}
+
+.checkbox-wrapper-2 .ikxBAC:checked {
+    background-color: #6e79d6;
+}
+
+.checkbox-wrapper-2 .ikxBAC:checked::after {
+    background-color: #fff;
+    left: 13px;
+}
+
+.checkbox-wrapper-2 :focus:not(.focus-visible) {
+    outline: 0;
+}
+
+.checkbox-wrapper-2 .ikxBAC:checked:hover {
+    background-color: #535db3;
+}
+
+.tab:has(:checked) {
+    background-color: #6e79d6;
+    color: white;
+}
+
+.tab input {
+    display: none;
+}
+
+.form-inner {
+    display: flex;
+    flex-direction: row;
+}
+
+.tab {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+    text-align: center;
+}
+
+.tab label {
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+    min-width: 50px;
+}
+
+.tab:hover:not(:has(:checked)) {
+    background-color: white;
+    color: black;
+}
+
+label {
+    cursor: pointer;
 }
