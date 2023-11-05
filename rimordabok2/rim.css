@@ -1,8 +1,8 @@
 body {
-    /* background-color: #2c2f33; */
     color: black;
     font-family: 'Roboto', sans-serif;
     background: #f5f5f5;
+    margin: 0;padding: 0;
 }
 
 header {
@@ -81,9 +81,7 @@ a:active {
 .loader {
     margin-left: 90px;
     border: 16px solid #f3f3f3;
-    /* Light grey */
     border-top: 16px solid #3498db;
-    /* Blue */
     border-radius: 50%;
     width: 80px;
     height: 80px;
@@ -153,6 +151,7 @@ form {
 }
 
 #rhymeWord {
+    outline: 0;
     min-width: 60vw;
     border-top-left-radius: 20px;
     border-bottom-left-radius: 20px;
@@ -185,32 +184,7 @@ form {
     cursor: pointer;
 }
 
-åå
 
-/* #perfectRhyme::after {
-    background: #f5f5f5;
-    position: absolute;
-    top: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 55px;
-    content: "";
-    width: 66.5px;
-    aspect-ratio: 1;
-    cursor: pointer;
-    border: 2px solid black;
-}
-#perfectRhyme:checked::after {
-    content: "✕";
-}
-#rhymeLabel {
-    margin-left: 60px;
-}
-#perfectRhyme {
-    position: relative;
-
-} */
 body {
     padding: 0;
     margin: 0;
@@ -244,6 +218,7 @@ body {
     .search-bar {
         display: grid;
         grid-template-columns: 1fr 1fr;
+        max-width: 90%;
     }
 
 }
