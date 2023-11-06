@@ -7,15 +7,14 @@ function httpGet(theUrl) {
 
 var words = httpGet("https://raw.githubusercontent.com/danielfreyrg/danielfreyrg.github.io/main/rimordabok2/allwords.txt")
 words = words.split(', ')
-var updateRhymes = function(event) {
+var updateRhymes = function() {
     document.getElementById('result').innerHTML = ''
     if (document.getElementById('rhymeWord').value.length > 0) {
         document.getElementById('loader').classList.add('loader')
     } else {
         return
     }
-    event.preventDefault()
-    event.stopPropagation()
+
     var rhymeCount = 0
     document.getElementById('footer').style.position = 'static'
     var rhyme = document.getElementById('rhymeWord').value
@@ -73,15 +72,21 @@ var updateRhymes = function(event) {
     document.getElementById('syllableCount').innerHTML = '<h2> "' + rhyme + '" er ' + findSyllables(rhyme) + ' atkvæði og rímar við ' + rhymeCount + ' orð </h2>'
 }
 document.getElementById('rhymeForm').addEventListener('submit', function(event) {
-updateRhymes(event)
+    event.preventDefault()
+    event.stopPropagation()
+updateRhymes()
 })
 document.querySelectorAll('input[type="radio"]').forEach(element => {
+    event.preventDefault()
+    event.stopPropagation()
    element.addEventListener('change', function(event) {
-         updateRhymes(event)
+         updateRhymes()
     }) 
 });
 document.getElementById('perfectRhyme').addEventListener('change', function(event) {
-updateRhymes(event)
+    event.preventDefault()
+    event.stopPropagation()
+updateRhymes()
 }
 )
 
