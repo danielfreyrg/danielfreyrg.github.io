@@ -236,6 +236,7 @@ alikeReplacer = function (word) {
     rl: "ll",
     æ: "æj",
     agl: "all",
+    úg: "ú"
   };
   for (var i of Object.keys(alike)) {
     if (word.includes(i)) {
