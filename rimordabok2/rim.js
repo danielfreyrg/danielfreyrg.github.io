@@ -8,8 +8,8 @@ function httpGet(theUrl) {
 var words = httpGet("https://raw.githubusercontent.com/danielfreyrg/danielfreyrg.github.io/main/rimordabok2/allwords.txt")
 words = words.split(', ')
 var updateRhymes = function() {
+    document.getElementById('result').innerHTML = ''
 
-    document.getElementById('result').innerHTML = '<h1>' + alikeReplacer(document.getElementById('rhymeWord').value) + '</h1>'
     if (document.getElementById('rhymeWord').value.length > 0) {
         document.getElementById('loader').classList.add('loader')
     } else {
@@ -71,6 +71,8 @@ var updateRhymes = function() {
     }
     console.log(rhymeCount)
     document.getElementById('syllableCount').innerHTML = '<h2> "' + rhyme + '" er ' + findSyllables(rhyme) + ' atkvæði og rímar við ' + rhymeCount + ' orð </h2>'
+    document.querySelector('.debug').innerHTML = alikeReplacer(document.getElementById('rhymeWord').value)
+
 }
 document.getElementById('rhymeForm').addEventListener('submit', function(event) {
     event.preventDefault()
@@ -172,7 +174,7 @@ printRhymeCategories = function(wordList, maxVowels) {
     return dict
 }
 alikeReplacer = function(word) {
-    var alike = { ígja: 'ía', æg: 'æ', æj: 'æ',  aí: 'æ', ív: 'íf', y: 'i', gg: '__', íja: 'ía', ingja: 'ía', ægja: 'æja', íe: 'é', ý: 'í', eigj: 'eij', eygj: 'eij', egj: 'eij', ægj: 'æ', mn: 'nn', mm: 'nn', erl: 'ell', ugl: 'ull', k: '_', t: '_', d: '_', p: '_', b: '_', rl: 'll', æ: 'æj'}
+    var alike = { ígja: 'ía', agi: 'æi', æg: 'æ', æj: 'æ',  aí: 'æ', ív: 'íf', y: 'i', gg: '__', íja: 'ía', ingja: 'ía', ægja: 'æja', íe: 'é', ý: 'í', eigj: 'eij', eygj: 'eij', egj: 'eij', ægj: 'æ', mn: 'nn', mm: 'nn', erl: 'ell', ugl: 'ull', k: '_', t: '_', d: '_', p: '_', b: '_', rl: 'll', æ: 'æj'}
     for (var i of Object.keys(alike)) {
         if (word.includes(i)) {
             word = word.replace(i, alike[i])
