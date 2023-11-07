@@ -45,6 +45,9 @@ h1#header {
     position: absolute;
     left: 20px;
 }
+#github a {
+    color: white;
+}
 
 a {
     color: rgb(146, 146, 146);
