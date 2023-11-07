@@ -13,7 +13,6 @@ header {
 h1#header {
     color: #5a63af;
 }
-#5a63af
 
 
 #innerRhymes {
@@ -47,7 +46,7 @@ h1#header {
     left: 20px;
 }
 #github a {
-    color: white;
+    color: white !important;
 }
 
 a {
