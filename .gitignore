@@ -7,3 +7,6 @@ setup.py
 *.icloud
 .DS_Store
 .DS_Store
+rimordabok2/node_modules/
+rimordabok2/package-lock.json
+rimordabok2/package.json
