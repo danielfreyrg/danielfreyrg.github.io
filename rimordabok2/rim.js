@@ -10,6 +10,7 @@ function httpGet(theUrl) {
 // );
 // words = words.split(", ");
 // console.log(words);
+// test
 words = [
   " asymmetrísk",
   "asymmetrískur",
