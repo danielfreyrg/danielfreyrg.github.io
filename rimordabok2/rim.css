@@ -44,10 +44,10 @@ h1#header {
 #github {
     position: absolute;
     left: 20px;
-}
-#github a {
     color: white !important;
+
 }
+
 
 a {
     color: rgb(146, 146, 146);
