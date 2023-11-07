@@ -48,6 +48,11 @@ h1#header {
 
 }
 
+#submit:hover svg path{
+    fill: white;
+    transition: all 0.5s ease-in-out;
+
+}
 
 a {
     color: rgb(146, 146, 146);
@@ -220,6 +225,11 @@ body {
 @media screen and (max-width: 600px) {
     #submit {
         color:  black !important;
+        max-width: fit-content;
+        display: grid;
+        justify-content: center;
+        align-items: center;
+        margin-left: 0;
     }
     #result {
         grid-template-columns: 1fr;
