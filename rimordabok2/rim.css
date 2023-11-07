@@ -11,8 +11,9 @@ header {
 }
 
 h1#header {
-    color: #6e79d6;
+    color: #5a63af;
 }
+#5a63af
 
 
 #innerRhymes {
@@ -102,7 +103,7 @@ a:active {
 }
 
 #back {
-    color: #6e79d6;
+    color: #5a63af;
     position: absolute;
     right: 30px;
     top: 20px;
@@ -184,7 +185,7 @@ form {
 }
 
 #submit:hover {
-    background: #535db3;
+    background: #5a63af;
     cursor: pointer;
     color: white;
     transition: all 0.5s ease-in-out;
@@ -287,7 +288,7 @@ body {
 }
 
 .checkbox-wrapper-2 .ikxBAC:checked {
-    background-color: #6e79d6;
+    background-color: #5a63af;
 }
 
 .checkbox-wrapper-2 .ikxBAC:checked::after {
@@ -300,11 +301,11 @@ body {
 }
 
 .checkbox-wrapper-2 .ikxBAC:checked:hover {
-    background-color: #535db3;
+    background-color: #5a63af;
 }
 
 .tab:has(:checked) {
-    background-color: #6e79d6;
+    background-color: #5a63af;
     color: white;
 }
 
