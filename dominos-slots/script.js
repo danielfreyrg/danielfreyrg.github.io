@@ -36,6 +36,9 @@ document.getElementById('spin').addEventListener('click', function() {
         document.querySelectorAll('.slot-col').forEach(function(column, index, array) {
             column.style.transition = 'none'; // Disable transition for immediate reset
             column.style.backgroundPositionY = '0'; // Reset position
+            document.querySelector('.first').innerHTML = '';
+            document.querySelector('.second').innerHTML = '';
+            document.querySelector('.third').innerHTML = '';
 
             // If it's the last column, start spinning after a short delay
             if (index === array.length - 1) {
