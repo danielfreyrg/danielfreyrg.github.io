@@ -54,3 +54,19 @@ overflow: hidden;
 #spin {
     padding: 20px 100px;
 }
+.results div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: white;
+    width: 10vw;
+    height: 30px;
+    font-weight: bold;
+    text-align: center;
+}
+.results {
+    display: grid;
+grid-gap: 10px;
+
+    grid-template-columns: 1fr 1fr 1fr;
+}
