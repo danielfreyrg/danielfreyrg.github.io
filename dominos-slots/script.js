@@ -20,10 +20,11 @@ function spin() {
     columns.forEach(function(column, index) {
         var random = Math.floor(Math.random() * 6);
         //move the wheel by 33% * a random number (0-5) to choose the right position for the slot then add 2000 to simulate a full casino spin
+        //100% background position y moves the slots up 3 places
         positionY = (random * (100 / 3)) + 2000 + '%';
         roll.push(prizes[random]);
 
-        column.style.transition = 'background-position-y ' + (random + index + 1) + 's ease-in-out';
+        column.style.transition = 'background-position-y ' + (random + index + 1) + 's cubic-bezier(1,-0.08,0,1.04)';
         column.style.backgroundPositionY = positionY;
 
         // Update results after the last column finishes spinning
