@@ -26,7 +26,6 @@ function spin() {
 
         column.style.transition = 'background-position-y ' + (random + index + 1) + 's cubic-bezier(1,-0.08,0,1.04)';
         column.style.backgroundPositionY = positionY;
-        //also set column data-index to random
         column.setAttribute('data-index', random);
 
         // Update results after the last column finishes spinning
