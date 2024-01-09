@@ -134,8 +134,18 @@ grid-gap: 10px;
     grid-template-columns: 1fr 1fr 1fr;
 }
 
+.results div::after{
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, #403A2F -0.24%, #706C64 20.71%, #ADAAA6 48.64%, #D9D8D6 71.58%, #F4F4F3 89.54%, #FFF 99.51%);
+    opacity: 0.47;
+    background-blend-mode: multiply;
+    mix-blend-mode: multiply;
+}
 .results div {
-    box-shadow: inset 0px 0px 9px 0px black;
+    /* box-shadow: inset 0px 0px 9px 0px black; */
+    position: relative;
 }
 .main-text {
     position: absolute;

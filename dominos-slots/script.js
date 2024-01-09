@@ -1,8 +1,8 @@
 var hasSpun = false;
 var prizes = ["red", "blue", "green", "purple", "black", "orange"];
-var slots_left = ['Sveppir', 'Spínat', 'Rjómaostur', 'Græn paprika', 'Pulled pork', 'Pepperoni']
-var slots_middle = ["Vegan kjúklingur", "Skinka", "Piparostur", "Svartar ólífur", "Ananas", "Nautahakk"]
-var slots_right = ['Döðlur', 'Fajitas kjúklingur', 'Rauðlaukur', 'Beikonkurl', 'Ferskur chili', 'Jalapeno']
+var slots_left = [ 'Spínat', 'Rjómaostur', 'Græn paprika', 'Pulled pork', 'Pepperoni', 'Sveppir']
+var slots_middle = [ "Skinka", "Piparostur", "Svartar ólífur", "Ananas", "Nautahakk", "Vegan kjúklingur"]
+var slots_right = [ 'Fajitas kjúklingur', 'Rauðlaukur', 'Beikonkurl', 'Ferskur chili', 'Jalapeno', 'Döðlur']
 var roll = [];
 var positionY;
 
@@ -24,7 +24,9 @@ function spin() {
     var random = Math.floor(Math.random() * 6);
     //move the wheel by 33% * a random number (0-5) to choose the right position for the slot then add 2000 to simulate a full casino spin (10*200 so it always spins atleast 10 times) 
     //100% background position y moves the slots up 3 places, 200% is a whole spin
-    positionY = random * (100 / 3) + -2000 + "%";
+    // positionY = random * (100 / 3) + -2000 + "%";
+    positionY = random * (100 / 3)  + "%";
+
     // roll.push(prizes[random]);
     if (index === 0) {
       roll.push(slots_left[random]);
@@ -74,3 +76,14 @@ document.getElementById("spin").addEventListener("click", function () {
     hasSpun = true;
   }
 });
+var rotnum = 0;
+function test() {
+  rotnum++
+  document.querySelectorAll(".slot-col").forEach(function (column, index) {
+    
+    rotation = rotnum * (100 / 3);
+    console.log("slots left: " + slots_left[rotnum] + " slots middle: " + slots_middle[rotnum] + " slots right: " + slots_right[rotnum])
+column.style.backgroundPositionY = rotation + "%";
+  }
+  )
+}
