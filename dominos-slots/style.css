@@ -59,6 +59,7 @@ box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0
 
 
 .outer {
+    position: relative;
     height: 300px;
     background-image: url(bg-2.png);
     background-repeat: no-repeat;
@@ -67,7 +68,7 @@ box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0
     justify-content: center;
     align-items: flex-start;
     flex-direction: column;
-    padding-left: 10%;
+    padding-left: 7vw;
     gap: 20px;
     }
     body {
@@ -98,8 +99,8 @@ box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0
 }
 .buttons {
     position: absolute;
-    left: 31%;
-    bottom: 11%;
+    left: 30%;
+    bottom: 12%;
     display: grid;
     grid-auto-flow: row;
     grid-gap: 50px;
