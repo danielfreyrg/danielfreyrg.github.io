@@ -8,6 +8,9 @@
 * {
     font-family: 'Pizza';
 }
+a {
+    text-decoration: none;
+}
 .slot-row {
     position: relative;
 display: grid;
@@ -83,9 +86,6 @@ box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0
     display: none;
 }
 #spin {
-    position: absolute;
-    left: 32%;
-    bottom: 32%;
     width: 51px;
     height: 51px;
     border-radius: 50%;
@@ -94,6 +94,24 @@ box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0
     color: white;
     border: none;
     outline: none;
+    cursor: pointer;
+}
+.buttons {
+    position: absolute;
+    left: 31%;
+    bottom: 11%;
+    display: grid;
+    grid-auto-flow: row;
+    grid-gap: 50px;
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+}
+.order {
+    background: #E31937;
+    color: white;
+    width: max-content;
+    padding: 5px 20px;
 }
 .results div {
     display: flex;
