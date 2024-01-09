@@ -72,9 +72,11 @@ box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0
     gap: 20px;
     }
     body {
-        /* background-image: url(bg.svg);
-        background-repeat: no-repeat;
-        background-size: 100% 100%; */
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        height: 100vh;
+        width: 100vw;
         padding: 0;
         margin: 0;
     }
@@ -129,8 +131,11 @@ box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0
 .results {
     display: grid;
 grid-gap: 10px;
-
     grid-template-columns: 1fr 1fr 1fr;
+}
+
+.results div {
+    box-shadow: inset 0px 0px 9px 0px black;
 }
 .main-text {
     position: absolute;
@@ -151,10 +156,4 @@ grid-gap: 10px;
     font-size: 14px;
     font-weight: bold;
     margin: 0;
-}
-body {
-    margin: 0;
-    padding: 0;
-    height: 100vh;
-    overflow: hidden;
 }
