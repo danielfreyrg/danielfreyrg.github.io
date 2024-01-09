@@ -79,11 +79,13 @@ document.getElementById("spin").addEventListener("click", function () {
 var rotnum = 0;
 function test() {
   rotnum++
+  console.log("rotnum: " + rotnum + "\nslots left: " + slots_left[rotnum%6] + "\n slots middle: " + slots_middle[rotnum%6] + "\n slots right: " + slots_right[rotnum%6])
   document.querySelectorAll(".slot-col").forEach(function (column, index) {
     
     rotation = rotnum * (100 / 3);
-    console.log("slots left: " + slots_left[rotnum] + " slots middle: " + slots_middle[rotnum] + " slots right: " + slots_right[rotnum])
+    
 column.style.backgroundPositionY = rotation + "%";
   }
+  
   )
 }
