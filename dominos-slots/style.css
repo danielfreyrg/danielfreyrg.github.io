@@ -59,7 +59,7 @@ box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0
     height: 300px;
     background-image: url(bg.svg);
     background-repeat: no-repeat;
-    background-size: contain;
+    background-size: 100% 100%;
     display: flex;
     justify-content: center;
     align-items: flex-start;
@@ -131,7 +131,6 @@ grid-gap: 10px;
     margin: 0;
 }
 body {
-    background: #0078AD;
     margin: 0;
     padding: 0;
     height: 100vh;
