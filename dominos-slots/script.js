@@ -1,59 +1,76 @@
 var hasSpun = false;
-var prizes = ['red', 'blue', 'green', 'purple', 'black', 'orange'];
+var prizes = ["red", "blue", "green", "purple", "black", "orange"];
+var slots_left = ['Sveppir', 'Spínat', 'Rjómaostur', 'Græn paprika', 'Pulled pork', 'Pepperoni']
+var slots_middle = ["Vegan kjúklingur", "Skinka", "Piparostur", "Svartar ólífur", "Ananas", "Nautahakk"]
+var slots_right = ['Döðlur', 'Fajitas kjúklingur', 'Rauðlaukur', 'Beikonkurl', 'Ferskur chili', 'Jalapeno']
 var roll = [];
 var positionY;
 
 function updateResults() {
-    document.querySelector('.first').innerHTML = roll[0];
-    document.querySelector('.second').innerHTML = roll[1];
-    document.querySelector('.third').innerHTML = roll[2];
+  document.querySelector(".first").innerHTML = roll[0];
+  document.querySelector(".second").innerHTML = roll[1];
+  document.querySelector(".third").innerHTML = roll[2];
 }
 
 function jackpot() {
   //if all three slots are the same color, jackpot
-  alert('JACKPOT!');
-  return
+  alert("JACKPOT!");
+  return;
 }
 function spin() {
-    var columns = document.querySelectorAll('.slot-col');
-    roll = [];
-    columns.forEach(function(column, index) {
-        var random = Math.floor(Math.random() * 6);
-        //move the wheel by 33% * a random number (0-5) to choose the right position for the slot then add 2000 to simulate a full casino spin
-        //100% background position y moves the slots up 3 places
-        positionY = (random * (100 / 3)) + -2000 + '%';
-        roll.push(prizes[random]);
+  var columns = document.querySelectorAll(".slot-col");
+  roll = [];
+  columns.forEach(function (column, index) {
+    var random = Math.floor(Math.random() * 6);
+    //move the wheel by 33% * a random number (0-5) to choose the right position for the slot then add 2000 to simulate a full casino spin (10*200 so it always spins atleast 10 times) 
+    //100% background position y moves the slots up 3 places, 200% is a whole spin
+    positionY = random * (100 / 3) + -1750 + "%";
+    // roll.push(prizes[random]);
+    if (index === 0) {
+      roll.push(slots_left[random]);
+    }
+    if (index === 1) {
+      roll.push(slots_middle[random]);
+    }
+    if (index === 2) {
+      roll.push(slots_right[random]);
+    }
 
-        column.style.transition = 'background-position-y ' + (random + index + 1) + 's cubic-bezier(1,-0.08,0,1.04)';
-        column.style.backgroundPositionY = positionY;
-        column.setAttribute('data-index', random);
+    column.style.transition =
+      "background-position-y " +
+      (random + (index * 2) + 1) +
+      "s cubic-bezier(1,-0.08,0,1.04)";
+    column.style.backgroundPositionY = positionY;
+    column.setAttribute("data-index", random);
 
-        // Update results after the last column finishes spinning
-        if (index === columns.length - 1) {
-            setTimeout(updateResults, (random + index + 1) * 1000);
-        }
-        if (roll[0] === roll[1] && roll[1] === roll[2]) {
-          setTimeout(jackpot(), (random + index + 1) * 1000);
-        }
-    });
+    // Update results after the last column finishes spinning
+    if (index === columns.length - 1) {
+      setTimeout(updateResults, (random + index + 1) * 1000);
+    }
+    if (roll[0] === roll[1] && roll[1] === roll[2]) {
+      setTimeout(jackpot(), (random + index + 1) * 1000);
+    }
+  });
 }
 
-document.getElementById('spin').addEventListener('click', function() {
-    if (hasSpun) {
-        document.querySelectorAll('.slot-col').forEach(function(column, index, array) {
-            column.style.transition = 'none'; // Disable transition for immediate reset
-            column.style.backgroundPositionY = '0'; // Reset position
-            document.querySelector('.first').innerHTML = '';
-            document.querySelector('.second').innerHTML = '';
-            document.querySelector('.third').innerHTML = '';
+document.getElementById("spin").addEventListener("click", function () {
+  if (hasSpun) {
+    document
+      .querySelectorAll(".slot-col")
+      .forEach(function (column, index, array) {
+        column.style.transition = "none"; // Disable transition for immediate reset
+        column.style.backgroundPositionY = "0"; // Reset position
+        document.querySelector(".first").innerHTML = "";
+        document.querySelector(".second").innerHTML = "";
+        document.querySelector(".third").innerHTML = "";
 
-            // If it's the last column, start spinning after a short delay
-            if (index === array.length - 1) {
-                setTimeout(spin, 100); // Delay to allow the reset to render
-            }
-        });
-    } else {
-        spin(); // First spin without resetting
-        hasSpun = true;
-    }
+        // If it's the last column, start spinning after a short delay
+        if (index === array.length - 1) {
+          setTimeout(spin, 100); // Delay to allow the reset to render
+        }
+      });
+  } else {
+    spin(); // First spin without resetting
+    hasSpun = true;
+  }
 });

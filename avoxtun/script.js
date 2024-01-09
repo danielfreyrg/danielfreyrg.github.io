@@ -47,7 +47,14 @@ function calculate() {
     difference = total;
     var currentInterest = total * (interest / (monthly ? 12 : 1));
     console.log('interest: '+interest / (monthly ? 12 : 1));
+
+    if (currentInterest < 300000) {
+      var currentTax = 0;
+    }
+    else {
     var currentTax = currentInterest * tax;
+    }
+
     totalInterest += currentInterest;
     totalTax += currentTax;
     total += currentInterest - currentTax;
@@ -57,6 +64,7 @@ function calculate() {
     interestValues.push(totalInterest);
     totalValues.push(total);
   }
+  console.log(taxValues)
 
   var ctx = document.getElementById('myChart').getContext('2d');
 
