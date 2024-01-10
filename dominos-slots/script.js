@@ -27,7 +27,7 @@ function spin() {
     positionY = random * (100 / 3) + -2000 - ((100/3)/2)+ "%";
     if (index === 2) {
       //bug in the image, it doesnt line up perfectly with the other two slots so move the last one a half slot down
-      positionY = random * (100 / 3) + -2000- ((100/3)/2) + "%";
+      positionY = random * (100 / 3) + -2000  + "%";
     }
     // positionY = random * (100 / 3)  + "%";
 
