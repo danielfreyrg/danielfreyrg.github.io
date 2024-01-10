@@ -25,6 +25,10 @@ function spin() {
     //move the wheel by 33% * a random number (0-5) to choose the right position for the slot then add 2000 to simulate a full casino spin (10*200 so it always spins atleast 10 times) 
     //100% background position y moves the slots up 3 places, 200% is a whole spin
     positionY = random * (100 / 3) + -2000 + "%";
+    if (index === 2) {
+      //bug in the image, it doesnt line up perfectly with the other two slots so move the last one a half slot down
+      positionY = random * (100 / 3) + -2016 + "%";
+    }
     // positionY = random * (100 / 3)  + "%";
 
     // roll.push(prizes[random]);
