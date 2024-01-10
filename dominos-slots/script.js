@@ -51,10 +51,10 @@ function spin() {
 
     // Update results after the last column finishes spinning
     if (index === columns.length - 1) {
-      setTimeout(updateResults, (random + index + 1) * 1500);
+      setTimeout(updateResults, (random + index + 1) * 1200);
     }
     if (roll[0] === roll[1] && roll[1] === roll[2]) {
-      setTimeout(jackpot(), (random + index + 1) * 1500);
+      setTimeout(jackpot(), (random + index + 1) * 1200);
     }
   });
 }
