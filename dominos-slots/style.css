@@ -29,7 +29,7 @@ box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0
     aspect-ratio: 1/3;
     background-image: url(Slots-left.svg);
     background-color: white;
-    background-size: cover;
+    background-size: 100%;
     background-repeat: repeat-y;
     background-position: unset;
     /* transition: background-position 2s ease-in-out; */
