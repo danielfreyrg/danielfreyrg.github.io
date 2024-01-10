@@ -152,6 +152,8 @@ grid-gap: 10px;
 .results div {
     /* box-shadow: inset 0px 0px 9px 0px black; */
     position: relative;
+    font-size: 12px;
+    font-weight: bold;
 }
 .main-text {
     position: absolute;
