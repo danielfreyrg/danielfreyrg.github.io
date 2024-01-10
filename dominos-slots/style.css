@@ -127,12 +127,18 @@ box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0
     justify-content: center;
     align-items: center;
     background: white;
-    width: 58px;
+    /* width: 58px; */
     height: 30px;
     font-weight: bold;
     text-align: center;
     font-size: 10px;
     color: #0078AE;
+    position: relative;
+    font-size: 11px;
+    font-weight: bold;
+    min-width: 58px;
+    width: max-content !important;
+
 }
 .results {
     display: grid;
@@ -149,14 +155,7 @@ grid-gap: 10px;
     background-blend-mode: multiply;
     mix-blend-mode: multiply;
 }
-.results div {
-    /* box-shadow: inset 0px 0px 9px 0px black; */
-    position: relative;
-    font-size: 11px;
-    font-weight: bold;
-    min-width: 58px;
-    width: fit-content !important;
-}
+
 .main-text {
     position: absolute;
     left: 40%;
