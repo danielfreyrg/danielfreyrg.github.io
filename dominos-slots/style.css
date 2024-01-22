@@ -14,14 +14,16 @@
         --slot-width: 15vw;
         --slot-gap: 1vw;
     }
+
     .main-text p {
-        font-size: 10px !important;
+        max-width: max-content !important;
+        /* font-size: 18px !important; */
     }
     .main-text h1 {
-        font-size: 20px !important;
+        font-size: 45px !important;
     }
     .main-text h2 {
-        font-size: 15px !important;
+        /* font-size: 12px !important; */
     }
     .slot-row {
         box-shadow: none !important;
@@ -215,6 +217,7 @@ grid-gap: var(--slot-gap);
     color: white;
 }
 .main-text p {
+    max-width: min-content;
     font-size: 25px;
     font-weight: bold;
     margin: 0;
