@@ -53,6 +53,20 @@
     }
     
 }
+@media screen and (max-height: 251px) {
+    .outer.outer {
+        flex-direction: row !important;
+        padding: 10px !important;
+    }
+    .buttons.buttons {
+        flex-direction: column !important;
+        align-self: flex-start !important;
+        margin: 0 !important;
+    }
+    .main-text {
+        display: none;
+    }
+}
 .content {
     display: flex;
 }
@@ -111,7 +125,7 @@ box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0
 
 .outer {
     position: relative;
-    height: 300px;
+    height: 400px;
     background-image: url(bg-2.png);
     background-repeat: no-repeat;
     background-size: 100% 100%;
