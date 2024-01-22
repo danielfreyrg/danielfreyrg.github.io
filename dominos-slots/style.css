@@ -23,7 +23,7 @@ h1.mobile {
         display: block;
     }
 
-    .results div {
+    .results.results div {
         font-size: 8px !important;
     }
 
