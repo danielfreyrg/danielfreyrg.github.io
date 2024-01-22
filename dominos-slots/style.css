@@ -9,12 +9,18 @@
     --slot-width: 1fr;
     --slot-gap: 10px;
 }
+h1.mobile {
+    display: none;
+}
 
 @media screen and (max-width: 650px) {
 
     :root {
         --slot-width: 15vw;
         --slot-gap: 1vw;
+    }
+    h1.mobile {
+        display: block;
     }
 
     .results div {
