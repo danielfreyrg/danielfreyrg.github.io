@@ -147,7 +147,7 @@ box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0
 
 .outer {
     position: relative;
-    height: 400px;
+    height: 360px;
     background-image: url(BG-1018.png);
     background-repeat: no-repeat;
     background-size: 100% 100%;
