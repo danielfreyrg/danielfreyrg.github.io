@@ -12,7 +12,15 @@
 h1.mobile {
     display: none;
 }
+.main-text {
+    /* display: none; */
+    grid-area: text;
+    animation-name: slide-in-top;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
 
+}
 @media screen and (max-width: 650px) {
 
     :root {
@@ -20,7 +28,7 @@ h1.mobile {
         --slot-gap: 1vw;
     }
     .main-text {
-        animation: slide-in-left 0.2s ease-in-out 0 1 forwards;
+        animation-name: slide-in-left !important;
     }
 
     h1.mobile {
@@ -95,7 +103,8 @@ h1.mobile {
     .main-text {
         /* display: none; */
         grid-area: text;
-        animation: slide-in-left 0.2s ease-in-out 0 1 forwards;
+        animation-name: slide-in-left !important;
+
     }
 
     .content {
@@ -329,6 +338,15 @@ body {
     }
      to {
         transform: translateX(0);
+     }
+    
+}
+@keyframes slide-in-top {
+    from {
+        transform: translateY(-100vh);
+    }
+     to {
+        transform: translateY(0);
      }
     
 }
