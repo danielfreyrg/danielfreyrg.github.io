@@ -16,10 +16,11 @@
     }
 
     .main-text p {
-        max-width: max-content !important;
         /* font-size: 18px !important; */
     }
     .main-text h1 {
+        max-width: max-content !important;
+
         font-size: 40px !important;
     }
     .main-text h2 {
@@ -223,7 +224,6 @@ grid-gap: var(--slot-gap);
 }
 .main-text h1 {
     max-width: min-content;
-
     font-size: 65px;
     font-weight: bold;
     margin: 0;
