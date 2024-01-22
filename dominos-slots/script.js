@@ -7,9 +7,9 @@ var roll = [];
 var positionY;
 
 function updateResults() {
-  document.querySelector(".first").innerHTML = roll[0];
-  document.querySelector(".second").innerHTML = roll[1];
-  document.querySelector(".third").innerHTML = roll[2];
+  document.querySelector(".first span").innerHTML = roll[0];
+  document.querySelector(".second span").innerHTML = roll[1];
+  document.querySelector(".third span").innerHTML = roll[2];
 }
 
 function jackpot() {

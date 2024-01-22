@@ -229,6 +229,9 @@ grid-gap: var(--slot-gap);
     background-blend-mode: multiply;
     mix-blend-mode: multiply;
 }
+.results span {
+    max-width: min-content;
+}
 
 .main-text {
     /* position: absolute; */
