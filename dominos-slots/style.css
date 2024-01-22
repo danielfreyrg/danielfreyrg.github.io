@@ -5,8 +5,21 @@
     font-weight: normal;
     font-style: normal;
 }
-
+:root {
+    --slot-width: 1fr;
+    --slot-gap: 10px;
+}
 @media screen and (max-width: 650px) {
+    :root {
+        --slot-width: 15vw;
+        --slot-gap: 1vw;
+    }
+    .slot-row {
+        box-shadow: none !important;
+    }
+    .slot-row, .results {
+        justify-content: center !important;
+    }
     .outer {
         height: unset !important;
         padding: 50px 0 !important;
@@ -40,8 +53,8 @@ a {
 .slot-row {
     position: relative;
 display: grid;
-grid-template-columns: 1fr 1fr 1fr;
-grid-gap: 10px;
+grid-template-columns: var(--slot-width) var(--slot-width) var(--slot-width);
+grid-gap: var(--slot-gap);
 grid-template-rows: 1fr;
 background: #0078AD;
 /* max-height: 150px; */
@@ -173,8 +186,8 @@ margin: 0 10px;
 .results {
     margin-top: 10px;
     display: grid;
-grid-gap: 10px;
-    grid-template-columns: 1fr 1fr 1fr;
+grid-gap: var(--slot-gap);
+    grid-template-columns: var(--slot-width) var(--slot-width) var(--slot-width);
 }
 
 .results div::after{
