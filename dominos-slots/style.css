@@ -68,8 +68,25 @@
         margin: 0 0 0 10px !important;
     }
     .main-text {
-        display: none;
+        /* display: none; */
+        grid-area: text;
     }
+    .content {
+        display: grid !important;
+        /* grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr; */
+        grid-template: ". ."
+                    "text text";
+    }
+    .main-text.main-text.main-text p {
+        font-size: 15px !important;
+    }
+    .main-text.main-text.main-text h1 {
+        max-width: max-content !important;
+        font-size: 25px !important;
+    }
+    .main-text.main-text h2 {
+display: none;    }
 }
 .content {
     display: flex;
