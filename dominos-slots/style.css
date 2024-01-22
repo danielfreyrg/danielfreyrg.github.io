@@ -24,6 +24,7 @@
     }
     .slot-col {
         height: unset !important;
+        width: unset !important;
     }
     
 }
@@ -157,7 +158,7 @@ margin: 0 10px;
     justify-content: center;
     align-items: center;
     background: white;
-    width: 58px;
+    width: 100%;
     height: 30px;
     font-weight: bold;
     text-align: center;
