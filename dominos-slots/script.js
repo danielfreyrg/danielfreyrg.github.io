@@ -26,7 +26,7 @@ function spin() {
     //100% background position y moves the slots up 3 places, 200% is a whole spin
     // positionY = random * (100 / 3) + -2000 - ((100/3)/2)+ "%";
 
-    positionY = random * (100 / 3) + -2000 - (index == 0 ? 5 : 0)+ "%";
+    positionY = random * (100 / 3) + -2000 - (index == 0 ? 3.5 : 0)+ "%";
     if ( index === 0) {
       positionY 
     }

@@ -153,7 +153,7 @@ a {
     /* transition: background-position 2s ease-in-out; */
 }
 .slot-col:nth-of-type(1) {
-    background-position-y: -5%;
+    background-position-y: -3.5%;
 }
 .slot-col:nth-of-type(2) {
     background-image: url(Slots-middle-2.svg);
