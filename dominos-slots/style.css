@@ -65,9 +65,10 @@ box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0
     background-repeat: no-repeat;
     background-size: 100% 100%;
     display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    /* flex-direction: column; */
+    flex-direction: row;
     padding-left: 7vw;
     gap: 20px;
     }
@@ -106,17 +107,21 @@ box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0
     background: #B11A2A;
 }
 .buttons {
-    position: absolute;
+    /* position: absolute; */
+    height: 100%;
     left: 30%;
     bottom: 12%;
     display: grid;
     grid-auto-flow: row;
     grid-gap: 50px;
     align-items: center;
+    align-content: center;
     justify-content: center;
     justify-items: center;
 }
 .order {
+    position: relative;
+    bottom: -20px;
     background: #E31937;
     color: white;
     width: max-content;
@@ -140,6 +145,7 @@ box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0
 
 }
 .results {
+    margin-top: 10px;
     display: grid;
 grid-gap: 10px;
     grid-template-columns: 1fr 1fr 1fr;
@@ -156,7 +162,7 @@ grid-gap: 10px;
 }
 
 .main-text {
-    position: absolute;
+    /* position: absolute; */
     left: 40%;
     color: white;
 }
