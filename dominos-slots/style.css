@@ -63,7 +63,7 @@
         flex-direction: row !important;
     }
     .buttons.buttons {
-        flex-direction: column !important;
+        grid-auto-flow: row !important;
         align-self: flex-start !important;
         margin: 0 !important;
     }
