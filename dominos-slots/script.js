@@ -26,7 +26,7 @@ function spin() {
 
     //offset for the first slot due to an error in the image
     positionY = random * (100 / 3) + -2000 - (index == 0 ? 3.5 : 0) + ((window.outerWidth < 700 && index == 2) ? 16 : 0)+ "%";
-    alert('window.outerWidth < 700 && index == 2 ' + (window.outerWidth < 700 && index == 2))
+    // alert('window.outerWidth < 700 && index == 2 ' + (window.outerWidth < 700 && index == 2))
 
 
     // roll.push(prizes[random]);
