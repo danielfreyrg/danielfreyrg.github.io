@@ -57,6 +57,7 @@
     .outer.outer {
         flex-direction: row !important;
         padding: 10px !important;
+        justify-content: center !important;
     }
     .buttons.buttons {
         flex-direction: column !important;
