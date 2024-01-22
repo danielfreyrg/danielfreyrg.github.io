@@ -14,6 +14,15 @@
         --slot-width: 15vw;
         --slot-gap: 1vw;
     }
+    .main-text p {
+        font-size: 10px;
+    }
+    .main-text h1 {
+        font-size: 20px;
+    }
+    .main-text h2 {
+        font-size: 15px;
+    }
     .slot-row {
         box-shadow: none !important;
     }
