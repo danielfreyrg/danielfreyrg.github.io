@@ -1,9 +1,20 @@
-/* Import this font: PizzaPressFill.otf */
+
 @font-face {
     font-family: 'Pizza';
     src: url('PizzaPressFill.otf') format('opentype');
     font-weight: normal;
     font-style: normal;
+}
+
+@media screen and (max-width: 650px) {
+    .outer, body {
+        background: #0078AD !important;
+        flex-direction: column !important;
+    }
+    
+}
+.content {
+    display: flex;
 }
 * {
     font-family: 'Pizza';
@@ -118,10 +129,10 @@ box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0
     align-content: center;
     justify-content: center;
     justify-items: center;
+    align-self: flex-end;
+margin: 0 10px;
 }
 .order {
-    position: relative;
-    bottom: -20px;
     background: #E31937;
     color: white;
     width: max-content;
