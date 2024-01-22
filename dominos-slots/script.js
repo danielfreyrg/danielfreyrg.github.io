@@ -18,6 +18,7 @@ function jackpot() {
   return;
 }
 function spin() {
+  console.log('inner:' + window.innerWidth + ' outer: ' + window.outerWidth)
   var columns = document.querySelectorAll(".slot-col");
   roll = [];
   columns.forEach(function (column, index) {
