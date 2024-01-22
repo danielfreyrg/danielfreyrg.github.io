@@ -21,6 +21,7 @@ h1.mobile {
     animation-fill-mode: forwards;
 
 }
+
 @media screen and (max-width: 650px) {
 
     :root {
@@ -132,6 +133,10 @@ h1.mobile {
 
 .content {
     display: flex;
+    animation-name: slide-in-top;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
 }
 
 * {
