@@ -7,9 +7,23 @@
 }
 
 @media screen and (max-width: 650px) {
-    .outer, body {
+    .outer {
+        height: unset !important;
+        padding: 50px 0 !important;
+        width: 100vw !important;
+    }
+    
+    .outer, body, .content {
         background: #0078AD !important;
         flex-direction: column !important;
+    }
+    .buttons {
+        grid-auto-flow: column !important;
+        margin: 10px !important;
+        align-self: center !important;
+    }
+    .slot-col {
+        height: unset !important;
     }
     
 }
