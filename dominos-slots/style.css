@@ -59,8 +59,8 @@
         padding: 10px !important;
         justify-content: center !important;
     }
-    .content {
-        flex-direction: column !important;
+    .content.content {
+        flex-direction: row !important;
     }
     .buttons.buttons {
         flex-direction: column !important;
