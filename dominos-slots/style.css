@@ -22,6 +22,9 @@ h1.mobile {
     h1.mobile {
         display: block;
     }
+    h1.desktop {
+        display: none;
+    }
 
     .results.results div {
         font-size: 8px !important;
