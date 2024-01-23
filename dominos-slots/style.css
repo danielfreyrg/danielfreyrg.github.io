@@ -26,7 +26,7 @@ h1.mobile, h2.mobile {
         animation-name: slide-in-top;
 
     }
-    .content.content.content .slots-row, .content.content.content .results, .content.content.content .buttons {
+     .slot-row,.results, .content.content.content .buttons {
         animation-name: slide-in-bottom;
     }
     
@@ -166,8 +166,8 @@ a {
     box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
 
 }
-.content > div {
-    animation-name: slide-in-top;
+.content > div, .slot-row, .results {
+    /* animation-name: slide-in-top; */
     animation-duration: 1.5s;
     animation-timing-function: ease-in-out;
     animation-fill-mode: forwards;
