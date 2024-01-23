@@ -21,10 +21,10 @@ h1.mobile, h2.mobile {
     animation-fill-mode: forwards;
 
 }
-@media screen and (max-width: 380px) and (max-height: 157px) {
+@media screen and (max-width: 380px) and (max-height: 160px) {
     :root {
-        --slot-width: 12vw !important;
-        --slot-gap: 1vw !important;
+        --slot-width: 8vw !important;
+        --slot-gap: 0.5vw !important;
     }
 }
 @media screen and (min-width: 1000px)  {
