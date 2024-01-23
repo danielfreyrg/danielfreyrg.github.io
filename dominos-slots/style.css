@@ -33,6 +33,9 @@ h1.mobile, h2.mobile {
     h2.desktop.desktop.desktop {
         display: block !important;
     }
+    .buttons.buttons.buttons {
+        grid-gap: 20px !important;
+    }
 }
 @media screen and (min-width: 1000px)  {
     .main-text.main-text.main-text {
