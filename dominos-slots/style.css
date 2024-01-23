@@ -26,6 +26,13 @@ h1.mobile, h2.mobile {
         --slot-width: 8vw !important;
         --slot-gap: 0.5vw !important;
     }
+    .content.content.content{
+        display: flex !important;
+        flex-direction: row !important;
+    }
+    h2.desktop.desktop.desktop {
+        display: block !important;
+    }
 }
 @media screen and (min-width: 1000px)  {
     .main-text.main-text.main-text {
