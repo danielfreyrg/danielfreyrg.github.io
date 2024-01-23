@@ -21,7 +21,16 @@ h1.mobile {
     animation-fill-mode: forwards;
 
 }
+@media screen and (min-width: 1000px)  {
+    .main-text {
+        animation-name: slide-in-top;
 
+    }
+    .slot-row {
+        animation-name: slide-in-bottom;
+    }
+    
+}
 @media screen and (max-width: 650px) {
 
     :root {
@@ -354,6 +363,15 @@ body {
 @keyframes slide-in-top {
     from {
         transform: translateY(-100vh);
+    }
+     to {
+        transform: translateY(0);
+     }
+    
+}
+@keyframes slide-in-bottom {
+    from {
+        transform: translateY(100vh);
     }
      to {
         transform: translateY(0);
