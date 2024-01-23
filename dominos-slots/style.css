@@ -9,7 +9,7 @@
     --slot-width: 1fr;
     --slot-gap: 10px;
 }
-h1.mobile {
+h1.mobile, h2.mobile {
     display: none;
 }
 .main-text {
@@ -22,11 +22,11 @@ h1.mobile {
 
 }
 @media screen and (min-width: 1000px)  {
-    .main-text {
+    .main-text.main-text.main-text {
         animation-name: slide-in-top;
 
     }
-    .content{
+    .content.content.content > div{
         animation-name: slide-in-bottom;
     }
     
@@ -41,10 +41,10 @@ h1.mobile {
         animation-name: slide-in-left !important;
     }
 
-    h1.mobile {
+    h1.mobile, h2.mobile {
         display: block;
     }
-    h1.desktop {
+    h1.desktop, h2.desktop {
         display: none;
     }
 
