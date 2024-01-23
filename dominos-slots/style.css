@@ -26,7 +26,7 @@ h1.mobile {
         animation-name: slide-in-top;
 
     }
-    .slot-row {
+    .content{
         animation-name: slide-in-bottom;
     }
     
