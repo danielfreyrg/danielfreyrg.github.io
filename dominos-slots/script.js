@@ -25,7 +25,7 @@ function spin() {
     //100% background position y moves the slots up 3 places, 200% is a whole spin
 
     //offset for the first slot due to an error in the image
-    positionY = random * (100 / 3) + -2000 - (index == 0 ? 3.5 : 0) + ((window.outerWidth < 700 && index == 2) ? 16 : 0)+ "%";
+    positionY = random * (100 / 3) + -2000 - (index == 0 ? 3.5 : 0) + "%";
     // alert('window.outerWidth < 700 && index == 2 ' + (window.outerWidth < 700 && index == 2))
 
 
