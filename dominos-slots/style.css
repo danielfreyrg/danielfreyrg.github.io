@@ -36,6 +36,9 @@ h1.mobile, h2.mobile {
     .buttons.buttons.buttons {
         grid-gap: 20px !important;
     }
+    .main-text.main-text.main-text {
+        animation-name: slide-in-right !important;
+    }
 }
 @media screen and (min-width: 1000px)  {
     .main-text.main-text.main-text {
@@ -391,6 +394,15 @@ body {
     }
      to {
         transform: translateY(0);
+     }
+    
+}
+@keyframes slide-in-right {
+    from {
+        transform: translateX(100vw);
+    }
+     to {
+        transform: translateX(0);
      }
     
 }
