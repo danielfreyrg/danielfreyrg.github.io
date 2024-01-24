@@ -56,16 +56,23 @@ h1.mobile, h2.mobile {
     }
     
 }
+@media screen and (max-width: 311px) and (max-height: 410px) {
+    .arrow {
+        top: 25% !important;
+        left: 20px !important;
+    }
+    
+}
 @media screen and (max-width: 650px) {
 
     :root {
         --slot-width: 15vw;
         --slot-gap: 1vw;
     }
-    .arrow {
+    /* .arrow {
         top: 25% !important;
         left: 20px !important;
-    }
+    } */
     .main-text {
         animation-name: slide-in-left !important;
     }
