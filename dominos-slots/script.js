@@ -2,6 +2,9 @@ var hasSpun = false;
 var slots_left = [ 'Spínat', 'Rjómaostur', 'Græn paprika', 'Pulled pork', 'Pepperoni', 'Sveppir']
 var slots_middle = [ "Skinka", "Piparostur", "Svartar ólífur", "Ananas", "hakk", "Vegan kjúlli"]
 var slots_right = [ 'Fajitas kjúlli', 'Rauðlaukur', 'Beikonkurl', 'Ferskur chili', 'Jalapeno', 'Döðlur']
+var slots_left_small = [ 'Spínat', 'Rjóma<br>ostur', 'Græn paprika', 'Pulled pork', 'Pepperoni', 'Sveppir']
+var slots_middle_small = [ "Skinka", "Pipar<br>ostur", "Svartar ólífur", "Ananas", "hakk", "Vegan kjúlli"]
+var slots_right_small = [ 'Fajitas kjúlli', 'Rauð <br>laukur', 'Beikon <br>kurl', 'Ferskur chili', 'Jalapeno', 'Döðlur']
 var roll = [];
 var positionY;
 
@@ -31,13 +34,27 @@ function spin() {
 
     // roll.push(prizes[random]);
     if (index === 0) {
-      roll.push(slots_left[random]);
+      if (window.outerWidth < 700) {
+        roll.push(slots_left_small[random]);
+      } else {
+        roll.push(slots_left[random])
+      }
     }
     if (index === 1) {
-      roll.push(slots_middle[random]);
+      if (window.outerWidth < 700) {
+        roll.push(slots_middle_small[random]);
+      } else {
+        roll.push(slots_middle[random])
+      }
+      
     }
     if (index === 2) {
+      if (window.outerWidth < 700) {
+        roll.push(slots_right_small[random]);
+      }
+      else {
       roll.push(slots_right[random]);
+      }
     }
 
     column.style.transition =
