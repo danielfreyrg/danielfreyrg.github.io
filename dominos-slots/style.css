@@ -62,6 +62,10 @@ h1.mobile, h2.mobile {
         --slot-width: 15vw;
         --slot-gap: 1vw;
     }
+    .arrow {
+        top: 25% !important;
+        left: 20px !important;
+    }
     .main-text {
         animation-name: slide-in-left !important;
     }
@@ -119,6 +123,9 @@ h1.mobile, h2.mobile {
 }
 
 @media screen and (max-height: 251px) {
+    .arrow {
+        top: 37% !important;
+    }
     .outer.outer {
         flex-direction: row !important;
         padding: 10px !important;
