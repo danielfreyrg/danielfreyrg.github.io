@@ -474,6 +474,7 @@ body {
 @media  (max-width: 301px) and (max-height: 251px) and (min-width: 290px)  and (min-height: 240px) {
     .arrow-2 {
         left: -20px;
+        top: 45%;
     }
     
 }
