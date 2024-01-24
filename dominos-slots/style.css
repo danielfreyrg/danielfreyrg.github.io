@@ -463,10 +463,11 @@ body {
     position: relative;
 }
 .arrow-2 {
+    --arrow-size: 7.5vh
     left: 0;
     background-image: url(triangle.svg);
-    width: 2vw;
-    height: 2vw;
+    width: var(--arrow-size);
+    height: var(--arrow-size);
     background-repeat: no-repeat;
     background-size: 100%;
 }
