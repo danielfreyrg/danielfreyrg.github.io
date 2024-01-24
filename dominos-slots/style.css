@@ -464,7 +464,7 @@ body {
     position: relative;
 }
 .arrow-2 {
-    --arrow-size: 7.5vh
+    --arrow-size: 7.5vh;
     left: 0;
     background-image: url(triangle.svg);
     width: var(--arrow-size);
