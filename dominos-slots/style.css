@@ -271,7 +271,7 @@ a {
 .outer {
     position: relative;
     height: 360px;
-    background-image: url(BG-1018-arrow.png);
+    background-image: url(BG-1018.png);
     background-repeat: no-repeat;
     background-size: 100% 100%;
     display: flex;
