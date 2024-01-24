@@ -450,9 +450,9 @@ body {
     top: 50%;
     left: -20px;
     transform: translateY(-100%);
-    border-top: var(--border-size) solid transparent;
+    /* border-top: var(--border-size) solid transparent;
     border-bottom: var(--border-size) solid transparent;
-    border-left: var(--border-size) solid white;
+    border-left: var(--border-size) solid white; */
 
     display: flex;
     justify-content: center;
@@ -464,6 +464,11 @@ body {
 }
 .arrow-2 {
     left: 0;
+    background-image: url(triangle.svg);
+    width: 2vw;
+    height: 2vw;
+    background-repeat: no-repeat;
+    background-size: 100%;
 }
 @media screen and (min-width: 1000px) {
     .arrow-2 {
