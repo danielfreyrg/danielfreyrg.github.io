@@ -63,8 +63,8 @@ h1.mobile, h2.mobile {
     }
     
 }
-@media screen and (max-width: 376px) and (max-height: 157px) {
-    .arrow {
+@media screen and (max-width: 376px) and (max-height: 157px) and (min-width: 365px) {
+    .arrow.arrow.arrow {
         top: 45% !important;
         left: -20px !important;
         --border-size: 10px !important;
