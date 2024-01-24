@@ -10,3 +10,4 @@ setup.py
 rimordabok2/node_modules/
 rimordabok2/package-lock.json
 rimordabok2/package.json
+.DS_Store
