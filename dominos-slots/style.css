@@ -444,7 +444,7 @@ body {
      }
     
 }
-.arrow {
+.arrow, .arrow-2 {
     --border-size: 15px;
     position: absolute;
     top: 50%;
@@ -458,4 +458,7 @@ body {
     justify-content: center;
     align-items: center;
     z-index: 2;
+}
+.slot-row {
+    position: absolute;
 }
