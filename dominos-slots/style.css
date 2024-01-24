@@ -465,7 +465,8 @@ body {
 }
 .arrow-2 {
     --arrow-size: 7.5vh;
-    left: -5vw;
+    left: -0;
+    transform: translateX(-100%);
     background-image: url(triangle.svg);
     width: var(--arrow-size);
     height: var(--arrow-size);
