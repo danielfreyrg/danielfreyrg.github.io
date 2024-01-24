@@ -166,6 +166,7 @@ h1.mobile, h2.mobile {
 }
 
 .content {
+    position: relative;
     display: flex;
 
 }
@@ -412,4 +413,20 @@ body {
         transform: translateX(0);
      }
     
+}
+.arrow {
+    --border-size: 15px;
+    position: absolute;
+    top: 50%;
+    left: -20px;
+    transform: translateY(-100%);
+    border-top: var(--border-size) solid transparent;
+    border-bottom: var(--border-size) solid transparent;
+    border-left: var(--border-size) solid white;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 2;
 }
