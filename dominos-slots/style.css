@@ -63,6 +63,14 @@ h1.mobile, h2.mobile {
     }
     
 }
+
+@media screen and (max-width: 431px) and (max-height: 361px) {
+    .arrow {
+        top: 29% !important;
+        left: 20px !important;
+    }
+    
+}
 @media screen and (max-width: 650px) {
 
     :root {
@@ -441,6 +449,5 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    cursor: pointer;
     z-index: 2;
 }
