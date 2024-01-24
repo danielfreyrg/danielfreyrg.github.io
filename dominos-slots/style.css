@@ -144,9 +144,10 @@ h1.mobile, h2.mobile {
 
 }
 
-@media screen and (max-height: 251px) {
-    .arrow {
+@media screen and (max-height: 251px) and (min-width: 290px) {
+    .arrow.arrow.arrow {
         top: 37% !important;
+        left: -20px !important;
     }
     .outer.outer {
         flex-direction: row !important;
