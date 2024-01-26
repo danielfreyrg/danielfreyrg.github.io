@@ -20,7 +20,6 @@ function jackpot() {
   return;
 }
 function spin() {
-  console.log('innerwidth: ' + window.innerWidth + ' outerwidth: ' + window.outerWidth)
   var columns = document.querySelectorAll(".slot-col");
   roll = [];
   columns.forEach(function (column, index) {
