@@ -493,11 +493,14 @@ body {
     }
     .slot-wrapper {
         grid-area: slots;
+        animation-name: slide-in-bottom !important; 
     }
     .buttons {
         grid-area: buttons;
+        animation-name: slide-in-top !important;
     }
-    .main-text {
+    .main-text.main-text.main-text.main-text {
+        animation-name: slide-in-top !important;
         grid-area: text;
     }
 
