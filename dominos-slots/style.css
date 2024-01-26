@@ -345,6 +345,9 @@ body {
 .order-secondary {
     display: none;
 }
+.tuesday-break {
+    display: none;
+}
 @media screen and (max-width: 999px) {
     .tuesday-wrapper {
         display: inline-flex;
@@ -643,7 +646,10 @@ body {
 
 /*375x156*/
 @media screen and (min-width: 365px) and (max-width: 376px) and (max-height: 157px) {
-    .order , h1,  h2{
+    .tuesday-break {
+        display: block !important;
+    }
+    .order , h1,  h2, .tuesday{
         display: none !important;
     }
     .main-text.main-text.main-text h2 {
