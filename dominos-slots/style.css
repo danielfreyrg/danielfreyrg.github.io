@@ -432,13 +432,13 @@ body {
 
 /*430x360*/
 @media screen and (max-width: 431px) and (max-height: 361px) {
-    .buttons {
+    .order-main {
         display: none;
     }
     .content.content.content {
         display: grid !important;
         grid-template-columns: 140px 50px;
-        grid-template-rows: 165px 50px;
+        grid-template-rows: 65px 150px;
         grid-template-areas: 'text .' 'slots buttons';
         margin-left: -25px;
     }
