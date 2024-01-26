@@ -663,8 +663,8 @@ body {
     }
 
     :root {
-        --slot-width: 35px;
-        --slot-gap: 5px;
+        --slot-width: 35px !important;
+        --slot-gap: 5px !important;
     }
     .tuesday-break {
         display: block !important;
@@ -693,10 +693,6 @@ body {
         --border-size: 10px !important;
     }
 
-    :root {
-        --slot-width: 8vw !important;
-        --slot-gap: 0.5vw !important;
-    }
 
     .content.content.content {
         display: flex !important;
