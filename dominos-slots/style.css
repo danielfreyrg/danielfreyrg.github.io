@@ -379,6 +379,12 @@ body {
 
 /*310x400*/
 @media screen and (min-width: 290px) and (max-width: 315px) and (min-height: 395px) and (max-height:407px) {
+    h1.mobile.mobile.mobile.mobile {
+        display: none !important;
+    }
+    h1.desktop.desktop.desktop {
+        display: block !important;
+    }
     .order {
         display: none !important;
     }
