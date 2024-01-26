@@ -521,7 +521,21 @@ body {
     .outer {
         background-image: url(BG-300x250.png) !important;
     }
-
+    .content {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        grid-template-areas: 'slots buttons' 'text .';
+    }
+    .slot-wrapper {
+        grid-area: slots;
+    }
+    .spin {
+        grid-area: buttons;
+    }
+    .main-text {
+        grid-area: text;
+    }
     .arrow.arrow.arrow {
         top: 37% !important;
         left: -20px !important;
