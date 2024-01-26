@@ -554,6 +554,7 @@ body {
     .tuesday-wrapper {
         display: flex !important;
         flex-direction: column !important;
+        align-items: flex-start !important;
     }
     .tuesday {
         font-size: 20px !important;
@@ -586,7 +587,6 @@ body {
 
     .main-text.main-text.main-text p {
         margin: 5px !important;
-        font-size: 15px !important;
     }
 
     .main-text.main-text.main-text h1 {
