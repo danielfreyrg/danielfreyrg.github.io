@@ -302,6 +302,15 @@ body {
     }
 
 }
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
 
 .arrow,
 .arrow-2 {
@@ -497,8 +506,9 @@ body {
     }
     .buttons {
         grid-area: buttons;
-        animation-name: slide-in-top !important;
+        animation-name: fade-in !important;
     }
+
     .main-text.main-text.main-text.main-text {
         animation-name: slide-in-top !important;
         grid-area: text;
