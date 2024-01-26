@@ -440,10 +440,10 @@ body {
 
     }
     h2.mobile.mobile.mobile.mobile {
-        display: none !important;
+        display: block !important;
     }
     h2.desktop.desktop.desktop {
-        display: block !important;
+        display: none !important;
     }
     h1 {
         font-size: 60px;
@@ -454,6 +454,7 @@ body {
         grid-template-rows: 65px 220px;
         grid-template-areas: 'text .' 'slots buttons';
         margin-left: -25px;
+        grid-column-gap: 40px;
     }
     .order-aside {
         display: flex !important;
