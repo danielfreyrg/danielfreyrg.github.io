@@ -439,10 +439,10 @@ body {
         font-size: 34px;
 
     }
-    h2.mobile.mobile.mobile.mobile {
+    h2.mobile.mobile.mobile.mobile, h1.mobile.mobile.mobile.mobile {
         display: none !important;
     }
-    h2.desktop.desktop.desktop {
+    h2.desktop.desktop.desktop, h1.desktop.desktop.desktop {
         display: block !important;
     }
     h1 {
