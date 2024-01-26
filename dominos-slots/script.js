@@ -9,6 +9,11 @@ var roll = [];
 var positionY;
 
 function updateResults() {
+  if (roll[0] == 'Pepperoni') {
+    document.querySelector(".first span").style.fontSize = "8px";
+  } else {
+    document.querySelector(".first span").style.fontSize = "";
+  }
   document.querySelector(".first span").innerHTML = roll[0];
   document.querySelector(".second span").innerHTML = roll[1];
   document.querySelector(".third span").innerHTML = roll[2];
