@@ -205,7 +205,7 @@ body {
 }
 
 .results {
-    margin-top: 10px;
+    /* margin-top: 10px; */
     display: grid;
     grid-gap: var(--slot-gap);
     grid-template-columns: var(--slot-width) var(--slot-width) var(--slot-width);
@@ -335,7 +335,18 @@ body {
 .order-aside {
     display: none;
 }
+@media screen and (max-width: 999px) {
+    .outer {
+        background-size: 90% !important;
+    }
 
+    .slot-row,
+    .results,
+    .content.content.content .buttons {
+        animation-name: slide-in-right;
+    }
+
+}
 /* 1018x360 */
 @media screen and (min-width: 1000px) {
     .main-text.main-text.main-text {
@@ -350,22 +361,11 @@ body {
     }
 }
 
-
-@media screen and (max-width: 999px) {
-    .outer {
-        background-size: 90% !important;
-    }
-
-    .slot-row,
-    .results,
-    .content.content.content .buttons {
-        animation-name: slide-in-right;
-    }
-
-}
-
 /*310x400*/
 @media screen and (min-width: 290px) and (max-width: 315px) and (min-height: 395px) and (max-height:407px) {
+    .tuesday {
+
+    }
     .main-text.main-text.main-text.main-text h2 {
         display: none !important;
     }
@@ -394,7 +394,7 @@ body {
 
 /*430x360*/
 @media screen and (max-width: 431px) and (max-height: 361px) {
-    ..order-aside {
+    .order-aside {
         display: flex !important;
     }
 
@@ -479,7 +479,7 @@ body {
 }
 
 /*300x250*/
-@media screen and (max-height: 251px) and (min-width: 290px) {
+@media screen  and (min-width: 290px) and (max-width: 305px) and (min-height: 245px) and (max-height: 251px) {
     .outer {
         background-image: url(BG-300x250.png) !important;
     }
