@@ -443,6 +443,9 @@ body {
 
 /*430x360*/
 @media screen and (min-width: 425px) and (max-width: 431px) and (min-height: 350px) and (max-height: 361px) {
+    #spin.spin {
+        transform: translateY(-35%);
+    }
     .main-text.main-text.main-text h1 {
         font-size: 50px !important;
     }
