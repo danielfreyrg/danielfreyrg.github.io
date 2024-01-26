@@ -660,6 +660,9 @@ body {
 
 /*375x156*/
 @media screen and (min-width: 365px) and (max-width: 376px) and (max-height: 157px) {
+    .arrow-2 {
+        transform: translate(-150%, -150%) !important;
+    }
     .outer.outer.outer {
         padding: 10px 0 !important;
     }
