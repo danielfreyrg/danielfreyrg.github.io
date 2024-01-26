@@ -456,7 +456,7 @@ body {
         display: none;
     }
     .tuesday {
-        font-size: 34px;
+        font-size: 30px !important;
 
     }
     h2.mobile.mobile.mobile.mobile {
