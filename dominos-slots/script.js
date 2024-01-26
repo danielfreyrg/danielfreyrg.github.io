@@ -112,16 +112,16 @@ document.querySelectorAll(".spin").forEach( i => {
 
 
 
-var rotnum = 0;
-function test() {
-  rotnum++
-  console.log("rotnum: " + rotnum + "\nslots left: " + slots_left[rotnum%6] + "\n slots middle: " + slots_middle[rotnum%6] + "\n slots right: " + slots_right[rotnum%6])
-  document.querySelectorAll(".slot-col").forEach(function (column, index) {
+// var rotnum = 0;
+// function test() {
+//   rotnum++
+//   console.log("rotnum: " + rotnum + "\nslots left: " + slots_left[rotnum%6] + "\n slots middle: " + slots_middle[rotnum%6] + "\n slots right: " + slots_right[rotnum%6])
+//   document.querySelectorAll(".slot-col").forEach(function (column, index) {
     
-    rotation = rotnum * (100 / 3);
+//     rotation = rotnum * (100 / 3);
     
-column.style.backgroundPositionY = rotation + "%";
-  }
+// column.style.backgroundPositionY = rotation + "%";
+//   }
   
-  )
-}
+//   )
+// }
