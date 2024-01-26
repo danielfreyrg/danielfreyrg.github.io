@@ -363,6 +363,14 @@ body {
 }
 /* 1018x360 */
 @media screen and (min-width: 900px) {
+    .main-text {
+        display: flex;
+        flex-flow: column;
+        gap: 5px;
+    }
+    .buttons {
+        height: 250px;
+    }
     #spin.spin {
         transform: translateY(-35%);
     }
