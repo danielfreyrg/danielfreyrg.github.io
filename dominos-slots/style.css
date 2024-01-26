@@ -339,8 +339,7 @@ body {
     width: max-content;
 }
 
-.button-spin-aside,
-.order-aside {
+.button-spin-aside {
     display: none;
 }
 .order-secondary {
