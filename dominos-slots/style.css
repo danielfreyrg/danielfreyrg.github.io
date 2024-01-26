@@ -4,12 +4,20 @@
     font-weight: normal;
     font-style: normal;
 }
-
+@font-face {
+    font-family: 'trade';
+    src: url('TradeGothic.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
 :root {
     --slot-width: 1fr;
     --slot-gap: 10px;
 }
+h2 {
+    font-family: 'trade';
 
+}
 h1.mobile,
 h2.mobile {
     display: none;
