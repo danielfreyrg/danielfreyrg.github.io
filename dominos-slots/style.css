@@ -9,9 +9,12 @@
     --slot-width: 1fr;
     --slot-gap: 10px;
 }
-h1.mobile, h2.mobile {
+
+h1.mobile,
+h2.mobile {
     display: none;
 }
+
 .main-text {
     /* display: none; */
     grid-area: text;
@@ -51,7 +54,10 @@ a {
     box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
 
 }
-.content > div, .slot-row, .results {
+
+.content>div,
+.slot-row,
+.results {
     /* animation-name: slide-in-top; */
     animation-duration: 1.5s;
     animation-timing-function: ease-in-out;
@@ -70,9 +76,11 @@ a {
     background-position: unset;
     /* transition: background-position 2s ease-in-out; */
 }
+
 .slot-col:nth-of-type(1) {
     background-position-y: -3.5%;
 }
+
 .slot-col:nth-of-type(2) {
     background-image: url(Slots-middle-2.svg);
 }
@@ -131,7 +139,8 @@ body {
     display: none;
 }
 
-#spin, .spin {
+#spin,
+.spin {
     width: 48px;
     height: 48px;
     border-radius: 50%;
@@ -240,43 +249,53 @@ body {
     font-weight: bold;
     margin: 0;
 }
+
 @keyframes slide-in-left {
     from {
         transform: translateX(-100vw);
     }
-     to {
+
+    to {
         transform: translateX(0);
-     }
-    
+    }
+
 }
+
 @keyframes slide-in-top {
     from {
         transform: translateY(-100vh);
     }
-     to {
+
+    to {
         transform: translateY(0);
-     }
-    
+    }
+
 }
+
 @keyframes slide-in-bottom {
     from {
         transform: translateY(100vh);
     }
-     to {
+
+    to {
         transform: translateY(0);
-     }
-    
+    }
+
 }
+
 @keyframes slide-in-right {
     from {
         transform: translateX(100vw);
     }
-     to {
+
+    to {
         transform: translateX(0);
-     }
-    
+    }
+
 }
-.arrow, .arrow-2 {
+
+.arrow,
+.arrow-2 {
     --border-size: 5vh;
     position: absolute;
     top: 50%;
@@ -291,9 +310,11 @@ body {
     align-items: center;
     z-index: 2;
 }
+
 .slot-row {
     position: relative;
 }
+
 .arrow-2 {
     --arrow-size: 7.5vh;
     left: -0;
@@ -304,68 +325,91 @@ body {
     background-repeat: no-repeat;
     background-size: 100%;
 }
-.slot-wrapper {                          
+
+.slot-wrapper {
     position: relative;
     width: max-content;
 }
-.button-spin-aside {
+
+.button-spin-aside,
+.order-aside {
     display: none;
 }
+
 /* 1018x360 */
 @media screen and (min-width: 1000px) {
     .main-text.main-text.main-text {
         animation-name: slide-in-top;
 
     }
-     .slot-row,.results, .content.content.content .buttons {
+
+    .slot-row,
+    .results,
+    .content.content.content .buttons {
         animation-name: slide-in-bottom;
     }
 }
 
 
 @media screen and (max-width: 999px) {
-    .slot-row,.results, .content.content.content .buttons {
+
+    .slot-row,
+    .results,
+    .content.content.content .buttons {
         animation-name: slide-in-right;
     }
-    
+
 }
+
 /*310x400*/
-@media screen  and (min-width: 290px) and (max-width: 301px) and (min-height: 240px) and (max-height: 251px) {
+@media screen and (min-width: 290px) and (max-width: 301px) and (min-height: 240px) and (max-height: 251px) {
     .button-spin-aside {
         display: flex !important;
     }
+
     #spin {
         display: none !important;
     }
+
     .outer.outer.outer {
         background-image: url(BG-312x402.png) !important;
     }
+
     .arrow {
         top: 25% !important;
         left: 20px !important;
     }
+
     .arrow-2 {
         top: 45%;
     }
-    
+
 }
 
+/*430x360*/
 @media screen and (max-width: 431px) and (max-height: 361px) {
+    ..order-aside {
+        display: flex !important;
+    }
+
     .outer {
         background-image: url(BG-430x360.png) !important;
     }
+
     .arrow {
         top: 29% !important;
         left: 0px !important;
     }
-    
+
 }
+
 @media screen and (max-width: 650px) {
 
     :root {
         --slot-width: 15vw;
         --slot-gap: 1vw;
     }
+
     /* .arrow {
         top: 25% !important;
         left: 20px !important;
@@ -374,10 +418,13 @@ body {
         animation-name: slide-in-left !important;
     }
 
-    h1.mobile, h2.mobile {
+    h1.mobile,
+    h2.mobile {
         display: block;
     }
-    h1.desktop, h2.desktop {
+
+    h1.desktop,
+    h2.desktop {
         display: none;
     }
 
@@ -409,7 +456,6 @@ body {
     .outer,
     body,
     .content {
-        /* background: #0078AD !important; */
         flex-direction: column !important;
     }
 
@@ -426,14 +472,17 @@ body {
 
 }
 
+/*300x250*/
 @media screen and (max-height: 251px) and (min-width: 290px) {
     .outer {
         background-image: url(BG-300x250.png) !important;
     }
+
     .arrow.arrow.arrow {
         top: 37% !important;
         left: -20px !important;
     }
+
     .outer.outer {
         flex-direction: row !important;
         padding: 10px !important;
@@ -479,38 +528,49 @@ body {
         display: none;
     }
 }
+
 /*375x156*/
-@media screen and (min-width: 365px) and (max-width: 376px) and (max-height: 157px) {
+/* @media screen and (min-width: 365px) and (max-width: 376px) and (max-height: 157px) { */
+    @media screen and (min-width: 302px) and (max-width: 311px) and (max-height: 410px) {
+        
     .button-spin-aside {
         display: flex !important;
     }
+
     #spin {
         display: none !important;
     }
+
     .outer.outer.outer.outer {
         background-image: url(BG-375x157.png) !important;
     }
+
     .arrow.arrow.arrow.arrow.arrow.arrow {
         top: 43% !important;
         left: -20px !important;
         --border-size: 10px !important;
     }
+
     :root {
         --slot-width: 8vw !important;
         --slot-gap: 0.5vw !important;
     }
-    .content.content.content{
+
+    .content.content.content {
         display: flex !important;
         flex-direction: row !important;
     }
+
     h2.desktop.desktop.desktop {
         display: block !important;
     }
+
     .buttons.buttons.buttons {
         grid-gap: 20px !important;
     }
+
     .main-text.main-text.main-text {
         animation-name: slide-in-right !important;
     }
-    
+
 }
