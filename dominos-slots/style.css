@@ -589,7 +589,7 @@ body {
     }
     .results {
         font-size: 11px !important;
-        padding: 5px 0;
+        
     }
     #spin {
         transform: translateY(-50%);
