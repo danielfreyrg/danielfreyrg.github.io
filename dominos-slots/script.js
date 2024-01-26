@@ -16,7 +16,8 @@ function updateResults() {
 
   if (window.innerWidth < 376 && window.innerWidth > 365 && window.innerHeight < 157 && window.innerHeight > 145) {
     console.log('small')
-    document.querySelector('.order-main').style.transform = 'translate(150%, -100%)';
+    document.querySelector('.order-main').style.transform = 'translate(150%, -200%)';
+    document.querySelector('.order-main').style.opacity = '1';
     // document.querySelector('.order-main').style.display= 'flex !important';
   }
 }
