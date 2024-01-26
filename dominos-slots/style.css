@@ -451,7 +451,7 @@ body {
     .content.content.content {
         display: grid !important;
         grid-template-columns: 200px 50px;
-        grid-template-rows: 65px 220px;
+        grid-template-rows: 35px 220px;
         grid-template-areas: 'text .' 'slots buttons';
         margin-left: -55px;
         grid-gap: 35px 10px;
@@ -643,6 +643,9 @@ body {
 
 /*375x156*/
 @media screen and (min-width: 365px) and (max-width: 376px) and (max-height: 157px) {
+    .orde, h1,  h2{
+        display: none;
+    }
     .main-text.main-text.main-text h2 {
         display: none;
     }
