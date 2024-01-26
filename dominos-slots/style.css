@@ -368,6 +368,9 @@ body {
 }
 /* 1018x360 */
 @media screen and (min-width: 1000px) {
+    .order-aside {
+        display: none !important;
+    }
     .main-text.main-text.main-text {
         animation-name: slide-in-top;
 
