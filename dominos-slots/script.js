@@ -12,6 +12,12 @@ function updateResults() {
   document.querySelector(".first span").innerHTML = roll[0];
   document.querySelector(".second span").innerHTML = roll[1];
   document.querySelector(".third span").innerHTML = roll[2];
+/*375x156*/
+
+  if (window.innerWidth < 376 && window.innerWidth > 365 && window.innerHeight < 157 && window.innerHeight > 145) {
+    console.log('small')
+    document.querySelector('.order-main').style.transform = 'translate(150%, -100%)';
+  }
 }
 
 function jackpot() {
