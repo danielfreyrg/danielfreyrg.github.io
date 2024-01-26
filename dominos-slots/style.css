@@ -386,6 +386,7 @@ body {
 
 /*310x400*/
 @media screen and (min-width: 290px) and (max-width: 315px) and (min-height: 395px) and (max-height:407px) {
+
     .main-text.main-text.main-text h1 {
         font-size: 45px !important;
     }
@@ -423,6 +424,7 @@ body {
 
     .outer.outer.outer {
         background-image: url(BG-312x402.png) !important;
+        padding: 25px 0 !important;
     }
 
     .arrow {
