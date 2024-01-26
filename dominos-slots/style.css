@@ -672,7 +672,7 @@ body {
 /*375x156*/
 @media screen and (min-width: 365px) and (max-width: 376px) and (max-height: 157px) {
     .order-main.order-main.order-main {
-        transform: translate(100%, 100%);
+        transform: translate(200%, -225%);
         transition: transform 1s ease-in-out;
         display: block !important;
         opacity: 0;
