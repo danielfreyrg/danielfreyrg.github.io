@@ -581,6 +581,9 @@ body {
     #spin {
         transform: translateY(-30%);
     }
+    .arrow-2 {
+        transform: translate(-150%, -150%) !important;
+    }
     
     .content.content.content {
         display: grid !important;
