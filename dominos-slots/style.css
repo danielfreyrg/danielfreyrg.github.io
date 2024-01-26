@@ -677,10 +677,6 @@ body {
         flex-direction: row !important;
     }
 
-    h2.desktop.desktop.desktop {
-        display: block !important;
-    }
-
     .buttons.buttons.buttons {
         grid-gap: 20px !important;
     }
