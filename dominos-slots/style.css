@@ -438,6 +438,12 @@ body {
 
 /*430x360*/
 @media screen and (min-width: 425px) and (max-width: 431px) and (min-height: 350px) and (max-height: 361px) {
+    .main-text.main-text.main-text h1 {
+        font-size: 50px !important;
+    }
+    h2.mobile {
+        font-size: 18px !important;
+    }
     .order-main {
         display: none;
     }
