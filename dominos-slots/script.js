@@ -74,7 +74,8 @@ function spin() {
   });
 }
 
-document.getElementById("spin").addEventListener("click", function () {
+document.querySelectorAll(".spin").forEach( i => {
+  i.addEventListener("click", function () {
   if (hasSpun) {
     document
       .querySelectorAll(".slot-col")
@@ -95,7 +96,22 @@ document.getElementById("spin").addEventListener("click", function () {
     spin(); // First spin without resetting
     hasSpun = true;
   }
-});
+})
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 var rotnum = 0;
 function test() {
   rotnum++
