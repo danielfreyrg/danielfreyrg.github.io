@@ -473,7 +473,7 @@ body {
     }
 
     .main-text h1 {
-        max-width: max-content !important;
+        /* max-width: max-content !important; */
 
         font-size: 40px !important;
     }
