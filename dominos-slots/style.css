@@ -352,6 +352,9 @@ body {
 
 
 @media screen and (max-width: 999px) {
+    .outer {
+        background-size: 90% !important;
+    }
 
     .slot-row,
     .results,
