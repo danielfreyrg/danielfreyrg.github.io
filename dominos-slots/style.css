@@ -587,7 +587,7 @@ body {
         padding: 5px 0;
     }
     #spin {
-        transform: translateY(-30%);
+        transform: translateY(-50%);
     }
     .arrow-2 {
         transform: translate(-150%, -150%) !important;
