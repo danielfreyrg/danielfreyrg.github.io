@@ -649,6 +649,11 @@ body {
 
 /*375x156*/
 @media screen and (min-width: 365px) and (max-width: 376px) and (max-height: 157px) {
+
+    :root {
+        --slot-width: 35px;
+        --slot-gap: 5px;
+    }
     .tuesday-break {
         display: block !important;
     }
@@ -684,6 +689,7 @@ body {
     .content.content.content {
         display: flex !important;
         flex-direction: row !important;
+        align-items: flex-start;
     }
 
     .buttons.buttons.buttons {
