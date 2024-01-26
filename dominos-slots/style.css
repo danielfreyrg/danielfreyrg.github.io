@@ -344,6 +344,12 @@ body {
     display: none;
 }
 @media screen and (max-width: 999px) {
+    .tuesday {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        
+    }
     .outer {
         background-size: contain !important;
     }
