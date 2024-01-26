@@ -35,7 +35,7 @@ function spin() {
 
     // roll.push(prizes[random]);
     if (index === 0) {
-      if (window.outerWidth < 999) {
+      if (window.innerWidth < 999) {
         roll.push(slots_left_small[random]);
       } else {
         roll.push(slots_left[random])
