@@ -521,7 +521,7 @@ body {
     .outer {
         background-image: url(BG-300x250.png) !important;
     }
-    .content {
+    .content.content.content {
         display: grid !important;
         grid-template-columns: 1fr 1fr;
         grid-template-rows: 1fr 1fr;
