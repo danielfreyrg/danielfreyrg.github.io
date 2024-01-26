@@ -523,10 +523,13 @@ body {
     }
     .content.content.content {
         display: grid !important;
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 140px 50px;
         grid-template-rows: 1fr 1fr;
         grid-template-areas: 'slots buttons' 'text .';
     }
+   .order-main {
+    display: none !important;
+   } 
     .buttons.buttons.buttons {
         grid-gap: 0px !important;
     }
