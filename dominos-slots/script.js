@@ -14,10 +14,12 @@ function updateResults() {
   document.querySelector(".third span").innerHTML = roll[2];
 /*375x156*/
 
+
+}
+function slide() {
   if (window.innerWidth < 376 && window.innerWidth > 365 && window.innerHeight < 157 && window.innerHeight > 145) {
     document.querySelector('.order-main').style.transform = 'translate(105%, -225%)';
     document.querySelector('.order-main').style.opacity = '1';
-    // document.querySelector('.order-main').style.display= 'flex !important';
   }
 }
 
@@ -74,6 +76,7 @@ function spin() {
     // Update results after the last column finishes spinning
     if (index === columns.length - 1) {
       setTimeout(updateResults, (random + index + 1) * 1200);
+      setTimeout(slide(), (random + index + 2) * 1200);
     }
     if (roll[0] === roll[1] && roll[1] === roll[2]) {
       setTimeout(jackpot(), (random + index + 1) * 1200);
