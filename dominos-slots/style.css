@@ -435,6 +435,13 @@ body {
     .order-main {
         display: none;
     }
+    .tuesday {
+        font-size: 34px;
+
+    }
+    h1 {
+        font-size: 60px;
+    }
     .content.content.content {
         display: grid !important;
         grid-template-columns: 140px 50px;
