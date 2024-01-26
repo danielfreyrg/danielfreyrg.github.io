@@ -706,7 +706,10 @@ body {
     }
 
     .main-text.main-text.main-text {
-        animation-name: slide-in-right !important;
+        animation-name: slide-in-top !important;
+    }
+    .slot-wrapper {
+        animation-name: slide-in-bottom !important;
     }
 
 }
