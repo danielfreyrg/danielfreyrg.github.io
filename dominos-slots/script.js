@@ -41,7 +41,7 @@ function spin() {
       }
     }
     if (index === 1) {
-      if (window.outerWidth < 700) {
+      if (window.innerWidth < 700) {
         roll.push(slots_middle_small[random]);
       } else {
         roll.push(slots_middle[random])
@@ -49,7 +49,7 @@ function spin() {
       
     }
     if (index === 2) {
-      if (window.outerWidth < 700) {
+      if (window.innerWidth < 700) {
         roll.push(slots_right_small[random]);
       }
       else {
