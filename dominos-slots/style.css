@@ -301,7 +301,7 @@ body {
     background-repeat: no-repeat;
     background-size: 100%;
 }
-.slot-wrapper {
+.slot-wrapper {                          
     position: relative;
     width: max-content;
 }
@@ -354,6 +354,9 @@ body {
     
 }
 @media screen and (max-width: 311px) and (max-height: 410px) {
+    .outer {
+        background-image: url(BG-312x402.png) !important;
+    }
     .arrow {
         top: 25% !important;
         left: 20px !important;
@@ -361,6 +364,9 @@ body {
     
 }
 @media screen and (max-width: 376px) and (max-height: 157px) and (min-width: 365px) {
+    .outer {
+        background-image: url(BG-375x157.png) !important;
+    }
     .arrow.arrow.arrow.arrow.arrow.arrow {
         top: 43% !important;
         left: -20px !important;
@@ -369,6 +375,9 @@ body {
     
 }
 @media screen and (max-width: 431px) and (max-height: 361px) {
+    .outer {
+        background-image: url(BG-430x360.png) !important;
+    }
     .arrow {
         top: 29% !important;
         left: 0px !important;
@@ -442,6 +451,9 @@ body {
 }
 
 @media screen and (max-height: 251px) and (min-width: 290px) {
+    .outer {
+        background-image: url(BG-300x250.png) !important;
+    }
     .arrow.arrow.arrow {
         top: 37% !important;
         left: -20px !important;

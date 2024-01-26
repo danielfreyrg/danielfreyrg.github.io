@@ -81,7 +81,7 @@ document.getElementById("spin").addEventListener("click", function () {
       .forEach(function (column, index, array) {
         column.style.transition = "none"; // Disable transition for immediate reset
         column.style.backgroundPositionY = "0"; // Reset position
-        //reset the results
+        //reset the results 
         document.querySelector(".first").innerHTML = "<span></span>";
         document.querySelector(".second").innerHTML = "<span></span>";
         document.querySelector(".third").innerHTML = "<span></span>";
