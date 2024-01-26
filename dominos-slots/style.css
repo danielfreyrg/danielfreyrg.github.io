@@ -522,7 +522,7 @@ body {
         padding: 10px 0 !important;
         background-image: url(BG-300x250.png) !important;
     }
-     h1, .order-aside.order-aside.order-aside {
+     h1 {
         display: none !important;
     }
     
@@ -551,7 +551,13 @@ body {
         top: 37% !important;
         left: -20px !important;
     }
-
+    .tuesday-wrapper {
+        display: flex !important;
+        flex-direction: column !important;
+    }
+    .tuesday {
+        font-size: 20px !important;
+    }
 
     .content.content {
         flex-direction: row !important;
