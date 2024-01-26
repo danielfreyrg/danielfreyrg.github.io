@@ -518,7 +518,8 @@ body {
 
 /*300x250*/
 @media screen  and (min-width: 290px) and (max-width: 305px) and (min-height: 245px) and (max-height: 255px) {
-    .outer {
+    .outer.outer.outer.outer {
+        padding: 10px 0 !important;
         background-image: url(BG-300x250.png) !important;
     }
      h1, .order-aside.order-aside.order-aside {
