@@ -433,7 +433,7 @@ body {
     .outer,
     body,
     .content {
-        background: #0078AD !important;
+        /* background: #0078AD !important; */
         flex-direction: column !important;
     }
 
