@@ -344,7 +344,9 @@ body {
     display: none;
 }
 @media screen and (max-width: 999px) {
-
+    .outer {
+        background-size: contain !important;
+    }
     .slot-row,
     .results,
     .content.content.content .buttons {
