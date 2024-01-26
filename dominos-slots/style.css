@@ -463,7 +463,7 @@ body {
     }
 
     .outer {
-        height: unset !important;
+        /* height: unset !important; */
         padding: 30px 0 !important;
         width: 100vw !important;
     }
