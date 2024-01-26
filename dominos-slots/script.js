@@ -1,7 +1,7 @@
 var hasSpun = false;
 var slots_left = [ 'Spínat', 'Rjómaostur', 'Græn paprika', 'Pulled pork', 'Pepperoni', 'Sveppir']
-var slots_middle = [ "Skinka", "Piparostur", "Svartar ólífur", "Ananas", "hakk", "Vegan kjúlli"]
-var slots_right = [ 'Fajitas kjúlli', 'Rauðlaukur', 'Beikonkurl', 'Ferskur chili', 'Jalapeno', 'Döðlur']
+var slots_middle = [ "Skinka", "Piparostur", "Svartar ólífur", "Ananas", "hakk", "Vegan kjúklingur"]
+var slots_right = [ 'Fajitas kjúklingur', 'Rauðlaukur', 'Beikonkurl', 'Ferskur chili', 'Jalapeno', 'Döðlur']
 var slots_left_small = [ 'Spínat', 'Rjóma<br>ostur', 'Græn paprika', 'Pulled pork', 'Pepperoni', 'Sveppir']
 var slots_middle_small = [ "Skinka", "Pipar<br>ostur", "Svartar ólífur", "Ananas", "hakk", "Vegan kjúlli"]
 var slots_right_small = [ 'Fajitas kjúlli', 'Rauð <br>laukur', 'Beikon <br>kurl', 'Ferskur chili', 'Jalapeno', 'Döðlur']
@@ -15,7 +15,6 @@ function updateResults() {
 /*375x156*/
 
   if (window.innerWidth < 376 && window.innerWidth > 365 && window.innerHeight < 157 && window.innerHeight > 145) {
-    console.log('small')
     document.querySelector('.order-main').style.transform = 'translate(105%, -225%)';
     document.querySelector('.order-main').style.opacity = '1';
     // document.querySelector('.order-main').style.display= 'flex !important';
