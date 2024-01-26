@@ -521,10 +521,14 @@ body {
     .outer {
         background-image: url(BG-300x250.png) !important;
     }
+     h1, .order-aside.order-aside.order-aside {
+        display: none !important;
+    }
+    
     .content.content.content {
         display: grid !important;
         grid-template-columns: 140px 50px;
-        grid-template-rows: 140px 50px;
+        grid-template-rows: 165px 50px;
         grid-template-areas: 'slots buttons' 'text .';
     }
    .order-main {
