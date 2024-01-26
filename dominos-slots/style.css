@@ -524,7 +524,7 @@ body {
     .content.content.content {
         display: grid !important;
         grid-template-columns: 140px 50px;
-        grid-template-rows: 1fr 1fr;
+        grid-template-rows: 140px 50px;
         grid-template-areas: 'slots buttons' 'text .';
     }
    .order-main {
