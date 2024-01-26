@@ -525,6 +525,13 @@ body {
      h1 {
         display: none !important;
     }
+    .results {
+        font-size: 11px !important;
+        padding: 5px 0;
+    }
+    #spin {
+        transform: translateY(-30%);
+    }
     
     .content.content.content {
         display: grid !important;
@@ -555,6 +562,7 @@ body {
         display: flex !important;
         flex-direction: column !important;
         align-items: flex-start !important;
+        gap: 0px !important;
     }
     .tuesday {
         font-size: 20px !important;
