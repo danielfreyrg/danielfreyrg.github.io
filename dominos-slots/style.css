@@ -348,7 +348,7 @@ body {
 .tuesday-break {
     display: none;
 }
-@media screen and (max-width: 988px) {
+@media screen and (max-width: 899px) {
     .tuesday-wrapper {
         display: inline-flex;
         align-items: center;
@@ -367,7 +367,7 @@ body {
 
 }
 /* 1018x360 */
-@media screen and (min-width: 989x) {
+@media screen and (min-width: 900x) {
     a.order.order-aside {
         display: none !important;
     }
