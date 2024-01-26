@@ -411,7 +411,7 @@ body {
     }
 
     .tuesday {
-        font-size: 20px;
+        font-size: 30px !important;
 
     }
     .main-text.main-text.main-text.main-text h2 {
@@ -450,13 +450,13 @@ body {
         font-size: 50px !important;
     }
     h2.mobile {
-        font-size: 16px !important;
+        font-size: 15px !important;
     }
     .order-main {
         display: none;
     }
     .tuesday {
-        font-size: 30px !important;
+        font-size: 34px;
 
     }
     h2.mobile.mobile.mobile.mobile {
