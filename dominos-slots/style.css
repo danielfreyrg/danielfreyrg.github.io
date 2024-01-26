@@ -367,7 +367,7 @@ body {
 
 }
 /* 1018x360 */
-@media screen and (min-width: 900x) {
+@media screen and (min-width: 900px) {
     a.order.order-aside {
         display: none !important;
     }
