@@ -439,13 +439,19 @@ body {
         font-size: 34px;
 
     }
+    h2.mobile.mobile.mobile.mobile {
+        display: none !important;
+    }
+    h2.desktop.desktop.desktop {
+        display: block !important;
+    }
     h1 {
         font-size: 60px;
     }
     .content.content.content {
         display: grid !important;
-        grid-template-columns: 140px 50px;
-        grid-template-rows: 65px 150px;
+        grid-template-columns: 200px 50px;
+        grid-template-rows: 65px 220px;
         grid-template-areas: 'text .' 'slots buttons';
         margin-left: -25px;
     }
