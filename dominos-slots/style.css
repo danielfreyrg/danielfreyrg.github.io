@@ -441,6 +441,7 @@ body {
     }
     h2.mobile.mobile.mobile.mobile {
         display: block !important;
+        width: max-content;
     }
     h2.desktop.desktop.desktop {
         display: none !important;
@@ -454,7 +455,7 @@ body {
         grid-template-rows: 65px 220px;
         grid-template-areas: 'text .' 'slots buttons';
         margin-left: -25px;
-        grid-column-gap: 40px;
+        grid-gap: 40px 10px;
     }
     .order-aside {
         display: flex !important;
