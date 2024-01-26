@@ -337,7 +337,7 @@ body {
     #spin {
         display: none !important;
     }
-    .outer {
+    .outer.outer.outer {
         background-image: url(BG-312x402.png) !important;
     }
     .arrow {
