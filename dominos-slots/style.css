@@ -517,7 +517,7 @@ body {
 }
 
 /*300x250*/
-@media screen  and (min-width: 290px) and (max-width: 305px) and (min-height: 245px) and (max-height: 251px) {
+@media screen  and (min-width: 290px) and (max-width: 305px) and (min-height: 245px) and (max-height: 255px) {
     .outer {
         background-image: url(BG-300x250.png) !important;
     }
@@ -526,6 +526,9 @@ body {
         grid-template-columns: 1fr 1fr;
         grid-template-rows: 1fr 1fr;
         grid-template-areas: 'slots buttons' 'text .';
+    }
+    .buttons.buttons.buttons {
+        grid-gap: 0px !important;
     }
     .slot-wrapper {
         grid-area: slots;
@@ -542,9 +545,9 @@ body {
     }
 
     .outer.outer {
-        flex-direction: row !important;
+        /* flex-direction: row !important;
         padding: 10px !important;
-        justify-content: center !important;
+        justify-content: center !important; */
     }
 
     .content.content {
