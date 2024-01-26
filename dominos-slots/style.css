@@ -368,7 +368,7 @@ body {
 }
 /* 1018x360 */
 @media screen and (min-width: 1000px) {
-    .order-aside {
+    a.order.order-aside {
         display: none !important;
     }
     .main-text.main-text.main-text {
@@ -664,7 +664,7 @@ body {
 
     :root {
         --slot-width: 35px !important;
-        --slot-gap: 5px !important;
+        --slot-gap: 5px !important ;
     }
     .tuesday-break {
         display: block !important;
