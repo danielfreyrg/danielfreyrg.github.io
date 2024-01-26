@@ -12,8 +12,7 @@ function updateResults() {
   document.querySelector(".first span").innerHTML = roll[0];
   document.querySelector(".second span").innerHTML = roll[1];
   document.querySelector(".third span").innerHTML = roll[2];
-/*375x156*/
-
+  setTimeout(slide(), 1200);
 
 }
 function slide() {
@@ -76,7 +75,7 @@ function spin() {
     // Update results after the last column finishes spinning
     if (index === columns.length - 1) {
       setTimeout(updateResults, (random + index + 1) * 1200);
-      setTimeout(slide(), (random + index + 2) * 1200);
+      
     }
     if (roll[0] === roll[1] && roll[1] === roll[2]) {
       setTimeout(jackpot(), (random + index + 1) * 1200);
