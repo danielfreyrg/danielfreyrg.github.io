@@ -389,6 +389,7 @@ body {
         display: block !important;
     }
     .order {
+        font-size: 18px !important;
         display: none !important;
     }
     .order-secondary.order-secondary.order-secondary {
