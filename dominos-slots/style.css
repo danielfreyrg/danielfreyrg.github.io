@@ -371,9 +371,7 @@ body {
     a.order.order-aside {
         display: none !important;
     }
-    .outer.outer.outer.outer.outer.outer.outer.outer.outer {
-        background: red !important;
-    }
+
     .main-text.main-text.main-text {
         animation-name: slide-in-top;
 
