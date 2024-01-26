@@ -45,7 +45,7 @@ a {
     grid-template-columns: var(--slot-width) var(--slot-width) var(--slot-width);
     grid-gap: var(--slot-gap);
     grid-template-rows: 1fr;
-    background: #0078AD;
+    /* background: #0078AD; */
     /* max-height: 150px; */
     overflow: hidden;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
