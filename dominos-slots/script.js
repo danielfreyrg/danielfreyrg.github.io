@@ -9,6 +9,7 @@ var roll = [];
 var positionY;
 
 function updateResults() {
+  //pepperoni is too long for the slot, so we need to make the font smaller
   if (roll[0] == 'Pepperoni') {
     document.querySelector(".first span").style.fontSize = "8px";
   } else {

@@ -770,6 +770,13 @@ body {
     }
 
 }
+@media screen and (max-width: 295px) {
+    .outer {
+        background-size: contain !important;
+        background: url(BG-300x250.svg) !important;
+    }
+    
+}
 .pepperoni {
     font-size: 8px;
 }
