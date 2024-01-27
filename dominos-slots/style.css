@@ -770,10 +770,10 @@ body {
     }
 
 }
-@media screen and (max-width: 295px) {
+@media screen and (max-width: 402px) {
     .outer {
         background-size: contain !important;
-        background: url(BG-300x250.svg) !important;
+        background: url(BG-300x250.svg);
     }
     
 }
