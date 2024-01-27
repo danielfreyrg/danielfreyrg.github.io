@@ -460,7 +460,7 @@ body {
 }
 
 /*430x360*/
-@media screen and (min-width: 425px) and (max-width: 431px) and (min-height: 350px) and (max-height: 361px) {
+@media screen and (min-width: 400px) and (max-width: 431px) and (min-height: 350px) and (max-height: 361px) {
     :root {
         --slot-width: 62px !important;
     }
@@ -770,13 +770,13 @@ body {
     }
 
 }
-@media screen and (max-width: 402px) {
+/* @media screen and (max-width: 402px) and (min-height: 350px) {
     .outer {
         background-size: contain !important;
         background: url(BG-430x360.svg);
     }
     
-}
+} */
 .pepperoni {
     font-size: 8px;
 }
