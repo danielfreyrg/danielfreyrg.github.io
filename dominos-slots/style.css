@@ -773,7 +773,7 @@ body {
 @media screen and (max-width: 402px) {
     .outer {
         background-size: contain !important;
-        background: url(BG-300x250.svg);
+        background: url(BG-430x360.svg);
     }
     
 }
