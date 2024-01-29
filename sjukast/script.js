@@ -1,5 +1,6 @@
 let counter = 0;
 var realRotation = 0;
+var placedwords = 0;
 // JavaScript objects to hold the weights for checkboxes
 const maleWordWeights = {
     "kk-yngri": 1,
@@ -51,10 +52,14 @@ function updateDom(checkbox, isFormKk) {
  var exists = document.getElementById("word-" + checkbox.id);
      if (isFormKk) {
         if (exists) {
-            document.getElementById("word-" + checkbox.id).remove();
+            exists.style.animationName = 'fade-out';
+            exists.addEventListener('animationend', function() {
+            exists.remove();
+            placedwords -= 1;
+            });
         }
         else {
-        
+        placedwords += 1;
     document.querySelector('.kk-words').innerHTML += `<div class="word" id="word-${checkbox.id}" style="animation-name: slide-down;">${label}</div>`;
     document.querySelectorAll('.word').forEach(function(word) {
         word.addEventListener('animationend', function() {
@@ -66,10 +71,15 @@ function updateDom(checkbox, isFormKk) {
     }
     else {
         if (exists) {
-            document.getElementById("word-" + checkbox.id).remove();
+            exists.style.animationName = 'fade-out';
+            exists.addEventListener('animationend', function() {
+            exists.remove();
+            });
+            placedwords -= 1;
         }
         else {
         document.querySelector('.kvk-words').innerHTML += `<div class="word" id="word-${checkbox.id}" style="animation-name: slide-down;">${label}</div>`;
+        placedwords
         document.querySelectorAll('.word').forEach(function(word) {
             word.addEventListener('animationend', function() {
                 word.style.animationName = 'none';
@@ -78,6 +88,12 @@ function updateDom(checkbox, isFormKk) {
         )
     }
 }
+// if (placedwords > 8) {
+//     document.querySelector('.words').style.justifyContent = 'space-evenly'
+
+// } else {
+//     document.querySelector('.words').style.justifyContent = ''
+// }
 }
 
 // Function to update the counter

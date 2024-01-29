@@ -16,11 +16,12 @@
     transition: transform 0.1s ease-in-out;
 }
 .container {
-    flex-direction: column;
-    align-items: center;
+    flex-direction: row;
+    align-items: flex-end;
     height: 100vh;
     display: flex;
     justify-content: center;
+    gap: 20px;
 }
 .saw {
     flex-direction: column;
@@ -30,8 +31,7 @@
     border-bottom: 2px solid black;
 }
 form {
-    display: inline-flex;
-    gap: 5px;
+    display: grid;
     align-items: center;
 }
 label {
@@ -45,6 +45,7 @@ label {
 input[type="checkbox"]:checked + label {
     background: red;
     color: white;
+    border: 22px solid white;
 }
 input[type="checkbox"] {
     display: none;
@@ -68,7 +69,7 @@ input[type="checkbox"] {
     align-content: center;
     justify-content: space-between;
     transform: rotate(0deg);
-    transition: transform 0.1s ease-in-out;
+    transition: all 0.1s ease-in-out;
     justify-items: center;
 
 }
@@ -90,6 +91,15 @@ input[type="checkbox"] {
     100% {
         transform: translateY(0%);
         opacity: 1;
+    }
+    
+}
+@keyframes fade-out {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
     }
     
 }
