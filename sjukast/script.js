@@ -10,16 +10,12 @@ function updateCounter(isChecked, isFormKk) {
         counter -= 2;
     } else if (!isChecked && isFormKk) {
         counter -= 2;
-    } else if (!isChecked && !isFormKk && counter) {
+    } else if (!isChecked && !isFormKk) {
         counter += 2;
     }
     if (counter > 10) {
         realRotation = 10;
-    }
-    else {
-        realRotation = counter;
-    }
-    if (counter < -10) {
+    } else if (counter < -10) {
         realRotation = -10;
     }
     else {
