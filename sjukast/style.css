@@ -38,6 +38,9 @@ label {
     border: 2px solid red;
     padding: 5px;
     cursor: pointer;
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
 }
 input[type="checkbox"]:checked + label {
     background: red;
