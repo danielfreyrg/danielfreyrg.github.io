@@ -1,0 +1,137 @@
+
+:root {
+    --main-green: rgb(114,216,179);
+    --main-red: rgb(238,119,104);
+}
+.base {
+    background: url(base.svg);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    width: 100px;
+    height: 100px;
+}
+body {
+    background: var(--main-green);
+}
+.top {
+    background: url(top.svg);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    width: 1058px;
+    height: 20.34px;
+    transform-origin: center;
+    transform: rotate(0deg);
+    transition: transform 0.1s ease-in-out;
+}
+.container {
+    flex-direction: row;
+    align-items: flex-end;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+.saw {
+    flex-direction: column;
+    align-items: center;
+        display: flex;
+    justify-content: center;
+    border-bottom: 2px solid black;
+}
+form {
+    display: grid;
+    align-items: center;
+    margin-top: 150px;
+    grid-template-columns: 1fr 1fr;
+}
+label {
+    border: 2px solid var(--main-red);
+    border-radius: 10px;
+    text-align: center;
+    font-size: 20px;
+    color: var(--main-red);
+    font-family: 'anton', sans-serif;
+    padding: 10px;
+    cursor: pointer;
+    /* -webkit-user-select: none; 
+    -ms-user-select: none; 
+    user-select: none;  */
+}
+input[type="checkbox"]:checked + label {
+    background: var(--main-red);
+    color: var(--main-green);
+    border: 2px solid var(--main-green);
+}
+input[type="checkbox"] {
+    display: none;
+}
+.kk-words, .kvk-words  {
+    width: 150%;
+    min-height: 250px;
+    display: flex;
+    flex-flow: column-reverse;
+}
+.kk-words {
+    text-align: right;
+}
+
+
+.words {
+    display: grid;
+    grid-template-columns: 0.2fr 0.2fr;
+    width: 100%;
+    /* height: 83px; */
+    align-content: center;
+    justify-content: space-between;
+    transform: rotate(0deg);
+    transition: all 0.1s ease-in-out;
+    justify-items: center;
+
+}
+.word, .words label {
+    font-weight: bold;
+    font-size: 45px;
+    font-family: "Anton", sans-serif;
+    font-style: normal;
+    padding: 5px;
+    color: var(--main-red);
+    border: none;
+    /* animation-name: slide-down; */
+    animation-duration: .5s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+}
+@keyframes slide-down {
+    0% {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0%);
+        opacity: 1;
+    }
+    
+}
+@keyframes fade-out-right {
+    0% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    
+}
+@keyframes fade-out-left {
+    0% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    
+}
