@@ -22,6 +22,13 @@
     display: flex;
     justify-content: center;
 }
+.saw {
+    flex-direction: column;
+    align-items: center;
+        display: flex;
+    justify-content: center;
+    border-bottom: 2px solid black;
+}
 form {
     display: inline-flex;
     gap: 5px;
