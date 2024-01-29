@@ -771,10 +771,10 @@ body {
 
 }
 @media screen and (hover: none) and (min-width: 290px) and (max-width: 315px) and (min-height: 390px) and (max-height: 410px) {
-    .main-text {
-        margin-left: 5px;
+    .main-text.main-text.main-text.main-text {
+        margin-left: 5px !important;
     }
-    .tuesday {
-        font-size: 28px;
+    .tuesday.tuesday.tuesday   {
+        font-size: 28px !important;
     }
 }
