@@ -52,22 +52,25 @@ input[type="checkbox"] {
 .kk-words {
     display: flex;
     flex-flow: column-reverse;
-    align-self: flex-end;
+    /* align-self: flex-end; */
 }
 .kvk-words {
     display: flex;
     flex-flow: column-reverse;
-    align-self: flex-start;
+    /* align-self: flex-start; */
 
 }
 .words {
-    display: flex;
+    display: grid;
+    grid-template-columns: 0.2fr 0.2fr;
     width: 100%;
     /* height: 83px; */
     align-content: center;
     justify-content: space-between;
     transform: rotate(0deg);
     transition: transform 0.1s ease-in-out;
+    justify-items: center;
+
 }
 .word {
     font-size: 24px;
