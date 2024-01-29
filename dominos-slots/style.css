@@ -770,13 +770,11 @@ body {
     }
 
 }
-/* @media screen and (max-width: 402px) and (min-height: 350px) {
-    .outer {
-        background-size: contain !important;
-        background: url(BG-430x360.svg);
+@media screen and (hover: none) and (min-width: 290px) and (max-width: 315px) and (min-height: 390px) and (max-height: 410px) {
+    .main-text {
+        margin-left: 5px;
     }
-    
-} */
-.pepperoni {
-    font-size: 8px;
+    .tuesday {
+        font-size: 28px;
+    }
 }
