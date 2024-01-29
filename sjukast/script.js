@@ -52,7 +52,7 @@ function updateDom(checkbox, isFormKk) {
  var exists = document.getElementById("word-" + checkbox.id);
      if (isFormKk) {
         if (exists) {
-            exists.style.animationName = 'fade-out';
+            exists.style.animationName = 'fade-out-right';
             exists.addEventListener('animationend', function() {
             exists.remove();
             placedwords -= 1;
@@ -71,7 +71,7 @@ function updateDom(checkbox, isFormKk) {
     }
     else {
         if (exists) {
-            exists.style.animationName = 'fade-out';
+            exists.style.animationName = 'fade-out-left';
             exists.addEventListener('animationend', function() {
             exists.remove();
             });
