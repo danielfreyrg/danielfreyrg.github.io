@@ -46,11 +46,45 @@ const femaleWordWeights = {
     "kvk-efnud": -2,
     "kvk-god-i-kjaftinum": -2
 };
+function updateDom(checkbox, isFormKk) {
+ var label = document.querySelector('label[for="' + checkbox.id + '"]').textContent;
+ var exists = document.getElementById("word-" + checkbox.id);
+     if (isFormKk) {
+        if (exists) {
+            document.getElementById("word-" + checkbox.id).remove();
+        }
+        else {
+        
+    document.querySelector('.kk-words').innerHTML += `<div class="word" id="word-${checkbox.id}" style="animation-name: slide-down;">${label}</div>`;
+    document.querySelectorAll('.word').forEach(function(word) {
+        word.addEventListener('animationend', function() {
+            word.style.animationName = 'none';
+        });
+    }
+    )
+        }
+    }
+    else {
+        if (exists) {
+            document.getElementById("word-" + checkbox.id).remove();
+        }
+        else {
+        document.querySelector('.kvk-words').innerHTML += `<div class="word" id="word-${checkbox.id}" style="animation-name: slide-down;">${label}</div>`;
+        document.querySelectorAll('.word').forEach(function(word) {
+            word.addEventListener('animationend', function() {
+                word.style.animationName = 'none';
+            });
+        }
+        )
+    }
+}
+}
+
 // Function to update the counter
 function updateCounter(checkbox, isFormKk) {
     const isChecked = checkbox.checked;
     const checkboxId = checkbox.id;
-    console.log("Checkbox:", checkboxId, "is checked:", isChecked);
+    updateDom(checkbox, isFormKk);
 
     // Use checkboxId to access the weight
     const weight = isFormKk ? maleWordWeights[checkboxId] : femaleWordWeights[checkboxId];
@@ -71,6 +105,7 @@ function updateCounter(checkbox, isFormKk) {
     }
 
     document.querySelector('.top').style.transform = `rotate(${realRotation}deg)`;
+    document.querySelector('.words').style.transform = `rotate(${realRotation}deg)`;
     // Log the current counter value for demonstration
     console.log("Counter value:", counter);
 }
