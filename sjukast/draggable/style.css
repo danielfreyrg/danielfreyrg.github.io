@@ -28,7 +28,7 @@ body {
     align-items: flex-end;
     height: 100%;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     gap: 20px;
 }
 .saw {
@@ -42,7 +42,6 @@ form {
     display: grid;
     align-items: center;
     margin-top: 150px;
-    grid-template-columns: 1fr 1fr;
 }
 label {
     border: 2px solid var(--main-red);
