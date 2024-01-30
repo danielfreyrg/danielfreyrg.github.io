@@ -62,7 +62,6 @@ document.addEventListener('DOMContentLoaded', function() {
     // Function to update counters based on current dropped words
     function updateCounter(dropzone, id ) {
         var weight = wordWeights[id];
-        console.log('pre-drop: '+ weight)
 
         if (dropzone.classList.contains('left-words')) {
             weight = -weight;
@@ -79,10 +78,11 @@ document.addEventListener('DOMContentLoaded', function() {
         if (startzone == dropzone) {
             weight = 0;
         }
+        console.log("Weight:", weight);
         counter += weight;
         console.log("Counter value:", counter);
         rotateBar()
-        console.log('post-drop: '+ weight)
+        
         console.log('------------------')
 
   
