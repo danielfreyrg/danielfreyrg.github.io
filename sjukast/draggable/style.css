@@ -95,14 +95,7 @@ label {
     -ms-user-select: none; 
     user-select: none;  */
 }
-input[type="checkbox"]:checked + label {
-    background: var(--main-red);
-    color: var(--main-green);
-    border: 2px solid var(--main-green);
-}
-input[type="checkbox"] {
-    display: none;
-}
+
 .right-words, .left-words  {
     width: 500px;
     min-height: 250px;
@@ -131,7 +124,7 @@ input[type="checkbox"] {
 }
 .word, .words label {
     font-weight: bold;
-    font-size: 45px;
+    font-size: 50px;
     font-family: "Anton", sans-serif;
     font-style: normal;
     padding: 5px;
@@ -142,6 +135,9 @@ input[type="checkbox"] {
     animation-timing-function: ease-in-out;
     animation-fill-mode: forwards;
     animation-iteration-count: 1;
+}
+.words label.big-word {
+    font-size: 90px;
 }
 @keyframes slide-down {
     0% {

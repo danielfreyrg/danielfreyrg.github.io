@@ -7,16 +7,16 @@ var leftwords = []
 var rightwords = []
 // JavaScript objects to hold the weights for checkboxes
 const wordWeights = {
-    "yngri": 1,
-    "ekki-med-fulla-medvitund": 1,
-    "feiminn": 1,
-    "ad-vinna-ur-afalli": 1,
-    "ooruggur": 1,
-    "i-ojafnvaegi": 1,
-    "hraeddur": 1,
-    "frosinn": 1,
-    "ekki-i-godu-astandi": 1,
-    "oreyndur": 1,
+    "yngri": -1,
+    "ekki-med-fulla-medvitund": -1,
+    "feiminn": -1,
+    "ad-vinna-ur-afalli": -1,
+    "ooruggur": -1,
+    "i-ojafnvaegi": -1,
+    "hraeddur": -1,
+    "frosinn": -1,
+    "ekki-i-godu-astandi": -1,
+    "oreyndur": -1,
     "likamlega-sterkur": 2,
     "fraegur": 2,
     "frekur": 2,
@@ -55,6 +55,9 @@ document.addEventListener('DOMContentLoaded', function() {
             draggableElement.addEventListener('animationend', function() {
                 draggableElement.style.animationName = 'none';
             });
+            if (wordWeights[id] > 1) {
+                draggableElement.classList.add('big-word');
+            }
             updateCounter(zone, id); // Update counters or any other logic after drop
         });
     });
