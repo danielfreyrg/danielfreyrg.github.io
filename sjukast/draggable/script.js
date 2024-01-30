@@ -1,51 +1,31 @@
 let counter = 0;
 var realRotation = 0;
 var placedwords = 0;
+var dropzone
+var leftwords = []
+var rightwords = []
 // JavaScript objects to hold the weights for checkboxes
-const maleWordWeights = {
-    "kk-yngri": 1,
-    "kk-ekki-med-fulla-medvitund": 1,
-    "kk-feiminn": 1,
-    "kk-ad-vinna-ur-afalli": 1,
-    "kk-ooruggur": 1,
-    "kk-i-ojafnvaegi": 1,
-    "kk-hraeddur": 1,
-    "kk-frosinn": 1,
-    "kk-ekki-i-godu-astandi": 1,
-    "kk-oreyndur": 1,
-    "kk-likamlega-sterkur": 2,
-    "kk-fraegur": 2,
-    "kk-frekur": 2,
-    "kk-vinsaell": 2,
-    "kk-sjalfsoruggur": 2,
-    "kk-aestur": 2,
-    "kk-eldri": 2,
-    "kk-med-meiri-reynslu": 2,
-    "kk-efnadur": 2,
-    "kk-godur-i-kjaftinum": 2
-};
-
-const femaleWordWeights = {
-    "kvk-yngri": -1,
-    "kvk-ekki-med-fulla-medvitund": -1,
-    "kvk-feimin": -1,
-    "kvk-ad-vinna-ur-afalli": -1,
-    "kvk-oorugg": -1,
-    "kvk-i-ojafnvaegi": -1,
-    "kvk-hraedd": -1,
-    "kvk-frosin": -1,
-    "kvk-ekki-i-godu-astandi": -1,
-    "kvk-oreynd": -1,
-    "kvk-likamlega-sterk": -2,
-    "kvk-fraeg": -2,
-    "kvk-frek": -2,
-    "kvk-vinsael": -2,
-    "kvk-sjalfsorugg": -2,
-    "kvk-aest": -2,
-    "kvk-eldri": -2,
-    "kvk-med-meiri-reynslu": -2,
-    "kvk-efnud": -2,
-    "kvk-god-i-kjaftinum": -2
+const wordWeights = {
+    "yngri": 1,
+    "ekki-med-fulla-medvitund": 1,
+    "feiminn": 1,
+    "ad-vinna-ur-afalli": 1,
+    "ooruggur": 1,
+    "i-ojafnvaegi": 1,
+    "hraeddur": 1,
+    "frosinn": 1,
+    "ekki-i-godu-astandi": 1,
+    "oreyndur": 1,
+    "likamlega-sterkur": 2,
+    "fraegur": 2,
+    "frekur": 2,
+    "vinsaell": 2,
+    "sjalfsoruggur": 2,
+    "aestur": 2,
+    "eldri": 2,
+    "med-meiri-reynslu": 2,
+    "efnadur": 2,
+    "godur-i-kjaftinum": 2
 };
 document.addEventListener('DOMContentLoaded', function() {
     // Make words draggable
@@ -58,7 +38,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Setup drop zones
-    const dropZones = document.querySelectorAll('.kvk-words, .kk-words');
+    const dropZones = document.querySelectorAll('.right-words, .left-words');
     dropZones.forEach(zone => {
         zone.addEventListener('dragover', (event) => {
             event.preventDefault(); // Allow dropping by preventing default
@@ -69,19 +49,23 @@ document.addEventListener('DOMContentLoaded', function() {
             const id = event.dataTransfer.getData('text/plain');
             const draggableElement = document.getElementById(id);
             zone.appendChild(draggableElement);
-            updateCounter(); // Update counters or any other logic after drop
+            updateCounter(zone, id); // Update counters or any other logic after drop
         });
     });
 
     // Function to update counters based on current dropped words
-    function updateCounter() {
-        // Example counter update logic
-        const kvkCount = document.querySelector('.kvk-words').children.length;
-        const kkCount = document.querySelector('.kk-words').children.length;
+    function updateCounter(zone, id ) {
+        var weight = wordWeights[id];
+        if (zone.classList.contains('right-words')) {
+            counter += weight;
+        } else {
+            counter -= weight;
+        }
+        console.log("Counter value:", counter);
+        rotateBar()
+
+  
         
-        // Update DOM elements or variables to reflect new counts
-        console.log(`KVK count: ${kvkCount}, KK count: ${kkCount}`);
-        // Add your logic to update the DOM or perform other actions based on the new counts
     }
 });
 
@@ -98,7 +82,7 @@ function updateDom(checkbox, isFormKk) {
         }
         else {
         placedwords += 1;
-    document.querySelector('.kk-words').innerHTML += `<div class="word" id="word-${checkbox.id}" style="animation-name: slide-down;">${label}</div>`;
+    document.querySelector('.right-words').innerHTML += `<div class="word" id="word-${checkbox.id}" style="animation-name: slide-down;">${label}</div>`;
     document.querySelectorAll('.word').forEach(function(word) {
         word.addEventListener('animationend', function() {
             word.style.animationName = 'none';
@@ -116,7 +100,7 @@ function updateDom(checkbox, isFormKk) {
             placedwords -= 1;
         }
         else {
-        document.querySelector('.kvk-words').innerHTML += `<div class="word" id="word-${checkbox.id}" style="animation-name: slide-down;">${label}</div>`;
+        document.querySelector('.left-words').innerHTML += `<div class="word" id="word-${checkbox.id}" style="animation-name: slide-down;">${label}</div>`;
         placedwords
         document.querySelectorAll('.word').forEach(function(word) {
             word.addEventListener('animationend', function() {
@@ -129,20 +113,7 @@ function updateDom(checkbox, isFormKk) {
 }
 
 // Function to update the counter
-function updateCounter(checkbox, isFormKk) {
-    const isChecked = checkbox.checked;
-    const checkboxId = checkbox.id;
-    updateDom(checkbox, isFormKk);
-
-    // Use checkboxId to access the weight
-    const weight = isFormKk ? maleWordWeights[checkboxId] : femaleWordWeights[checkboxId];
-    console.log("Weight:", weight);
-
-    if (isChecked) {
-        counter += weight;
-    } else {
-        counter -= weight;
-    }
+function rotateBar() {
 
     if (counter > 10) {
         realRotation = 10;

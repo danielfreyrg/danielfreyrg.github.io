@@ -11,13 +11,27 @@
     height: 100px;
 }
  body {
-    background-image: url(../BG-2.svg);
-    background-size: cover;
+
+    position: relative;
 
 }
+.background {
+    background-image: url(../BG-tall.svg);
+    background-size: cover;
+    position: absolute;
+    inset: 0;
+    height: 100vh;
+    width: 100vw;
+    z-index: 0;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
 html, body {
+    height: 100%;
     padding: 0;
     margin: 0;
+
 }
 .top {
     background: url(top.svg);
@@ -32,10 +46,12 @@ html, body {
 .container {
     flex-direction: row;
     align-items: flex-end;
-    height: 100%;
+    height: 700px;
     display: flex;
     justify-content: space-around;
     gap: 20px;
+    position: relative;
+    z-index: 1;
 }
 .saw {
     flex-direction: column;
@@ -69,13 +85,13 @@ input[type="checkbox"]:checked + label {
 input[type="checkbox"] {
     display: none;
 }
-.kk-words, .kvk-words  {
+.right-words, .left-words  {
     width: 500px;
     min-height: 250px;
     display: flex;
     flex-flow: column-reverse;
 }
-.kk-words {
+.right-words {
     text-align: right;
 }
 
