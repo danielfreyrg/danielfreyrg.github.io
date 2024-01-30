@@ -98,11 +98,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
 function rotateBar() {
 
-    if (counter > 10) {
-        realRotation = 10;
-    } else if (counter < -10) {
-        realRotation = -10;
-    } else {
+    if (counter > 11) {
+        realRotation = 11;
+    } else if (counter < -11) {
+        realRotation = -11;
+    } 
+    else {
         realRotation = counter;
     }
 
