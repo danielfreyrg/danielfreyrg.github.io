@@ -10,8 +10,14 @@
     width: 100px;
     height: 100px;
 }
-body {
-    background: var(--main-green);
+ body {
+    background-image: url(../BG-2.svg);
+    background-size: cover;
+
+}
+html, body {
+    padding: 0;
+    margin: 0;
 }
 .top {
     background: url(top.svg);
@@ -36,7 +42,6 @@ body {
     align-items: center;
         display: flex;
     justify-content: center;
-    border-bottom: 2px solid black;
 }
 form {
     display: grid;
@@ -65,7 +70,7 @@ input[type="checkbox"] {
     display: none;
 }
 .kk-words, .kvk-words  {
-    width: 150%;
+    width: 500px;
     min-height: 250px;
     display: flex;
     flex-flow: column-reverse;
