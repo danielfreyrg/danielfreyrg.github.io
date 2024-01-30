@@ -2,6 +2,7 @@ let counter = 0;
 var realRotation = 0;
 var placedwords = 0;
 var dropzone
+var startzone
 var leftwords = []
 var rightwords = []
 // JavaScript objects to hold the weights for checkboxes
@@ -33,12 +34,13 @@ document.addEventListener('DOMContentLoaded', function() {
     words.forEach(word => {
         word.setAttribute('draggable', true);
         word.addEventListener('dragstart', (event) => {
+            startzone = event.target.parentElement
             event.dataTransfer.setData('text/plain', event.target.id);
         });
     });
 
     // Setup drop zones
-    const dropZones = document.querySelectorAll('.right-words, .left-words');
+    const dropZones = document.querySelectorAll('.right-words, .left-words, .start');
     dropZones.forEach(zone => {
         zone.addEventListener('dragover', (event) => {
             event.preventDefault(); // Allow dropping by preventing default
@@ -49,70 +51,47 @@ document.addEventListener('DOMContentLoaded', function() {
             const id = event.dataTransfer.getData('text/plain');
             const draggableElement = document.getElementById(id);
             zone.appendChild(draggableElement);
+            draggableElement.style.animationName = 'slide-down';
+            draggableElement.addEventListener('animationend', function() {
+                draggableElement.style.animationName = 'none';
+            });
             updateCounter(zone, id); // Update counters or any other logic after drop
         });
     });
 
     // Function to update counters based on current dropped words
-    function updateCounter(zone, id ) {
+    function updateCounter(dropzone, id ) {
         var weight = wordWeights[id];
-        if (zone.classList.contains('right-words')) {
-            counter += weight;
-        } else {
-            counter -= weight;
+        console.log('pre-drop: '+ weight)
+
+        if (dropzone.classList.contains('left-words')) {
+            weight = -weight;
         }
+        if (startzone.classList.contains('left-words') && dropzone.classList.contains('right-words') || startzone.classList.contains('right-words') && dropzone.classList.contains('left-words')){
+        weight = weight*2;
+        }
+        if (dropzone.classList.contains('start') && !startzone.classList.contains('left-words')) {
+            
+            weight = -weight;
+
+        } 
+
+        if (startzone == dropzone) {
+            weight = 0;
+        }
+        counter += weight;
         console.log("Counter value:", counter);
         rotateBar()
+        console.log('post-drop: '+ weight)
+        console.log('------------------')
 
   
         
     }
 });
 
-function updateDom(checkbox, isFormKk) {
- var label = document.querySelector('label[for="' + checkbox.id + '"]').textContent;
- var exists = document.getElementById("word-" + checkbox.id);
-     if (isFormKk) {
-        if (exists) {
-            exists.style.animationName = 'fade-out-right';
-            exists.addEventListener('animationend', function() {
-            exists.remove();
-            placedwords -= 1;
-            });
-        }
-        else {
-        placedwords += 1;
-    document.querySelector('.right-words').innerHTML += `<div class="word" id="word-${checkbox.id}" style="animation-name: slide-down;">${label}</div>`;
-    document.querySelectorAll('.word').forEach(function(word) {
-        word.addEventListener('animationend', function() {
-            word.style.animationName = 'none';
-        });
-    }
-    )
-        }
-    }
-    else {
-        if (exists) {
-            exists.style.animationName = 'fade-out-left';
-            exists.addEventListener('animationend', function() {
-            exists.remove();
-            });
-            placedwords -= 1;
-        }
-        else {
-        document.querySelector('.left-words').innerHTML += `<div class="word" id="word-${checkbox.id}" style="animation-name: slide-down;">${label}</div>`;
-        placedwords
-        document.querySelectorAll('.word').forEach(function(word) {
-            word.addEventListener('animationend', function() {
-                word.style.animationName = 'none';
-            });
-        }
-        )
-    }
-}
-}
 
-// Function to update the counter
+
 function rotateBar() {
 
     if (counter > 10) {
@@ -125,20 +104,5 @@ function rotateBar() {
 
     document.querySelector('.top').style.transform = `rotate(${realRotation}deg)`;
     document.querySelector('.words').style.transform = `rotate(${realRotation}deg)`;
-    // Log the current counter value for demonstration
-    console.log("Counter value:", counter);
 }
 
-// Add event listeners to checkboxes in the 'kk' form
-document.querySelectorAll('#kk input[type="checkbox"]').forEach(function(checkbox) {
-    checkbox.addEventListener('change', function() {
-        updateCounter(this, true); // Pass `this` (the checkbox) directly
-    });
-});
-
-// Add event listeners to checkboxes in the 'kvk' form
-document.querySelectorAll('#kvk input[type="checkbox"]').forEach(function(checkbox) {
-    checkbox.addEventListener('change', function() {
-        updateCounter(this, false); // Pass `this` (the checkbox) directly
-    });
-});

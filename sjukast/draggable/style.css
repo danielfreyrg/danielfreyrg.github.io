@@ -1,4 +1,16 @@
-
+@font-face {
+    font-family: 'chaney';
+    src: url('../CHANEY-Regular.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+/*import BricolageGrotesque-SemiBold.ttf */
+@font-face {
+    font-family: 'bricolage';
+    src: url('../BricolageGrotesque-SemiBold.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
 :root {
     --main-green: rgb(114,216,179);
     --main-red: rgb(238,119,104);
@@ -44,11 +56,11 @@ html, body {
     transition: transform 0.1s ease-in-out;
 }
 .container {
-    flex-direction: row;
-    align-items: flex-end;
-    height: 700px;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     gap: 20px;
     position: relative;
     z-index: 1;
@@ -62,15 +74,21 @@ html, body {
 form {
     display: grid;
     align-items: center;
-    margin-top: 150px;
+    grid-template-rows: 1fr 1fr;
+    /* margin-top: 150px; */
+    grid-auto-flow: column;
+    gap: 10px;
+    width: 90%;
+    justify-content: start;
+
 }
 label {
+    font-family: 'chaney', sans-serif;
     border: 2px solid var(--main-red);
     border-radius: 10px;
     text-align: center;
-    font-size: 20px;
+    font-size: 18px;
     color: var(--main-red);
-    font-family: 'anton', sans-serif;
     padding: 10px;
     cursor: pointer;
     /* -webkit-user-select: none; 
@@ -91,10 +109,13 @@ input[type="checkbox"] {
     display: flex;
     flex-flow: column-reverse;
 }
-.right-words {
+.right-words label{
     text-align: right;
 }
 
+.left-words label{
+    text-align: left;
+}
 
 .words {
     display: grid;
