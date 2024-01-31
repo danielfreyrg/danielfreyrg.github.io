@@ -106,7 +106,7 @@ function rotateBar() {
     else {
         realRotation = counter;
     }
-
+    document.querySelector('.weight').innerHTML = `þyngd: ${realRotation}`;
     document.querySelector('.bar').style.transform = `rotate(${realRotation}deg)`;
     document.querySelector('.words').style.transform = `rotate(${realRotation}deg)`;
 }

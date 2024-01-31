@@ -16,10 +16,10 @@
     --main-red: rgb(238,119,104);
 }
 .base {
-    background: url(base.svg);
+    background: url(bottom-design.svg);
     background-size: 100%;
     background-repeat: no-repeat;
-    width: 100px;
+    width: 897px;
     height: 100px;
 }
  body {
@@ -46,14 +46,14 @@ html, body {
 
 }
 .top {
-    background: url(top.svg);
+    background: url(top-design.svg);
     background-size: 100%;
     background-repeat: no-repeat;
-    width: 1058px;
-    height: 20.34px;
+    width: 897px;
+    height: 61px;
     transform-origin: center;
     transform: rotate(0deg);
-    transition: transform 0.1s ease-in-out;
+    transition: transform 0.5s ease-in-out;
 }
 .container {
     flex-direction: column;
@@ -106,7 +106,8 @@ label {
 }
 
 .right-words, .left-words  {
-    width: 500px;
+    padding-top: 250px;
+    width: 370px;
     min-height: 250px;
     display: flex;
     flex-flow: column-reverse;
@@ -118,9 +119,15 @@ label {
 .left-words label{
     text-align: left;
 }
+.right-words {
+    justify-self: center;
+}
+.left-words {
+    justify-self: flex-start;
+}
 
 .words {
-    margin-bottom: -30px;
+    margin-bottom:-45px;
     display: grid;
     grid-template-columns: .7fr .7fr;
     width: 100%;
@@ -131,12 +138,20 @@ label {
     justify-items: center;
 
 }
+.weight {
+    font-family: 'chaney';
+    font-size: 58px;
+    color: var(--main-red);
+
+
+}
 .word, .words label {
     font-weight: bold;
-    font-size: 50px;
-    font-family: "Anton", sans-serif;
+    font-size: 30px;
+    font-family: "chaney";
     font-style: normal;
     padding: 5px;
+    line-height: 27px;
     color: var(--main-red);
     border: none;
     /* animation-name: slide-down; */
@@ -145,8 +160,10 @@ label {
     animation-fill-mode: forwards;
     animation-iteration-count: 1;
 }
+
 .words label.big-word {
-    font-size: 90px;
+    font-size: 50px;
+    line-height: 47px;
 }
 @keyframes slide-down {
     0% {
