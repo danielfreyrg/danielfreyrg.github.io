@@ -121,9 +121,7 @@ document.addEventListener('DOMContentLoaded', function () {
             draggableElement.addEventListener('animationend', function () {
                 draggableElement.style.animationName = 'none';
             });
-            if (wordWeights[id] > 1) {
-                draggableElement.classList.add('big-word');
-            }
+
             updateCounter(zone, id); // Update counters or any other logic after drop
         });
     });
