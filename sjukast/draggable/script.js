@@ -171,6 +171,7 @@ document.addEventListener('DOMContentLoaded', function () {
             document.querySelector('.scene3').addEventListener('animationend', function () {
                 document.querySelector('.scene4').style.display = 'block';
                 document.querySelector('.background-plain').style.display = 'block'
+                document.querySelector('.scene3').style.display = 'none'
 
 
             }
