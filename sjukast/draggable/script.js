@@ -264,31 +264,12 @@ document.querySelector('.start-button').addEventListener('click', function () {
 )
 
 document.querySelector('.reset-button').addEventListener('click', function () {
+    document.querySelector('.background-plain').style.animationName = 'fade-out';
     document.querySelector('.scene4').style.animationName = 'slide-out';
     document.querySelector('.scene4').addEventListener('animationend', function () {
     window.location.reload();
     }
     )
-//     document.querySelectorAll('form > label').forEach(function (label) {
-//         label.innerHTML = wordsKVK[label.id];
-//     })
-//     document.querySelector('.scene4').style.animationName = 'slide-out';
-//     document.querySelector('.scene4').addEventListener('animationend', function () {
-//         document.querySelector('.scene1').style.animationName = 'slide-in';
-//         document.querySelector('.scene1').style.animationDuration = '0.7s';
-//         document.querySelector('.scene1').style.display = 'block';
-//     })
-// //move all labels out of the dropzones and into the startzone
-//     document.querySelectorAll('.left-words label').forEach(function (label) {
-//         document.querySelector('.start').appendChild(label);
-//     })
-//     document.querySelectorAll('.right-words label').forEach(function (label) {
-//         document.querySelector('.start').appendChild(label);
-//     })
-//     placedwords = 0;
-//     document.querySelector('.info').style.animationName = '';
-//     counter = 0;
-//     rotateBar()
 
 }
 )
