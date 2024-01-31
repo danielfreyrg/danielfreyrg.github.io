@@ -41,7 +41,7 @@ body, html {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    transition: all 0.5s ease-in-out;
+    /* transition: all 0.5s ease-in-out; */
     
 }
 .background-plain {
@@ -56,7 +56,7 @@ body, html {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    transition: all 0.5s ease-in-out;
+    /* transition: all 0.5s ease-in-out; */
     animation-name: fade-in;
     animation-duration: 1s;
     animation-timing-function: ease-in-out;
