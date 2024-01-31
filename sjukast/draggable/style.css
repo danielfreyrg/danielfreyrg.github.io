@@ -306,6 +306,9 @@ label {
         height: 30.5px;
     
     }
+    .words {
+        margin-bottom: -25px;
+    }
     .title {
         font-size: 40px;
     }
