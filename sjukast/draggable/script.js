@@ -172,6 +172,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 document.querySelector('.scene4').style.display = 'block';
                 document.querySelector('.background-plain').style.display = 'block'
 
+
             }
             )
             
@@ -218,6 +219,7 @@ document.querySelector('.kk-button').addEventListener('click', function () {
         document.querySelector('.scene3').style.animationDuration = '0.7s';
         document.querySelector('.scene3').style.display = 'block';
         document.querySelector('.scene3').style.animationName = animationIn;
+        document.querySelector('.scene2').style.display = 'none'
 
     })
 
@@ -232,6 +234,8 @@ document.querySelector('.kvk-button').addEventListener('click', function () {
     document.querySelector('.scene2').addEventListener('animationend', function () {
         document.querySelector('.scene3').style.display = 'block';
         document.querySelector('.scene3').style.animationName = animationIn;
+        document.querySelector('.scene2').style.display = 'none'
+
 
     })
 
@@ -247,6 +251,8 @@ document.querySelector('.hk-button').addEventListener('click', function () {
     document.querySelector('.scene2').addEventListener('animationend', function () {
         document.querySelector('.scene3').style.display = 'block';
         document.querySelector('.scene3').style.animationName = animationIn;
+        document.querySelector('.scene2').style.display = 'none'
+
 
     })
 
@@ -260,6 +266,8 @@ document.querySelector('.start-button').addEventListener('click', function () {
         document.querySelector('.scene2').style.animationDuration = '0.7s';
         document.querySelector('.scene2').style.animationName = animationIn;
         document.querySelector('.scene2').style.display = 'block';
+        document.querySelector('.scene1').style.display = 'none'
+
     })
 
 }
