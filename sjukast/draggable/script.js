@@ -35,7 +35,7 @@ const wordsKK = {
     "ooruggur": "óróuggur",
     "i-ojafnvaegi": "í ójafnvægi",
     "hraeddur": "hræddur",
-    "frosinn": "frósinn",
+    "frosinn": "frosinn",
     "ekki-i-godu-astandi": "ekki í góðu ástandi",
     "oreyndur": "óreyndur",
     "likamlega-sterkur": "líkamlega sterkur",
