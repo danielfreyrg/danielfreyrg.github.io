@@ -28,7 +28,73 @@ const wordWeights = {
     "efnadur": 2,
     "godur-i-kjaftinum": 2
 };
-document.addEventListener('DOMContentLoaded', function() {
+const wordsKK = {
+    "yngri": "yngri",
+    "ekki-med-fulla-medvitund": "ekki með fulla meðvitund",
+    "feiminn": "feiminn",
+    "ad-vinna-ur-afalli": "að vinna úr áfalli",
+    "ooruggur": "óróuggur",
+    "i-ojafnvaegi": "í ójafnvægi",
+    "hraeddur": "hræddur",
+    "frosinn": "frósinn",
+    "ekki-i-godu-astandi": "ekki í góðu ástandi",
+    "oreyndur": "óreyndur",
+    "likamlega-sterkur": "líkamlega sterkur",
+    "fraegur": "frægur",
+    "frekur": "frekur",
+    "vinsaell": "vinsæll",
+    "sjalfsoruggur": "sjálfsöruggur",
+    "aestur": "æstur",
+    "eldri": "eldri",
+    "med-meiri-reynslu": "með meiri reynslu",
+    "efnadur": "efnadur",
+    "godur-i-kjaftinum": "góður í kjaftinum"
+};
+const wordsHK = {
+    "yngri": "yngri",
+    "ekki-med-fulla-medvitund": "ekki með fulla meðvitund",
+    "feiminn": "feimið",
+    "ad-vinna-ur-afalli": "að vinna úr áfalli",
+    "ooruggur": "óróuggt",
+    "i-ojafnvaegi": "í ójafnvægi",
+    "hraeddur": "hrætt",
+    "frosinn": "frosið",
+    "ekki-i-godu-astandi": "ekki í góðu ástandi",
+    "oreyndur": "óreynt",
+    "likamlega-sterkur": "líkamlega sterkt",
+    "fraegur": "frægt",
+    "frekur": "frekt",
+    "vinsaell": "vinsælt",
+    "sjalfsoruggur": "sjálfsöruggt",
+    "aestur": "æst",
+    "eldri": "eldri",
+    "med-meiri-reynslu": "með meiri reynslu",
+    "efnadur": "efnað",
+    "godur-i-kjaftinum": "gott í kjaftinum"
+};
+const wordsKVK = {
+    "yngri": "yngri",
+    "ekki-med-fulla-medvitund": "ekki með fulla meðvitund",
+    "feiminn": "feimin",
+    "ad-vinna-ur-afalli": "að vinna úr áfalli",
+    "ooruggur": "óörugg",
+    "i-ojafnvaegi": "í ójafnvægi",
+    "hraeddur": "hrædd",
+    "frosinn": "frosin",
+    "ekki-i-godu-astandi": "ekki í góðu ástandi",
+    "oreyndur": "óreynd",
+    "likamlega-sterkur": "líkamlega sterk",
+    "fraegur": "fræg",
+    "frekur": "frek",
+    "vinsaell": "vinsæl",
+    "sjalfsoruggur": "sjálfsörugg",
+    "aestur": "æst",
+    "eldri": "eldri",
+    "med-meiri-reynslu": "með meiri reynslu",
+    "efnadur": "efnuð",
+    "godur-i-kjaftinum": "góð í kjaftinum"
+};
+    document.addEventListener('DOMContentLoaded', function() {
     // Make words draggable
     const words = document.querySelectorAll('label');
     words.forEach(word => {
@@ -48,6 +114,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         zone.addEventListener('drop', (event) => {
             event.preventDefault();
+            document.querySelector('.info').style.animationName = 'fade-out';
             const id = event.dataTransfer.getData('text/plain');
             const draggableElement = document.getElementById(id);
             zone.appendChild(draggableElement);
@@ -106,8 +173,62 @@ function rotateBar() {
     else {
         realRotation = counter;
     }
-    document.querySelector('.weight').innerHTML = `þyngd: ${realRotation}`;
-    document.querySelector('.bar').style.transform = `rotate(${realRotation}deg)`;
-    document.querySelector('.words').style.transform = `rotate(${realRotation}deg)`;
+    document.querySelector('.scene3 .bar').style.transform = `rotate(${realRotation}deg)`;
+    document.querySelector('.scene3 .words').style.transform = `rotate(${realRotation}deg)`;
 }
 
+
+
+
+
+    
+document.querySelector('.kk-button').addEventListener('click', function() {
+    document.querySelectorAll('form > label').forEach(function(label) {
+        label.innerHTML = wordsKK[label.id];
+    })
+    document.querySelector('.scene2').style.animationName = 'slide-out';
+    document.querySelector('.scene2').addEventListener('animationend', function() {
+        document.querySelector('.scene3').style.animationDuration = '0.7s';
+    document.querySelector('.scene3').style.display = 'block';
+    })
+
+    
+
+})
+document.querySelector('.kvk-button').addEventListener('click', function() {
+    document.querySelectorAll('form > label').forEach(function(label) {
+        label.innerHTML = wordsKVK[label.id];
+    })
+    document.querySelector('.scene2').style.animationName = 'slide-out';
+    document.querySelector('.scene2').addEventListener('animationend', function() {
+    document.querySelector('.scene3').style.display = 'block';
+    })
+
+
+
+})
+
+document.querySelector('.hk-button').addEventListener('click', function() {
+    document.querySelectorAll('form > label').forEach(function(label) {
+        label.innerHTML = wordsHK[label.id];
+    })
+    document.querySelector('.scene2').style.animationName = 'slide-out';
+    document.querySelector('.scene2').addEventListener('animationend', function() {
+    document.querySelector('.scene3').style.display = 'block';
+    })
+
+}
+)
+
+document.querySelector('.start-button').addEventListener('click', function() {
+    document.querySelector('.scene1').style.animationName = 'slide-out';
+    //after animation
+    document.querySelector('.scene1').addEventListener('animationend', function() {
+        document.querySelector('.scene2').style.animationDuration = '0.7s';
+
+    document.querySelector('.scene2').style.display = 'block';
+    })
+    // document.querySelector('.scene2').style.animationName = 'slide-in';
+
+}
+)
