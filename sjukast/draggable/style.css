@@ -199,7 +199,7 @@ label {
     }
     
 }
-.scene2, .scene3 {
+.scene2, .scene3, .scene4 {
     display: none;
 }
 .sjukast-logo {
@@ -208,7 +208,7 @@ label {
 .scene {
     height: 100vh;
 }
-.scene1 .container, .scene2 .container {
+.scene1 .container, .scene2 .container,  .scene4 .container {
     justify-content: center;
 }
 .title {
@@ -223,7 +223,7 @@ label {
     max-width: 500px;
     text-align: center;
 }
-.start-button, .genderselect button {
+.start-button, .genderselect button, .reset-button {
     background: var(--main-red);
     border: none;
     border-radius: 10px;
@@ -251,7 +251,7 @@ label {
 
 .info {
     font-family: 'chaney';
-    font-size: 72px;
+    font-size: 76px;
     color: var(--main-red);
     max-width: 800px;
     text-align: center;
