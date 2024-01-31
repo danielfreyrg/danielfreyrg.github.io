@@ -27,6 +27,9 @@
     position: relative;
 
 }
+body, html {
+    overflow: hidden;
+}
 .background {
     background-image: url(../BG-tall.svg);
     background-size: cover;
