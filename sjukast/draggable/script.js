@@ -160,7 +160,7 @@ document.addEventListener('DOMContentLoaded', function () {
         if (!alreadyplaced) {
             placedwords += 1;
         }
-        if (placedwords > 2) {
+        if (placedwords > 3) {
             //wait for 3 seconds
             setTimeout(function () {
             document.querySelector('.scene3').style.animationName = 'slide-out';
@@ -174,9 +174,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 1500)
         }
 
-        console.log("Weight:", weight);
         counter += weight;
-        console.log("Counter value:", counter);
         rotateBar()
 
         console.log('------------------')
