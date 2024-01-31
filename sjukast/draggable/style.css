@@ -32,7 +32,7 @@
     background-size: cover;
     position: absolute;
     inset: 0;
-    height: 100vh;
+    height: 100dvh;
     width: 100vw;
     z-index: 0;
     background-position: center;
@@ -47,7 +47,7 @@
     background-size: cover;
     position: absolute;
     inset: 0;
-    height: 100vh;
+    height: 100dvh;
     width: 100vw;
     z-index: 0;
     background-position: center;
@@ -235,7 +235,7 @@ label {
     width: 300px;
 }
 .scene {
-    height: 100vh;
+    height: 100dvh;
 }
 .scene1 .container, .scene2 .container,  .scene4 .container {
     justify-content: center;
