@@ -302,9 +302,12 @@ label {
         background: var(--main-green);
     }
     .top {
-        width: 448.5px;
+        width: 95%;
         height: 30.5px;
     
+    }
+    .title {
+        font-size: 40px;
     }
     .left-words, .right-words {
         padding-top: 100px;
