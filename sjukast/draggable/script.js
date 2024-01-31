@@ -4,6 +4,12 @@ var placedwords = 0;
 var dropzone
 var startzone
 var placedwords = 0
+var animationIn = 'slide-in'
+var animationOut = 'slide-out'
+if (window.innerWidth < 600) {
+    animationIn = 'slide-in-mobile'
+    animationOut = 'slide-out-mobile'
+}
 // JavaScript objects to hold the weights for checkboxes
 const wordWeights = {
     "yngri": -1,
@@ -207,11 +213,11 @@ document.querySelector('.kk-button').addEventListener('click', function () {
     document.querySelectorAll('form > label').forEach(function (label) {
         label.innerHTML = wordsKK[label.id];
     })
-    document.querySelector('.scene2').style.animationName = 'slide-out';
+    document.querySelector('.scene2').style.animationName = animationOut;
     document.querySelector('.scene2').addEventListener('animationend', function () {
         document.querySelector('.scene3').style.animationDuration = '0.7s';
         document.querySelector('.scene3').style.display = 'block';
-        document.querySelector('.scene3').style.animationName = 'slide-in';
+        document.querySelector('.scene3').style.animationName = animationIn;
 
     })
 
@@ -222,10 +228,10 @@ document.querySelector('.kvk-button').addEventListener('click', function () {
     document.querySelectorAll('form > label').forEach(function (label) {
         label.innerHTML = wordsKVK[label.id];
     })
-    document.querySelector('.scene2').style.animationName = 'slide-out';
+    document.querySelector('.scene2').style.animationName = animationOut;
     document.querySelector('.scene2').addEventListener('animationend', function () {
         document.querySelector('.scene3').style.display = 'block';
-        document.querySelector('.scene3').style.animationName = 'slide-in';
+        document.querySelector('.scene3').style.animationName = animationIn;
 
     })
 
@@ -237,10 +243,10 @@ document.querySelector('.hk-button').addEventListener('click', function () {
     document.querySelectorAll('form > label').forEach(function (label) {
         label.innerHTML = wordsHK[label.id];
     })
-    document.querySelector('.scene2').style.animationName = 'slide-out';
+    document.querySelector('.scene2').style.animationName = animationOut;
     document.querySelector('.scene2').addEventListener('animationend', function () {
         document.querySelector('.scene3').style.display = 'block';
-        document.querySelector('.scene3').style.animationName = 'slide-in';
+        document.querySelector('.scene3').style.animationName = animationIn;
 
     })
 
@@ -248,11 +254,11 @@ document.querySelector('.hk-button').addEventListener('click', function () {
 )
 
 document.querySelector('.start-button').addEventListener('click', function () {
-    document.querySelector('.scene1').style.animationName = 'slide-out';
+    document.querySelector('.scene1').style.animationName = animationOut;
     //after animation
     document.querySelector('.scene1').addEventListener('animationend', function () {
         document.querySelector('.scene2').style.animationDuration = '0.7s';
-        document.querySelector('.scene2').style.animationName = 'slide-in';
+        document.querySelector('.scene2').style.animationName = animationIn;
         document.querySelector('.scene2').style.display = 'block';
     })
 
@@ -261,7 +267,7 @@ document.querySelector('.start-button').addEventListener('click', function () {
 
 document.querySelector('.reset-button').addEventListener('click', function () {
     document.querySelector('.background-plain').style.animationName = 'fade-out';
-    document.querySelector('.scene4').style.animationName = 'slide-out';
+    document.querySelector('.scene4').style.animationName = animationOut;
     document.querySelector('.scene4').addEventListener('animationend', function () {
     window.location.reload();
     }

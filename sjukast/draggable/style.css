@@ -297,8 +297,12 @@ label {
 
 
 }
-@media screen and (max-width: 800px) {
-    @keyframes slide-in {
+@media screen and (max-width: 700px) {
+.scene {
+    animation-name: slide-in-mobile;
+}    
+}
+    @keyframes slide-in-mobile {
         0% {
             transform: translateY(100%);
             opacity: 0;
@@ -310,7 +314,7 @@ label {
             display: block;
         }
     }
-    @keyframes slide-out {
+    @keyframes slide-out-mobile {
         0% {
             transform: translateY(0%);
             opacity: 1;
@@ -322,8 +326,8 @@ label {
         }
         
     }
-    
-}
+
+
 @keyframes slide-in {
     0% {
         transform: translateX(100%);
