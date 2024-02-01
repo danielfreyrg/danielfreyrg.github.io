@@ -120,7 +120,7 @@ label {
     border: 2px solid var(--main-red);
     border-radius: 10px;
     text-align: center;
-    font-size: 18px;
+    font-size: 14px;
     color: var(--main-red);
     padding: 10px;
     cursor: pointer;
