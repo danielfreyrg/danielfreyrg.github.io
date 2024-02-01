@@ -101,6 +101,9 @@ const wordsKVK = {
 };
 
 function splitAndFormatWord(word) {
+    if (word.includes('-')) {
+        return word
+    }
   let splitIndex = Math.ceil(word.length / 2);
 
   const prefix = "sjálfs";
