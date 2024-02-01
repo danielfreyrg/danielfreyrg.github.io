@@ -172,7 +172,7 @@ label {
 
 .words {
     z-index: 2;
-    margin-bottom:-65px;
+    margin-bottom:-60px;
     display: grid;
     grid-template-columns: .7fr .7fr;
     width: 100%;
