@@ -48,7 +48,7 @@ const wordsKK = {
     "fraegur": "frægur",
     "frekur": "frekur",
     "vinsaell": "vinsæll",
-    "sjalfsoruggur": "sjálfs-<br>öruggur",
+    "sjalfsoruggur": "sjálfsöruggur",
     "aestur": "æstur",
     "eldri": "eldri",
     "med-meiri-reynslu": "með meiri reynslu",
@@ -70,7 +70,7 @@ const wordsHK = {
     "fraegur": "frægt",
     "frekur": "frekt",
     "vinsaell": "vinsælt",
-    "sjalfsoruggur": "sjálfs-<br>öruggt",
+    "sjalfsoruggur": "sjálfsöruggt",
     "aestur": "æst",
     "eldri": "eldri",
     "med-meiri-reynslu": "með meiri reynslu",
@@ -92,13 +92,32 @@ const wordsKVK = {
     "fraegur": "fræg",
     "frekur": "frek",
     "vinsaell": "vinsæl",
-    "sjalfsoruggur": "sjálfs-<br>örugg",
+    "sjalfsoruggur": "sjálfsörugg",
     "aestur": "æst",
     "eldri": "eldri",
     "med-meiri-reynslu": "með meiri reynslu",
     "efnadur": "efnuð",
     "godur-i-kjaftinum": "góð í kjaftinum"
 };
+
+
+function splitAndFormatWord(word) {
+    let splitIndex = Math.ceil(word.length / 2);
+  
+    const prefix = "sjálfs";
+    if (word.startsWith(prefix)) {
+      splitIndex = prefix.length; 
+    } else {
+        return word;
+    }
+  
+    const part1 = word.substring(0, splitIndex);
+    const part2 = word.substring(splitIndex);
+  
+    return part1 + '-<br>' + part2;
+  }
+  
+  
 document.addEventListener('DOMContentLoaded', function () {
     // Make words draggable
     const words = document.querySelectorAll('label');
@@ -122,6 +141,7 @@ document.addEventListener('DOMContentLoaded', function () {
             document.querySelector('.info').style.animationName = 'fade-out';
             const id = event.dataTransfer.getData('text/plain');
             const draggableElement = document.getElementById(id);
+            draggableElement.innerHTML = splitAndFormatWord(draggableElement.innerHTML);
             zone.appendChild(draggableElement);
             draggableElement.style.animationName = 'slide-down';
             draggableElement.addEventListener('animationend', function () {
