@@ -1,13 +1,13 @@
 @font-face {
     font-family: 'chaney';
-    src: url('CHANEY-Regular.otf') format('opentype');
+    src: url('./assets/CHANEY-Regular.otf') format('opentype');
     font-weight: normal;
     font-style: normal;
 }
 /*import BricolageGrotesque-SemiBold.ttf */
 @font-face {
     font-family: 'bricolage';
-    src: url('BricolageGrotesque-SemiBold.ttf') format('truetype');
+    src: url('./assets/BricolageGrotesque-SemiBold.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
@@ -16,7 +16,7 @@
     --main-red: rgb(238,119,104);
 }
 .base {
-    background: url(bottom-design.svg);
+    background: url(./assets/bottom-design.svg);
     background-size: 100%;
     background-repeat: no-repeat;
     width: 897px;
@@ -31,7 +31,7 @@ body, html {
     overflow: hidden;
 }
 .background {
-    background-image: url(BG-tall.svg);
+    background-image: url(./assets/BG-tall.svg);
     background-size: cover;
     position: absolute;
     inset: 0;
@@ -69,7 +69,7 @@ html, body {
 
 }
 .top {
-    background: url(top-design.svg);
+    background: url(./assets/top-design.svg);
     background-size: 100%;
     background-repeat: no-repeat;
     width: 897px;
@@ -173,7 +173,7 @@ label {
     margin-bottom:-45px;
     display: grid;
     grid-template-columns: .7fr .7fr;
-    width: 90%;
+    width: 100%;
     align-content: center;
     justify-content: space-between;
     transform: rotate(0deg);
@@ -251,7 +251,7 @@ label {
     }
     
 }
-.scene2, .scene3, .scene4 {
+.scene2, .scene3, .scene4 { 
     display: none;
 }
 .sjukast-logo {
