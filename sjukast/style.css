@@ -115,6 +115,7 @@ pointer-events: none;
     width: 100%;
 }
 .saw {
+    z-index: 0;
     flex-direction: column;
     align-items: center;
         display: flex;
@@ -170,7 +171,8 @@ label {
 }
 
 .words {
-    margin-bottom:-45px;
+    z-index: 2;
+    margin-bottom:-65px;
     display: grid;
     grid-template-columns: .7fr .7fr;
     width: 100%;
