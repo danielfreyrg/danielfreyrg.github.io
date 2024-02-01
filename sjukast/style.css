@@ -173,7 +173,7 @@ label {
     margin-bottom:-45px;
     display: grid;
     grid-template-columns: .7fr .7fr;
-    width: 100%;
+    width: 90%;
     align-content: center;
     justify-content: space-between;
     transform: rotate(0deg);
