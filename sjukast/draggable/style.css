@@ -262,11 +262,15 @@ label {
 
 }
 .subtitle-2 {
-    animation-duration: 7s;
+    animation-duration: 5.5s;
 }
 .subtitle-1 {
     animation-name: slide-in-subtitle-1;
 
+}
+.scene4 .subtitle {
+    animation-name: fade-in;
+    animation-duration: 3s;
 }
 .start-button, .genderselect button, .reset-button {
     background: var(--main-red);
@@ -393,7 +397,7 @@ transition: all 0.5s ease-in-out;
         }
         90% {
             transform: translateX(0);
-            opacity: 0;      
+            opacity: 1;      
     
         }
         100% {
@@ -408,7 +412,7 @@ transition: all 0.5s ease-in-out;
     }
     90% {
         transform: translateX(0);
-        opacity: 1;      
+        opacity: 0;      
 
     }
     100% {
