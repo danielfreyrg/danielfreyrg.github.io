@@ -84,7 +84,7 @@ html, body {
     align-items: center;
     height: 100%;
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
     gap: 20px;
     position: relative;
     z-index: 1;
@@ -95,6 +95,24 @@ background: transparent;
 bottom: 50px;
 pointer-events: none;
 
+}
+.done-button {
+    display: none;
+    animation-name: fade-in;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+    margin-right: -40vw;
+
+}
+.top-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+    width: 100%;
 }
 .saw {
     flex-direction: column;
@@ -111,7 +129,7 @@ form {
     grid-auto-flow: column;
     gap: 10px;
     width: 90%;
-    justify-content: start;
+    justify-content: center;
     margin-bottom: 50px;
 
 }
@@ -120,8 +138,9 @@ label {
     border: 2px solid var(--main-red);
     border-radius: 10px;
     text-align: center;
-    font-size: 18px;
-    color: var(--main-red);
+    font-size: 14px;
+    color: white;
+    background: var(--main-red);
     padding: 10px;
     cursor: pointer;
     /* -webkit-user-select: none; 
@@ -183,6 +202,7 @@ label {
     animation-timing-function: ease-in-out;
     animation-fill-mode: forwards;
     animation-iteration-count: 1;
+    background: transparent;
 }
 
 .words label.big-word {
@@ -272,7 +292,7 @@ label {
     animation-name: fade-in;
     animation-duration: 3s;
 }
-.start-button, .genderselect button, .reset-button {
+.start-button, .genderselect button, .reset-button, button {
     background: var(--main-red);
     border: none;
     border-radius: 10px;

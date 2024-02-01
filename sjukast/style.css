@@ -121,9 +121,10 @@ label {
     border-radius: 10px;
     text-align: center;
     font-size: 14px;
-    color: var(--main-red);
+    color: white;
     padding: 10px;
     cursor: pointer;
+    background: var(--main-red);
     /* -webkit-user-select: none; 
     -ms-user-select: none; 
     user-select: none;  */
@@ -178,6 +179,7 @@ label {
     line-height: 27px;
     color: var(--main-red);
     border: none;
+    background: transparent;
     /* animation-name: slide-down; */
     animation-duration: .5s;
     animation-timing-function: ease-in-out;

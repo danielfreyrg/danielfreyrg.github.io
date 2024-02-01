@@ -166,18 +166,10 @@ document.addEventListener('DOMContentLoaded', function () {
         }
         if (placedwords > 3) {
             //wait for 3 seconds
-            setTimeout(function () {
-            document.querySelector('.scene3').style.animationName = 'slide-out';
-            document.querySelector('.scene3').addEventListener('animationend', function () {
-                document.querySelector('.scene4').style.display = 'block';
-                document.querySelector('.background-plain').style.display = 'block'
-                document.querySelector('.scene3').style.display = 'none'
 
-
-            }
-            )
+            document.querySelector('.done-button').style.display = 'block';
             
-            }, 1500)
+
         }
 
         counter += weight;
@@ -215,6 +207,7 @@ document.querySelector('.kk-button').addEventListener('click', function () {
     document.querySelectorAll('form > label').forEach(function (label) {
         label.innerHTML = wordsKK[label.id];
     })
+    // document.querySelector('.done-button').textContent = 'búinn?'
     document.querySelector('.scene2').style.animationName = animationOut;
     document.querySelector('.scene2').addEventListener('animationend', function () {
         document.querySelector('.scene3').style.animationDuration = '0.7s';
@@ -279,6 +272,21 @@ document.querySelector('.reset-button').addEventListener('click', function () {
     document.querySelector('.scene4').style.animationName = animationOut;
     document.querySelector('.scene4').addEventListener('animationend', function () {
     window.location.reload();
+    }
+    )
+
+}
+)
+
+
+document.querySelector('.done-button').addEventListener('click', function () {
+    document.querySelector('.scene3').style.animationName = 'slide-out';
+    document.querySelector('.scene3').addEventListener('animationend', function () {
+        document.querySelector('.scene4').style.display = 'block';
+        document.querySelector('.background-plain').style.display = 'block'
+        document.querySelector('.scene3').style.display = 'none'
+
+
     }
     )
 
