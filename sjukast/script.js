@@ -130,7 +130,15 @@ document.addEventListener("DOMContentLoaded", function () {
         .forEach((zone) => {
           zone.style.backgroundColor = "rgba(255, 255, 255, 0.1)";
           zone.style.borderRadius = "20px";
+          setTimeout(function(){
+            zone.style.backgroundColor = "";
+              zone.style.borderRadius = "";
+          }
+          , 5000);
+       
         });
+
+
       startzone = event.target.parentElement;
       event.dataTransfer.setData("text/plain", event.target.id);
     });

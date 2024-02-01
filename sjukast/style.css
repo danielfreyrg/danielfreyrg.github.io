@@ -68,6 +68,9 @@ html, body {
     margin: 0;
 
 }
+button:hover{
+    background: rgb(220, 99, 83) !important;
+}
 .top {
     background: url(./assets/top-design.svg);
     background-size: 100%;
