@@ -84,7 +84,7 @@ html, body {
     align-items: center;
     height: 100%;
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
     gap: 20px;
     position: relative;
     z-index: 1;
@@ -95,6 +95,24 @@ background: transparent;
 bottom: 50px;
 pointer-events: none;
 
+}
+.done-button {
+    display: none;
+    animation-name: fade-in;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+    margin-right: -40vw;
+
+}
+.top-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+    width: 100%;
 }
 .saw {
     flex-direction: column;
@@ -111,7 +129,7 @@ form {
     grid-auto-flow: column;
     gap: 10px;
     width: 90%;
-    justify-content: start;
+    justify-content: center;
     margin-bottom: 50px;
 
 }
@@ -122,9 +140,9 @@ label {
     text-align: center;
     font-size: 14px;
     color: white;
+    background: var(--main-red);
     padding: 10px;
     cursor: pointer;
-    background: var(--main-red);
     /* -webkit-user-select: none; 
     -ms-user-select: none; 
     user-select: none;  */
@@ -179,12 +197,12 @@ label {
     line-height: 27px;
     color: var(--main-red);
     border: none;
-    background: transparent;
     /* animation-name: slide-down; */
     animation-duration: .5s;
     animation-timing-function: ease-in-out;
     animation-fill-mode: forwards;
     animation-iteration-count: 1;
+    background: transparent;
 }
 
 .words label.big-word {
@@ -245,6 +263,9 @@ label {
 .scene1 .container, .scene2 .container,  .scene4 .container {
     justify-content: center;
 }
+.scene2 img {
+    margin-bottom: 20vh;
+}
 .title {
     font-family: 'chaney';
     font-size: 90px;
@@ -274,7 +295,7 @@ label {
     animation-name: fade-in;
     animation-duration: 3s;
 }
-.start-button, .genderselect button, .reset-button {
+.start-button, .genderselect button, .reset-button, button {
     background: var(--main-red);
     border: none;
     border-radius: 10px;

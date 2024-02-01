@@ -263,6 +263,9 @@ label {
 .scene1 .container, .scene2 .container,  .scene4 .container {
     justify-content: center;
 }
+.scene2 img {
+    margin-bottom: 20vh;
+}
 .title {
     font-family: 'chaney';
     font-size: 90px;
