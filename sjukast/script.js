@@ -124,6 +124,9 @@ document.addEventListener('DOMContentLoaded', function () {
     words.forEach(word => {
         word.setAttribute('draggable', true);
         word.addEventListener('dragstart', (event) => {
+            document.querySelectorAll('.right-words, .left-words, .start').forEach(zone => {
+                zone.style.backgroundColor = 'rgba(255, 255, 255, .1)';
+            })
             startzone = event.target.parentElement
             event.dataTransfer.setData('text/plain', event.target.id);
         });
@@ -137,6 +140,9 @@ document.addEventListener('DOMContentLoaded', function () {
         });
 
         zone.addEventListener('drop', (event) => {
+            document.querySelectorAll('.right-words, .left-words, .start').forEach(zone => {
+                zone.style.backgroundColor = '';
+            })
             event.preventDefault();
             document.querySelector('.info').style.animationName = 'fade-out';
             const id = event.dataTransfer.getData('text/plain');

@@ -84,7 +84,7 @@ html, body {
     align-items: center;
     height: 100%;
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     gap: 20px;
     position: relative;
     z-index: 1;
@@ -129,10 +129,14 @@ form {
     /* margin-top: 150px; */
     grid-auto-flow: column;
     gap: 10px;
-    width: 90%;
+    width: 100%;
     justify-content: center;
     margin-bottom: 50px;
+    padding-bottom: 10vh;
 
+}
+.right-words, .left-words, .start {
+    transition: all 0.5s ease-in-out;
 }
 label {
     font-family: 'chaney', sans-serif;
