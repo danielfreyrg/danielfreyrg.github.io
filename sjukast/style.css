@@ -190,11 +190,11 @@ label {
 }
 .word, .words label {
     font-weight: bold;
-    font-size: 30px;
+    font-size: 60px;
     font-family: "chaney";
     font-style: normal;
     padding: 5px;
-    line-height: 27px;
+    line-height: 57px;
     color: var(--main-red);
     border: none;
     /* animation-name: slide-down; */
