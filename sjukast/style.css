@@ -391,6 +391,10 @@ transition: all 0.5s ease-in-out;
         bottom: 50px;
     
     }
+    .highlight{
+        background-color: rgb(255, 0, 0);
+        border-radius: 30px;
+    }
 .scene {
     animation-name: slide-in-mobile;
 }    
