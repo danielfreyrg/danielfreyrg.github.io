@@ -1,116 +1,112 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-    <title>Sjúk ást toggle</title>
+    <title>Sjúk ást draggable</title>
     <link rel='stylesheet' type='text/css' href='style.css'>
     <script src='script.js' defer></script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Roboto&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Roboto&display=swap" rel="stylesheet">
 </head>
+
 <body>
-<div class="container">
+    <div class="background"></div>
+    <div class="background-plain"></div>
+    <div class="scene scene1">
+        <div class="container">
+            <img src="../sjukast.svg" class="sjukast-logo" alt="Sjúk ást">
+            <h1 class="title">VEGASALTIÐ</h1>
+            <div class="subtitle-container">
+            <h2 class="subtitle subtitle-1">Staða okkar, aldur, kyn,
+                líðan, ástand og margt annað geta
+                haft mikil áhrif á samskipti okkar</h2>
+                <h2 class="subtitle-2 subtitle">Í samskiptum okkar getur jafnvægi auðveldlega 
+                    raskast. Sumt vegur þyngra á meðan annað 
+                    skilur okkur eftir í lausu lofti</h2>
 
-    <form id="kvk">
-        <input type="checkbox" id="kvk-yngri" name="yngri">
-        <label for="kvk-yngri"> Yngri</label>
-        <input type="checkbox" id="kvk-ekki-med-fulla-medvitund" name="ekki-med-fulla-medvitund">
-        <label for="kvk-ekki-med-fulla-medvitund"> Ekki með fulla meðvitund</label>
-        <input type="checkbox" id="kvk-feimin" name="feimin">
-        <label for="kvk-feimin"> Feimin</label>
-        <input type="checkbox" id="kvk-ad-vinna-ur-afalli" name="ad-vinna-ur-afalli">
-        <label for="kvk-ad-vinna-ur-afalli"> Að vinna úr áfalli</label>
-        <input type="checkbox" id="kvk-oorugg" name="oorugg">
-        <label for="kvk-oorugg"> Óörugg</label>
-        <input type="checkbox" id="kvk-i-ojafnvaegi" name="i-ojafnvaegi">
-        <label for="kvk-i-ojafnvaegi"> Í ójafnvægi</label>
-        <input type="checkbox" id="kvk-hraedd" name="hraedd">
-        <label for="kvk-hraedd"> Hrædd</label>
-        <input type="checkbox" id="kvk-frosin" name="frosin">
-        <label for="kvk-frosin"> Frosin</label>
-        <input type="checkbox" id="kvk-ekki-i-godu-astandi" name="ekki-i-godu-astandi">
-        <label for="kvk-ekki-i-godu-astandi"> Ekki í góðu ástandi</label>
-        <input type="checkbox" id="kvk-oreynd" name="oreynd">
-        <label for="kvk-oreynd"> Óreynd</label>
-        <input type="checkbox" id="kvk-likamlega-sterk" name="likamlega-sterk">
-        <label for="kvk-likamlega-sterk"> Líkamlega sterk</label>
-        <input type="checkbox" id="kvk-fraeg" name="fraeg">
-        <label for="kvk-fraeg"> Fræg</label>
-        <input type="checkbox" id="kvk-frek" name="frek">
-        <label for="kvk-frek"> Frek</label>
-        <input type="checkbox" id="kvk-vinsael" name="vinsael">
-        <label for="kvk-vinsael"> Vinsæl</label>
-        <input type="checkbox" id="kvk-sjalfsorugg" name="sjalfsorugg">
-        <label for="kvk-sjalfsorugg"> Sjálfsörugg</label>
-        <input type="checkbox" id="kvk-aest" name="aest">
-        <label for="kvk-aest"> Æst</label>
-        <input type="checkbox" id="kvk-eldri" name="eldri">
-        <label for="kvk-eldri"> Eldri</label>
-        <input type="checkbox" id="kvk-med-meiri-reynslu" name="med-meiri-reynslu">
-        <label for="kvk-med-meiri-reynslu"> Með meiri reynslu</label>
-        <input type="checkbox" id="kvk-efnud" name="efnud">
-        <label for="kvk-efnud"> Efnuð</label>
-        <input type="checkbox" id="kvk-god-i-kjaftinum" name="god-i-kjaftinum">
-        <label for="kvk-god-i-kjaftinum"> Góð í kjaftinum</label>
-        </form>
+                </div>
+            <div class="saw">
 
-    <div class="saw">
-        <div class="words">
-        <div class="kvk-words"></div>
-        <div class="kk-words"></div>
+            <div class="top bar"></div>
+            <div class="base"></div>
+        </div>
+
+            <button class="start-button">BYRJA</button>
+        </div>
     </div>
-    
-        <div class="top"></div>
+    <div class="scene scene2">
+        <div class="container">
+            <h2 class="gender-title">Veldu það kyn sem
+                þú skilgreinir þig sem: </h2>
+            <div class="genderselect">
+                <button class="kk-button">karl</button>
+                <button class="kvk-button">kona</button>
+                <button class="hk-button">kvár</button>
+            </div>
 
-    <div class="base"></div>
-</div>
-<form id="kk">
-    <input type="checkbox" id="kk-yngri" name="yngri">
-    <label for="kk-yngri"> Yngri</label>
-    <input type="checkbox" id="kk-ekki-med-fulla-medvitund" name="ekki-med-fulla-medvitund">
-    <label for="kk-ekki-med-fulla-medvitund"> Ekki með fulla meðvitund</label>
-    <input type="checkbox" id="kk-feiminn" name="feiminn">
-    <label for="kk-feiminn"> Feiminn</label>
-    <input type="checkbox" id="kk-ad-vinna-ur-afalli" name="ad-vinna-ur-afalli">
-    <label for="kk-ad-vinna-ur-afalli"> Að vinna úr áfalli</label>
-    <input type="checkbox" id="kk-ooruggur" name="ooruggur">
-    <label for="kk-ooruggur"> Óöruggur</label>
-    <input type="checkbox" id="kk-i-ojafnvaegi" name="i-ojafnvaegi">
-    <label for="kk-i-ojafnvaegi"> Í ójafnvægi</label>
-    <input type="checkbox" id="kk-hraeddur" name="hraeddur">
-    <label for="kk-hraeddur"> Hræddur</label>
-    <input type="checkbox" id="kk-frosinn" name="frosinn">
-    <label for="kk-frosinn"> Frosinn</label>
-    <input type="checkbox" id="kk-ekki-i-godu-astandi" name="ekki-i-godu-astandi">
-    <label for="kk-ekki-i-godu-astandi"> Ekki í góðu ástandi</label>
-    <input type="checkbox" id="kk-oreyndur" name="oreyndur">
-    <label for="kk-oreyndur"> Óreyndur</label>
-    <input type="checkbox" id="kk-likamlega-sterkur" name="likamlega-sterkur">
-    <label for="kk-likamlega-sterkur"> Líkamlega sterkur</label>
-    <input type="checkbox" id="kk-fraegur" name="fraegur">
-    <label for="kk-fraegur"> Frægur</label>
-    <input type="checkbox" id="kk-frekur" name="frekur">
-    <label for="kk-frekur"> Frekur</label>
-    <input type="checkbox" id="kk-vinsaell" name="vinsaell">
-    <label for="kk-vinsaell"> Vinsæll</label>
-    <input type="checkbox" id="kk-sjalfsoruggur" name="sjalfsoruggur">
-    <label for="kk-sjalfsoruggur"> Sjálfsöruggur</label>
-    <input type="checkbox" id="kk-aestur" name="aestur">
-    <label for="kk-aestur"> Æstur</label>
-    <input type="checkbox" id="kk-eldri" name="eldri">
-    <label for="kk-eldri"> Eldri</label>
-    <input type="checkbox" id="kk-med-meiri-reynslu" name="med-meiri-reynslu">
-    <label for="kk-med-meiri-reynslu"> Með meiri reynslu</label>
-    <input type="checkbox" id="kk-efnadur" name="efnadur">
-    <label for="kk-efnadur"> Efnaður</label>
-    <input type="checkbox" id="kk-godur-i-kjaftinum" name="godur-i-kjaftinum">
-    <label for="kk-godur-i-kjaftinum"> Góður í kjaftinum</label>
-    
-</form>
 
-</div>
+        </div>
+    </div>
 
+    </div>
+    <div class="scene scene3">
+        <div class="container">
+
+
+
+            <div class="saw">
+                <div class="words">
+                    <div class="left-words">
+                    </div>
+                    <div class="right-words"></div>
+                </div>
+                <div class="info">Dragðu orðin inn  á vegasaltið</div>
+
+
+                <div class="top bar"></div>
+                <div class="base"></div>
+            </div>
+            <form id="kk" class="start">
+                <label id="yngri"> Yngri</label>
+                <label id="ekki-med-fulla-medvitund"> Ekki með fulla meðvitund</label>
+                <label id="feiminn"> Feiminn</label>
+                <label id="ad-vinna-ur-afalli"> Að vinna úr áfalli</label>
+                <label id="ooruggur"> Óöruggur</label>
+                <label id="i-ojafnvaegi"> Í ójafnvægi</label>
+                <label id="hraeddur"> Hræddur</label>
+                <label id="frosinn"> Frosinn</label>
+                <label id="ekki-i-godu-astandi"> Ekki í góðu ástandi</label>
+                <label id="oreyndur"> Óreyndur</label>
+                <label id="likamlega-sterkur"> Líkamlega sterkur</label>
+                <label id="fraegur"> Frægur</label>
+                <label id="frekur"> Frekur</label>
+                <label id="vinsaell"> Vinsæll</label>
+                <label id="sjalfsoruggur"> Sjálfsöruggur</label>
+                <label id="aestur"> Æstur</label>
+                <label id="eldri"> Eldri</label>
+                <label id="med-meiri-reynslu"> Með meiri reynslu</label>
+                <label id="efnadur"> Efnaður</label>
+                <label id="godur-i-kjaftinum"> Góður í kjaftinum</label>
+
+            </form>
+
+        </div>
+    </div>
+    <div class="scene scene4">
+        <div class="container">
+            <img src="../sjukast.svg" class="sjukast-logo" alt="Sjúk ást">
+            <h2 class="subtitle">Skoðaðu aðstæður vel og vertu
+                alveg viss áður en þú gerir eitthvað 
+                sem þú gætir séð eftir síðar</h2>
+
+
+            <button class="reset-button">SPILA AFTUR</button>
+
+        </div>
+    </div>
 </body>
+
 </html>
