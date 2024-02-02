@@ -292,9 +292,8 @@ label {
     font-family: 'bricolage';
     font-size: 30px;
     color: white;
-    max-width: 500px;
     text-align: center;
-    animation-name: slide-in-subtitle;
+    /* animation-name: slide-in-subtitle; */
     animation-duration: 5s;
     animation-timing-function: ease-in-out;
     animation-fill-mode: forwards;
@@ -305,11 +304,11 @@ label {
     animation-duration: 5.5s;
 }
 .subtitle-1 {
-    animation-name: slide-in-subtitle-1;
+    /* animation-name: slide-in-subtitle-1; */
 
 }
 .scene4 .subtitle {
-    animation-name: fade-in;
+    /* animation-name: fade-in; */
     animation-duration: 3s;
 }
 .start-button, .genderselect button, .reset-button, button {
@@ -357,9 +356,10 @@ label {
 }
 .subtitle-container {
     display: grid;
-    grid-template-columns: 500px 500px;
+    grid-template-columns: 1fr;
     overflow: hidden;
-    width: 500px;
+    width: 656px;
+    justify-content: center;
 }
 .subtitle {
 transition: all 0.5s ease-in-out;

@@ -10,8 +10,23 @@ if (window.innerWidth < 600) {
     animationIn = "slide-in-mobile";
     animationOut = "slide-out-mobile";
 }
+/*
+Stressaður
+Meikar ekki að beila
+Vill ekki særa
+Vill ekki bregðast
+Vill að aðrir fíli sig
+Áhrifagjarn
+
+*/
 // JavaScript objects to hold the weights for checkboxes
 const wordWeights = {
+    stressadur: -1,
+    "meikar-ekki-ad-beila": -1,
+    "vill-ekki-saera": -1,
+    "vill-ekki-bregdast": -1,
+    "vill-ad-adrir-fili-sig": -1,
+    "ahrifagjarn": -1,
     yngri: -1,
     "ekki-med-fulla-medvitund": -1,
     feiminn: -1,
@@ -34,6 +49,12 @@ const wordWeights = {
     "godur-i-kjaftinum": 2,
 };
 const wordsKK = {
+    stressadur: "stressaður",
+    "meikar-ekki-ad-beila": "meikar ekki að beila",
+    "vill-ekki-saera": "vill ekki særa",
+    "vill-ekki-bregdast": "vill ekki brugðast",
+    "vill-ad-adrir-fili-sig": "vill að aðrir fíli sig",
+    "ahrifagjarn": "áhrifagjarn",
     yngri: "yngri",
     "ekki-med-fulla-medvitund": "ekki með fulla meðvitund",
     feiminn: "feiminn",
