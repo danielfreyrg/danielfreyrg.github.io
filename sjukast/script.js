@@ -133,6 +133,7 @@ function splitAndFormatWord(word) {
     } else {
         return word;
     }
+    return word
 
     const part1 = word.substring(0, splitIndex);
     const part2 = word.substring(splitIndex);
@@ -258,13 +259,13 @@ function rotateBar() {
 }
 
 document.querySelector(".kk-button").addEventListener("click", function () {
-    document.querySelectorAll("form > label").forEach(function (label) {
+    document.querySelectorAll(".start > label").forEach(function (label) {
         label.innerHTML = wordsKK[label.id];
     });
     nextScene(2);
 });
 document.querySelector(".kvk-button").addEventListener("click", function () {
-    document.querySelectorAll("form > label").forEach(function (label) {
+    document.querySelectorAll(".start > label").forEach(function (label) {
         label.innerHTML = wordsKVK[label.id];
     });
 
@@ -272,7 +273,7 @@ document.querySelector(".kvk-button").addEventListener("click", function () {
 });
 
 document.querySelector(".hk-button").addEventListener("click", function () {
-    document.querySelectorAll("form > label").forEach(function (label) {
+    document.querySelectorAll(".start > label").forEach(function (label) {
         label.innerHTML = wordsHK[label.id];
     });
 
@@ -310,6 +311,7 @@ function nextScene(currentSceneNum) {
             document.querySelector(".scene" + currentSceneNum).style.display = "none";
         });
 }
+
 function reset() {
     document.querySelectorAll(".right-words, .left-words").forEach(function (zone) {
         var children = [].slice.call(zone.children);
