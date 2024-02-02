@@ -262,7 +262,7 @@ document.querySelector(".start-button").addEventListener("click", function () {
 
 });
 
-document.querySelector(".reset-button").addEventListener("click", function () {
+document.querySelector(".start-again-button").addEventListener("click", function () {
     document.querySelector(".background-plain").style.animationName = "fade-out";
     document.querySelector(".scene4").style.animationName = animationOut;
     document
@@ -296,7 +296,6 @@ function nextScene(num) {
         });
 }
 function reset() {
-    //move all words back to start
     document.querySelectorAll(".right-words, .left-words").forEach(function (zone) {
         var children = [].slice.call(zone.children);
         children.forEach(function (word) {
@@ -305,7 +304,6 @@ function reset() {
                 word.style.animationName = "none";
                 document.querySelector(".start").appendChild(word);
             });
-            // document.querySelector(".start").appendChild(word);
         }
         );
     });
