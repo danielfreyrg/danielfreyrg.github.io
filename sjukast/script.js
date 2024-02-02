@@ -127,18 +127,7 @@ document.addEventListener("DOMContentLoaded", function () {
         word.addEventListener("dragstart", (event) => {
             document
                 .querySelectorAll(".right-words, .left-words, .start")
-                .forEach((zone) => {
-                    zone.style.backgroundColor = "rgba(255, 255, 255, 0.1)";
-                    zone.style.borderRadius = "20px";
-                    zone.style.border = "2px solid rgba(255, 255, 255, 0.5)";
-                    setTimeout(function () {
-                        zone.style.backgroundColor = "";
-                        zone.style.borderRadius = "";
-                        zone.style.border = "";
-                    }
-                        , 5000);
 
-                });
 
 
             startzone = event.target.parentElement;
@@ -156,13 +145,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
 
         zone.addEventListener("drop", (event) => {
-            document
-                .querySelectorAll(".right-words, .left-words, .start")
-                .forEach((zone) => {
-                    zone.style.backgroundColor = "";
-                    zone.style.borderRadius = "";
-                    zone.style.border = "";
-                });
+
             event.preventDefault();
             document.querySelector(".info").style.animationName = "fade-out";
             const id = event.dataTransfer.getData("text/plain");
