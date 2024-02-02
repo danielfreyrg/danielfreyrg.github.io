@@ -10,15 +10,7 @@ if (window.innerWidth < 600) {
     animationIn = "slide-in-mobile";
     animationOut = "slide-out-mobile";
 }
-/*
-Stressaður
-Meikar ekki að beila
-Vill ekki særa
-Vill ekki bregðast
-Vill að aðrir fíli sig
-Áhrifagjarn
 
-*/
 // JavaScript objects to hold the weights for checkboxes
 const wordWeights = {
     stressadur: -1,
@@ -143,6 +135,9 @@ function splitAndFormatWord(word) {
     if (word.startsWith(prefix) || word.startsWith("áhrifa")|| word.startsWith('stress')) {
         splitIndex = prefix.length;
     } else {
+        return word;
+    }
+    if (word == 'stressað') {
         return word;
     }
 
