@@ -77,6 +77,12 @@ const wordsKK = {
     "godur-i-kjaftinum": "góður í kjaftinum",
 };
 const wordsHK = {
+    stressadur: "stressað",
+    "meikar-ekki-ad-beila": "meikar ekki að beila",
+    "vill-ekki-saera": "vil ekki særa",
+    "vill-ekki-bregdast": "vill ekki bregðast",
+    "vill-ad-adrir-fili-sig": "vill að aðrir fíli sig",
+    "ahrifagjarn": "áhrifagjarnt",
     yngri: "yngri",
     "ekki-med-fulla-medvitund": "ekki með fulla meðvitund",
     feiminn: "feimið",
@@ -99,6 +105,12 @@ const wordsHK = {
     "godur-i-kjaftinum": "gott í kjaftinum",
 };
 const wordsKVK = {
+    stressadur: "stressað",
+    "meikar-ekki-ad-beila": "meikar ekki að beila",
+    "vill-ekki-saera": "vil ekki særa",
+    "vill-ekki-bregdast": "vill ekki bregðast",
+    "vill-ad-adrir-fili-sig": "vill að aðrir fíli sig",
+    "ahrifagjarn": "áhrifagjörn",
     yngri: "yngri",
     "ekki-med-fulla-medvitund": "ekki með fulla meðvitund",
     feiminn: "feimin",
