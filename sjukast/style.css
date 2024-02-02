@@ -118,7 +118,7 @@ pointer-events: none;
     width: 100%;
 }
 .saw {
-    z-index: 1;
+    z-index: 0;
     flex-direction: column;
     align-items: center;
         display: flex;
@@ -140,10 +140,7 @@ form {
 }
 .right-words, .left-words, .start {
     transition: all 0.5s ease-in-out;
-    border: 2px solid transparent;
-    z-index: 0;
 }
-
 label {
     font-family: 'chaney', sans-serif;
     border: 2px solid var(--main-red);
@@ -158,6 +155,7 @@ label {
     -ms-user-select: none; 
     user-select: none;  */
 }
+
 .right-words, .left-words  {
     padding-top: 250px;
     width: 370px;
@@ -345,7 +343,6 @@ label {
     animation-timing-function: ease-in-out;
     animation-fill-mode: forwards;
     animation-iteration-count: 1;
-    z-index: 4;
 
 
 }
