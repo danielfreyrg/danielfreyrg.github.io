@@ -73,7 +73,7 @@ const wordsKK = {
     aestur: "æstur",
     eldri: "eldri",
     "med-meiri-reynslu": "með meiri reynslu",
-    efnadur: "efnadur",
+    efnadur: "efnaður",
     "godur-i-kjaftinum": "góður í kjaftinum",
 };
 const wordsHK = {
@@ -128,7 +128,7 @@ function splitAndFormatWord(word) {
     let splitIndex = Math.ceil(word.length / 2);
 
     const prefix = "sjálfs";
-    if (word.startsWith(prefix)) {
+    if (word.startsWith(prefix) || word.startsWith("áhrifa")|| word.startsWith('stress')) {
         splitIndex = prefix.length;
     } else {
         return word;
@@ -174,10 +174,14 @@ document.addEventListener("DOMContentLoaded", function () {
             draggableElement.innerHTML = splitAndFormatWord(
                 draggableElement.innerHTML
             );
+            if (wordWeights[id] > 0) {
+                draggableElement.classList.add("big-word");
+            }
             zone.appendChild(draggableElement);
             draggableElement.style.animationName = "slide-down";
             draggableElement.addEventListener("animationend", function () {
                 draggableElement.style.animationName = "none";
+
             });
 
             updateCounter(zone, id); // Update counters or any other logic after drop

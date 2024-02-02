@@ -1,4 +1,167 @@
 @font-face {
+    font-family: 'TT Norms';
+    src: url('./assets/fonts/TTNorms-ExtraLightItalic.woff2') format('woff2'),
+        url('./assets/fonts/TTNorms-ExtraLightItalic.woff') format('woff');
+    font-weight: 200;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'TT Norms';
+    src: url('./assets/fonts/TTNorms-Light.woff2') format('woff2'),
+        url('./assets/fonts/TTNorms-Light.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'TT Norms';
+    src: url('./assets/fonts/TTNorms-Italic.woff2') format('woff2'),
+        url('./assets/fonts/TTNorms-Italic.woff') format('woff');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'TT Norms';
+    src: url('./assets/fonts/TTNorms-Heavy.woff2') format('woff2'),
+        url('./assets/fonts/TTNorms-Heavy.woff') format('woff');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'TT Norms';
+    src: url('./assets/fonts/TTNorms-Bold.woff2') format('woff2'),
+        url('./assets/fonts/TTNorms-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'TT Norms';
+    src: url('./assets/fonts/TTNorms-Regular.woff2') format('woff2'),
+        url('./assets/fonts/TTNorms-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'TT Norms';
+    src: url('./assets/fonts/TTNorms-Thin.woff2') format('woff2'),
+        url('./assets/fonts/TTNorms-Thin.woff') format('woff');
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'TT Norms';
+    src: url('./assets/fonts/TTNorms-Medium.woff2') format('woff2'),
+        url('./assets/fonts/TTNorms-Medium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'TT Norms';
+    src: url('./assets/fonts/TTNorms-ExtraLight.woff2') format('woff2'),
+        url('./assets/fonts/TTNorms-ExtraLight.woff') format('woff');
+    font-weight: 200;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'TT Norms';
+    src: url('./assets/fonts/TTNorms-BoldItalic.woff2') format('woff2'),
+        url('./assets/fonts/TTNorms-BoldItalic.woff') format('woff');
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'TT Norms';
+    src: url('./assets/fonts/TTNorms-MediumItalic.woff2') format('woff2'),
+        url('./assets/fonts/TTNorms-MediumItalic.woff') format('woff');
+    font-weight: 500;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'TT Norms';
+    src: url('./assets/fonts/TTNorms-ThinItalic.woff2') format('woff2'),
+        url('./assets/fonts/TTNorms-ThinItalic.woff') format('woff');
+    font-weight: 100;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'TT Norms';
+    src: url('./assets/fonts/TTNorms-HeavyItalic.woff2') format('woff2'),
+        url('./assets/fonts/TTNorms-HeavyItalic.woff') format('woff');
+    font-weight: 900;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'TT Norms';
+    src: url('./assets/fonts/TTNorms-LightItalic.woff2') format('woff2'),
+        url('./assets/fonts/TTNorms-LightItalic.woff') format('woff');
+    font-weight: 300;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'TT Norms';
+    src: url('./assets/fonts/TTNorms-Black.woff2') format('woff2'),
+        url('./assets/fonts/TTNorms-Black.woff') format('woff');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'TT Norms';
+    src: url('./assets/fonts/TTNorms-ExtraBoldItalic.woff2') format('woff2'),
+        url('./assets/fonts/TTNorms-ExtraBoldItalic.woff') format('woff');
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'TT Norms';
+    src: url('./assets/fonts/TTNorms-BlackItalic.woff2') format('woff2'),
+        url('./assets/fonts/TTNorms-BlackItalic.woff') format('woff');
+    font-weight: 900;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'TT Norms';
+    src: url('./assets/fonts/TTNorms-ExtraBold.woff2') format('woff2'),
+        url('./assets/fonts/TTNorms-ExtraBold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+
+@font-face {
     font-family: 'chaneyultra_extended';
     src: url('./assets/chaney-ultraextended-webfont.eot');
     src: url('./assets/chaney-ultraextended-webfont.eot?#iefix') format('embedded-opentype'),
@@ -185,7 +348,7 @@ label {
     border: 2px solid var(--main-red);
     border-radius: 10px;
     text-align: center;
-    font-size: 14px;
+    font-size: 12px;
     color: white;
     background: var(--main-red);
     padding: 10px;
@@ -237,9 +400,10 @@ label {
 }
 
 .word, .words label {
-    font-weight: bold;
+    font-weight: 600;
+    text-transform: uppercase;
     font-size: 60px;
-    font-family: "chaney";
+    font-family: "TT Norms";
     font-style: normal;
     padding: 5px;
     line-height: 57px;
@@ -260,9 +424,11 @@ label {
     width: 100% ;
 }
 .words label.big-word {
-    font-size: 50px;
-    line-height: 47px;
+    font-weight: 900;
+    font-size: 70px;
+    line-height: 67px;
 }
+
 @keyframes slide-down {
     0% {
         transform: translateY(-100%);
