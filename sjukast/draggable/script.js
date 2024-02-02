@@ -1,3 +1,7 @@
+window.addEventListener('load', function() {
+    this.window.location.href = '/sjukast'
+})
+
 let counter = 0;
 var realRotation = 0;
 var placedwords = 0;

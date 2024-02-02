@@ -215,7 +215,12 @@ label {
     animation-iteration-count: 1;
     background: transparent;
 }
-
+.reset-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100% ;
+}
 .words label.big-word {
     font-size: 50px;
     line-height: 47px;
