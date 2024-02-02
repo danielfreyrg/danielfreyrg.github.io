@@ -202,7 +202,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             document.querySelector(".done-button").style.display = "block";
         } 
-        if (placedwords > 7) {
+        if (placedwords > 9) {
             setTimeout(function () {
                 nextScene(3);
             }, 1000);
@@ -236,12 +236,15 @@ document.querySelector(".kk-button").addEventListener("click", function () {
     document.querySelectorAll("form > label").forEach(function (label) {
         label.innerHTML = wordsKK[label.id];
     });
+    document.querySelector('.done-button').innerHTML = 'Búinn'
     nextScene(2);
 });
 document.querySelector(".kvk-button").addEventListener("click", function () {
     document.querySelectorAll("form > label").forEach(function (label) {
         label.innerHTML = wordsKVK[label.id];
     });
+    document.querySelector('.done-button').innerHTML = 'Búin'
+
     nextScene(2);
 });
 
@@ -249,6 +252,8 @@ document.querySelector(".hk-button").addEventListener("click", function () {
     document.querySelectorAll("form > label").forEach(function (label) {
         label.innerHTML = wordsHK[label.id];
     });
+    document.querySelector('.done-button').innerHTML = 'Búið'
+
     nextScene(2);
 });
 
@@ -289,4 +294,22 @@ function nextScene(num) {
             document.querySelector(".scene" + (num + 1)).style.animationName = "slide-in";
             document.querySelector(".scene" + num).style.display = "none";
         });
+}
+function reset() {
+    //move all words back to start
+    document.querySelectorAll(".right-words, .left-words").forEach(function (zone) {
+        var children = [].slice.call(zone.children);
+        children.forEach(function (word) {
+            word.style.animationName = "fade-out";
+            word.addEventListener("animationend", function () {
+                word.style.animationName = "none";
+                document.querySelector(".start").appendChild(word);
+            });
+            // document.querySelector(".start").appendChild(word);
+        }
+        );
+    });
+    counter = 0;
+    placedwords = 0;
+    rotateBar();
 }
