@@ -52,7 +52,7 @@ const wordsKK = {
     stressadur: "stressaður",
     "meikar-ekki-ad-beila": "meikar ekki að beila",
     "vill-ekki-saera": "vill ekki særa",
-    "vill-ekki-bregdast": "vill ekki brugðast",
+    "vill-ekki-bregdast": "vill ekki bregðast",
     "vill-ad-adrir-fili-sig": "vill að aðrir fíli sig",
     "ahrifagjarn": "áhrifagjarn",
     yngri: "yngri",
