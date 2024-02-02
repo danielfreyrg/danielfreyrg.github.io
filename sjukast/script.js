@@ -145,7 +145,6 @@ function splitAndFormatWord(word) {
     } else {
         return word;
     }
-    return word
 
     const part1 = word.substring(0, splitIndex);
     const part2 = word.substring(splitIndex);
