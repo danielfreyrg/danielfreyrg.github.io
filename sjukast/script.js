@@ -198,7 +198,7 @@ document.addEventListener("DOMContentLoaded", function () {
         if (!alreadyplaced) {
             placedwords += 1;
         }
-        if (placedwords == 4) {
+        if (placedwords == 1) {
 
             document.querySelector(".done-button").style.display = "block";
         } 
@@ -273,26 +273,19 @@ document.querySelector(".start-again-button").addEventListener("click", function
 });
 
 document.querySelector(".done-button").addEventListener("click", function () {
-    document.querySelector(".scene3").style.animationName = "slide-out";
-    document
-        .querySelector(".scene3")
-        .addEventListener("animationend", function () {
-            document.querySelector(".scene4").style.display = "block";
-            document.querySelector(".background-plain").style.display = "block";
-            document.querySelector(".scene3").style.display = "none";
-        });
+    nextScene(3)
 });
 
 
-
-function nextScene(num) {
-    document.querySelector(".scene" + num).style.animationName = "slide-out";
+// num = currenr scene number
+function nextScene(currentSceneNum) {
+    document.querySelector(".scene" + currentSceneNum).style.animationName = "slide-out";
     document
-        .querySelector(".scene" + num)
+        .querySelector(".scene" + currentSceneNum)
         .addEventListener("animationend", function () {
-            document.querySelector(".scene" + (num + 1)).style.display = "block";
-            document.querySelector(".scene" + (num + 1)).style.animationName = "slide-in";
-            document.querySelector(".scene" + num).style.display = "none";
+            document.querySelector(".scene" + (currentSceneNum + 1)).style.display = "block";
+            document.querySelector(".scene" + (currentSceneNum + 1)).style.animationName = "slide-in";
+            document.querySelector(".scene" + currentSceneNum).style.display = "none";
         });
 }
 function reset() {
