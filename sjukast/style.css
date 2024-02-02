@@ -1,4 +1,16 @@
 @font-face {
+    font-family: 'chaneyultra_extended';
+    src: url('./assets/chaney-ultraextended-webfont.eot');
+    src: url('./assets/chaney-ultraextended-webfont.eot?#iefix') format('embedded-opentype'),
+         url('./assets/chaney-ultraextended-webfont.woff2') format('woff2'),
+         url('./assets/chaney-ultraextended-webfont.woff') format('woff'),
+         url('./assets/chaney-ultraextended-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
     font-family: 'chaney';
     src: url('./assets/CHANEY-Regular.otf') format('opentype');
     font-weight: normal;
@@ -16,11 +28,31 @@
     --main-red: rgb(238,119,104);
 }
 .base {
-    background: url(./assets/bottom-design.svg);
+    position: relative;
+    width: 900px;
+    height: 246px;
+    pointer-events: none;
+
+}
+.base-front {
+    position: absolute;
+    inset: -25px 0 0 0;
+    background: url(./assets/base-front.svg);
     background-size: 100%;
     background-repeat: no-repeat;
-    width: 897px;
-    height: 100px;
+    width: 900px;
+    height: 246px;
+    z-index: 3;
+}
+.base-back {
+    position: absolute;
+    inset: 0;
+    background: url(./assets/base-back.svg);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    width: 900px;
+    height: 246px;
+    z-index: 1;
 }
  body {
 
@@ -72,15 +104,17 @@ button:hover{
     background: rgb(220, 99, 83) !important;
 }
 .top {
-    background: url(./assets/top-design.svg);
+    background: url(./assets/top.svg);
     background-size: 100%;
     background-repeat: no-repeat;
-    width: 897px;
-    height: 61px;
+    width: 900px;
+    height: 30px;
     transform-origin: center;
     transform: rotate(0deg);
     transition: transform 0.5s ease-in-out;
     pointer-events: none;
+    z-index: 2;
+    margin-bottom: -35px;
 }
 .container {
     flex-direction: column;
@@ -182,8 +216,8 @@ label {
 }
 
 .words {
-    z-index: 2;
-    margin-bottom:-60px;
+    z-index: 3;
+    margin-bottom:-12px;
     display: grid;
     grid-template-columns: .7fr .7fr;
     width: 100%;
@@ -201,6 +235,7 @@ label {
 
 
 }
+
 .word, .words label {
     font-weight: bold;
     font-size: 60px;
@@ -346,7 +381,7 @@ label {
     max-width: 800px;
     text-align: center;
     position: absolute;
-    bottom: 110px;
+    bottom: 220px;
     pointer-events: none;
     animation-duration: .5s;
     animation-timing-function: ease-in-out;
@@ -409,6 +444,7 @@ transition: all 0.5s ease-in-out;
         background-color: rgb(255, 0, 0);
         border-radius: 30px;
     }
+
 .scene {
     animation-name: slide-in-mobile;
 }    
@@ -503,4 +539,14 @@ transition: all 0.5s ease-in-out;
 }
 body {
     overflow: hidden;
+}
+
+.reset-button {
+    background: transparent;
+    border: 2px solid var(--main-red);
+    color: var(--main-red);
+}
+.reset-button:hover {
+    background: var(--main-red);
+    color: white;
 }

@@ -257,14 +257,12 @@ document.querySelector(".kk-button").addEventListener("click", function () {
     document.querySelectorAll("form > label").forEach(function (label) {
         label.innerHTML = wordsKK[label.id];
     });
-    document.querySelector('.done-button').innerHTML = 'Búinn'
     nextScene(2);
 });
 document.querySelector(".kvk-button").addEventListener("click", function () {
     document.querySelectorAll("form > label").forEach(function (label) {
         label.innerHTML = wordsKVK[label.id];
     });
-    document.querySelector('.done-button').innerHTML = 'Búin'
 
     nextScene(2);
 });
@@ -273,7 +271,6 @@ document.querySelector(".hk-button").addEventListener("click", function () {
     document.querySelectorAll("form > label").forEach(function (label) {
         label.innerHTML = wordsHK[label.id];
     });
-    document.querySelector('.done-button').innerHTML = 'Búið'
 
     nextScene(2);
 });
