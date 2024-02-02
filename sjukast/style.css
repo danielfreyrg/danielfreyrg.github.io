@@ -376,9 +376,10 @@ label {
 /* .left-words label{
     text-align: center;
 }
+*/
 .right-words {
     justify-self: center;
-} */
+} 
 .left-words {
     justify-self: flex-start;
 }
@@ -394,6 +395,7 @@ label {
     transform: rotate(0deg);
     transition: all 0.5s ease-in-out;
     justify-items: center;
+    transform-origin: center;
 
 }
 
@@ -572,7 +574,7 @@ transition: all 0.5s ease-in-out;
         grid-auto-flow: row;
     }
     .start label {
-        font-size: 10px;
+        font-size: 16px;
     }
     html {
         background: var(--main-green);
