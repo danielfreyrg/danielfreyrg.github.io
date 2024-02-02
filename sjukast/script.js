@@ -97,7 +97,7 @@ const wordsHK = {
     "godur-i-kjaftinum": "gott í kjaftinum",
 };
 const wordsKVK = {
-    stressadur: "stressað",
+    stressadur: "stressuð",
     "meikar-ekki-ad-beila": "meikar ekki að beila",
     "vill-ekki-saera": "vil ekki særa",
     "vill-ekki-bregdast": "vill ekki bregðast",
