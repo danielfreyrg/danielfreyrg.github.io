@@ -125,10 +125,13 @@ pointer-events: none;
     justify-content: center;
     position: relative;
 }
+.scene4 .top-wrapper  {
+margin-top: 10vh;
+}
 form {
     display: grid;
     align-items: center;
-    grid-template-rows: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
     /* margin-top: 150px; */
     grid-auto-flow: column;
     gap: 10px;
