@@ -200,7 +200,7 @@
 .base-front {
     position: absolute;
     inset: -25px 0 0 0;
-    background: url(./assets/base-front.svg);
+    background: url(./assets/base-front-noshadow.svg);
     background-size: 100%;
     background-repeat: no-repeat;
     width: 900px;
