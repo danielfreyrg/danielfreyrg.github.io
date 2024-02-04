@@ -166,7 +166,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Setup drop zones
     const dropZones = document.querySelectorAll(
-        ".right-words, .left-words, .start"
+        ".right-words, .left-words, .start, .bg-drop-zone"
     );
     dropZones.forEach((zone) => {
         zone.addEventListener("dragover", (event) => {
@@ -176,6 +176,9 @@ document.addEventListener("DOMContentLoaded", function () {
         zone.addEventListener("drop", (event) => {
 
             event.preventDefault();
+            if (zone.classList.contains('bg-drop-zone')) {
+                zone = document.querySelector('.start');
+            }
             if (zone.classList.contains("left-words") || zone.classList.contains("right-words") && placedwords == 0) {
             document.querySelector(".info").style.animationName = "fade-out";
             }
