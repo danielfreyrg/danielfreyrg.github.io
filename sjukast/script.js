@@ -175,7 +175,9 @@ document.addEventListener("DOMContentLoaded", function () {
         zone.addEventListener("drop", (event) => {
 
             event.preventDefault();
+            if (zone.classList.contains(".left-words") || zone.classList.contains(".right-words")) {
             document.querySelector(".info").style.animationName = "fade-out";
+            }
             const id = event.dataTransfer.getData("text/plain");
             const draggableElement = document.getElementById(id);
             draggableElement.innerHTML = splitAndFormatWord(
