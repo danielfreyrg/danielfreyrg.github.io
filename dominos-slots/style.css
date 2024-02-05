@@ -401,7 +401,7 @@ body {
     .slot-row,
     .results,
     .content.content.content .buttons {
-        animation-name: slide-in-top !important;
+        animation-name: slide-in-bottom !important;
     }
 }
 
