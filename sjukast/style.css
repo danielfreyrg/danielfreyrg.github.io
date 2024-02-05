@@ -239,7 +239,7 @@ html {
 }
 
 .background {
-    background-image: url(./assets/BG-tall.svg);
+    background-image: url(./assets/BG-4k.svg);
     background-size: cover;
     position: absolute;
     inset: 0;
