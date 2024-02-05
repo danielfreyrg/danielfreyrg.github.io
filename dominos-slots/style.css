@@ -111,7 +111,9 @@ a {
     z-index: 1;
 
 }
-
+.slot-row {
+    animation: none !important;
+}
 
 .outer {
     position: relative;
