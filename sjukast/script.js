@@ -129,6 +129,7 @@ function splitAndFormatWord(word) {
     if (word.includes('-')) {
         return word
     }
+    // word = word.innerHTML
     let splitIndex = Math.ceil(word.length / 2);
 
     const prefix = "sjálfs";
@@ -186,7 +187,7 @@ document.addEventListener("DOMContentLoaded", function () {
             const id = event.dataTransfer.getData("text/plain");
             const draggableElement = document.getElementById(id);
             draggableElement.innerHTML = splitAndFormatWord(
-                draggableElement.innerHTML
+                draggableElement.querySelector("span").innerHTML
             );
             //if "ö" in word and dropzone is left-words or right words then add class big-word-extra
             if (draggableElement.innerHTML.includes("ö") && (zone.classList.contains("left-words") || zone.classList.contains("right-words"))) {
