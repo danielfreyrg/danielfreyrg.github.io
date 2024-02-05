@@ -422,6 +422,7 @@ body {
     }
     h1.desktop.desktop.desktop {
         display: block !important;
+        margin-top: -5px;
     }
     .order {
         font-size: 18px !important;
@@ -429,10 +430,11 @@ body {
     }
     .order-secondary.order-secondary.order-secondary {
         display: flex !important;
+        margin-top: 5px;
     }
 
     .tuesday {
-        font-size: 30px !important;
+        font-size: 22px !important;
 
     }
     .main-text.main-text.main-text.main-text h2 {
