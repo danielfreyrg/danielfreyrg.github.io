@@ -186,7 +186,7 @@ document.addEventListener("DOMContentLoaded", function () {
             }
             const id = event.dataTransfer.getData("text/plain");
             const draggableElement = document.getElementById(id);
-            draggableElement.innerHTML = splitAndFormatWord(
+            draggableElement.querySelector("span").innerHTML = splitAndFormatWord(
                 draggableElement.querySelector("span").innerHTML
             );
             //if "ö" in word and dropzone is left-words or right words then add class big-word-extra
