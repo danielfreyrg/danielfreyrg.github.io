@@ -748,7 +748,8 @@ body {
     }
 
     .outer.outer.outer.outer {
-        background-image: url(BG-375x156.svg) !important;
+        /* background-image: url(BG-375x156.svg) !important; */
+        background-image: url(Asset.svg) !important;
     }
 
     .arrow.arrow.arrow.arrow.arrow.arrow {
