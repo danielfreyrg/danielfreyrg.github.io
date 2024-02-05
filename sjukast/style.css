@@ -589,13 +589,20 @@ transition: all 0.5s ease-in-out;
         position: absolute;
     }
     .top-wrapper {
-        top: 15vh;
+        top: 50px;
     }
     .scene3 img {
-        top: 15vh;
+        top: 100px;
     }
     body {
         overflow: auto;
+    }
+    .words label {
+        font-size: 20px;
+        line-height: 17px;
+    }
+    .words .big-word-extra {
+        line-height: 19px;
     }
     .start {
         grid-template-rows: unset;
