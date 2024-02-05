@@ -471,7 +471,8 @@ body {
         transform: translateY(-35%);
     }
     .main-text.main-text.main-text h1 {
-        font-size: 50px !important;
+        font-size: 40px !important;
+        padding-bottom: 5px;
     }
     h2.mobile {
         font-size: 15px !important;
@@ -480,7 +481,7 @@ body {
         display: none;
     }
     .tuesday {
-        font-size: 34px;
+        font-size: 31px !important;
 
     }
     h2.mobile.mobile.mobile.mobile {

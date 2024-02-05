@@ -287,14 +287,14 @@ function rotateBar() {
 
 document.querySelector(".kk-button").addEventListener("click", function () {
     document.querySelectorAll(".start > label").forEach(function (label) {
-        label.innerHTML = wordsKK[label.id];
+   label.innerHTML = '<span>' + wordsKK[label.id] + '</span>';
         label.setAttribute('data-weight', wordWeights[label.id])
     });
     nextScene(2);
 });
 document.querySelector(".kvk-button").addEventListener("click", function () {
     document.querySelectorAll(".start > label").forEach(function (label) {
-        label.innerHTML = wordsKVK[label.id];
+        label.innerHTML = '<span>' + wordsKVK[label.id] + '</span>';
         label.setAttribute('data-weight', wordWeights[label.id])
 
     });
@@ -304,7 +304,7 @@ document.querySelector(".kvk-button").addEventListener("click", function () {
 
 document.querySelector(".hk-button").addEventListener("click", function () {
     document.querySelectorAll(".start > label").forEach(function (label) {
-        label.innerHTML = wordsHK[label.id];
+        label.innerHTML = '<span>' + wordsHK[label.id] + '</span>';
         label.setAttribute('data-weight', wordWeights[label.id])
 
     });

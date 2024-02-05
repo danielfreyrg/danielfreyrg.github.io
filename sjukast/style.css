@@ -646,7 +646,10 @@ button {
     position: absolute;
     inset: 0;
 }
+span {
+    user-select: none;
 
+}
 @media screen and (max-width: 700px) and (hover: none) {
     .sjukast-logo {
         margin-top: -10dvh;
