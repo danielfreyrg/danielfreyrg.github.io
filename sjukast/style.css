@@ -527,10 +527,6 @@ label {
     width: 300px;
 }
 
-.words label {
-    font-size: 30px;
-    line-height: 27px;
-}
 
 .scene {
     height: 100dvh;
@@ -651,6 +647,11 @@ span {
 
 }
 @media screen and (max-width: 700px) and (hover: none) {
+    .words label {
+        font-size: 30px;
+        line-height: 27px;
+    }
+    
     .sjukast-logo {
         margin-top: -10dvh;
     }
