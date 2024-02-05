@@ -132,7 +132,7 @@ function splitAndFormatWord(word) {
     let splitIndex = Math.ceil(word.length / 2);
 
     const prefix = "sjálfs";
-    if (word.startsWith(prefix) || word.startsWith("áhrifa")|| word =='stressaður') {
+    if (word.startsWith(prefix) || word.startsWith("áhrifa")|| word =='stressaður' || word == 'stressuð' || word == 'stressað') {
         
         splitIndex = prefix.length;
     } else {
