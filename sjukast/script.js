@@ -178,6 +178,7 @@ document.addEventListener("DOMContentLoaded", function () {
             event.preventDefault();
             if (zone.classList.contains('bg-drop-zone')) {
                 zone = document.querySelector('.start');
+
             }
             if (zone.classList.contains("left-words") || zone.classList.contains("right-words") && placedwords == 0) {
             document.querySelector(".info").style.animationName = "fade-out";
@@ -191,12 +192,19 @@ document.addEventListener("DOMContentLoaded", function () {
                 draggableElement.classList.add("big-word");
             }
             zone.appendChild(draggableElement);
+            if (zone.classList.contains("start")) {
+                draggableElement.style.animationName = "slide-in";
+                draggableElement.addEventListener("animationend", function () {
+                    draggableElement.style.animationName = "none";
+                });
+            }
+            else {
             draggableElement.style.animationName = "slide-down";
             draggableElement.addEventListener("animationend", function () {
                 draggableElement.style.animationName = "none";
 
             });
-
+        }
             updateCounter(zone, id); // Update counters or any other logic after drop
         });
     });
@@ -226,6 +234,9 @@ document.addEventListener("DOMContentLoaded", function () {
             weight = -weight;
         }
         if (dropzone.classList.contains("start")) {
+            if ((startzone.classList.contains("left-words") || startzone.classList.contains("right-words")) && placedwords > 0) {
+                placedwords -= 1;
+            }
             alreadyplaced = true;        }
 
         if (startzone == dropzone) {
@@ -273,12 +284,15 @@ function rotateBar() {
 document.querySelector(".kk-button").addEventListener("click", function () {
     document.querySelectorAll(".start > label").forEach(function (label) {
         label.innerHTML = wordsKK[label.id];
+        label.setAttribute('data-weight', wordWeights[label.id])
     });
     nextScene(2);
 });
 document.querySelector(".kvk-button").addEventListener("click", function () {
     document.querySelectorAll(".start > label").forEach(function (label) {
         label.innerHTML = wordsKVK[label.id];
+        label.setAttribute('data-weight', wordWeights[label.id])
+
     });
 
     nextScene(2);
@@ -287,6 +301,8 @@ document.querySelector(".kvk-button").addEventListener("click", function () {
 document.querySelector(".hk-button").addEventListener("click", function () {
     document.querySelectorAll(".start > label").forEach(function (label) {
         label.innerHTML = wordsHK[label.id];
+        label.setAttribute('data-weight', wordWeights[label.id])
+
     });
 
     nextScene(2);
