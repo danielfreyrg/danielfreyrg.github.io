@@ -101,10 +101,10 @@ a {
     content: "";
     position: absolute;
     inset: 0;
-    background: linear-gradient(rgba(0, 0, 0, 1),
-            rgba(0, 0, 0, 0) 45.88%,
-            rgba(0, 0, 0, 0) 54.56%,
-            rgba(0, 0, 0, 1));
+    background: linear-gradient(rgba(0, 0, 0, .8),
+            rgba(0, 0, 0, 0) 40.88%,
+            rgba(0, 0, 0, 0) 60.56%,
+            rgba(0, 0, 0, .8));
     /* background-image: url(Shadow.svg); */
     opacity: .9;
     box-shadow: 0 0 30px 5px rgba(0, 0, 0, .3);
