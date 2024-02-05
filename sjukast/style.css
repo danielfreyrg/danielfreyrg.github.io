@@ -584,7 +584,8 @@ transition: all 0.5s ease-in-out;
     position: absolute;
     inset: 0;
 }
-@media screen and (max-width: 700px) {
+
+@media screen and (max-width: 700px) and (hover: none) {
     .subtitle {
         font-size: 15px;
         max-width: 80vw;
@@ -601,6 +602,7 @@ transition: all 0.5s ease-in-out;
     }
     .scene3 .top-wrapper, .scene3 img {
         position: absolute;
+        z-index: 10;
     }
     .top-wrapper {
         top: 50px;
