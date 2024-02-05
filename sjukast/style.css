@@ -512,6 +512,9 @@ label {
 .subtitle-2 {
     animation-duration: 5.5s;
 }
+body {
+    overflow: unset;
+}
 .subtitle-1 {
     /* animation-name: slide-in-subtitle-1; */
 
