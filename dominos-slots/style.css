@@ -111,6 +111,7 @@ a {
     z-index: 1;
 
 }
+/*no slide in on slots*/
 .slot-row, .slot-wrapper{
     animation: none !important;
 }
