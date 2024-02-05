@@ -111,7 +111,7 @@ a {
     z-index: 1;
 
 }
-.slot-row {
+.slot-row, .slot-wrapper{
     animation: none !important;
 }
 
