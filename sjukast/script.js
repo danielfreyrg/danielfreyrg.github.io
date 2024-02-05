@@ -271,10 +271,10 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 function rotateBar() {
-    if (counter > 11) {
-        realRotation = 11;
-    } else if (counter < -11) {
-        realRotation = -11;
+    if (counter > 20) {
+        realRotation = 20;
+    } else if (counter < -20) {
+        realRotation = -20;
     } else {
         realRotation = counter;
     }
