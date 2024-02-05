@@ -585,6 +585,20 @@ transition: all 0.5s ease-in-out;
     inset: 0;
 }
 @media screen and (max-width: 700px) {
+    .subtitle {
+        font-size: 15px;
+        max-width: 80vw;
+        margin: 0 auto;
+    }
+    .gender-title {
+        font-size: 25px;
+        max-width: 80vw;
+        margin: 0 auto;
+    }
+    .reset-button {
+        font-size: 15px !important;
+        padding: 5px 15px !important;
+    }
     .scene3 .top-wrapper, .scene3 img {
         position: absolute;
     }
@@ -611,7 +625,10 @@ transition: all 0.5s ease-in-out;
         grid-auto-flow: row;
     }
     .start label {
-        font-size: 8px;
+        font-size: 12px;
+    }
+    #ahrifagjarn, #vill-ad-adrir-fili-sig, #vill-ekki-bregdast, #stressadur, #vill-ekki-saera, #meikar-ekki-ad-beila {
+        display: none;
     }
     html {
         background: var(--main-green);
