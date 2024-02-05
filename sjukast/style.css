@@ -643,6 +643,10 @@ span {
 
 }
 @media screen and (max-width: 700px) and (hover: none) {
+    .words {
+        width: 100%;
+        margin-bottom: -10px;
+    }
     .words label {
         font-size: 30px;
         line-height: 27px;
