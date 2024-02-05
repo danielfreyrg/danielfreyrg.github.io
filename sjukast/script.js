@@ -188,6 +188,10 @@ document.addEventListener("DOMContentLoaded", function () {
             draggableElement.innerHTML = splitAndFormatWord(
                 draggableElement.innerHTML
             );
+            //if "ö" in word and dropzone is left-words or right words then add class big-word-extra
+            if (draggableElement.innerHTML.includes("ö") && (zone.classList.contains("left-words") || zone.classList.contains("right-words"))) {
+                draggableElement.classList.add("big-word-extra");
+            }
             if (wordWeights[id] > 0) {
                 draggableElement.classList.add("big-word");
             }
@@ -328,7 +332,7 @@ document.querySelector(".done-button").addEventListener("click", function () {
 });
 
 
-// num = currenr scene number
+
 function nextScene(currentSceneNum) {
     document.querySelector(".scene" + currentSceneNum).style.animationName = "slide-out";
     document
