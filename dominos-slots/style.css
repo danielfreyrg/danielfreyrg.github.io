@@ -603,7 +603,7 @@ body {
 }
 
 /*300x250*/
-@media screen  and (min-width: 290px) and (max-width: 305px) and (min-height: 245px) and (max-height: 255px) {
+@media screen  and (min-width: 245px) and (max-width: 325px) and (min-height: 205px) and (max-height: 255px) {
     .slot-wrapper, .buttons {
         animation-name: slide-in-top !important;
     }
