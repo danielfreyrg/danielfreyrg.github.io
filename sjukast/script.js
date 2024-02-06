@@ -360,4 +360,5 @@ function reset() {
     counter = 0;
     placedwords = 0;
     rotateBar();
+    document.querySelector('body').click();
 }
