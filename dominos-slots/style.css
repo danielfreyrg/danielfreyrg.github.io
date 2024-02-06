@@ -790,3 +790,16 @@ body {
 font-size: 30px !important;
     }
 } 
+@media screen and (min-height: 395px) and (max-width: 300px) { 
+    .outer {
+        background-image: url(./assets/BG-312x402.svg)
+        ;
+    }   
+    
+}
+@media screen and (max-width: 290px) and (min-height: 245px) and (max-height: 255px) {
+    .outer {
+        background-image: url(./assets/BG-300x250.svg);
+    }
+    
+}
