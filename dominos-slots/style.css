@@ -789,7 +789,8 @@ body {
     .tuesday.tuesday.tuesday.tuesday {
 font-size: 30px !important;
     }
-} 
+}
+/*odd sizes*/ 
 @media screen and (min-height: 395px) and (max-width: 300px) { 
     .outer {
         background-image: url(./assets/BG-312x402.svg)
