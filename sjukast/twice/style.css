@@ -581,7 +581,7 @@ label {
 
 
 
-.scene4 .subtitle {
+.scene3 .subtitle {
     /* animation-name: fade-in; */
     animation-duration: 3s;
 }
@@ -657,7 +657,7 @@ span {
     user-select: none;
 
 }
-@media screen and (max-width: 700px) and (hover: none) {
+@media screen and (max-width: 700px) {
     .words {
         width: 100%;
         margin-bottom: -10px;
@@ -693,8 +693,8 @@ span {
         padding: 10px !important;
     }
 
-    .scene3 .top-wrapper,
-    .scene3 img {
+    .scene2 .top-wrapper,
+    .scene2 img {
         position: absolute;
         z-index: 10;
     }
@@ -703,7 +703,7 @@ span {
         top: 50px;
     }
 
-    .scene3 img {
+    .scene2 img {
         /* top: 100px; */
         display: none;
     }

@@ -69,90 +69,79 @@ const wordWeights = {
     "med-meiri-reynslu": 2,
     efnadur: 1,
     "godur-i-kjaftinum": 1,
+    'stressadur-clone-0': -2,
+    "meikar-ekki-ad-beila-clone-0": -2,
+    "vill-ekki-saera-clone-0": -2,
+    "vill-ekki-bregdast-clone-0": -2,
+    "vill-ad-adrir-fili-sig-clone-0": -1,
+    "ahrifagjarn-clone-0": -1,
+    'yngri-clone-0': -2,
+    "ekki-med-fulla-medvitund-clone-0": -3,
+    'feiminn-clone-0': -1,
+    "ad-vinna-ur-afalli-clone-0": -2,
+    'ooruggur-clone-0': -2,
+    "i-ojafnvaegi": -2,
+    'hraeddur-clone-0': -3,
+    'frosinn-clone-0': -3,
+    "ekki-i-godu-astandi-clone-0": -2,
+    'oreyndur-clone-0': -2,
+    "likamlega-sterkur-clone-0": 2,
+    'fraegur-clone-0': 2,
+    'frekur-clone-0': 3,
+    'vinsaell-clone-0': 1,
+    'sjalfsoruggur-clone-0': 2,
+    'aestur-clone-0': 3,
+    'eldri-clone-0': 2,
+    "med-meiri-reynslu-clone-0": 2,
+    'efnadur-clone-0': 1,
+    "godur-i-kjaftinum-clone-0": 1,
+    'stressadur-clone-1': -2,
+    "meikar-ekki-ad-beila-clone-1": -2,
+    "vill-ekki-saera-clone-1": -2,
+    "vill-ekki-bregdast-clone-1": -2,
+    "vill-ad-adrir-fili-sig-clone-1": -1,
+    "ahrifagjarn-clone-1": -1,
+    'yngri-clone-1': -2,
+    "ekki-med-fulla-medvitund-clone-1": -3,
+    'feiminn-clone-1': -1,
+    "ad-vinna-ur-afalli-clone-1": -2,
+    'ooruggur-clone-1': -2,
+    "i-ojafnvaegi-clone-1": -2,
+    'hraeddur-clone-1': -3,
+    'frosinn-clone-1': -3,
+    "ekki-i-godu-astandi-clone-1": -2,
+    'oreyndur-clone-1': -2,
+    "likamlega-sterkur-clone-1": 2,
+    'fraegur-clone-1': 2,
+    'frekur-clone-1': 3,
+    'vinsaell-clone-1': 1,
+    'sjalfsoruggur-clone-1': 2,
+    'aestur-clone-1': 3,
+    'eldri-clone-1': 2,
+    "med-meiri-reynslu-clone-1": 2,
+    'efnadur-clone-1': 1,
+    "godur-i-kjaftinum-clone-1": 1,
+    
 };
 const wordsKK = {
-    stressadur: "stressaður",
-    "meikar-ekki-ad-beila": "meikar ekki að beila",
+    stressadur: "stress",
     "vill-ekki-saera": "vill ekki særa",
-    "vill-ekki-bregdast": "vill ekki bregðast",
-    "vill-ad-adrir-fili-sig": "vill að aðrir fíli sig",
-    "ahrifagjarn": "áhrifagjarn",
+    "ahrifagjarn": "áhrifagirni",
     yngri: "yngri",
     "ekki-med-fulla-medvitund": "ekki með fulla meðvitund",
-    feiminn: "feiminn",
-    "ad-vinna-ur-afalli": "að vinna úr áfalli",
-    ooruggur: "óöruggur",
-    "i-ojafnvaegi": "í ójafnvægi",
-    hraeddur: "hræddur",
-    frosinn: "frosinn",
-    "ekki-i-godu-astandi": "ekki í góðu ástandi",
-    oreyndur: "óreyndur",
-    "likamlega-sterkur": "líkamlega sterkur",
-    fraegur: "frægur",
-    frekur: "frekur",
-    vinsaell: "vinsæll",
-    sjalfsoruggur: "sjálfsöruggur",
-    aestur: "æstur",
+    ooruggur: "óöryggi",
+    hraeddur: "hræðsla",
+    frosinn: "að frjósa",
+    "likamlega-sterkur": "líkamlegur styrkur",
+    fraegur: "frægð",
+    frekur: "frekja",
+    vinsaell: "nýtur vinsælda",
+    sjalfsoruggur: "sjálfsöryggi",
+    aestur: "æsingur",
     eldri: "eldri",
-    "med-meiri-reynslu": "með meiri reynslu",
-    efnadur: "efnaður",
+    "med-meiri-reynslu": "meiri reynsla",
+    efnadur: "efnahagur",
     "godur-i-kjaftinum": "góður í kjaftinum",
-};
-const wordsHK = {
-    stressadur: "stressað",
-    "meikar-ekki-ad-beila": "meikar ekki að beila",
-    "vill-ekki-saera": "vil ekki særa",
-    "vill-ekki-bregdast": "vill ekki bregðast",
-    "vill-ad-adrir-fili-sig": "vill að aðrir fíli sig",
-    "ahrifagjarn": "áhrifagjarnt",
-    yngri: "yngri",
-    "ekki-med-fulla-medvitund": "ekki með fulla meðvitund",
-    feiminn: "feimið",
-    "ad-vinna-ur-afalli": "að vinna úr áfalli",
-    ooruggur: "óöruggt",
-    "i-ojafnvaegi": "í ójafnvægi",
-    hraeddur: "hrætt",
-    frosinn: "frosið",
-    "ekki-i-godu-astandi": "ekki í góðu ástandi",
-    oreyndur: "óreynt",
-    "likamlega-sterkur": "líkamlega sterkt",
-    fraegur: "frægt",
-    frekur: "frekt",
-    vinsaell: "vinsælt",
-    sjalfsoruggur: "sjálfsöruggt",
-    aestur: "æst",
-    eldri: "eldri",
-    "med-meiri-reynslu": "með meiri reynslu",
-    efnadur: "efnað",
-    "godur-i-kjaftinum": "gott í kjaftinum",
-};
-const wordsKVK = {
-    stressadur: "stressuð",
-    "meikar-ekki-ad-beila": "meikar ekki að beila",
-    "vill-ekki-saera": "vil ekki særa",
-    "vill-ekki-bregdast": "vill ekki bregðast",
-    "vill-ad-adrir-fili-sig": "vill að aðrir fíli sig",
-    "ahrifagjarn": "áhrifagjörn",
-    yngri: "yngri",
-    "ekki-med-fulla-medvitund": "ekki með fulla meðvitund",
-    feiminn: "feimin",
-    "ad-vinna-ur-afalli": "að vinna úr áfalli",
-    ooruggur: "óörugg",
-    "i-ojafnvaegi": "í ójafnvægi",
-    hraeddur: "hrædd",
-    frosinn: "frosin",
-    "ekki-i-godu-astandi": "ekki í góðu ástandi",
-    oreyndur: "óreynd",
-    "likamlega-sterkur": "líkamlega sterk",
-    fraegur: "fræg",
-    frekur: "frek",
-    vinsaell: "vinsæl",
-    sjalfsoruggur: "sjálfsörugg",
-    aestur: "æst",
-    eldri: "eldri",
-    "med-meiri-reynslu": "með meiri reynslu",
-    efnadur: "efnuð",
-    "godur-i-kjaftinum": "góð í kjaftinum",
 };
 
 function splitAndFormatWord(word) {
@@ -228,13 +217,19 @@ document.addEventListener("DOMContentLoaded", function () {
             if ((wordCounter[id] == 0 && !zone.classList.contains("start")) && startzone != zone) {
                 var cloned = draggableElement.cloneNode(true);
                 cloned.id = id + "-clone-" + wordCounter[id];
+                cloned.addEventListener("dragstart", (event) => {
+                    startzone = event.target.parentElement;
+                    event.dataTransfer.setData("text/plain", event.target.id);
+                }
+                );
                 zone.appendChild(cloned);
                 wordCounter[id] += 1;
             } else {
-                console.log("Word already placed");
                 zone.appendChild(draggableElement);
             }
             if (zone.classList.contains("start")) {
+
+                    
                 draggableElement.style.animationName = "slide-in";
                 draggableElement.addEventListener("animationend", function () {
                     draggableElement.style.animationName = "none";
@@ -279,7 +274,11 @@ document.addEventListener("DOMContentLoaded", function () {
             if ((startzone.classList.contains("left-words") || startzone.classList.contains("right-words")) && placedwords > 0) {
                 placedwords -= 1;
             }
-            alreadyplaced = true;        }
+            alreadyplaced = true;       
+            if (id.includes('clone')) {
+                document.getElementById(id).remove();
+            }
+        }
 
         if (startzone == dropzone) {
             weight = 0;
@@ -295,7 +294,7 @@ document.addEventListener("DOMContentLoaded", function () {
         } 
         if (placedwords > 9) {
             setTimeout(function () {
-                nextScene(3);
+                nextScene(2);
             }, 1000);
         }
 
@@ -316,57 +315,62 @@ function rotateBar() {
         realRotation = counter;
     }
     document.querySelector(
-        ".scene3 .bar"
+        ".scene2 .bar"
     ).style.transform = `rotate(${realRotation}deg)`;
     document.querySelector(
-        ".scene3 .words"
+        ".scene2 .words"
     ).style.transform = `rotate(${realRotation}deg)`;
 }
 
-document.querySelector(".kk-button").addEventListener("click", function () {
-    document.querySelectorAll(".start > label").forEach(function (label) {
-   label.innerHTML = '<span>' + wordsKK[label.id] + '</span>';
-        label.setAttribute('data-weight', wordWeights[label.id])
-    });
-    nextScene(2);
-});
-document.querySelector(".kvk-button").addEventListener("click", function () {
-    document.querySelectorAll(".start > label").forEach(function (label) {
-        label.innerHTML = '<span>' + wordsKVK[label.id] + '</span>';
-        label.setAttribute('data-weight', wordWeights[label.id])
+// document.querySelector(".kk-button").addEventListener("click", function () {
+//     document.querySelectorAll(".start > label").forEach(function (label) {
+//    label.innerHTML = '<span>' + wordsKK[label.id] + '</span>';
+//         label.setAttribute('data-weight', wordWeights[label.id])
+//     });
+//     nextScene(2);
+// });
+// document.querySelector(".kvk-button").addEventListener("click", function () {
+//     document.querySelectorAll(".start > label").forEach(function (label) {
+//         label.innerHTML = '<span>' + wordsKVK[label.id] + '</span>';
+//         label.setAttribute('data-weight', wordWeights[label.id])
 
-    });
+//     });
 
-    nextScene(2);
-});
+//     nextScene(2);
+// });
 
-document.querySelector(".hk-button").addEventListener("click", function () {
-    document.querySelectorAll(".start > label").forEach(function (label) {
-        label.innerHTML = '<span>' + wordsHK[label.id] + '</span>';
-        label.setAttribute('data-weight', wordWeights[label.id])
+// document.querySelector(".hk-button").addEventListener("click", function () {
+//     document.querySelectorAll(".start > label").forEach(function (label) {
+//         label.innerHTML = '<span>' + wordsHK[label.id] + '</span>';
+//         label.setAttribute('data-weight', wordWeights[label.id])
 
-    });
+//     });
 
-    nextScene(2);
-});
+//     nextScene(2);
+// });
 
 document.querySelector(".start-button").addEventListener("click", function () {
+    document.querySelectorAll(".start > label").forEach(function (label) {
+        label.innerHTML = '<span>' + wordsKK[label.id] + '</span>';
+             label.setAttribute('data-weight', wordWeights[label.id])
+         });
     nextScene(1);
+
 
 });
 
 document.querySelector(".start-again-button").addEventListener("click", function () {
     document.querySelector(".background-plain").style.animationName = "fade-out";
-    document.querySelector(".scene4").style.animationName = animationOut;
+    document.querySelector(".scene3").style.animationName = animationOut;
     document
-        .querySelector(".scene4")
+        .querySelector(".scene3")
         .addEventListener("animationend", function () {
             window.location.reload();
         });
 });
 
 document.querySelector(".done-button").addEventListener("click", function () {
-    nextScene(3)
+    nextScene(2)
 });
 
 
@@ -393,6 +397,9 @@ function resetSaw(bool) {
     document.querySelectorAll(".right-words, .left-words").forEach(function (zone) {
         var children = [].slice.call(zone.children);
         children.forEach(function (word) {
+            if (word.id.includes('clone')) {
+                word.remove();
+            }
             word.style.animationName = "fade-out";
             word.addEventListener("animationend", function () {
                 word.style.animationName = "none";
