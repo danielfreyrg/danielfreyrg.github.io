@@ -172,7 +172,27 @@
     font-style: normal;
 
 }
-
+.left-words::after, .right-words::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    font-family: 'chaney';
+    color: var(--main-red);
+    font-size: 40px;
+    z-index: -1;
+    }
+    .left-words::after {
+        content: "Þú";
+    }
+    .right-words::after {
+        content: "Ég";
+    }
+    .left-words, .right-words {
+        position: relative;
+    }
 * {
     font-variant-ligatures: none !important;
 }
@@ -534,9 +554,7 @@ label {
     justify-content: center;
 }
 
-.scene2 img {
-    /* margin-bottom: 20vh; */
-}
+
 
 .title {
     font-family: 'chaney';
@@ -561,10 +579,7 @@ label {
     animation-duration: 5.5s;
 }
 
-.subtitle-1 {
-    /* animation-name: slide-in-subtitle-1; */
 
-}
 
 .scene4 .subtitle {
     /* animation-name: fade-in; */
@@ -717,15 +732,12 @@ span {
         font-size: 12px;
     }
 
-    #efnadur,
-    #sjalfsoruggur,
-    #vill-ad-adrir-fili-sig
-    #feiminn,
-    #ad-vinna-ur-afalli,
-    #i-o-jafnvaegi
+    #ahrifagjarn,
+    #vill-ad-adrir-fili-sig,
     #vill-ekki-bregdast,
-    #meikar-ekki-ad-beila,
-    #ekki-i-godu-astandi {
+    #stressadur,
+    #vill-ekki-saera,
+    #meikar-ekki-ad-beila {
         display: none;
     }
 

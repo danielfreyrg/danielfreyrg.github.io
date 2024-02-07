@@ -14,34 +14,61 @@ if (window.innerWidth < 600) {
 
 }
 
-// JavaScript objects to hold the weights for checkboxes
+const wordCounter = {
+    stressadur: 0,
+    "meikar-ekki-ad-beila": 0,
+    "vill-ekki-saera": 0,
+    "vill-ekki-bregdast": 0,
+    "vill-ad-adrir-fili-sig": 0,
+    "ahrifagjarn": 0,
+    yngri: 0,
+    "ekki-med-fulla-medvitund": 0,
+    feiminn: 0,
+    "ad-vinna-ur-afalli": 0,
+    ooruggur: 0,
+    "i-ojafnvaegi": 0,
+    hraeddur: 0,
+    frosinn: 0,
+    "ekki-i-godu-astandi": 0,
+    oreyndur: 0,
+    "likamlega-sterkur": 0,
+    fraegur: 0,
+    frekur: 0,
+    vinsaell: 0,
+    sjalfsoruggur: 0,
+    aestur: 0,
+    eldri: 0,
+    "med-meiri-reynslu": 0,
+    efnadur: 0,
+    "godur-i-kjaftinum": 0,
+};
 const wordWeights = {
-    stressadur: -1,
-    "meikar-ekki-ad-beila": -1,
-    "vill-ekki-saera": -1,
-    "vill-ekki-bregdast": -1,
+    stressadur: -2,
+    "meikar-ekki-ad-beila": -2,
+    "vill-ekki-saera": -2,
+    "vill-ekki-bregdast": -2,
     "vill-ad-adrir-fili-sig": -1,
     "ahrifagjarn": -1,
-    yngri: -1,
-    "ekki-med-fulla-medvitund": -1,
+    yngri: -2,
+    "ekki-med-fulla-medvitund": -3,
     feiminn: -1,
-    "ad-vinna-ur-afalli": -1,
-    ooruggur: -1,
-    "i-ojafnvaegi": -1,
-    hraeddur: -1,
-    frosinn: -1,
-    "ekki-i-godu-astandi": -1,
-    oreyndur: -1,
+    "ad-vinna-ur-afalli": -2,
+    ooruggur: -2,
+    "i-ojafnvaegi": -2,
+    hraeddur: -3,
+    frosinn: -3,
+    "ekki-i-godu-astandi": -2,
+    oreyndur: -2,
     "likamlega-sterkur": 2,
     fraegur: 2,
-    frekur: 2,
-    vinsaell: 2,
+    frekur: 3,
+    vinsaell: 1,
     sjalfsoruggur: 2,
-    aestur: 2,
+    aestur: 3,
     eldri: 2,
     "med-meiri-reynslu": 2,
-    efnadur: 2,
-    "godur-i-kjaftinum": 2,
+    efnadur: 1,
+    "godur-i-kjaftinum": 1,
 };
 const wordsKK = {
     stressadur: "stressaður",
@@ -158,7 +185,6 @@ document.addEventListener("DOMContentLoaded", function () {
     words.forEach((word) => {
         word.setAttribute("draggable", true);
         word.addEventListener("dragstart", (event) => {
-            document.querySelectorAll(".right-words, .left-words, .start")
             startzone = event.target.parentElement;
             if (startzone.classList.contains('start')) {
                 
@@ -198,7 +224,16 @@ document.addEventListener("DOMContentLoaded", function () {
             if (wordWeights[id] > 0) {
                 draggableElement.classList.add("big-word");
             }
-            zone.appendChild(draggableElement);
+            console.log("Word: " + id + "counter: " + wordCounter[id]);
+            if ((wordCounter[id] == 0 && !zone.classList.contains("start")) && startzone != zone) {
+                var cloned = draggableElement.cloneNode(true);
+                cloned.id = id + "-clone-" + wordCounter[id];
+                zone.appendChild(cloned);
+                wordCounter[id] += 1;
+            } else {
+                console.log("Word already placed");
+                zone.appendChild(draggableElement);
+            }
             if (zone.classList.contains("start")) {
                 draggableElement.style.animationName = "slide-in";
                 draggableElement.addEventListener("animationend", function () {
@@ -350,6 +385,10 @@ function nextScene(currentSceneNum) {
 function resetSaw(bool) {
     if (!bool) {
         return
+    }
+    //set all wordcounters to 0 
+    for (var key in wordCounter) {
+        wordCounter[key] = 0;
     }
     document.querySelectorAll(".right-words, .left-words").forEach(function (zone) {
         var children = [].slice.call(zone.children);
