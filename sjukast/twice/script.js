@@ -41,6 +41,7 @@ const wordCounter = {
     "med-meiri-reynslu": 0,
     efnadur: 0,
     "godur-i-kjaftinum": 0,
+    'sudar': 0,
 };
 const wordWeights = {
     stressadur: -2,
@@ -121,9 +122,12 @@ const wordWeights = {
     "med-meiri-reynslu-clone-1": 2,
     'efnadur-clone-1': 1,
     "godur-i-kjaftinum-clone-1": 1,
+    'sudar': 1,
+    'sudar-clone-0': 1,
+    'sudar-clone-1': 1,
     
 };
-const wordsKK = {
+const words = {
     stressadur: "stress",
     "vill-ekki-saera": "vill ekki særa",
     "ahrifagjarn": "áhrifagirni",
@@ -142,6 +146,8 @@ const wordsKK = {
     "med-meiri-reynslu": "meiri reynsla",
     efnadur: "efnahagur",
     "godur-i-kjaftinum": "góður í kjaftinum",
+    'i-ojafnvaegi': "í ójafnvægi",
+    'sudar': "suðar",
 };
 
 function splitAndFormatWord(word) {
@@ -236,12 +242,22 @@ document.addEventListener("DOMContentLoaded", function () {
                 });
             }
             else {
+                if (!cloned) {
             draggableElement.style.animationName = "slide-down";
             draggableElement.addEventListener("animationend", function () {
                 draggableElement.style.animationName = "none";
 
             });
+            
         }
+        else {
+            cloned.style.animationName = "slide-down";
+            cloned.addEventListener("animationend", function () {
+                cloned.style.animationName = "none";
+
+            })
+        }
+    }
             updateCounter(zone, id); // Update counters or any other logic after drop
         });
     });
@@ -299,7 +315,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         counter += weight;
-        console.log("Counter: " + counter + " Word: " + id + " Weight: " + weight);
+        console.log("Counter: " + counter + " Word: " + id + " Weight: " + weight + 'placedwords: ' + placedwords);
         rotateBar();
 
         console.log("------------------");
@@ -351,7 +367,7 @@ function rotateBar() {
 
 document.querySelector(".start-button").addEventListener("click", function () {
     document.querySelectorAll(".start > label").forEach(function (label) {
-        label.innerHTML = '<span>' + wordsKK[label.id] + '</span>';
+        label.innerHTML = '<span>' + words[label.id] + '</span>';
              label.setAttribute('data-weight', wordWeights[label.id])
          });
     nextScene(1);
