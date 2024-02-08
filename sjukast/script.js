@@ -311,7 +311,7 @@ document.addEventListener("DOMContentLoaded", function () {
         if (placedwords > 10) {
             setTimeout(function () {
                 nextScene(2);
-            }, 1000);
+            }, 4000);
         }
 
         counter += weight;
