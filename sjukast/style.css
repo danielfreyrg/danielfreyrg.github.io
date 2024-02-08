@@ -226,6 +226,9 @@
 
 }
 
+html {
+    background: var(--main-green);
+}
 .base-front {
     position: absolute;
     inset: -25px 0 0 0;
