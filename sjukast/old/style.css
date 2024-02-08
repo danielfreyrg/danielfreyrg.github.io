@@ -172,27 +172,7 @@
     font-style: normal;
 
 }
-.left-words::after, .right-words::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    font-family: 'chaney';
-    color: var(--main-red);
-    font-size: 40px;
-    z-index: -1;
-    }
-    .left-words::after {
-        content: "Þú";
-    }
-    .right-words::after {
-        content: "Ég";
-    }
-    .left-words, .right-words {
-        position: relative;
-    }
+
 * {
     font-variant-ligatures: none !important;
 }
@@ -317,18 +297,7 @@ button:hover {
     z-index: 2;
     margin-bottom: -35px;
 }
-a {
-    margin-top: 10vh;
-    text-decoration: none;
-    color: var(--main-red);
-    font-family: 'TT Norms';
-    font-size: 24px;
-    font-weight: bold;
-}
-a:hover {
-    text-decoration: underline;
-    color: white;
-}
+
 .container {
     flex-direction: column;
     align-items: center;
@@ -565,7 +534,9 @@ label {
     justify-content: center;
 }
 
-
+.scene2 img {
+    /* margin-bottom: 20vh; */
+}
 
 .title {
     font-family: 'chaney';
@@ -590,9 +561,12 @@ label {
     animation-duration: 5.5s;
 }
 
+.subtitle-1 {
+    /* animation-name: slide-in-subtitle-1; */
 
+}
 
-.scene3 .subtitle {
+.scene4 .subtitle {
     /* animation-name: fade-in; */
     animation-duration: 3s;
 }
@@ -669,9 +643,6 @@ span {
 
 }
 @media screen and (max-width: 700px) {
-    .background {
-        background: var(--main-green)
-    }
     .words {
         width: 100%;
         margin-bottom: -10px;
@@ -707,8 +678,8 @@ span {
         padding: 10px !important;
     }
 
-    .scene2 .top-wrapper,
-    .scene2 img {
+    .scene3 .top-wrapper,
+    .scene3 img {
         position: absolute;
         z-index: 10;
     }
@@ -717,7 +688,7 @@ span {
         top: 50px;
     }
 
-    .scene2 img {
+    .scene3 img {
         /* top: 100px; */
         display: none;
     }
@@ -746,14 +717,17 @@ span {
         font-size: 12px;
     }
 
-    /* #ahrifagjarn,
+    #efnadur,
+    #sjalfsoruggur,
     #vill-ad-adrir-fili-sig,
+    #feiminn,
+    #ad-vinna-ur-afalli,
+    #i-o-jafnvaegi,
     #vill-ekki-bregdast,
-    #stressadur,
-    #vill-ekki-saera,
-    #meikar-ekki-ad-beila {
+    #meikar-ekki-ad-beila,
+    #ekki-i-godu-astandi {
         display: none;
-    } */
+    }
 
     html {
         background: var(--main-green);
