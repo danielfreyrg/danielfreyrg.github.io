@@ -144,7 +144,7 @@ const words = {
     aestur: "æsingur",
     eldri: "eldri",
     "med-meiri-reynslu": "meiri reynsla",
-    efnadur: "efnahagur",
+    efnadur: "efnaðri",
     "godur-i-kjaftinum": "góður í kjaftinum",
     'i-ojafnvaegi': "í ójafnvægi",
     'sudar': "suðar",
