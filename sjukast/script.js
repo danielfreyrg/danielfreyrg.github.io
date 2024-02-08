@@ -308,7 +308,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             document.querySelector(".done-button").style.display = "block";
         } 
-        if (placedwords > 9) {
+        if (placedwords > 14) {
             setTimeout(function () {
                 nextScene(2);
             }, 1000);
