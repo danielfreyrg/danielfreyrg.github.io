@@ -253,11 +253,11 @@ body {
     position: relative;
 
 }
-
+/* 
 body,
 html {
     overflow: hidden;
-}
+} */
 
 .background {
     background-image: url(./assets/BG-4k.svg);
@@ -934,10 +934,10 @@ span {
     }
 
 }
-
+/* 
 body {
     overflow: hidden;
-}
+} */
 
 img {
     -webkit-user-select: none;
