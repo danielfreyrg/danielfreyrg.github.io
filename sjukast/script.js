@@ -266,7 +266,7 @@ document.addEventListener("DOMContentLoaded", function () {
     function updateCounter(dropzone, id) {
         alreadyplaced = false;
         var weight = wordWeights[id];
-        weight = weight * 2;
+        // weight = weight * 2;
 
         if (dropzone.classList.contains("left-words")) {
             weight = -weight;
