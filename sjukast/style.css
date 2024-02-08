@@ -178,11 +178,12 @@
     inset: 0;
     display: flex;
     justify-content: center;
-    align-items: flex-start;
+    align-items: flex-end;
     font-family: 'chaney';
     color: var(--main-red);
     font-size: 40px;
     z-index: -1;
+    margin-bottom: -80px;
     }
     .left-words::after {
         content: "Þú";
