@@ -299,6 +299,7 @@ html {
     animation-fill-mode: forwards;
 }
 .background {
+    animation-name: fade-in;
     animation-duration: 1s;
     animation-timing-function: ease-in-out;
     animation-fill-mode: forwards;
