@@ -555,7 +555,25 @@ label {
     }
 
 }
-
+/* max height fix*/
+.left-words, .right-words {
+    position: absolute;
+    min-height: 300px;
+    width: 50% !important;
+    bottom: 0;
+}
+.left-words {
+    left: 0;
+}
+.right-words {
+    right: 0;
+}
+.words {
+    position: relative;
+}
+.scene2 .container {
+    justify-content: flex-end !important;
+}
 .scene2,
 .scene3,
 .scene4 {
