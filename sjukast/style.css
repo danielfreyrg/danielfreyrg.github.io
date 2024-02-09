@@ -767,7 +767,9 @@ span {
         font-size: 20px;
         line-height: 17px;
     }
-
+    .start {
+        margin-bottom: 10px;
+    }
     .words .big-word-extra {
         line-height: 19px;
     }
