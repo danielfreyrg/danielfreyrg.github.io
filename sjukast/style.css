@@ -298,6 +298,11 @@ html {
     animation-timing-function: ease-in-out;
     animation-fill-mode: forwards;
 }
+.background {
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+}
 
 html,
 body {

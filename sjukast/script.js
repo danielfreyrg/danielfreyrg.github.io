@@ -387,6 +387,7 @@ document.querySelector(".start-again-button").addEventListener("click", function
 
 document.querySelector(".done-button").addEventListener("click", function () {
     nextScene(2)
+    document.querySelector('.background').style.animationName = 'fade-out';
 });
 
 
