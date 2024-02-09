@@ -184,15 +184,15 @@ label {
     align-items: flex-end;
     font-family: 'chaney';
     color: white;
-    font-size: 35px;
+    font-size: 28px;
     z-index: -1;
     margin-bottom: -80px;
     }
     .left-words::after {
-        content: "Þú";
+        content: "Ég";
     }
     .right-words::after {
-        content: "Ég";
+        content: "Hann/hún/hán";
     }
     .left-words, .right-words {
         position: relative;

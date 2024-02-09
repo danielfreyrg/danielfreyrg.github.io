@@ -265,8 +265,10 @@ document.addEventListener("DOMContentLoaded", function () {
     // Function to update counters based on current dropped words
     function updateCounter(dropzone, id) {
         alreadyplaced = false;
-        var weight = wordWeights[id];
+        // var weight = wordWeights[id];
         // weight = weight * 2;
+        //get the weight from the data-weight attribute
+        weight = parseInt(document.getElementById(id).getAttribute('data-weight'));
 
         if (dropzone.classList.contains("left-words")) {
             weight = -weight;
