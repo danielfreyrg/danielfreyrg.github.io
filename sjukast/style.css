@@ -860,6 +860,9 @@ span {
         bottom: 65px;
 
     }
+    html, body {
+        overflow-x: hidden;
+    }
 
     .highlight {
         background-color: rgb(255, 0, 0);
