@@ -359,7 +359,7 @@ a:hover {
     animation-timing-function: ease-in-out;
     animation-fill-mode: forwards;
     animation-iteration-count: 1;
-    margin-right: -40vw;
+    right: 10rem;
 
 }
 
@@ -510,6 +510,14 @@ label {
     }
 
 }
+.scene2 .sjukast-logo, .scene2 .done-button {
+    position: absolute;
+    top: 10rem;
+}
+.scene2 .sjukast-logo {
+    left: 10rem;
+}
+
 
 @keyframes fade-in {
     0% {
