@@ -172,6 +172,9 @@
     font-style: normal;
 
 }
+label {
+    cursor: pointer !important;
+}
 .left-words::after, .right-words::after {
     content: "";
     position: absolute;

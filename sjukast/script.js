@@ -310,7 +310,7 @@ document.addEventListener("DOMContentLoaded", function () {
         } 
         if (placedwords > 10 || counter > 20 || counter < -20) {
             setTimeout(function () {
-                nextScene(2);
+                // nextScene(2);
             }, 4000);
         }
 
