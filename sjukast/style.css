@@ -389,6 +389,7 @@ a:hover {
     display: flex;
     justify-content: center;
     position: relative;
+    margin-bottom: -50px;
 }
 
 .start {
@@ -796,14 +797,9 @@ span {
         font-size: 12px;
     }
 
-    /* #ahrifagjarn,
-    #vill-ad-adrir-fili-sig,
-    #vill-ekki-bregdast,
-    #stressadur,
-    #vill-ekki-saera,
-    #meikar-ekki-ad-beila {
-        display: none;
-    } */
+    .saw {
+        margin-bottom: 0px;
+    }
 
     html {
         background: var(--main-green);
