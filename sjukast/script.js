@@ -423,7 +423,8 @@ function resetSaw(bool) {
             word.addEventListener("animationend", function () {
                 word.style.animationName = "none";
                 document.querySelector(".start").appendChild(word);
-            });
+            }, { once: true });
+            
         }
         );
     });
