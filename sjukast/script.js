@@ -239,7 +239,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 draggableElement.style.animationName = "slide-in";
                 draggableElement.addEventListener("animationend", function () {
                     draggableElement.style.animationName = "none";
-                });
+                }, { once: true });
             }
             else {
                 if (!cloned) {
@@ -247,7 +247,7 @@ document.addEventListener("DOMContentLoaded", function () {
             draggableElement.addEventListener("animationend", function () {
                 draggableElement.style.animationName = "none";
 
-            });
+            }, { once: true });
             
         }
         else {
@@ -255,7 +255,7 @@ document.addEventListener("DOMContentLoaded", function () {
             cloned.addEventListener("animationend", function () {
                 cloned.style.animationName = "none";
 
-            })
+            }, { once: true })
         }
     }
             updateCounter(zone, id); // Update counters or any other logic after drop
@@ -384,7 +384,7 @@ document.querySelector(".start-again-button").addEventListener("click", function
         .querySelector(".scene3")
         .addEventListener("animationend", function () {
             window.location.reload();
-        });
+        }, { once: true });
 });
 
 document.querySelector(".done-button").addEventListener("click", function () {
@@ -402,7 +402,7 @@ function nextScene(currentSceneNum) {
             document.querySelector(".scene" + (currentSceneNum + 1)).style.display = "block";
             document.querySelector(".scene" + (currentSceneNum + 1)).style.animationName = "slide-in";
             document.querySelector(".scene" + currentSceneNum).style.display = "none";
-        });
+        }, { once: true });
 }
 
 function resetSaw(bool) {
