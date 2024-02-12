@@ -145,7 +145,7 @@ const words = {
     eldri: "eldri",
     "med-meiri-reynslu": "meiri reynsla",
     efnadur: "efnaðri",
-    "godur-i-kjaftinum": "góður í kjaftinum",
+    "godur-i-kjaftinum": "Orðheppni",
     'i-ojafnvaegi': "í ójafnvægi",
     'sudar': "suðar",
 };
@@ -340,32 +340,7 @@ function rotateBar() {
     ).style.transform = `rotate(${realRotation}deg)`;
 }
 
-// document.querySelector(".kk-button").addEventListener("click", function () {
-//     document.querySelectorAll(".start > label").forEach(function (label) {
-//    label.innerHTML = '<span>' + wordsKK[label.id] + '</span>';
-//         label.setAttribute('data-weight', wordWeights[label.id])
-//     });
-//     nextScene(2);
-// });
-// document.querySelector(".kvk-button").addEventListener("click", function () {
-//     document.querySelectorAll(".start > label").forEach(function (label) {
-//         label.innerHTML = '<span>' + wordsKVK[label.id] + '</span>';
-//         label.setAttribute('data-weight', wordWeights[label.id])
 
-//     });
-
-//     nextScene(2);
-// });
-
-// document.querySelector(".hk-button").addEventListener("click", function () {
-//     document.querySelectorAll(".start > label").forEach(function (label) {
-//         label.innerHTML = '<span>' + wordsHK[label.id] + '</span>';
-//         label.setAttribute('data-weight', wordWeights[label.id])
-
-//     });
-
-//     nextScene(2);
-// });
 
 document.querySelector(".start-button").addEventListener("click", function () {
     document.querySelectorAll(".start > label").forEach(function (label) {
