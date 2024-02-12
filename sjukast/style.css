@@ -382,16 +382,18 @@ a:hover {
     height: 40px;
 }
 
-.scene1 .saw {
+ .saw {
     z-index: 1;
     flex-direction: column;
     align-items: center;
     display: flex;
     justify-content: center;
     position: relative;
-    margin-bottom: -50px;
 }
 
+.scene1 .saw { 
+    margin-bottom: -50px;
+}
 .start {
     display: grid;
     align-items: center;
