@@ -688,8 +688,7 @@ button {
 .subtitle-container {
     display: grid;
     grid-template-columns: 1fr;
-    overflow: hidden;
-    width: 656px;
+
     justify-content: center;
 }
 
