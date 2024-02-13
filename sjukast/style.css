@@ -224,10 +224,13 @@ label {
 
 .base {
     position: relative;
-    width: 900px;
-    height: 246px;
+
     pointer-events: none;
 
+}
+.base, .base-back, .base-front {
+    width: 900px;
+    height: 246px;
 }
 
 html {
@@ -239,8 +242,7 @@ html {
     background: url(./assets/base-front-noshadow.svg);
     background-size: 100%;
     background-repeat: no-repeat;
-    width: 900px;
-    height: 246px;
+
     z-index: 3;
 }
 
@@ -250,8 +252,7 @@ html {
     background: url(./assets/base-back.svg);
     background-size: 100%;
     background-repeat: no-repeat;
-    width: 900px;
-    height: 246px;
+
     z-index: 1;
 }
 
