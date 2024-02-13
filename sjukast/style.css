@@ -1038,6 +1038,79 @@ img {
     right: 0;
     width: 45%;
 } */
+
+@media screen and (min-width: 900px) and (max-height: 500px) {
+    .start {
+        margin-top: 0;
+        gap: 0 5px;
+        margin-bottom: 0;
+        padding: 0;
+    }
+    .start label {
+        font-size: 10px;
+    }
+     .base,  .base-back,  .base-front {
+        width: 450px;
+        height: 128px;
+    }
+
+    .reset-button {
+        font-size: 10px;
+        padding: 10px;
+    }
+    .sjukast-logo {
+        width: 200px !important;
+        left: 1rem !important;
+    }
+    .sjukast-logo, .done-button {
+        top: 1rem !important;
+    }
+    .done-button {
+        right: 1rem !important;
+    }
+    .right-words::after, .left-words::after {
+        font-size: 14px;
+        margin-bottom: -25px;
+    }
+     .base-front {
+        inset: -12px 0 0 0;
+    }
+     .top {
+        width: 450px;
+        height: 40px;
+    }
+    .base {
+        height: 100px;
+    }
+    .info {
+        font-size: 38px;
+        max-width: 400px;
+        bottom: 94px;
+        line-height: 35px;
+    }
+    .word, .words label {
+        font-size: 30px;
+        line-height: 27px;
+    }
+    dotlottie-player.dotlottie {
+        width: 375px !important;
+        height: 150px !important;
+    }
+    .subtitle {
+        font-size: 15px;
+    }
+    .scene1 .saw {
+        display: none;
+    }
+    button {
+        font-size: 11px !important;
+        
+    }
+    .container {
+        gap: 0 !important;
+    }
+    
+}
 @media screen and (min-width: 990px) {
     .container {
         height: 100vh;
