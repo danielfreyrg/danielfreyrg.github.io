@@ -1047,7 +1047,9 @@ img {
         padding: 0;
     }
     .start label {
-        font-size: 10px;
+        font-size: 7px;
+        padding: 7px;
+        border-radius: 7px;
     }
      .base,  .base-back,  .base-front {
         width: 450px;
@@ -1056,7 +1058,8 @@ img {
 
     .reset-button {
         font-size: 10px;
-        padding: 10px;
+        padding: 7px;
+        border-radius: 7px;
     }
     .sjukast-logo {
         width: 200px !important;
@@ -1108,6 +1111,9 @@ img {
     }
     .container {
         gap: 0 !important;
+    }
+    .background {
+        background: url(./assets/BG-banner-scaled.svg) !important;
     }
     
 }
