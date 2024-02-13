@@ -713,8 +713,8 @@ span {
 }
 @media screen and (max-width: 700px) {
     .left-words::after, .right-words::after {
-        font-size: 10px;
-        margin-bottom: -20px;
+        font-size: 11px;
+        margin-bottom: -22px;
     }
     .background {
         background: var(--main-green)
@@ -733,10 +733,12 @@ span {
     }
 
     dotlottie-player.dotlottie {
-        width: 250px !important;
-        height: 250px !important;
+        width: 95vw !important;
+        height: 190px !important;
     }
-
+    .scene1 .sjukast-logo {
+        width: 200px;
+    }
     .subtitle {
         font-size: 15px;
         max-width: 80vw;
@@ -794,6 +796,8 @@ span {
         height: 100dvh;
     }
     .done-button {
+        font-size: 18px;
+        z-index: 5;
         top: 1rem !important;
         right: 1rem !important;
     }
