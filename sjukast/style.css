@@ -1046,6 +1046,7 @@ img {
         gap: 0 5px;
         margin-bottom: 0;
         padding: 0;
+        grid-template-rows: 1fr 1fr;
     }
     .start label {
         font-size: 7px;
