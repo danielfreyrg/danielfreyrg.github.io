@@ -382,12 +382,13 @@ body {
         display: flex;
         flex-flow: column;
         gap: 5px;
+        margin-left: 25px;
     }
     .buttons {
         height: 250px;
     }
     #spin.spin {
-        transform: translateY(-35%);
+        transform: translateY(-55%);
     }
     a.order.order-aside {
         display: none !important;
