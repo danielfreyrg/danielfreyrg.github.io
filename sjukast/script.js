@@ -370,6 +370,7 @@ document.querySelector(".done-button").addEventListener("click", function () {
 
 
 function nextScene(currentSceneNum) {
+
     document.querySelector(".scene" + currentSceneNum).style.animationName = "slide-out";
     document
         .querySelector(".scene" + currentSceneNum)
@@ -377,6 +378,10 @@ function nextScene(currentSceneNum) {
             document.querySelector(".scene" + (currentSceneNum + 1)).style.display = "block";
             document.querySelector(".scene" + (currentSceneNum + 1)).style.animationName = "slide-in";
             document.querySelector(".scene" + currentSceneNum).style.display = "none";
+            var lottie = document.querySelector('dotlottie-player');
+            if (currentSceneNum == 1) {
+                lottie.remove();
+            }
         }, { once: true });
 }
 
