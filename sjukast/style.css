@@ -1114,6 +1114,7 @@ img {
     }
     .background {
         background: url(./assets/BG-banner-scaled.svg) !important;
+        background-repeat: no-repeat;
     }
     
 }
