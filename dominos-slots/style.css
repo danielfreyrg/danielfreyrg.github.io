@@ -11,7 +11,7 @@
     font-style: normal;
 }
 :root {
-    --slot-width: 1fr;
+    --slot-width: 112px;
     --slot-gap: 10px;
 }
 h2 {
