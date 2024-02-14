@@ -885,7 +885,7 @@ span {
 
     }
     html, body {
-        overflow-x: hidden;
+        overflow: hidden !important;
     }
 
     .highlight {
