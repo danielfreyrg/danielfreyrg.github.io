@@ -82,6 +82,8 @@ a {
     background-size: 100%;
     background-repeat: repeat-y;
     background-position: unset;
+    clip-path: polygon(0 16%, 100% 16%, 100% 84%, 0 84%);
+
     /* transition: background-position 2s ease-in-out; */
 }
 
@@ -102,8 +104,8 @@ a {
     position: absolute;
     inset: 0;
     background: linear-gradient(rgba(0, 0, 0, .8),
-            rgba(0, 0, 0, 0) 40.88%,
-            rgba(0, 0, 0, 0) 60.56%,
+            rgba(0, 0, 0, 0) 33.88%,
+            rgba(0, 0, 0, 0) 66.56%,
             rgba(0, 0, 0, .8));
     /* background-image: url(./assets/Shadow.svg); */
     opacity: .9;
