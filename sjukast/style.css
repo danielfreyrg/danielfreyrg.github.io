@@ -238,7 +238,7 @@ html {
 }
 .base-front {
     position: absolute;
-    inset: -25px 0 0 0;
+    inset: -27px 0 0 0;
     background: url(./assets/base-front-noshadow.svg);
     background-size: 100%;
     background-repeat: no-repeat;
@@ -1080,7 +1080,8 @@ img {
         margin-bottom: -25px;
     }
      .base-front {
-        inset: -12px 0 0 0;
+        height: 100px;
+        inset: -10px 0 0 0;
     }
      .top {
         width: 450px;
