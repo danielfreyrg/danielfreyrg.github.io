@@ -104,10 +104,7 @@ a {
     content: "";
     position: absolute;
     inset: 0;
-    background: linear-gradient(rgba(0, 0, 0, .8),
-            rgba(0, 0, 0, 0) 33.88%,
-            rgba(0, 0, 0, 0) 66.56%,
-            rgba(0, 0, 0, .8));
+    background: radial-gradient(circle, rgba(0,0,0,0) 31%, rgba(255,255,256,0) 50%, rgba(0,0,0,0.8) 69%);
     /* background-image: url(./assets/Shadow.svg); */
     opacity: .9;
     box-shadow: 0 0 30px 5px rgba(0, 0, 0, .3);
