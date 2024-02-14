@@ -597,9 +597,10 @@ label {
     width: 15vw;
 }
 .start .reset-button {
-    padding: 10px;
-    border-radius: 5px;
-    font-size: 12px;
+    padding: 7px;
+    border-radius: 7px;
+    font-size: 15px;
+    font-family: 'bricolage';
 }
 
 .scene {
@@ -877,9 +878,10 @@ span {
     }
 
     .info {
-        font-size: 36px;
+        font-size: 25px;
         bottom: 74px;
         line-height: 27px;
+        max-width: 200px;
 
     }
     html, body {
