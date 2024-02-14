@@ -998,6 +998,28 @@ span {
     }
 
 }
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    40% {
+        transform: rotate(10deg);
+    }
+    60% {
+        transform: rotate(-10deg);
+    }
+    80% {
+        transform: rotate(0deg);
+    }
+
+}
+.scene1 .top {
+    animation-name: rotate;
+    animation-duration: 5s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+}
 /* 
 body {
     overflow: hidden;
