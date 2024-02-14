@@ -596,7 +596,11 @@ label {
 .sjukast-logo {
     width: 15vw;
 }
-
+.start .reset-button {
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 12px;
+}
 
 .scene {
     height: 100dvh;
