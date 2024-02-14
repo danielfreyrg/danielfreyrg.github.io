@@ -525,10 +525,10 @@ label {
 }
 .scene2 .sjukast-logo, .scene2 .done-button {
     position: absolute;
-    top: 10rem;
+    top: 10vh;
 }
 .scene2 .sjukast-logo {
-    left: 10rem;
+    left: 10vw;
 }
 
 
@@ -594,7 +594,7 @@ label {
 }
 
 .sjukast-logo {
-    width: 300px;
+    width: 15vw;
 }
 
 
