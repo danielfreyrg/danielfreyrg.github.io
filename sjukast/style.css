@@ -525,10 +525,10 @@ label {
 }
 .scene2 .sjukast-logo, .scene2 .done-button {
     position: absolute;
-    top: 10vh;
+    top: 4.5vw;
 }
 .scene2 .sjukast-logo {
-    left: 10vw;
+    left: 5vw;
 }
 
 
@@ -765,6 +765,7 @@ span {
     .reset-button {
         font-size: 15px !important;
         padding: 10px !important;
+        border-radius: 10px !important;
     }
 
     .scene2 .top-wrapper,
