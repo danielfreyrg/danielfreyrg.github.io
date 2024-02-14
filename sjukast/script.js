@@ -379,7 +379,7 @@ function nextScene(currentSceneNum) {
             document.querySelector(".scene" + (currentSceneNum + 1)).style.animationName = "slide-in";
             document.querySelector(".scene" + currentSceneNum).style.display = "none";
             var lottie = document.querySelector('dotlottie-player');
-            if (currentSceneNum == 1) {
+            if (currentSceneNum == 1 && lottie) {
                 lottie.remove();
             }
         }, { once: true });
