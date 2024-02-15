@@ -805,6 +805,19 @@ font-size: 30px !important;
     }
     
 }
-/* .outer {
-    background: #0078AD;
-} */
+ .outer.outer.outer.outer.outer.outer.outer.outer  {
+    background: #006491 !important;
+} 
+body {
+    background: #006491 !important;
+}
+.corner {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 10rem;
+    /* height: 200px; */
+    aspect-ratio: 1/1;
+    background: url(./assets/dom-corner.svg);
+    z-index: 99;
+}
