@@ -390,7 +390,7 @@ body {
         height: 250px;
     } */
     #spin.spin {
-        transform: translateY(-55%);
+        /* transform: translateY(-55%); */
     }
     a.order.order-aside {
         display: none !important;
