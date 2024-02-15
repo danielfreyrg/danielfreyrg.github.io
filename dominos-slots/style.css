@@ -176,7 +176,7 @@ body {
 
 .buttons {
     /* position: absolute; */
-    height: 100%;
+    height: 100vh;
     left: 30%;
     bottom: 12%;
     display: grid;
