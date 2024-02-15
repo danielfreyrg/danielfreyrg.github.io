@@ -501,6 +501,9 @@ body {
     h2.mobile.mobile.mobile.mobile {
         display: block !important;
         width: max-content;
+        max-width: 280px; 
+            font-size: 21px !important;
+        
         /* margin: -15px 0 0 0; */
     }
     h2.desktop.desktop.desktop {
@@ -510,6 +513,7 @@ body {
         font-size: 60px;
     }
     .content.content.content {
+        padding-top: 30px;
         display: grid !important;
         grid-template-columns: 200px 50px;
         grid-template-rows: 35px 220px;
