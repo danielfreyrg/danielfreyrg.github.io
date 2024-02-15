@@ -323,7 +323,7 @@ body {
     position: absolute;
     top: 50%;
     left: -20px;
-    transform: translateY(-100%);
+    /* transform: translateY(-100%); */
     /* border-top: var(--border-size) solid transparent;
     border-bottom: var(--border-size) solid transparent;
     border-left: var(--border-size) solid white; */
@@ -341,7 +341,8 @@ body {
 .arrow-2 {
     --arrow-size: 7.5vh;
     left: -0;
-    transform: translate(-150%, -110%);
+    /* transform: translate(-150%, -110%); */
+    transform: translate(-150%, -0%);
     background-image: url(./assets/triangle.svg);
     width: var(--arrow-size);
     height: var(--arrow-size);
@@ -625,7 +626,9 @@ body {
         margin-left: 50px;
     }
     .arrow-2 {
-        transform: translate(-150%, -150%) !important;
+        /* transform: translate(-150%, -150%) !important; */
+        transform: translate(-150%, -0%) !important;
+
     }
     
     .content.content.content {
@@ -720,7 +723,9 @@ body {
         font-size: 24px !important;
     }
     .arrow-2 {
-        transform: translate(-150%, -150%) !important;
+        /* transform: translate(-150%, -110%) !important; */
+        transform: translate(-150%, -0%) !important;
+
     }
     .outer.outer.outer {
         padding: 10px 0 !important;
