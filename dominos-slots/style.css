@@ -12,7 +12,7 @@
 }
 :root {
     --slot-width: 112px;
-    --slot-gap: 10px;
+    --slot-gap: 20px;
 }
 h2 {
     font-family: 'trade';
