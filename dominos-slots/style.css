@@ -617,6 +617,7 @@ body {
     }
     .results {
         font-size: 11px !important;
+        bottom: -5px !important;
         
     }
     #spin {
@@ -702,7 +703,13 @@ body {
         display: none;
     }
 }
-
+/* 1018x360 */
+@media screen and (min-width: 800px) {
+    .results div {
+        font-size: 20px !important;
+    }
+    
+}
 /*375x156*/
 @media screen and (min-width: 365px) and (max-width: 376px) and (max-height: 157px) {
     .order-main.order-main.order-main {
@@ -717,6 +724,9 @@ body {
     }
     .outer.outer.outer {
         padding: 10px 0 !important;
+    }
+    .corner {
+        z-index: 1 !important;
     }
     .tuesday-wrapper {
         display: flex !important;
@@ -823,11 +833,14 @@ pointer-events: none;
     background: url(./assets/dom-corner.svg);
     z-index: 2;
 }
-button, a {
+button, a, .order {
     cursor: pointer;
     z-index: 99;
 }
 .results {
     position: absolute;
     bottom: 0;
+}
+.content {
+    z-index: 5;
 }
