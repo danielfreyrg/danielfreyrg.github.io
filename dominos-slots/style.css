@@ -97,7 +97,7 @@ a {
 }
 
 .slot-col:nth-of-type(3) {
-    background-image: url(./assets/Slots-right.svg);
+    background-image: url(./assets/Slots-right-.svg);
 }
 
 .slot-col::after {
