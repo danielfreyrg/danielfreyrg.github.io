@@ -704,7 +704,7 @@ body {
     }
 
     .main-text.main-text.main-text p {
-        margin: 5px !important;
+        margin: -5px 0 5px 0 !important;
     }
 
     .main-text.main-text.main-text h1 {
