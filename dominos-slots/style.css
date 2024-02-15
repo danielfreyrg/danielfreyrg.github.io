@@ -384,9 +384,9 @@ body {
         gap: 5px;
         margin-left: 25px;
     }
-    .buttons {
+    /* .buttons {
         height: 250px;
-    }
+    } */
     #spin.spin {
         transform: translateY(-55%);
     }
@@ -537,8 +537,8 @@ body {
 @media screen and (max-width: 650px) {
 
     :root {
-        --slot-width: 15vw;
-        --slot-gap: 1vw;
+        --slot-width: 50px;
+        --slot-gap: 5px;
     }
 
     /* .arrow {
@@ -620,7 +620,8 @@ body {
         
     }
     #spin {
-        transform: translateY(-50%);
+        /* transform: translateY(-50%); */
+        margin-left: 50px;
     }
     .arrow-2 {
         transform: translate(-150%, -150%) !important;
@@ -669,7 +670,7 @@ body {
 
     .buttons.buttons {
         grid-auto-flow: row !important;
-        align-self: flex-end !important;
+        /* align-self: flex-end !important; */
         margin: 0 0 0 10px !important;
     }
 
@@ -812,6 +813,7 @@ body {
     background: #006491 !important;
 }
 .corner {
+pointer-events: none;
     position: absolute;
     bottom: 0;
     right: 0;
@@ -819,5 +821,13 @@ body {
     /* height: 200px; */
     aspect-ratio: 1/1;
     background: url(./assets/dom-corner.svg);
+    z-index: 2;
+}
+button, a {
+    cursor: pointer;
     z-index: 99;
+}
+.results {
+    position: absolute;
+    bottom: 0;
 }
