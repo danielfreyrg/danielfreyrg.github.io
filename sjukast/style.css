@@ -1095,7 +1095,7 @@ img {
         margin-bottom: -15px;
     }
     .start label {
-        font-size: 7px;
+        font-size: 10px;
         padding: 7px;
         border-radius: 7px;
     }
@@ -1158,6 +1158,9 @@ img {
     }
     .subtitle {
         font-size: 20px;
+    }
+    .scene1 .subtitle {
+        font-size: 18px;
     }
     .scene1 .saw {
         display: none;
