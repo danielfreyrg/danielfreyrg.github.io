@@ -1074,7 +1074,7 @@ img {
 
 @media screen and (min-width: 900px) and (max-height: 500px) {
     .subtitle {
-        padding: 0;
+        padding: 10px;
         margin: 0 0 10px 0;
     }
     .start {
