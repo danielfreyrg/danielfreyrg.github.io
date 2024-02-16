@@ -1084,6 +1084,9 @@ img {
         padding: 0 0 10px 0;
         grid-template-rows: 1fr 1fr;
     }
+    .words .big-word-extra {
+    line-height: 27px;
+    }
     .right-words::after {
         margin-right: -20px;
     }
