@@ -740,6 +740,9 @@ body {
     .results div {
         font-size: 20px !important;
     }
+    .corner {
+        width: 15rem !important;
+    }
     
 }
 /*375x156*/
