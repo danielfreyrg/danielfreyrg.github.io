@@ -1118,6 +1118,9 @@ img {
     .scene2 .sjukast-logo {
         width: 170px !important;
     }
+    dotlottie-player.dotlottie {
+        margin-top: -10px;
+    }
     .sjukast-logo, .done-button {
         top: 1rem !important;
     }
