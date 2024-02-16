@@ -538,6 +538,7 @@ body {
     .buttons {
         grid-area: buttons;
         animation-name: fade-in !important;
+        padding-left: 30px;
     }
 
     .main-text.main-text.main-text.main-text {
@@ -873,5 +874,5 @@ button, a, .order {
 }
 .slot-wrapper, .buttons {
     margin-top: -50px;
-    padding-left: 30px;
+    /* padding-left: 30px; */
 }
