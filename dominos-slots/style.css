@@ -860,7 +860,7 @@ button, a, .order {
 }
 .results {
     position: absolute;
-    bottom: 0;
+    bottom: -5px;
 }
 .content {
     z-index: 5;
