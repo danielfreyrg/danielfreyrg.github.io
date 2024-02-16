@@ -419,11 +419,12 @@ body {
     }
     .slot-wrapper {
         margin-bottom: 20px;
+        margin-top: -40px;
     }
     .slot-row {
 
         animation-name:  slide-in-right !important;
-        margin-top: -40px;
+        
     }
     .slot-wrapper, .buttons {
         margin-top: 0 !important;
