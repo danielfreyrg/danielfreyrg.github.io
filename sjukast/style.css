@@ -1084,6 +1084,7 @@ img {
         padding: 0 0 10px 0;
         grid-template-rows: 1fr 1fr;
     }
+
     .words .big-word-extra {
     line-height: 27px;
     }
@@ -1113,6 +1114,9 @@ img {
     .sjukast-logo {
         width: 200px !important;
         left: 1rem !important;
+    }
+    .scene2 .sjukast-logo {
+        width: 170px !important;
     }
     .sjukast-logo, .done-button {
         top: 1rem !important;
