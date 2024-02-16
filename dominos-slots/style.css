@@ -538,7 +538,7 @@ body {
     .buttons {
         grid-area: buttons;
         animation-name: fade-in !important;
-        padding-left: 30px;
+        padding-left: 40px;
     }
 
     .main-text.main-text.main-text.main-text {
