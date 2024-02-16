@@ -145,7 +145,7 @@ const words = {
     eldri: "eldri",
     "med-meiri-reynslu": "meiri reynsla",
     efnadur: "efnaðri",
-    "godur-i-kjaftinum": "Orðheppni",
+    "godur-i-kjaftinum": "Kjaftfor",
     'i-ojafnvaegi': "í ójafnvægi",
     'sudar': "suðar",
 };
