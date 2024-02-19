@@ -435,7 +435,8 @@ function resetSaw(bool) {
 }
 function scaleSaw(resetScale = false) {
     var rightWords = document.querySelector(".right-words");
-    var top = rightWords.getBoundingClientRect().top;
+    var leftWords = document.querySelector(".left-words");
+    var top = Math.min(rightWords.getBoundingClientRect().top, leftWords.getBoundingClientRect().top);
     var saw = document.querySelector(".scene2 .saw");
     if (resetScale) {
 scale = 1;

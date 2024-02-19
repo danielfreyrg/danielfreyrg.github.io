@@ -1198,3 +1198,14 @@ img {
     left: 5vw;
     
 }
+@media screen and (max-height: 900px) {
+    .right-words, .left-words {
+        padding-top: 2vh !important;
+        min-height: 100px !important;
+    }
+    /* right and left words no children */
+.right-words:empty, .left-words:empty {
+    padding-top: 10vh !important;
+}
+    
+}
