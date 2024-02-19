@@ -216,7 +216,10 @@ label {
     font-weight: normal;
     font-style: normal;
 }
-
+.saw {
+    transform: scale(1);
+    transition: transform .5s ease-in-out;
+}
 :root {
     --main-green: #42D3A6;
     --main-red: rgb(238, 119, 104);
@@ -752,7 +755,7 @@ span {
         height: 190px !important;
     }
     .scene1 .sjukast-logo {
-        width: 200px;
+        width: 170px;
     }
     .subtitle {
         font-size: 15px;
@@ -1114,9 +1117,10 @@ img {
         grid-column-start: 11;
     grid-row-start: 2;
     }
+
     .sjukast-logo {
         width: 200px !important;
-        left: 1.5rem !important;
+        left: calc(2rem + 15px) !important;
     }
     .scene2 .sjukast-logo {
         width: 170px !important;
@@ -1125,10 +1129,10 @@ img {
         margin-top: -10px;
     }
     .sjukast-logo, .done-button {
-        top: 1.4rem !important;
+        top: 2em !important;
     }
     .done-button {
-        right: 1.4rem !important;
+        right: 2rem !important;
     }
     .right-words::after, .left-words::after {
         font-size: 14px;
@@ -1187,4 +1191,10 @@ img {
     .container {
         height: 100vh;
     }
+}
+.scene1 .sjukast-logo {
+    position: absolute;
+    top: 5vw;
+    left: 5vw;
+    
 }

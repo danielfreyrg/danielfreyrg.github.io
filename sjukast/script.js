@@ -7,6 +7,7 @@ var placedwords = 0;
 var animationIn = "slide-in";
 var animationOut = "slide-out";
 var alreadyplaced = false;
+var scale = 1;
 
 if (window.innerWidth < 600) {
     animationIn = "slide-in-mobile";
@@ -259,8 +260,25 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
             updateCounter(zone, id); // Update counters or any other logic after drop
+            scaleSaw();
+            // var x = document.querySelector(".right-words").getBoundingClientRect().top;
+            // console.log(x);
+            // if (x < 0) {
+            //     scale -= 0.05;
+            //     var p = document.querySelector(".scene2 .saw")
+            //     p.style.transform = 'scale(' + scale + ')';
+            //     var newHeight = p.getBoundingClientRect().top;
+            //     if (newHeight < 0) {
+            //         scale += 0.05;
+            //         p.style.transform = 'scale(' + scale + ')';
+            //     }
+            // }
         });
     });
+
+
+    
+    
 
     // Function to update counters based on current dropped words
     function updateCounter(dropzone, id) {
@@ -412,5 +430,30 @@ function resetSaw(bool) {
     placedwords = 0;
     alreadyplaced = false;   
     rotateBar();
+    scaleSaw(true)
     document.querySelector('body').click();
+}
+function scaleSaw(resetScale = false) {
+    var rightWords = document.querySelector(".right-words");
+    var top = rightWords.getBoundingClientRect().top;
+    var saw = document.querySelector(".scene2 .saw");
+    if (resetScale) {
+scale = 1;
+saw.style.transform = 'scale(' + scale + ')';
+    }
+    console.log(top);
+
+    // Only proceed if the right-words element is off the screen (top < 0)
+    if (top < 0 && scale > 0.2) {
+        // Calculate adjustment needed based on how far off the screen the element is
+        // This is a basic adjustment calculation and may need to be refined
+        var adjustment = Math.abs(top) / 1000; // Example adjustment calculation
+        var newScale = scale - adjustment;
+        scale = Math.max(newScale, 0.2); // Ensure scale does not go below 0.2
+
+        saw.style.transform = 'scale(' + scale + ')';
+
+        // Log the new scale for debugging
+        console.log('Adjusted scale to: ' + scale);
+    }
 }
