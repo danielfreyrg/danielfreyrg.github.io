@@ -456,5 +456,11 @@ saw.style.transform = 'scale(' + scale + ')';
 
         // Log the new scale for debugging
         console.log('Adjusted scale to: ' + scale);
+    } else if (top > 0 && scale < 1) {
+        var adjustment = Math.abs(top) / 1000; // Example adjustment calculation
+        var newScale = scale + adjustment;
+        scale = Math.min(newScale, 1); // Ensure scale does not go above 1
+        saw.style.transform = 'scale(' + scale + ')';
+        console.log('Adjusted scale to: ' + scale);
     }
 }
