@@ -43,8 +43,10 @@ const wordCounter = {
     efnadur: 0,
     "godur-i-kjaftinum": 0,
     'sudar': 0,
+    'pressa': 0
 };
 const wordWeights = {
+    pressa: -2,
     stressadur: -2,
     "meikar-ekki-ad-beila": -2,
     "vill-ekki-saera": -2,
@@ -126,6 +128,8 @@ const wordWeights = {
     'sudar': 1,
     'sudar-clone-0': 1,
     'sudar-clone-1': 1,
+    'pressa-clone-0': -2,
+    'pressa-clone-1': -2,
     
 };
 const words = {

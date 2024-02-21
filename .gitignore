@@ -11,3 +11,7 @@ rimordabok2/node_modules/
 rimordabok2/package-lock.json
 rimordabok2/package.json
 .DS_Store
+node_modules/
+package-lock.json
+package.json
+
