@@ -153,6 +153,7 @@ const words = {
     "godur-i-kjaftinum": "kjaftfor",
     'i-ojafnvaegi': "í ójafnvægi",
     'sudar': "suðar",
+    'pressa': "upplifir pressu",
 };
 
 function splitAndFormatWord(word) {
