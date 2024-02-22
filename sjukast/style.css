@@ -757,7 +757,7 @@ span {
         display: none;
     }
     .start-button {
-        margin-bottom: 100px;
+        margin-bottom: 50px;
     }
     .scene2 .container {
         display: grid !important;
@@ -852,7 +852,7 @@ span {
     }
     .subtitle {
         font-size: 15px;
-        max-width: 80vw;
+        max-width: 50vw;
         margin: 0 auto;
     }
 
@@ -1146,28 +1146,6 @@ img {
     color: white;
 }
 
-/* .scene3 .container {
-    justify-content: flex-end;
-}
-.scene3 .top-wrapper, .scene3 img {
-    position: absolute;
-    top: 15vh;
-}
-.scene3 .words {
-    position: relative;
-}
-.scene3 .right-words, .scene3 .left-words {
-    position: absolute;
-    bottom: 0;
-}
-.left-words {
-    left: 0;
-    width: 45%;
-}
-.right-words {
-    right: 0;
-    width: 45%;
-} */
 
 @media screen and (min-width: 900px) and (max-height: 500px) {
     .scene1 .sjukast-logo {
