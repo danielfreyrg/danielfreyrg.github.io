@@ -783,8 +783,8 @@ span {
     }
 
     dotlottie-player.dotlottie {
-        width: 100px !important;
-        height: 40px !important;
+        width: 100% !important;
+        height: 140px !important;
     }
     .rotate img {
         width: 50px !important;
