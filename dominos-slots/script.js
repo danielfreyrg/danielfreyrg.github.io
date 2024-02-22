@@ -2,19 +2,13 @@ var hasSpun = false;
 var slots_left = [ 'Spínat', 'Rjómaostur', 'Græn paprika', 'Pulled pork', 'Pepperoni', 'Sveppir']
 var slots_middle = [ "Skinka", "Piparostur", "Svartar ólífur", "Ananas", "hakk", "Vegan kjúklingur"]
 var slots_right = [ 'Fajitas kjúklingur', 'Rauðlaukur', 'Beikonkurl', 'Ferskur chili', 'Jalapeno', 'Döðlur']
-var slots_left_small = [ 'Spínat', 'Rjóma<br>ostur', 'Græn paprika', 'Pulled pork', 'Pepperoni', 'Sveppir']
-var slots_middle_small = [ "Skinka", "Pipar<br>ostur", "Svartar ólífur", "Ananas", "hakk", "Vegan kjúlli"]
-var slots_right_small = [ 'Fajitas kjúlli', 'Rauð <br>laukur', 'Beikon <br>kurl', 'Ferskur chili', 'Jalapeno', 'Döðlur']
+var slots_left_small = [ 'Spínat', 'Rjómaostur', 'Græn paprika', 'Pulled pork', 'Pepperoni', 'Sveppir']
+var slots_middle_small = [ "Skinka", "Piparostur", "Svartar ólífur", "Ananas", "hakk", "Vegan kjúlli"]
+var slots_right_small = [ 'Fajitas kjúlli', 'Rauðlaukur', 'Beikon <br>kurl', 'Ferskur chili', 'Jalapeno', 'Döðlur']
 var roll = [];
 var positionY;
 
 function updateResults() {
-  //pepperoni is too long for the slot, so we need to make the font smaller
-  if (roll[0] == 'Pepperoni') {
-    // document.querySelector(".first span").style.fontSize = "8px";
-  } else {
-    document.querySelector(".first span").style.fontSize = "";
-  }
   document.querySelector(".first span").innerHTML = roll[0];
   document.querySelector(".second span").innerHTML = roll[1];
   document.querySelector(".third span").innerHTML = roll[2];
