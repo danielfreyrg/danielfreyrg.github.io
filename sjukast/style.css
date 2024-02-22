@@ -770,6 +770,7 @@ span {
         gap: 0 !important;
     }
     .scene2 .info {
+        margin-bottom: -50px;
         grid-area: info;
         font-size: 14px;
         display: flex;
@@ -1257,6 +1258,9 @@ img {
     
 }
 @media screen and (min-width: 990px) {
+    .arrow-down {
+        display: none;
+    }
     .hero h1 {
         display: none;
     }
