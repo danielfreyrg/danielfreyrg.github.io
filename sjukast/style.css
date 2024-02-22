@@ -743,7 +743,8 @@ span {
 
 }
 @media screen and (max-width: 700px), screen and (hover: none) and (orientation: landscape) and (max-height: 500px) {
-    .scene1 .container {
+    .scene1 .container.container.container {
+        display: grid;
         justify-content: space-evenly !important;
     }
     .scene1 .sjukast-logo {
