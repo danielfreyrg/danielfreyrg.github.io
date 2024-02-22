@@ -743,6 +743,16 @@ span {
 
 }
 @media screen and (max-width: 700px) {
+    .scene1 .container {
+        justify-content: space-evenly !important;
+    }
+    .scene1 .sjukast-logo {
+        position: relative !important;
+        top: unset;
+        bottom: unset;
+        left: unset;
+        right: unset;
+    }
     .scene3 .sjukast-logo {
         width: 150px;
     }
@@ -1237,7 +1247,28 @@ img {
 .mobile-portrait {
     display: none;
 }
+.rotate {
+    display: none;
+}
 @media screen and (max-width: 600px) and (orientation: portrait) and (hover: none) {
+    .scene1 .rotate {
+        display: flex;
+        justify-content: center;
+        flex-direction: column-reverse;
+        align-items: center;
+    }
+    .scene1 .start-button {
+        display: none;
+    }
+    .rotate img {
+        width: 100px;
+    }
+    .rotate h2 {
+        font-size: 20px;
+        text-align: center;
+        color: var(--main-red);
+        font-family: 'chaney';
+    }
     .mobile-portrait {
         display: flex;
         position: absolute;
