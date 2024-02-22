@@ -742,7 +742,7 @@ span {
 
 
 }
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 700px), screen and (hover: none) and (orientation: landscape) and (max-height: 500px) {
     .scene1 .container {
         justify-content: space-evenly !important;
     }
@@ -783,8 +783,11 @@ span {
     }
 
     dotlottie-player.dotlottie {
-        width: 95vw !important;
-        height: 190px !important;
+        width: 100px !important;
+        height: 40px !important;
+    }
+    .rotate img {
+        width: 50px !important;
     }
     .scene1 .sjukast-logo {
         width: 170px;
