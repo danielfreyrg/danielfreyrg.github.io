@@ -172,6 +172,12 @@
     font-style: normal;
 
 }
+.hero h1 {
+    font-family: 'chaney';
+    font-size: 40px;
+    color: var(--main-red);
+    text-align: center;
+}
 label {
     cursor: pointer !important;
 }
@@ -743,16 +749,21 @@ span {
 
 }
 @media screen and (max-width: 700px), screen and (hover: none) and (orientation: landscape) and (max-height: 500px) {
+    .hero dotlottie-player.dotlottie {
+        display: none;
+    }
     .scene1 .container.container.container {
         display: grid;
         justify-content: space-evenly !important;
+        align-items: center;
+        justify-items: center;
     }
     .scene1 .sjukast-logo {
         position: relative !important;
-        top: unset;
-        bottom: unset;
-        left: unset;
-        right: unset;
+        top: unset !important;
+        bottom: unset !important;
+        left: unset !important;
+        right: unset !important;
     }
     .scene3 .sjukast-logo {
         width: 150px;
@@ -779,9 +790,7 @@ span {
         line-height: 27px;
     }
     
-    .sjukast-logo {
-        margin-top: -10dvh;
-    }
+ 
 
     dotlottie-player.dotlottie {
         width: 100% !important;
@@ -1209,9 +1218,7 @@ img {
     .scene1 .subtitle {
         font-size: 18px;
     }
-    .scene1 .saw {
-        display: none;
-    }
+
     button {
         font-size: 11px !important;
         
@@ -1227,6 +1234,9 @@ img {
     
 }
 @media screen and (min-width: 990px) {
+    .hero h1 {
+        display: none;
+    }
     .container {
         height: 100vh;
     }
