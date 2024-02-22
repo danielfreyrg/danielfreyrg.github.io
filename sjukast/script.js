@@ -223,7 +223,6 @@ document.addEventListener("DOMContentLoaded", function () {
             if (wordWeights[id] > 0) {
                 draggableElement.classList.add("big-word");
             }
-            console.log("Word: " + id + "counter: " + wordCounter[id]);
             if ((wordCounter[id] == 0 && !zone.classList.contains("start")) && startzone != zone) {
                 var cloned = draggableElement.cloneNode(true);
                 cloned.id = id + "-clone-" + wordCounter[id];
@@ -338,10 +337,8 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         counter += weight;
-        console.log("Counter: " + counter + " Word: " + id + " Weight: " + weight + 'placedwords: ' + placedwords);
         rotateBar();
 
-        console.log("------------------");
     }
 });
 
@@ -445,7 +442,6 @@ function scaleSaw(resetScale = false) {
 scale = 1;
 saw.style.transform = 'scale(' + scale + ')';
     }
-    console.log(top);
 
     // Only proceed if the right-words element is off the screen (top < 0)
     if (top < 0 && scale > 0.2) {

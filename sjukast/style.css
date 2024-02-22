@@ -343,6 +343,7 @@ body {
 
 button:hover {
     background: rgb(220, 99, 83) !important;
+    color: white !important;
 }
 
 .top {
