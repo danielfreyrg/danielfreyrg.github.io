@@ -40,13 +40,18 @@
 
     </div>
     <div class="scene scene2">
+        <div class="mobile-portrait">
+            <img src="./assets/sjukast.svg" class="logo" alt="Sjúk ást">
+            <h1>vegasaltið</h1>
+            <h2>Vinsamlegast snúðu símanum</h2>
+            <img src="./assets/turn-phone.svg" alt="Snúðu símanum" class="turn-phone">
+        </div>
         <div class="container">
             <div class="bg-drop-zone"></div>
             <a href="https://www.sjukast.is" target="_blank">
             <img src="./assets/sjukast.svg" class="sjukast-logo" alt="Sjúk ást">
             </a>
 
-            <button class="done-button"><span>Ljúka</span></button>
 
 
             <div class="saw">
@@ -55,16 +60,13 @@
                     </div>
                     <div class="right-words"></div>
                 </div>
-                <div class="info">Dragðu orðin inn  á vegasaltið</div>
-
-
                 <div class="top bar"></div>
                 <div class="base"><div class="base-back"></div>
             <div class="base-front"></div></div>
             </div>
-            <div id="kk" class="start">
-                <button class="reset-button" onclick="resetSaw(true)"><span> Hreinsa</span></button>
+            <div class="info"><span>Dragðu orðin inn á vegasaltið </span><img src="./assets/curved-arrow-right-icon 1.svg"></div>
 
+            <div id="kk" class="start">
                 <label id="yngri"><span> Yngri</span></label>
                 <label id="ekki-med-fulla-medvitund"><span> Ekki með fulla meðvitund</span></label>
                 <label id="ooruggur"><span> Óöruggur</span></label>
@@ -90,6 +92,7 @@
 
 
             </div>
+            <div class="buttons-container"><button class="reset-button" onclick="resetSaw(true)"><span> Hreinsa</span></button><button class="done-button"><span>Ljúka</span></button></div>
         </div>
     </div>
     <div class="scene scene3">

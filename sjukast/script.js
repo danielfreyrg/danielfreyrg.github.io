@@ -210,9 +210,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 zone = document.querySelector('.start');
 
             }
-            if (zone.classList.contains("left-words") || zone.classList.contains("right-words") && placedwords == 0) {
-            document.querySelector(".info").style.animationName = "fade-out";
-            }
+
             const id = event.dataTransfer.getData("text/plain");
             const draggableElement = document.getElementById(id);
             draggableElement.querySelector("span").innerHTML = splitAndFormatWord(
