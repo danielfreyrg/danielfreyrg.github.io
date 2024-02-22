@@ -749,9 +749,12 @@ span {
 
 
 }
-@media screen and (max-width: 700px), screen and (hover: none) and (orientation: landscape) and (max-height: 500px) {
+@media screen and (max-width: 1000px), screen and (hover: none) and (orientation: landscape) and (max-height: 500px) {
     .arrow-up {
         display: none;
+    }
+    .start-button {
+        margin-bottom: 100px;
     }
     .scene2 .container {
         display: grid !important;
