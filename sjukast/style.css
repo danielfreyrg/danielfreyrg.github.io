@@ -177,6 +177,7 @@
     font-size: 40px;
     color: var(--main-red);
     text-align: center;
+    margin: 5px;
 }
 label {
     cursor: pointer !important;
@@ -754,11 +755,12 @@ span {
     }
     .scene2 .container {
         display: grid !important;
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr 40%;
         grid-template-rows:50px 1fr 50px;
-        grid-template-areas:  'info info' 'saw words' 'buttons words';
+        grid-template-areas:  'info words' 'saw words' 'buttons words';
         align-items: end;
         justify-items: center;
+        gap: 0 !important;
     }
     .scene2 .info {
         grid-area: info;
@@ -767,12 +769,13 @@ span {
         text-align: left;
         gap: 0px 5px;
         line-height: 1;
-        max-width: 300px;
+        /* max-width: 300px;  */
+        justify-self: end;
     }
     .start label {
         width: 82px !important;
         height: 30px !important;
-        padding: 0 !important;
+        padding: 2px !important;
     }
     .scene2 .start {
         grid-area: words;
@@ -789,6 +792,7 @@ span {
         display: none;
     }
     .scene1 .container.container.container {
+        gap: 0px !important;
         display: grid;
         justify-content: space-evenly !important;
         align-items: center;
@@ -815,7 +819,9 @@ span {
         margin-bottom: -22px;
     }
     .background {
-        background: var(--main-green)
+        background: url('./assets/Layer_1.svg');
+        background-repeat: no-repeat;
+        background-size: 100%;
     }
     .words {
         width: 100%;
@@ -890,7 +896,7 @@ span {
         height: 100dvh;
     }
     .done-button {
-        font-size: 18px;
+        font-size: 14px;
         z-index: 5;
     }
     .start label {
