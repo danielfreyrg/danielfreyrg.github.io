@@ -749,6 +749,42 @@ span {
 
 }
 @media screen and (max-width: 700px), screen and (hover: none) and (orientation: landscape) and (max-height: 500px) {
+    .arrow-up {
+        display: none;
+    }
+    .scene2 .container {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows:50px 1fr 50px;
+        grid-template-areas:  'info info' 'saw words' 'buttons words';
+        align-items: end;
+        justify-items: center;
+    }
+    .scene2 .info {
+        grid-area: info;
+        font-size: 14px;
+        display: flex;
+        text-align: left;
+        gap: 0px 5px;
+        line-height: 1;
+        max-width: 300px;
+    }
+    .start label {
+        width: 82px !important;
+        height: 30px !important;
+        padding: 0 !important;
+    }
+    .scene2 .start {
+        grid-area: words;
+        justify-items: center;
+        align-self: center;
+    }
+    .scene2 .buttons-container {
+        grid-area: buttons;
+    }
+    .scene2 .saw {
+        grid-area: saw;
+    }
     .hero dotlottie-player.dotlottie {
         display: none;
     }
@@ -822,7 +858,6 @@ span {
 
     .scene2 .top-wrapper,
     .scene2 img {
-        position: absolute;
         z-index: 10;
     }
 
@@ -830,10 +865,7 @@ span {
         top: 50px;
     }
 
-    .scene2 img {
-        /* top: 100px; */
-        display: none;
-    }
+
 
     body {
         overflow: auto;
