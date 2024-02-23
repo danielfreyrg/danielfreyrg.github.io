@@ -848,7 +848,7 @@ span {
         height: 140px !important;
     }
     .rotate img {
-        width: 50px !important;
+        width: 150px !important;
     }
     .scene1 .sjukast-logo {
         width: 170px;
@@ -1313,6 +1313,7 @@ img {
         text-align: center;
         color: var(--main-red);
         font-family: 'chaney';
+        max-width: 200px;
     }
     .mobile-portrait {
         display: flex;
