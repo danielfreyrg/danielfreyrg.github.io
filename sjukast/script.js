@@ -262,19 +262,8 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
             updateCounter(zone, id); // Update counters or any other logic after drop
-            scaleSaw();
-            // var x = document.querySelector(".right-words").getBoundingClientRect().top;
-            // console.log(x);
-            // if (x < 0) {
-            //     scale -= 0.05;
-            //     var p = document.querySelector(".scene2 .saw")
-            //     p.style.transform = 'scale(' + scale + ')';
-            //     var newHeight = p.getBoundingClientRect().top;
-            //     if (newHeight < 0) {
-            //         scale += 0.05;
-            //         p.style.transform = 'scale(' + scale + ')';
-            //     }
-            // }
+            // scaleSaw();
+
         });
     });
 

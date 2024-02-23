@@ -1283,7 +1283,7 @@ img {
 }
 @media screen and (max-height: 900px) {
     .right-words, .left-words {
-        padding-top: 2vh !important;
+        padding-top: 70% !important;
         min-height: 100px !important;
     }
     /* right and left words no children */
