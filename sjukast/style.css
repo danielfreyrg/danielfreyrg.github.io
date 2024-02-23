@@ -1296,6 +1296,9 @@ img {
     display: none;
 }
 @media screen and (max-width: 600px) and (orientation: portrait) and (hover: none) {
+    .scene1 .subtitle {
+        max-width: 85vw !important;
+    }
     .scene1 .rotate {
         display: flex;
         justify-content: center;
