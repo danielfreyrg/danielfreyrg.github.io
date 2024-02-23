@@ -754,8 +754,16 @@ span {
 .buttons-container {
     z-index: 15;
 }
+.info .mobile {
+    display: none;
+
+}
 @media screen and (max-width: 1000px), screen and (hover: none) and (orientation: landscape) and (max-height: 600px) {
-    .arrow-up {
+    .info .mobile {
+        display: flex;
+    }
+
+    .info .desktop {
         display: none;
     }
     .start-button {
