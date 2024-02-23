@@ -784,6 +784,8 @@ span {
     .start label {
         /* width: 90px !important;
         height: 30px !important; */
+        width: unset !important;
+        height: unset !important;
         padding: 5px !important;
     }
     .scene2 .start {
@@ -897,7 +899,7 @@ span {
 
     .start {
         grid-template-rows: unset;
-        grid-template-columns: .3fr .3fr .3fr;
+        grid-template-columns: .8fr .8fr .8fr;
         grid-auto-flow: row;
         gap: 10px;
     }
