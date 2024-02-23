@@ -304,6 +304,7 @@ html {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    display: none;
     /* transition: all 0.5s ease-in-out; */
 
 }
@@ -426,7 +427,7 @@ a:hover {
     grid-template-rows: 1fr 1fr 1fr;
     /* margin-top: 150px; */
     grid-auto-flow: column;
-    gap: 40px 16px;
+    gap: 10px 8px;
 
     width: 100%;
     justify-content: center;
@@ -1258,9 +1259,12 @@ img {
     
 }
 @media screen and (min-width: 990px) {
+    .info {
+        margin: -60px 0 5px 0;
+    }
     .arrow-down {
         display: none;
-    }
+    } 
     .hero h1 {
         display: none;
     }
