@@ -829,8 +829,8 @@ span {
         font-size: 11px;
         margin-bottom: -22px;
     }
-    .background {
-        background: url('./assets/Layer_1.svg');
+    .background.background.background {
+        background: url('./assets/Layer_1.svg') !important;
         background-repeat: no-repeat;
         background-size: 100%;
     }
