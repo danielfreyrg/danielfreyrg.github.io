@@ -782,8 +782,8 @@ span {
         justify-self: end;
     }
     .start label {
-        width: 90px !important;
-        height: 30px !important;
+        /* width: 90px !important;
+        height: 30px !important; */
         padding: 5px !important;
     }
     .scene2 .start {
@@ -909,7 +909,7 @@ span {
         z-index: 5;
     }
     .start label {
-        font-size: 12px;
+        font-size: 10px;
     }
 
     .scene1 .saw {
