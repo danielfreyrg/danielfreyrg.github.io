@@ -784,8 +784,8 @@ span {
     .start label {
         /* width: 90px !important;
         height: 30px !important; */
-        width: unset !important;
-        height: unset !important;
+        width: 80% !important;
+        height: 80% !important;
         padding: 5px !important;
     }
     .scene2 .start {
