@@ -754,7 +754,7 @@ span {
 .buttons-container {
     z-index: 15;
 }
-@media screen and (max-width: 1000px), screen and (hover: none) and (orientation: landscape) and (max-height: 500px) {
+@media screen and (max-width: 1000px), screen and (hover: none) and (orientation: landscape) and (max-height: 600px) {
     .arrow-up {
         display: none;
     }
@@ -786,7 +786,7 @@ span {
         height: 30px !important; */
         width: 80% !important;
         height: 80% !important;
-        padding: 5px !important;
+        padding: 3px !important;
     }
     .scene2 .start {
         grid-area: words;
@@ -1163,7 +1163,7 @@ img {
     }
     .start {
         margin-top: -15px;
-        gap: 5px;
+        gap: 13px;
         margin-bottom: 0;
         padding: 0 0 10px 0;
         grid-template-rows: 1fr 1fr;
