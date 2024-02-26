@@ -184,6 +184,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Enable draggable functionality on labels within the .start container
     new Sortable(document.querySelector('.start'), {
         group: 'shared',
+        fallbackTolerance: 3,
         onStart: function(evt) {
             startzone = evt.item.parentElement; // Store the start zone when dragging begins
         },
@@ -205,6 +206,7 @@ document.addEventListener('DOMContentLoaded', function() {
     ['left-words', 'right-words'].forEach(className => {
         new Sortable(document.querySelector(`.${className}`), {
             group: 'shared',
+            fallbackTolerance: 3,
             onStart: function(evt) {
                 startzone = evt.item.parentElement; // Store the start zone when dragging begins
             },
