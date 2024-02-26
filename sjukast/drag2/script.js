@@ -185,6 +185,7 @@ document.addEventListener('DOMContentLoaded', function() {
     new Sortable(document.querySelector('.start'), {
         group: 'shared',
         fallbackTolerance: 3,
+        touchStartThreshold: 0, 
         onStart: function(evt) {
             startzone = evt.item.parentElement; // Store the start zone when dragging begins
         },
@@ -207,6 +208,7 @@ document.addEventListener('DOMContentLoaded', function() {
         new Sortable(document.querySelector(`.${className}`), {
             group: 'shared',
             fallbackTolerance: 3,
+            touchStartThreshold: 0, 
             onStart: function(evt) {
                 startzone = evt.item.parentElement; // Store the start zone when dragging begins
             },
