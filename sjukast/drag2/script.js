@@ -386,7 +386,7 @@ function resetSaw(bool) {
     placedwords = 0;
     alreadyplaced = false;   
     rotateBar();
-    scaleSaw(true)
+    // scaleSaw(true)
     document.querySelector('body').click();
 }
 function scaleSaw(resetScale = false) {
