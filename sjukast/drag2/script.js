@@ -187,6 +187,7 @@ document.addEventListener('DOMContentLoaded', function() {
         fallbackTolerance: 3,
         touchStartThreshold: 0, 
         animation: 150,
+        dragClass: "drag",
         onStart: function(evt) {
             var item = evt.item; // The item that was dropped
             startzone = evt.item.parentElement; // Store the start zone when dragging begins
@@ -206,7 +207,17 @@ document.addEventListener('DOMContentLoaded', function() {
 
             
         },
-        sort: false
+        sort: false,
+    });
+    new Sortable(document.querySelector('.bg-drop-zone'), {
+        group: 'shared',
+        onAdd: function(evt) {
+            // Move the item to the .start container when added to the bg-dropzone
+            document.querySelector('.start').appendChild(evt.item);
+        },
+        sort: false,
+        animation: 0
+
     });
     // Enable dragging between .left-words and .right-words containers
     ['left-words', 'right-words'].forEach(className => {

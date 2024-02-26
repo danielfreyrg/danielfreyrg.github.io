@@ -294,12 +294,15 @@ body {
     position: relative;
 
 }
-/* 
-body,
-html {
-    overflow: hidden;
-} */
-
+.bg-drop-zone .sortable-ghost, .bg-drop-zone .sortable-fallback, .bg-drop-zone .sortable-chosen { 
+    display: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+}
+.drag {
+    max-width: 100px;
+    max-height: 40px;
+}
 .background {
     background-image: url(./assets/BG-tall.svg);
     background-size: cover;
@@ -765,6 +768,7 @@ span {
     display: none;
 
 }
+
 @media screen and (max-width: 1000px), screen and (hover: none) and (orientation: landscape) and (max-height: 600px) {
     .info .mobile {
         display: flex;
@@ -806,8 +810,6 @@ span {
         height: 30px !important; */
         width: 80% !important;
         height: 80% !important;
-        max-width: 100px;
-        max-height: 40px;
         padding: 3px !important;
     }
     .scene2 .start {
