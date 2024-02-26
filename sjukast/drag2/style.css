@@ -172,6 +172,7 @@
     font-style: normal;
 
 }
+
 .hero h1 {
     font-family: 'chaney';
     font-size: 40px;
@@ -785,7 +786,7 @@ span {
         gap: 0 !important;
     }
     .scene2 .info {
-        margin-bottom: -50px;
+        margin-bottom: -30px !important;
         grid-area: info;
         font-size: 14px;
         display: flex;
@@ -795,13 +796,19 @@ span {
         /* max-width: 300px;  */
         justify-self: end;
     }
+
+    .right-words .sortable-ghost.big-word {
+        font-size: 30px;
+        font-family: 'chaney';
+        font-weight: bold;
+    }
     .start label {
         /* width: 90px !important;
         height: 30px !important; */
         width: 80% !important;
         height: 80% !important;
         max-width: 100px;
-        max-height: 30px;
+        max-height: 40px;
         padding: 3px !important;
     }
     .scene2 .start {

@@ -187,21 +187,24 @@ document.addEventListener('DOMContentLoaded', function() {
         fallbackTolerance: 3,
         touchStartThreshold: 0, 
         onStart: function(evt) {
+            var item = evt.item; // The item that was dropped
             startzone = evt.item.parentElement; // Store the start zone when dragging begins
+            if (wordWeights[item.id] > 0) { 
+                console.log('big word')
+                item.classList.add('big-word'); 
+            }
         },
         onEnd: function(evt) {
             var item = evt.item; // The item that was dropped
             dropzone = item.parentElement; // The zone that the item was dropped into
             console.log(wordWeights[item.id])
-            if (wordWeights[item.id] > 0) { // Replace '.your-condition' with your specific condition
-                item.classList.add('big-word'); // Add your class here
-            }
-            
             console.log(startzone)
             updateCounter(dropzone, item.id);
             rotateBar();
+
             
         },
+        sort: false
     });
     // Enable dragging between .left-words and .right-words containers
     ['left-words', 'right-words'].forEach(className => {
@@ -210,22 +213,24 @@ document.addEventListener('DOMContentLoaded', function() {
             fallbackTolerance: 3,
             touchStartThreshold: 0, 
             onStart: function(evt) {
-                startzone = evt.item.parentElement; // Store the start zone when dragging begins
+                var item = evt.item; 
+                evt.item.classList.add('dragging')
+                if (wordWeights[item.id] > 0) { 
+                    item.classList.add('big-word'); 
+                }
+                startzone = evt.item.parentElement; 
             },
             onEnd: function(evt) {
-                var item = evt.item; // The item that was dropped
-                dropzone = item.parentElement; // The zone that the item was dropped into
+                var item = evt.item; 
+                dropzone = item.parentElement; 
                 console.log(wordWeights[item.id])
-                if (wordWeights[item.id] > 0) { // Replace '.your-condition' with your specific condition
-                    item.classList.add('big-word'); // Add your class here
-                }
-                
+    
                 console.log(startzone)
                 updateCounter(dropzone, item.id);
                 rotateBar();
                 
             },
-            sort: false, // Enable sorting within these containers
+            sort: false, 
         });
     });
 });
