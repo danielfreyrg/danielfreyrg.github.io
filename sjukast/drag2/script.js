@@ -186,9 +186,11 @@ document.addEventListener('DOMContentLoaded', function() {
         group: 'shared',
         fallbackTolerance: 3,
         touchStartThreshold: 0, 
+        animation: 150,
         onStart: function(evt) {
             var item = evt.item; // The item that was dropped
             startzone = evt.item.parentElement; // Store the start zone when dragging begins
+            evt.item.querySelector('span').innerHTML = splitAndFormatWord(evt.item.querySelector('span').innerHTML)
             if (wordWeights[item.id] > 0) { 
                 console.log('big word')
                 item.classList.add('big-word'); 
@@ -209,12 +211,13 @@ document.addEventListener('DOMContentLoaded', function() {
     // Enable dragging between .left-words and .right-words containers
     ['left-words', 'right-words'].forEach(className => {
         new Sortable(document.querySelector(`.${className}`), {
+            animation: 150,
             group: 'shared',
             fallbackTolerance: 3,
             touchStartThreshold: 0, 
             onStart: function(evt) {
                 var item = evt.item; 
-                evt.item.classList.add('dragging')
+                
                 if (wordWeights[item.id] > 0) { 
                     item.classList.add('big-word'); 
                 }
