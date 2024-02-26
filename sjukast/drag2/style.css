@@ -852,9 +852,9 @@ span {
         margin-bottom: -22px;
     }
     .background.background.background {
-        background: url('./assets/Layer_1.svg') !important;
+        background: url('./assets/BG-mobile-side.svg') !important;
         background-repeat: no-repeat;
-        background-size: 100%;
+        background-size: cover !important;
     }
     .words {
         width: 100%;
