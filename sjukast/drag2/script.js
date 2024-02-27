@@ -241,7 +241,7 @@ document.addEventListener('DOMContentLoaded', function() {
         onAdd: function(evt) {
             wordCounter[evt.item.id] -= 1
         if (evt.item.id.includes('clone')) {
-            evt.item.remove();
+            // evt.item.remove();
         }
             },
         sort: false,
