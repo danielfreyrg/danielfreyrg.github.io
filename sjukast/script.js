@@ -97,6 +97,7 @@ const wordWeights = {
     'sjalfsoruggur-clone-0': 2,
     'aestur-clone-0': 3,
     'eldri-clone-0': 2,
+    'i-ojafnvaegi-clone-0': -2,
     "med-meiri-reynslu-clone-0": 2,
     'efnadur-clone-0': 1,
     "godur-i-kjaftinum-clone-0": 1,
@@ -369,6 +370,7 @@ function rotateBar() {
     } else {
         realRotation = counter;
     }
+    console.log(realRotation)
     document.querySelector(
         ".scene2 .bar"
     ).style.transform = `rotate(${realRotation}deg)`;

@@ -1,38 +1,6 @@
-@font-face {
-    font-family: 'TT Norms';
-    src: url('./assets/fonts/TTNorms-ExtraLightItalic.woff2') format('woff2'),
-        url('./assets/fonts/TTNorms-ExtraLightItalic.woff') format('woff');
-    font-weight: 200;
-    font-style: italic;
-    font-display: swap;
-}
 
-@font-face {
-    font-family: 'TT Norms';
-    src: url('./assets/fonts/TTNorms-Light.woff2') format('woff2'),
-        url('./assets/fonts/TTNorms-Light.woff') format('woff');
-    font-weight: 300;
-    font-style: normal;
-    font-display: swap;
-}
 
-@font-face {
-    font-family: 'TT Norms';
-    src: url('./assets/fonts/TTNorms-Italic.woff2') format('woff2'),
-        url('./assets/fonts/TTNorms-Italic.woff') format('woff');
-    font-weight: normal;
-    font-style: italic;
-    font-display: swap;
-}
 
-@font-face {
-    font-family: 'TT Norms';
-    src: url('./assets/fonts/TTNorms-Heavy.woff2') format('woff2'),
-        url('./assets/fonts/TTNorms-Heavy.woff') format('woff');
-    font-weight: 900;
-    font-style: normal;
-    font-display: swap;
-}
 
 @font-face {
     font-family: 'TT Norms';
@@ -51,127 +19,32 @@
     font-style: normal;
     font-display: swap;
 }
-
 @font-face {
-    font-family: 'TT Norms';
-    src: url('./assets/fonts/TTNorms-Thin.woff2') format('woff2'),
-        url('./assets/fonts/TTNorms-Thin.woff') format('woff');
-    font-weight: 100;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'TT Norms';
-    src: url('./assets/fonts/TTNorms-Medium.woff2') format('woff2'),
-        url('./assets/fonts/TTNorms-Medium.woff') format('woff');
-    font-weight: 500;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'TT Norms';
-    src: url('./assets/fonts/TTNorms-ExtraLight.woff2') format('woff2'),
-        url('./assets/fonts/TTNorms-ExtraLight.woff') format('woff');
-    font-weight: 200;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'TT Norms';
-    src: url('./assets/fonts/TTNorms-BoldItalic.woff2') format('woff2'),
-        url('./assets/fonts/TTNorms-BoldItalic.woff') format('woff');
-    font-weight: bold;
-    font-style: italic;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'TT Norms';
-    src: url('./assets/fonts/TTNorms-MediumItalic.woff2') format('woff2'),
-        url('./assets/fonts/TTNorms-MediumItalic.woff') format('woff');
-    font-weight: 500;
-    font-style: italic;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'TT Norms';
-    src: url('./assets/fonts/TTNorms-ThinItalic.woff2') format('woff2'),
-        url('./assets/fonts/TTNorms-ThinItalic.woff') format('woff');
-    font-weight: 100;
-    font-style: italic;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'TT Norms';
-    src: url('./assets/fonts/TTNorms-HeavyItalic.woff2') format('woff2'),
-        url('./assets/fonts/TTNorms-HeavyItalic.woff') format('woff');
-    font-weight: 900;
-    font-style: italic;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'TT Norms';
-    src: url('./assets/fonts/TTNorms-LightItalic.woff2') format('woff2'),
-        url('./assets/fonts/TTNorms-LightItalic.woff') format('woff');
-    font-weight: 300;
-    font-style: italic;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'TT Norms';
-    src: url('./assets/fonts/TTNorms-Black.woff2') format('woff2'),
-        url('./assets/fonts/TTNorms-Black.woff') format('woff');
-    font-weight: 900;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'TT Norms';
-    src: url('./assets/fonts/TTNorms-ExtraBoldItalic.woff2') format('woff2'),
-        url('./assets/fonts/TTNorms-ExtraBoldItalic.woff') format('woff');
-    font-weight: bold;
-    font-style: italic;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'TT Norms';
-    src: url('./assets/fonts/TTNorms-BlackItalic.woff2') format('woff2'),
-        url('./assets/fonts/TTNorms-BlackItalic.woff') format('woff');
-    font-weight: 900;
-    font-style: italic;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'TT Norms';
-    src: url('./assets/fonts/TTNorms-ExtraBold.woff2') format('woff2'),
-        url('./assets/fonts/TTNorms-ExtraBold.woff') format('woff');
-    font-weight: bold;
-    font-style: normal;
-    font-display: swap;
-}
-
-
-@font-face {
-    font-family: 'chaneyultra_extended';
-    src: url('./assets/chaney-ultraextended-webfont.eot');
-    src: url('./assets/chaney-ultraextended-webfont.eot?#iefix') format('embedded-opentype'),
-        url('./assets/chaney-ultraextended-webfont.woff2') format('woff2'),
-        url('./assets/chaney-ultraextended-webfont.woff') format('woff'),
-        url('./assets/chaney-ultraextended-webfont.ttf') format('truetype');
+    font-family: 'chaney';
+    src: url('./assets/CHANEY-Regular.otf') format('opentype');
     font-weight: normal;
     font-style: normal;
-
 }
+
+@font-face {
+    font-family: 'bricolage';
+    src: url('./assets/BricolageGrotesque-SemiBold.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'TT Norms';
+    src: url('./assets/fonts/TTNorms-Heavy.woff2') format('woff2'),
+        url('./assets/fonts/TTNorms-Heavy.woff') format('woff');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+
+
+
+
 .hero h1 {
     font-family: 'chaney';
     font-size: 40px;
@@ -179,26 +52,32 @@
     text-align: center;
     margin: 5px;
 }
+
 label {
     cursor: pointer !important;
 }
+
 .buttons-container button {
     cursor: pointer;
     background: white;
     color: var(--main-red);
     border: 2px solid var(--main-red);
 }
+
 .buttons-container {
     display: flex;
     flex-direction: row;
     gap: 10px;
     padding-bottom: 20px;
 }
+
 .start label {
     width: 96px;
     height: 40px;
 }
-.left-words::after, .right-words::after {
+
+.left-words::after,
+.right-words::after {
     content: "";
     position: absolute;
     inset: 0;
@@ -210,39 +89,32 @@ label {
     font-size: 28px;
     z-index: -1;
     margin-bottom: -80px;
-    }
-    .left-words::after {
-        content: "Ég";
-    }
-    .right-words::after {
-        content: "Hann/hún/hán";
+}
 
-    }
-    .left-words, .right-words {
-        position: relative;
-    }
+.left-words::after {
+    content: "Ég";
+}
+
+.right-words::after {
+    content: "Hann/hún/hán";
+
+}
+
+.left-words,
+.right-words {
+    position: relative;
+}
+
 * {
     font-variant-ligatures: none !important;
 }
 
-@font-face {
-    font-family: 'chaney';
-    src: url('./assets/CHANEY-Regular.otf') format('opentype');
-    font-weight: normal;
-    font-style: normal;
-}
 
-/*import BricolageGrotesque-SemiBold.ttf */
-@font-face {
-    font-family: 'bricolage';
-    src: url('./assets/BricolageGrotesque-SemiBold.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-}
 .saw {
     transform: scale(1);
     transition: transform .5s ease-in-out;
 }
+
 :root {
     --main-green: #42D3A6;
     --main-red: rgb(238, 119, 104);
@@ -254,7 +126,10 @@ label {
     pointer-events: none;
 
 }
-.base, .base-back, .base-front {
+
+.base,
+.base-back,
+.base-front {
     width: 900px;
     height: 246px;
 }
@@ -262,6 +137,7 @@ label {
 html {
     background: var(--main-green);
 }
+
 .base-front {
     position: absolute;
     inset: -27px 0 0 0;
@@ -287,6 +163,7 @@ body {
     position: relative;
 
 }
+
 /* 
 body,
 html {
@@ -327,6 +204,7 @@ html {
     animation-timing-function: ease-in-out;
     animation-fill-mode: forwards;
 }
+
 .background {
     animation-name: fade-in;
     animation-duration: 1s;
@@ -360,6 +238,7 @@ button:hover {
     z-index: 2;
     margin-bottom: -35px;
 }
+
 a {
     /* margin-bottom: 10vh; */
     text-decoration: none;
@@ -367,10 +246,12 @@ a {
     font-family: 'TT Norms';
     font-weight: bold;
 }
+
 a:hover {
     text-decoration: underline;
     color: white;
 }
+
 .container {
     flex-direction: column;
     align-items: center;
@@ -409,7 +290,7 @@ a:hover {
     height: 40px;
 }
 
- .saw {
+.saw {
     z-index: 1;
     flex-direction: column;
     align-items: center;
@@ -418,9 +299,10 @@ a:hover {
     position: relative;
 }
 
-.scene1 .saw { 
+.scene1 .saw {
     margin-bottom: -50px;
 }
+
 .start {
     display: grid;
     align-items: center;
@@ -433,9 +315,11 @@ a:hover {
     justify-content: center;
 
 }
+
 body {
     overflow: hidden;
 }
+
 .right-words,
 .left-words,
 .start {
@@ -552,10 +436,12 @@ label {
     }
 
 }
-.scene2 .sjukast-logo{
+
+.scene2 .sjukast-logo {
     position: absolute;
     top: 4.5vw;
 }
+
 .scene2 .sjukast-logo {
     left: 5vw;
 }
@@ -597,25 +483,32 @@ label {
     }
 
 }
+
 /* max height fix*/
-.left-words, .right-words {
+.left-words,
+.right-words {
     position: absolute;
     min-height: 300px;
     width: 50% !important;
     bottom: 0;
 }
+
 .left-words {
     left: 0;
 }
+
 .right-words {
     right: 0;
 }
+
 .words {
     position: relative;
 }
+
 .scene2 .container {
     justify-content: flex-end !important;
 }
+
 .scene2,
 .scene3,
 .scene4 {
@@ -625,6 +518,7 @@ label {
 .sjukast-logo {
     width: 15vw;
 }
+
 .start .reset-button {
     padding: 7px;
     border-radius: 7px;
@@ -673,9 +567,11 @@ label {
     /* animation-name: fade-in; */
     animation-duration: 3s;
 }
+
 .start-button {
     z-index: 5;
 }
+
 .start-button,
 .genderselect button,
 .reset-button,
@@ -739,6 +635,7 @@ button {
     position: absolute;
     inset: 0;
 }
+
 span {
     user-select: none;
     -moz-user-select: none;
@@ -751,14 +648,18 @@ span {
 
 
 }
+
 .buttons-container {
     z-index: 15;
 }
+
 .info .mobile {
     display: none;
 
 }
-@media screen and (max-width: 1000px), screen and (hover: none) and (orientation: landscape) and (max-height: 600px) {
+
+@media screen and (max-width: 1000px),
+screen and (hover: none) and (orientation: landscape) and (max-height: 600px) {
     .info .mobile {
         display: flex;
     }
@@ -766,18 +667,21 @@ span {
     .info .desktop {
         display: none;
     }
+
     .start-button {
         margin-bottom: 25px;
     }
+
     .scene2 .container {
         display: grid !important;
         grid-template-columns: 1fr 40%;
-        grid-template-rows:50px 1fr 50px;
-        grid-template-areas:  'info words' 'saw words' 'buttons words';
+        grid-template-rows: 50px 1fr 50px;
+        grid-template-areas: 'info words' 'saw words' 'buttons words';
         align-items: end;
         justify-items: center;
         gap: 0 !important;
     }
+
     .scene2 .info {
         margin-bottom: -50px;
         grid-area: info;
@@ -789,6 +693,7 @@ span {
         /* max-width: 300px;  */
         justify-self: end;
     }
+
     .start label {
         /* width: 90px !important;
         height: 30px !important; */
@@ -796,20 +701,25 @@ span {
         height: 80% !important;
         padding: 3px !important;
     }
+
     .scene2 .start {
         grid-area: words;
         justify-items: center;
         align-self: center;
     }
+
     .scene2 .buttons-container {
         grid-area: buttons;
     }
+
     .scene2 .saw {
         grid-area: saw;
     }
+
     .hero dotlottie-player.dotlottie {
         display: none;
     }
+
     .scene1 .container.container.container {
         gap: 0px !important;
         display: grid;
@@ -817,6 +727,7 @@ span {
         align-items: center;
         justify-items: center;
     }
+
     .scene1 .sjukast-logo {
         position: relative !important;
         top: unset !important;
@@ -824,45 +735,56 @@ span {
         left: unset !important;
         right: unset !important;
     }
+
     .scene3 .sjukast-logo {
         width: 150px;
     }
+
     .hide-mobile {
         display: none;
     }
+
     body {
         overflow: hidden !important;
     }
-    .left-words::after, .right-words::after {
+
+    .left-words::after,
+    .right-words::after {
         font-size: 11px;
         margin-bottom: -22px;
     }
+
     .background.background.background {
         background: url('./assets/Layer_1.svg') !important;
         background-repeat: no-repeat;
         background-size: 100%;
     }
+
     .words {
         width: 100%;
         margin-bottom: -10px;
     }
+
     .words label {
         font-size: 30px;
         line-height: 27px;
     }
-    
- 
+
+
 
     dotlottie-player.dotlottie {
         width: 100% !important;
         height: 140px !important;
     }
+
     .rotate img {
         width: 150px !important;
     }
+
     .scene1 .sjukast-logo {
         width: 170px;
     }
+
     .subtitle {
         font-size: 15px;
         max-width: 50vw;
@@ -911,13 +833,16 @@ span {
         grid-auto-flow: row;
         gap: 10px;
     }
+
     .container {
         height: 100dvh;
     }
+
     .done-button {
         font-size: 14px;
         z-index: 5;
     }
+
     .start label {
         font-size: 10px;
     }
@@ -989,7 +914,9 @@ span {
         margin-bottom: 0 !important;
 
     }
-    html, body {
+
+    html,
+    body {
         overflow: hidden !important;
     }
 
@@ -1106,21 +1033,26 @@ span {
     }
 
 }
+
 @keyframes rotate {
     0% {
         transform: rotate(0deg);
     }
+
     40% {
         transform: rotate(10deg);
     }
+
     60% {
         transform: rotate(-10deg);
     }
+
     80% {
         transform: rotate(0deg);
     }
 
 }
+
 .scene1 .top {
     animation-name: rotate;
     animation-duration: 5s;
@@ -1128,6 +1060,7 @@ span {
     animation-fill-mode: forwards;
     animation-iteration-count: 1;
 }
+
 /* 
 body {
     overflow: hidden;
@@ -1146,7 +1079,7 @@ img {
     -webkit-touch-callout: none;
     -webkit-user-drag: none;
     -webkit-tap-highlight-color: transparent;
-    
+
 }
 
 .reset-button {
@@ -1162,166 +1095,424 @@ img {
 
 
 @media screen and (min-width: 900px) and (max-height: 500px) {
-    .scene1 .sjukast-logo {
-        position: absolute;
-    }
-    .subtitle {
-        padding: 10px;
-        margin: 0 0 10px 0;
-    }
-    .start {
-        margin-top: -15px;
-        gap: 13px;
-        margin-bottom: 0;
-        padding: 0 0 10px 0;
-        grid-template-rows: 1fr 1fr;
+    .info .mobile {
+        display: flex;
     }
 
-    .words .big-word-extra {
-    line-height: 27px;
+    .info .desktop {
+        display: none;
     }
-    .right-words::after {
-        margin-right: -20px;
+
+    .start-button {
+        margin-bottom: 25px;
     }
-    .scene3 .button {
-        margin-bottom: -15px;
+
+    .scene2 .container {
+        display: grid !important;
+        grid-template-columns: 1fr 40%;
+        grid-template-rows: 50px 1fr 50px;
+        grid-template-areas: 'info words' 'saw words' 'buttons words';
+        align-items: end;
+        justify-items: center;
+        gap: 0 !important;
     }
+
+    .scene2 .info {
+        margin-bottom: -50px;
+        grid-area: info;
+        font-size: 14px;
+        display: flex;
+        text-align: left;
+        gap: 0px 5px;
+        line-height: 1;
+        /* max-width: 300px;  */
+        justify-self: end;
+    }
+
     .start label {
-        font-size: 8px;
-        padding: 7px;
-        border-radius: 7px;
+        /* width: 90px !important;
+        height: 30px !important; */
+        width: 80% !important;
+        height: 80% !important;
+        padding: 3px !important;
     }
-     .base,  .base-back,  .base-front {
-        width: 350px;
-        height: 75px;
+
+    .scene2 .start {
+        grid-area: words;
+        justify-items: center;
+        align-self: center;
+    }
+
+    .scene2 .buttons-container {
+        grid-area: buttons;
+    }
+
+    .scene2 .saw {
+        grid-area: saw;
+    }
+
+    .hero dotlottie-player.dotlottie {
+        display: none;
+    }
+
+    .scene1 .container.container.container {
+        gap: 0px !important;
+        display: grid;
+        justify-content: space-evenly !important;
+        align-items: center;
+        justify-items: center;
+    }
+
+    .scene1 .sjukast-logo {
+        position: relative !important;
+        top: unset !important;
+        bottom: unset !important;
+        left: unset !important;
+        right: unset !important;
+    }
+
+    .scene3 .sjukast-logo {
+        width: 150px;
+    }
+
+    .hide-mobile {
+        display: none;
+    }
+
+    body {
+        overflow: hidden !important;
+    }
+
+    .left-words::after,
+    .right-words::after {
+        font-size: 11px;
+        margin-bottom: -22px;
+    }
+
+    .background.background.background {
+        background: url('./assets/Layer_1.svg') !important;
+        background-repeat: no-repeat;
+        background-size: 100%;
+    }
+
+    .words {
+        width: 100%;
+        margin-bottom: -10px;
+    }
+
+    .words label {
+        font-size: 30px;
+        line-height: 27px;
+    }
+
+
+
+    dotlottie-player.dotlottie {
+        width: 100% !important;
+        height: 140px !important;
+    }
+
+    .rotate img {
+        width: 150px !important;
+    }
+
+    .scene1 .sjukast-logo {
+        width: 170px;
+    }
+
+    .subtitle {
+        font-size: 15px;
+        max-width: 50vw;
+        margin: 0 auto;
+    }
+
+    .gender-title {
+        font-size: 25px;
+        max-width: 80vw;
+        margin: 0 auto;
     }
 
     .reset-button {
-        font-size: 10px;
-        padding: 7px;
-        border-radius: 7px;
-        grid-column-start: 11;
-    grid-row-start: 2;
+        font-size: 15px !important;
+        padding: 10px !important;
+        border-radius: 10px !important;
     }
 
-    .sjukast-logo {
-        width: 200px !important;
-        left: calc(2rem + 15px) !important;
-    }
-    .scene2 .sjukast-logo {
-        width: 170px !important;
-    }
-    dotlottie-player.dotlottie {
-        margin-top: -10px;
-    }
-    .sjukast-logo {
-        top: 2em !important;
+    .scene2 .top-wrapper,
+    .scene2 img {
+        z-index: 10;
     }
 
-    .right-words::after, .left-words::after {
-        font-size: 14px;
-        margin-bottom: -25px;
+    .top-wrapper {
+        top: 50px;
     }
-     .base-front {
-        height: 100px;
-        inset: -10px 0 0 0;
+
+
+
+    body {
+        overflow: auto;
     }
-     .top {
-        width: 350px;
-        height: 30px;
-    }
-    .base {
-        height: 100px;
-    }
-    .info {
-        font-size: 38px;
-        /* max-width: 400px; */
-        bottom: 94px;
-        line-height: 37px;
-    }
-    .word, .words label {
-        font-size: 25px;
-        line-height: 23px;
-    }
-    dotlottie-player.dotlottie {
-        margin-top: -30px;
-        width: 375px !important;
-        height: 150px !important;
-    }
-    .subtitle {
+
+    .words label {
         font-size: 20px;
-    }
-    .scene1 .subtitle {
-        font-size: 18px;
+        line-height: 17px;
     }
 
-    button {
-        font-size: 11px !important;
-        
+    .words .big-word-extra {
+        line-height: 19px;
     }
+
+    .start {
+        grid-template-rows: unset;
+        grid-template-columns: .8fr .8fr .8fr;
+        grid-auto-flow: row;
+        gap: 10px;
+    }
+
     .container {
-        gap: 0 !important;
+        height: 100dvh;
     }
-    .background {
-        background: url(./assets/BG-banner-scaled.svg) !important;
+
+    .done-button {
+        font-size: 14px;
+        z-index: 5;
+    }
+
+    .start label {
+        font-size: 10px;
+    }
+
+    .scene1 .saw {
+        margin-bottom: 0px;
+    }
+
+    html {
+        background: var(--main-green);
+    }
+
+    .top {
+        width: 95%;
+        height: 30.5px;
+
+    }
+
+    .gender-title {
+        text-align: center;
+    }
+
+    .title {
+        font-size: 40px;
+    }
+
+    .left-words,
+    .right-words {
+        /* padding-top: 100px; */
+        width: 200px;
+        min-height: 150px;
+    }
+
+    .base {
+        position: relative;
+        width: 300px;
+        height: 82px;
+        pointer-events: none;
+
+    }
+
+    .base-front {
+        position: absolute;
+        inset: -8.3px 0 0 0;
+        background: url(./assets/base-front-noshadow.svg);
+        background-size: 100%;
         background-repeat: no-repeat;
-        background-size: 100% !important;
+        width: 300px;
+        height: 82px;
+        z-index: 3;
     }
-    
-}
-@media screen and (min-width: 990px) {
+
+    .base-back {
+        position: absolute;
+        inset: 0;
+        background: url(./assets/base-back.svg);
+        background-size: 100%;
+        background-repeat: no-repeat;
+        width: 300px;
+        height: 82px;
+        z-index: 1;
+    }
+
     .info {
-        margin: -60px 0 5px 0;
+        font-size: 25px;
+        bottom: 78px;
+        line-height: 27px;
+        max-width: 200px;
+        margin-bottom: 0 !important;
+
     }
-    .arrow-down {
-        display: none;
-    } 
-    .hero h1 {
-        display: none;
+
+    html,
+    body {
+        overflow: hidden !important;
     }
-    .container {
-        height: 100vh;
+
+    .highlight {
+        background-color: rgb(255, 0, 0);
+        border-radius: 30px;
+    }
+
+    .scene {
+        animation-name: slide-in-mobile;
     }
 }
-.scene1 .sjukast-logo {
-    position: absolute;
-    top: 5vw;
-    left: 5vw;
-    
+
+@keyframes slide-in-mobile {
+    0% {
+        transform: translateY(100%);
+        opacity: 0;
+        display: block;
+    }
+
+    100% {
+        transform: translateY(0%);
+        opacity: 1;
+        display: block;
+    }
 }
+
+@keyframes slide-out-mobile {
+    0% {
+        transform: translateY(0%);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(-100%);
+        opacity: 0;
+        display: none;
+    }
+
+}
+
+@keyframes slide-in-subtitle-1 {
+    0% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+
+    90% {
+        transform: translateX(0);
+        opacity: 1;
+
+    }
+
+    100% {
+        transform: translateX(-500px);
+        opacity: 0;
+    }
+}
+
+@keyframes slide-in-subtitle {
+    0% {
+        transform: translateX(0);
+        opacity: 0;
+    }
+
+    90% {
+        transform: translateX(0);
+        opacity: 0;
+
+    }
+
+    100% {
+        transform: translateX(-500px);
+        opacity: 1;
+    }
+}
+
+@keyframes slide-in {
+    0% {
+        transform: translateX(100%);
+        opacity: 0;
+        display: block;
+    }
+
+    100% {
+        transform: translateX(0%);
+        opacity: 1;
+        display: block;
+    }
+}
+
+@keyframes slide-out {
+    0% {
+        transform: translateX(0%);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateX(-100%);
+        opacity: 0;
+        display: none;
+    }
+
+}
+
+@keyframes fade-out {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+        display: none;
+    }
+
+}
+
 @media screen and (max-height: 900px) {
-    .right-words, .left-words {
+
+    .right-words,
+    .left-words {
         padding-top: 70% !important;
         min-height: 100px !important;
     }
+
     /* right and left words no children */
-.right-words:empty, .left-words:empty {
-    padding-top: 10vh !important;
+    .right-words:empty,
+    .left-words:empty {
+        padding-top: 10vh !important;
+    }
+
 }
-    
-}
+
 .mobile-portrait {
     display: none;
 }
+
 .rotate {
     display: none;
 }
+
 @media screen and (max-width: 600px) and (orientation: portrait) and (hover: none) {
     .scene1 .subtitle {
         max-width: 85vw !important;
     }
+
     .scene1 .rotate {
         display: flex;
         justify-content: center;
         flex-direction: column-reverse;
         align-items: center;
     }
+
     .scene1 .start-button {
         display: none;
     }
+
     .rotate img {
         width: 100px;
     }
+
     .rotate h2 {
         font-size: 20px;
         text-align: center;
@@ -1329,6 +1520,7 @@ img {
         font-family: 'chaney';
         max-width: 200px;
     }
+
     .mobile-portrait {
         display: flex;
         position: absolute;
@@ -1340,12 +1532,14 @@ img {
         flex-direction: column;
 
     }
+
     .mobile-portrait h1 {
         font-size: 39px;
         color: var(--main-red);
         font-family: 'chaney';
         text-align: center;
     }
+
     .mobile-portrait h2 {
         font-size: 30px;
         font-weight: bold;
@@ -1353,10 +1547,12 @@ img {
         font-family: 'chaney';
         text-align: center;
     }
+
     .mobile-portrait img {
         display: block !important;
         position: relative !important;
     }
+
     .mobile-portrait .logo {
         width: 200px;
     }
