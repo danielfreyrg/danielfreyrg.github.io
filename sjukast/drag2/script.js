@@ -185,7 +185,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Enable draggable functionality on labels within the .start container
     new Sortable(document.querySelector('.start'), {
-        group: 'shared',
+        group: {name: 'shared'
+
+        },
+    
         fallbackTolerance: 3,
         touchStartThreshold: 0, 
         animation: 150,
@@ -196,11 +199,12 @@ document.addEventListener('DOMContentLoaded', function() {
             startzone = evt.item.parentElement; // Store the start zone when dragging begins
             evt.item.querySelector('span').innerHTML = splitAndFormatWord(evt.item.querySelector('span').innerHTML)
             if (wordWeights[item.id] > 0) { 
-                console.log('big word')
                 item.classList.add('big-word'); 
             }
 
         },
+
+
         onEnd: function(evt) {
 
             var item = evt.item; // The item that was dropped
@@ -301,7 +305,10 @@ document.addEventListener('DOMContentLoaded', function() {
         // var weight = wordWeights[id];
         // weight = weight * 2;
         //get the weight from the data-weight attribute
-        weight = parseInt(document.getElementById(id).getAttribute('data-weight'));
+        weight = parseInt(draggingElement.getAttribute('data-weight'));
+        if (weight == undefined) {
+            weight = wordWeights[draggingElement.id];
+        }
 
         if (dropzone.classList.contains("left-words")) {
             weight = -weight;
@@ -446,7 +453,7 @@ function resetSaw(bool) {
     placedwords = 0;
     alreadyplaced = false;   
     rotateBar();
-    scaleSaw(true)
+    // scaleSaw(true)
     document.querySelector('body').click();
 }
 function scaleSaw(resetScale = false) {
