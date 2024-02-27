@@ -420,6 +420,35 @@ body {
 
 /*310x400*/
 @media screen and (min-width: 275px) and (max-width: 315px) and (min-height: 345px) and (max-height:407px){
+h2.tuesday-top {
+    padding-top: 20px;
+}
+    .mobile.question {
+        font-size: 16px !important;
+    }
+    .mobile.spin {
+        display: none;
+    }
+    .main-text-mobile h1.desktop {
+        display: flex !important;
+
+    }
+    .main-text-mobile {
+        width: 100%;
+        display: flex !important;
+        flex-direction: column;
+    }
+    .main-text-mobile h1 span {
+        font-size: 40px !important;
+    }
+    .order.order-mobile {
+        display: block !important;
+    }
+    .text-button-container {
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+    }
     .content {
         margin-top: -30px;
     }
@@ -442,7 +471,7 @@ body {
         
     }
     .slot-wrapper, .buttons {
-        margin-top: 0 !important;
+        margin-top: -20px !important;
     }
     .main-text.main-text.main-text h1 {
         font-size: 44px !important;
