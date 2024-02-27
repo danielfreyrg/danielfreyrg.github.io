@@ -531,7 +531,9 @@ h2.tuesday-top {
 
     .arrow-2.arrow-2.arrow-2 {
         top: 55%;
-        transform: translate(-150%, -50%) !important;
+        transform: translate(150%, -75%) scale(-1) !important;
+        right: 0;
+        left: unset !important;
     }
 
 }
