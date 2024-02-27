@@ -8,6 +8,7 @@ var animationIn = "slide-in";
 var animationOut = "slide-out";
 var alreadyplaced = false;
 var scale = 1;
+var draggingElement;
 
 if (window.innerWidth < 600) {
     animationIn = "slide-in-mobile";
@@ -181,6 +182,7 @@ function splitAndFormatWord(word) {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
+
     // Enable draggable functionality on labels within the .start container
     new Sortable(document.querySelector('.start'), {
         group: 'shared',
@@ -189,6 +191,7 @@ document.addEventListener('DOMContentLoaded', function() {
         animation: 150,
         dragClass: "drag",
         onStart: function(evt) {
+            draggingElement = evt.item;
             var item = evt.item; // The item that was dropped
             startzone = evt.item.parentElement; // Store the start zone when dragging begins
             evt.item.querySelector('span').innerHTML = splitAndFormatWord(evt.item.querySelector('span').innerHTML)
@@ -196,17 +199,47 @@ document.addEventListener('DOMContentLoaded', function() {
                 console.log('big word')
                 item.classList.add('big-word'); 
             }
+
         },
         onEnd: function(evt) {
+
             var item = evt.item; // The item that was dropped
             dropzone = item.parentElement; // The zone that the item was dropped into
             console.log(wordWeights[item.id])
             console.log(startzone)
             updateCounter(dropzone, item.id);
             rotateBar();
+            // scaleSaw()
+            draggingElement = evt.item;
+            evt.item.querySelector('span').innerHTML = splitAndFormatWord(evt.item.querySelector('span').innerHTML)
+            if (wordWeights[item.id] > 0) { 
+                console.log('big word')
+                item.classList.add('big-word'); 
+            }
+            if (wordCounter[evt.item.id] == 0) {
+                var cloned = draggingElement.cloneNode(true);
+                cloned.id = item.id + "-clone-" + wordCounter[item.id];
+                cloned.addEventListener("dragstart", (event) => {
+                    startzone = event.target.parentElement;
+                    event.dataTransfer.setData("text/plain", evt.target.id);
+                }
+                );
+                startzone.appendChild(item)
+                dropzone.appendChild(cloned);
+                wordCounter[item.id] += 1;
+            } else {
+                dropzone.appendChild(draggingElement);
+            }
+
 
             
         },
+        onAdd: function(evt) {
+            wordCounter[evt.item.id] -= 1
+        if (evt.item.id.includes('clone')) {
+            evt.item.remove();
+        }
+            },
         sort: false,
     });
     new Sortable(document.querySelector('.bg-drop-zone'), {
@@ -232,6 +265,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (wordWeights[item.id] > 0) { 
                     item.classList.add('big-word'); 
                 }
+                if (item.innerHTML.includes('ö')) {
+                    item.classList.add('big-word-extra')
+                }
                 startzone = evt.item.parentElement; 
             },
             onEnd: function(evt) {
@@ -242,8 +278,13 @@ document.addEventListener('DOMContentLoaded', function() {
                 console.log(startzone)
                 updateCounter(dropzone, item.id);
                 rotateBar();
+                // scaleSaw()
+
                 
             },
+
+            
+
             sort: false, 
         });
     });
@@ -405,7 +446,7 @@ function resetSaw(bool) {
     placedwords = 0;
     alreadyplaced = false;   
     rotateBar();
-    // scaleSaw(true)
+    scaleSaw(true)
     document.querySelector('body').click();
 }
 function scaleSaw(resetScale = false) {

@@ -303,6 +303,9 @@ body {
     max-width: 100px;
     max-height: 40px;
 }
+.sortable-ghost {
+    /* display: none !important; */
+}
 .background {
     background-image: url(./assets/BG-tall.svg);
     background-size: cover;
@@ -318,7 +321,10 @@ body {
     /* transition: all 0.5s ease-in-out; */
 
 }
-
+/* .left-words, .right-words {
+    border: 2px dashed rgba(238, 119, 104, 0.5) !important;
+    border-radius: 20px;
+} */
 .background-plain {
     display: none;
     background: var(--main-green);
@@ -607,11 +613,10 @@ label {
     }
 
 }
-/* max height fix*/
 .left-words, .right-words {
     position: absolute;
     min-height: 300px;
-    width: 50% !important;
+    width: 45% !important;
     bottom: 0;
 }
 .left-words {
