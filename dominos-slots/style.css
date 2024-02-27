@@ -958,7 +958,7 @@ body {
 pointer-events: none;
     position: absolute;
     bottom: 0;
-    right: 0;
+    right: -1px;
     width: 10rem;
     /* height: 200px; */
     aspect-ratio: 1/1;
