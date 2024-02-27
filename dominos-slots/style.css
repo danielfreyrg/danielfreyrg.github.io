@@ -577,7 +577,7 @@ h2.tuesday-top {
         display: none !important;
     }
     h1 {
-        font-size: 40px;
+        font-size: 38px;
         color: white;
     }
     .main-text-mobile {
@@ -593,6 +593,7 @@ h2.tuesday-top {
 
     
     .content.content.content {
+        margin-top: -15px;
         display: grid !important;
         grid-template-columns: 224px;
         grid-template-rows: 50px 170px 104px;
@@ -648,7 +649,7 @@ h2.tuesday-top {
         left: 0px !important;
     }
     .results.results.results div {
-        font-size: 16px !important;
+        font-size: 14px !important;
     }
     .tuesday-top {
         font-size: 28px !important;
