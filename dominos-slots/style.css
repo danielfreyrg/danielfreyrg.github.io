@@ -429,7 +429,8 @@ h2.tuesday-top {
 }
     .mobile.question {
         font-size: 16px !important;
-        padding: 5px 0 !important;
+        padding: 0px 0 5px 0!important;
+        margin-top: -5px;
 
     }
     .mobile.spin {
@@ -443,9 +444,10 @@ h2.tuesday-top {
         width: 100%;
         display: flex !important;
         flex-direction: column;
+        margin-top: -10px;
     }
     .main-text-mobile h1 span {
-        font-size: 40px !important;
+        font-size: 50px !important;
         padding: 2.5px 0 !important;
     }
     .order.order-mobile {
