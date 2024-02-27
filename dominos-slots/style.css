@@ -19,6 +19,9 @@ h2 {
     font-family: 'trade';
 
 }
+h2.tuesday-top {
+    font-family: 'pizza';
+}
 h1.mobile,
 h2.mobile {
     display: none;
@@ -420,11 +423,14 @@ body {
 
 /*310x400*/
 @media screen and (min-width: 275px) and (max-width: 315px) and (min-height: 345px) and (max-height:407px){
+
 h2.tuesday-top {
     padding-top: 20px;
 }
     .mobile.question {
         font-size: 16px !important;
+        padding: 5px 0 !important;
+
     }
     .mobile.spin {
         display: none;
@@ -440,6 +446,7 @@ h2.tuesday-top {
     }
     .main-text-mobile h1 span {
         font-size: 40px !important;
+        padding: 2.5px 0 !important;
     }
     .order.order-mobile {
         display: block !important;
