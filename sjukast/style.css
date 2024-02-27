@@ -172,6 +172,7 @@
     font-style: normal;
 
 }
+
 .hero h1 {
     font-family: 'chaney';
     font-size: 40px;
@@ -239,6 +240,12 @@ label {
     font-weight: normal;
     font-style: normal;
 }
+.sortable-fallback {
+    width: max-content !important;
+    height: max-content !important;
+    opacity: 0.5;
+
+}
 .saw {
     transform: scale(1);
     transition: transform .5s ease-in-out;
@@ -287,12 +294,18 @@ body {
     position: relative;
 
 }
-/* 
-body,
-html {
-    overflow: hidden;
-} */
-
+.bg-drop-zone .sortable-ghost, .bg-drop-zone .sortable-fallback, .bg-drop-zone .sortable-chosen { 
+    display: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+}
+.drag {
+    max-width: 100px;
+    max-height: 40px;
+}
+.sortable-ghost {
+    /* display: none !important; */
+}
 .background {
     background-image: url(./assets/BG-tall.svg);
     background-size: cover;
@@ -308,7 +321,10 @@ html {
     /* transition: all 0.5s ease-in-out; */
 
 }
-
+/* .left-words, .right-words {
+    border: 2px dashed rgba(238, 119, 104, 0.5) !important;
+    border-radius: 20px;
+} */
 .background-plain {
     display: none;
     background: var(--main-green);
@@ -597,11 +613,10 @@ label {
     }
 
 }
-/* max height fix*/
 .left-words, .right-words {
     position: absolute;
     min-height: 300px;
-    width: 50% !important;
+    width: 45% !important;
     bottom: 0;
 }
 .left-words {
@@ -758,6 +773,7 @@ span {
     display: none;
 
 }
+
 @media screen and (max-width: 1000px), screen and (hover: none) and (orientation: landscape) and (max-height: 600px) {
     .info .mobile {
         display: flex;
@@ -779,7 +795,7 @@ span {
         gap: 0 !important;
     }
     .scene2 .info {
-        margin-bottom: -50px;
+        margin-bottom: -30px !important;
         grid-area: info;
         font-size: 14px;
         display: flex;
@@ -788,6 +804,11 @@ span {
         line-height: 1;
         /* max-width: 300px;  */
         justify-self: end;
+    }
+
+    .right-words .sortable-ghost.big-word {
+        font-family: 'chaney';
+        font-weight: bold;
     }
     .start label {
         /* width: 90px !important;
@@ -838,9 +859,9 @@ span {
         margin-bottom: -22px;
     }
     .background.background.background {
-        background: url('./assets/Layer_1.svg') !important;
+        background: url('./assets/BG-mobile-side.svg') !important;
         background-repeat: no-repeat;
-        background-size: 100%;
+        background-size: cover !important;
     }
     .words {
         width: 100%;

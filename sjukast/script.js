@@ -8,6 +8,7 @@ var animationIn = "slide-in";
 var animationOut = "slide-out";
 var alreadyplaced = false;
 var scale = 1;
+var draggingElement;
 
 if (window.innerWidth < 600) {
     animationIn = "slide-in-mobile";
@@ -180,92 +181,119 @@ function splitAndFormatWord(word) {
     return part1 + "-<br>" + part2;
 }
 
-document.addEventListener("DOMContentLoaded", function () {
-    // Make words draggable
-    const words = document.querySelectorAll("label");
-    words.forEach((word) => {
-        word.setAttribute("draggable", true);
-        word.addEventListener("dragstart", (event) => {
-            startzone = event.target.parentElement;
-            if (startzone.classList.contains('start')) {
-                
-            }
-            event.dataTransfer.setData("text/plain", event.target.id);
-        });
-    });
+document.addEventListener('DOMContentLoaded', function() {
 
-    // Setup drop zones
-    const dropZones = document.querySelectorAll(
-        ".right-words, .left-words, .start, .bg-drop-zone"
-    );
-    dropZones.forEach((zone) => {
-        zone.addEventListener("dragover", (event) => {
-            event.preventDefault(); // Allow dropping by preventing default
-        });
+    // Enable draggable functionality on labels within the .start container
+    new Sortable(document.querySelector('.start'), {
+        group: {name: 'shared'
 
-        zone.addEventListener("drop", (event) => {
-
-            event.preventDefault();
-            if (zone.classList.contains('bg-drop-zone')) {
-                zone = document.querySelector('.start');
-
+        },
+    
+        fallbackTolerance: 3,
+        touchStartThreshold: 0, 
+        animation: 150,
+        dragClass: "drag",
+        onStart: function(evt) {
+            draggingElement = evt.item;
+            var item = evt.item; // The item that was dropped
+            startzone = evt.item.parentElement; // Store the start zone when dragging begins
+            evt.item.querySelector('span').innerHTML = splitAndFormatWord(evt.item.querySelector('span').innerHTML)
+            if (wordWeights[item.id] > 0) { 
+                item.classList.add('big-word'); 
             }
 
-            const id = event.dataTransfer.getData("text/plain");
-            const draggableElement = document.getElementById(id);
-            draggableElement.querySelector("span").innerHTML = splitAndFormatWord(
-                draggableElement.querySelector("span").innerHTML
-            );
-            //if "ö" in word and dropzone is left-words or right words then add class big-word-extra
-            if (draggableElement.innerHTML.includes("ö") && (zone.classList.contains("left-words") || zone.classList.contains("right-words"))) {
-                draggableElement.classList.add("big-word-extra");
+        },
+
+
+        onEnd: function(evt) {
+
+            var item = evt.item; // The item that was dropped
+            dropzone = item.parentElement; // The zone that the item was dropped into
+            console.log(wordWeights[item.id])
+            console.log(startzone)
+            updateCounter(dropzone, item.id);
+            rotateBar();
+            // scaleSaw()
+            draggingElement = evt.item;
+            evt.item.querySelector('span').innerHTML = splitAndFormatWord(evt.item.querySelector('span').innerHTML)
+            if (wordWeights[item.id] > 0) { 
+                console.log('big word')
+                item.classList.add('big-word'); 
             }
-            if (wordWeights[id] > 0) {
-                draggableElement.classList.add("big-word");
-            }
-            if ((wordCounter[id] == 0 && !zone.classList.contains("start")) && startzone != zone) {
-                var cloned = draggableElement.cloneNode(true);
-                cloned.id = id + "-clone-" + wordCounter[id];
+            if (wordCounter[evt.item.id] == 0) {
+                var cloned = draggingElement.cloneNode(true);
+                cloned.id = item.id + "-clone-" + wordCounter[item.id];
                 cloned.addEventListener("dragstart", (event) => {
                     startzone = event.target.parentElement;
-                    event.dataTransfer.setData("text/plain", event.target.id);
+                    event.dataTransfer.setData("text/plain", evt.target.id);
                 }
                 );
-                zone.appendChild(cloned);
-                wordCounter[id] += 1;
+                startzone.appendChild(item)
+                dropzone.appendChild(cloned);
+                wordCounter[item.id] += 1;
             } else {
-                zone.appendChild(draggableElement);
+                dropzone.appendChild(draggingElement);
             }
-            if (zone.classList.contains("start")) {
 
-                    
-                draggableElement.style.animationName = "slide-in";
-                draggableElement.addEventListener("animationend", function () {
-                    draggableElement.style.animationName = "none";
-                }, { once: true });
-            }
-            else {
-                if (!cloned) {
-            draggableElement.style.animationName = "slide-down";
-            draggableElement.addEventListener("animationend", function () {
-                draggableElement.style.animationName = "none";
 
-            }, { once: true });
             
+        },
+        onAdd: function(evt) {
+            wordCounter[evt.item.id] -= 1
+        if (evt.item.id.includes('clone')) {
+            // evt.item.remove();
         }
-        else {
-            cloned.style.animationName = "slide-down";
-            cloned.addEventListener("animationend", function () {
-                cloned.style.animationName = "none";
+            },
+        sort: false,
+    });
+    new Sortable(document.querySelector('.bg-drop-zone'), {
+        group: 'shared',
+        onAdd: function(evt) {
+            // Move the item to the .start container when added to the bg-dropzone
+            document.querySelector('.start').appendChild(evt.item);
+        },
+        sort: false,
+        animation: 0
 
-            }, { once: true })
-        }
-    }
-            updateCounter(zone, id); // Update counters or any other logic after drop
-            // scaleSaw();
+    });
+    // Enable dragging between .left-words and .right-words containers
+    ['left-words', 'right-words'].forEach(className => {
+        new Sortable(document.querySelector(`.${className}`), {
+            animation: 150,
+            group: 'shared',
+            fallbackTolerance: 3,
+            touchStartThreshold: 0, 
+            onStart: function(evt) {
+                var item = evt.item; 
+                
+                if (wordWeights[item.id] > 0) { 
+                    item.classList.add('big-word'); 
+                }
+                if (item.innerHTML.includes('ö')) {
+                    item.classList.add('big-word-extra')
+                }
+                startzone = evt.item.parentElement; 
+            },
+            onEnd: function(evt) {
+                var item = evt.item; 
+                dropzone = item.parentElement; 
+                console.log(wordWeights[item.id])
+    
+                console.log(startzone)
+                updateCounter(dropzone, item.id);
+                rotateBar();
+                // scaleSaw()
 
+                
+            },
+
+            
+
+            sort: false, 
         });
     });
+});
+
 
 
     
@@ -277,7 +305,10 @@ document.addEventListener("DOMContentLoaded", function () {
         // var weight = wordWeights[id];
         // weight = weight * 2;
         //get the weight from the data-weight attribute
-        weight = parseInt(document.getElementById(id).getAttribute('data-weight'));
+        weight = parseInt(draggingElement.getAttribute('data-weight'));
+        if (weight == undefined) {
+            weight = wordWeights[draggingElement.id];
+        }
 
         if (dropzone.classList.contains("left-words")) {
             weight = -weight;
@@ -329,7 +360,6 @@ document.addEventListener("DOMContentLoaded", function () {
         rotateBar();
 
     }
-});
 
 function rotateBar() {
     if (counter > 20) {
@@ -423,7 +453,7 @@ function resetSaw(bool) {
     placedwords = 0;
     alreadyplaced = false;   
     rotateBar();
-    scaleSaw(true)
+    // scaleSaw(true)
     document.querySelector('body').click();
 }
 function scaleSaw(resetScale = false) {
