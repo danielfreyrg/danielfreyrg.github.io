@@ -6,6 +6,13 @@
 }
 
 @font-face {
+    font-family: 'Pizzawoff';
+    src: url(./assets/fonts/PizzaPress-Regular.woff) format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
     font-family: 'trade';
     src: url('./assets/fonts/TradeGothic-BoldTwo.otf') format('opentype');
     font-weight: normal;
@@ -21,7 +28,8 @@ h2 {
 
 }
 h2.tuesday-top {
-    font-family: 'pizza';
+    font-family: 'Pizza';
+    font-family: 'Pizzawoff';
 }
 h1.mobile,
 h2.mobile {
