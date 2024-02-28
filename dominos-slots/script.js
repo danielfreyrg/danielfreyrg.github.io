@@ -42,14 +42,14 @@ function spin() {
 
     // roll.push(prizes[random]);
     if (index === 0) {
-      if (window.innerWidth < 301) {
+      if (window.innerWidth < 301 || window.innerHeight < 300) {
         roll.push(slots_left_small[random]);
       } else {
         roll.push(slots_left[random])
       }
     }
     if (index === 1) {
-      if (window.innerWidth < 301) {
+      if (window.innerWidth < 301 || window.innerHeight < 300) {
         roll.push(slots_middle_small[random]);
       } else {
         roll.push(slots_middle[random])
@@ -57,7 +57,7 @@ function spin() {
       
     }
     if (index === 2) {
-      if (window.innerWidth < 999) {
+      if (window.innerWidth < 301 || window.innerHeight < 300) {
         roll.push(slots_right_small[random]);
       }
       else {
