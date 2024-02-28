@@ -2,9 +2,9 @@ var hasSpun = false;
 var slots_left = [ 'Spínat', 'Rjómaostur', 'Græn paprika', 'Pulled pork', 'Pepperoni', 'Sveppir']
 var slots_middle = [ "Skinka", "Piparostur", "Svartar ólífur", "Ananas", "hakk", "Vegan kjúklingur"]
 var slots_right = [ 'Fajitas kjúklingur', 'Rauðlaukur', 'Beikonkurl', 'Ferskur chili', 'Jalapeno', 'Döðlur']
-var slots_left_small = [ 'Spínat', 'Rjómaostur', 'Græn paprika', 'Pulled pork', 'Pepperoni', 'Sveppir']
-var slots_middle_small = [ "Skinka", "Piparostur", "Svartar ólífur", "Ananas", "hakk", "Vegan kjúlli"]
-var slots_right_small = [ 'Fajitas kjúlli', 'Rauðlaukur', 'Beikon <br>kurl', 'Ferskur chili', 'Jalapeno', 'Döðlur']
+var slots_left_small = [ 'Spínat', 'Rjóma <br>ostur', 'Græn <br>paprika', 'Pulled <br>pork', 'Pepperoni', 'Sveppir']
+var slots_middle_small = [ "Skinka", "Pipa <br>rostur", "Svartar ólífur", "Ananas", "hakk", "Vegan <br>kjúlli"]
+var slots_right_small = [ 'Fajitas <br>kjúlli', 'Rauðlaukur', 'Beikon <br>kurl', 'Ferskur chili', 'Jalapeno', 'Döðlur']
 var roll = [];
 var positionY;
 
@@ -42,14 +42,14 @@ function spin() {
 
     // roll.push(prizes[random]);
     if (index === 0) {
-      if (window.innerWidth < 999) {
+      if (window.innerWidth < 301) {
         roll.push(slots_left_small[random]);
       } else {
         roll.push(slots_left[random])
       }
     }
     if (index === 1) {
-      if (window.innerWidth < 999) {
+      if (window.innerWidth < 301) {
         roll.push(slots_middle_small[random]);
       } else {
         roll.push(slots_middle[random])
