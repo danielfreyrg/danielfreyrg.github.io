@@ -666,14 +666,13 @@ h2.tuesday-top {
 @media screen and (max-width: 650px) {
 
     :root {
-        --slot-width: 50px;
+        --slot-width: 60px;
         --slot-gap: 5px;
     }
+    .main-text-mobile {
+        margin-bottom: -20px;
+    }
 
-    /* .arrow {
-        top: 25% !important;
-        left: 20px !important;
-    } */
     .main-text {
         animation-name: slide-in-left !important;
     }
@@ -689,12 +688,10 @@ h2.tuesday-top {
     }
 
     .results.results div {
-        font-size: 12px !important;
+        font-size: 11px !important;
     }
 
     .main-text h1 {
-        /* max-width: max-content !important; */
-
         font-size: 40px !important;
     }
 
