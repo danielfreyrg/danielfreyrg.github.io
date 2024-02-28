@@ -14,6 +14,7 @@
 :root {
     --slot-width: 112px;
     --slot-gap: 20px;
+    --button-size: 48px;
 }
 h2 {
     font-family: 'trade';
@@ -165,8 +166,8 @@ body {
 
 #spin,
 .spin {
-    width: 48px;
-    height: 48px;
+    width: var(--button-size);
+    height: var(--button-size);
     border-radius: 50%;
     background: #E31937;
     text-transform: uppercase;
@@ -179,13 +180,10 @@ body {
     justify-content: center;
 }
 
-#spin:hover {
+#spin:hover, button:hover, .order:hover {
     background: #B11A2A;
 }
 
-.order:hover {
-    background: #B11A2A;
-}
 
 .buttons {
     /* position: absolute; */
