@@ -4,7 +4,7 @@ var slots_middle = [ "Skinka", "Piparostur", "Svartar ólífur", "Ananas", "hakk
 var slots_right = [ 'Fajitas kjúklingur', 'Rauðlaukur', 'Beikonkurl', 'Ferskur chili', 'Jalapeno', 'Döðlur']
 var slots_left_small = [ 'Spínat', 'Rjóma <br>ostur', 'Græn <br>paprika', 'Pulled <br>pork', 'Pepperoni', 'Sveppir']
 var slots_middle_small = [ "Skinka", "Pipa <br>rostur", "Svartar ólífur", "Ananas", "hakk", "Vegan <br>kjúlli"]
-var slots_right_small = [ 'Fajitas <br>kjúlli', 'Rauðlaukur', 'Beikon <br>kurl', 'Ferskur chili', 'Jalapeno', 'Döðlur']
+var slots_right_small = [ 'Fajitas <br>kjúlli', 'Rauð <br>laukur', 'Beikon <br>kurl', 'Ferskur chili', 'Jalapeno', 'Döðlur']
 var roll = [];
 var positionY;
 
