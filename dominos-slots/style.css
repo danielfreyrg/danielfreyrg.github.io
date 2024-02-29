@@ -441,9 +441,9 @@ h2.tuesday-top {
     padding-top: 20px;
 }
     .mobile.question {
-        font-size: 16px !important;
+        font-size: 19px !important;
         padding: 0px 0 5px 0!important;
-        margin-top: -5px;
+        
 
     }
     .mobile.spin {
@@ -683,7 +683,7 @@ h2.tuesday-top {
         font-size: 14px !important;
     }
     .tuesday-top {
-        font-size: 28px !important;
+        font-size: 25px !important;
     
     }
 
