@@ -702,7 +702,7 @@ h2.tuesday-top {
 @media screen and (max-width: 650px) {
 
     :root {
-        --slot-width: 60px;
+        --slot-width: 55px;
         --slot-gap: 15px;
     }
     .main-text-mobile {
@@ -738,6 +738,7 @@ h2.tuesday-top {
     .slot-row,
     .results {
         justify-content: center !important;
+        bottom: -5px !important;
     }
 
     .outer {
