@@ -22,10 +22,9 @@ nav ul li {
     margin: 0 10px;
 }
 .images {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    flex-direction: row;
+    display: grid;
+    /* grid-template-columns: 1fr 1fr 1fr 1fr; */
+    grid-auto-flow: column;
 
 }
 .logo {
@@ -36,7 +35,7 @@ nav ul li {
     border-radius: 10px;
 }
 .images img {
-    width: 500px;
+    width: 80%;
     margin: 10px;
     border: 5px solid #004c93;
     border-radius: 10px;
@@ -76,8 +75,8 @@ nav {
         display: block;
         margin: 10px 0;
     }
-    .images img {
-        width: 300px;
+    .images {
+        grid-auto-flow: row;
     }
     .logo {
         width: 150px;
