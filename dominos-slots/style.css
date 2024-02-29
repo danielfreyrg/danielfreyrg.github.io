@@ -681,7 +681,7 @@ h2.tuesday-top {
 
     :root {
         --slot-width: 60px;
-        --slot-gap: 5px;
+        --slot-gap: 15px;
     }
     .main-text-mobile {
         margin-bottom: -20px;
