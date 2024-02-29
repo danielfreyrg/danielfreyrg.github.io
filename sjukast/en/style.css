@@ -98,10 +98,10 @@ label {
     margin-bottom: -80px;
     }
     .left-words::after {
-        content: "Ég";
+        content: "Me";
     }
     .right-words::after {
-        content: "Hann/hún/hán";
+        content: "Him/Her/Them";
 
     }
     .left-words, .right-words {
