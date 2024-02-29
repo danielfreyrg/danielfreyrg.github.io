@@ -396,7 +396,7 @@ document.querySelector(".start-button").addEventListener("click", function () {
     document.querySelector(".background").style.animationName = "fade-in";
     document.querySelector('.background').style.display = 'block';
     document.querySelectorAll(".start > label").forEach(function (label) {
-        label.innerHTML = '<span>' + words[label.id] + '</span>';
+        // label.innerHTML = '<span>' + words[label.id] + '</span>';
              label.setAttribute('data-weight', wordWeights[label.id])
          });
     nextScene(1);
@@ -422,11 +422,11 @@ document.querySelector(".done-button").addEventListener("click", function () {
 
 
 function nextScene(currentSceneNum) {
-    //final scene
+    var limit = 2
     if (currentSceneNum == 2) {
-        if (counter < -5) {
+        if (counter >= limit) {
         document.querySelector('.scene3 #results').innerHTML = `Það lítur út fyrir að þú gætir verið í veikari stöðu í ykkar samskiptunum. `
-        } else if (counter > 5) {
+        } else if (counter <= -limit) {
             document.querySelector('.scene3 #results').innerHTML = `Það lítur út fyrir að þú gætir verið í sterkari stöðu í ykkar samskiptum.`
         
         } else {
