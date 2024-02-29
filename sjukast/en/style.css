@@ -1,8 +1,8 @@
 
 @font-face {
     font-family: 'TT Norms';
-    src: url('./assets/fonts/TTNorms-Bold.woff2') format('woff2'),
-        url('./assets/fonts/TTNorms-Bold.woff') format('woff');
+    src: url('../assets/fonts/TTNorms-Bold.woff2') format('woff2'),
+        url('../assets/fonts/TTNorms-Bold.woff') format('woff');
     font-weight: bold;
     font-style: normal;
     font-display: swap;
@@ -10,29 +10,29 @@
 
 @font-face {
     font-family: 'TT Norms';
-    src: url('./assets/fonts/TTNorms-Regular.woff2') format('woff2'),
-        url('./assets/fonts/TTNorms-Regular.woff') format('woff');
+    src: url('../assets/fonts/TTNorms-Regular.woff2') format('woff2'),
+        url('../assets/fonts/TTNorms-Regular.woff') format('woff');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
 }
 @font-face {
     font-family: 'chaney';
-    src: url('./assets/CHANEY-Regular.otf') format('opentype');
+    src: url('../assets/CHANEY-Regular.otf') format('opentype');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'bricolage';
-    src: url('./assets/BricolageGrotesque-SemiBold.ttf') format('truetype');
+    src: url('../assets/BricolageGrotesque-SemiBold.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
 @font-face {
     font-family: 'TT Norms';
-    src: url('./assets/fonts/TTNorms-Heavy.woff2') format('woff2'),
-        url('./assets/fonts/TTNorms-Heavy.woff') format('woff');
+    src: url('../assets/fonts/TTNorms-Heavy.woff2') format('woff2'),
+        url('../assets/fonts/TTNorms-Heavy.woff') format('woff');
     font-weight: 900;
     font-style: normal;
     font-display: swap;
@@ -143,7 +143,7 @@ html {
 .base-front {
     position: absolute;
     inset: -27px 0 0 0;
-    background: url(./assets/base-front-noshadow.svg);
+    background: url(../assets/base-front-noshadow.svg);
     background-size: 100%;
     background-repeat: no-repeat;
 
@@ -153,7 +153,7 @@ html {
 .base-back {
     position: absolute;
     inset: 0;
-    background: url(./assets/base-back.svg);
+    background: url(../assets/base-back.svg);
     background-size: 100%;
     background-repeat: no-repeat;
 
@@ -178,7 +178,7 @@ body {
     /* display: none !important; */
 }
 .background {
-    background-image: url(./assets/BG-tall.svg);
+    background-image: url(../assets/BG-tall.svg);
     background-size: cover;
     position: absolute;
     inset: 0;
@@ -235,7 +235,7 @@ button:hover {
 }
 
 .top {
-    background: url(./assets/top.svg);
+    background: url(../assets/top.svg);
     background-size: 100%;
     background-repeat: no-repeat;
     width: 900px;
@@ -730,7 +730,7 @@ span {
         margin-bottom: -22px;
     }
     .background.background.background {
-        background: url('./assets/BG-mobile-side.svg') !important;
+        background: url('../assets/BG-mobile-side.svg') !important;
         background-repeat: no-repeat;
         background-size: cover !important;
     }
@@ -854,7 +854,7 @@ span {
     .base-front {
         position: absolute;
         inset: -8.3px 0 0 0;
-        background: url(./assets/base-front-noshadow.svg);
+        background: url(../assets/base-front-noshadow.svg);
         background-size: 100%;
         background-repeat: no-repeat;
         width: 300px;
@@ -865,7 +865,7 @@ span {
     .base-back {
         position: absolute;
         inset: 0;
-        background: url(./assets/base-back.svg);
+        background: url(../assets/base-back.svg);
         background-size: 100%;
         background-repeat: no-repeat;
         width: 300px;
@@ -1155,7 +1155,7 @@ img {
         gap: 0 !important;
     }
     .background {
-        background: url(./assets/BG-banner-scaled.svg) !important;
+        background: url(../assets/BG-banner-scaled.svg) !important;
         background-repeat: no-repeat;
         background-size: 100% !important;
     }
