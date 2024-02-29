@@ -738,7 +738,6 @@ h2.tuesday-top {
     .slot-row,
     .results {
         justify-content: center !important;
-        bottom: -5px !important;
     }
 
     .outer {
@@ -788,7 +787,7 @@ h2.tuesday-top {
     }
     .slot-wrapper, .buttons {
         animation-name: slide-in-top !important;
-        margin-top: -10px !important;
+        margin-top: -20px !important;
     }
     .outer.outer.outer.outer {
         padding: 10px 0 !important;
@@ -799,7 +798,7 @@ h2.tuesday-top {
     }
     .results.results.results.results {
         font-size: 11px !important;
-        bottom: 0px !important;
+        bottom: -5px !important;
         
     }
     #spin {
