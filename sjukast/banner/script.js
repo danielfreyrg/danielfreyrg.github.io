@@ -384,7 +384,7 @@ function nextScene(currentSceneNum) {
     var limit = 2
     if (currentSceneNum == 2) {
         if (counter >= limit) {
-        document.querySelector('.scene3 #results').innerHTML = `Það lítur út fyrir að þú gætir verið í veikari stöðu í ykkar samskiptunum. `
+        document.querySelector('.scene3 #results').innerHTML = `Það lítur út fyrir að þú gætir verið í veikari stöðu í ykkar samskiptum. `
         } else if (counter <= -limit) {
             document.querySelector('.scene3 #results').innerHTML = `Það lítur út fyrir að þú gætir verið í sterkari stöðu í ykkar samskiptum.`
         
