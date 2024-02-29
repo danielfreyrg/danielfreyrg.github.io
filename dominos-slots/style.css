@@ -125,7 +125,7 @@ h2.tuesday-top {
     position: absolute;
     inset: 0;
     background: rgb(0,0,0);
-    background: radial-gradient(circle, rgba(0,0,0,0) 27%, rgba(255,255,255,0) 50%, rgba(0,0,0,0.8) 73%);    /* background-image: url(./assets/Shadow.svg); */
+    background: radial-gradient(circle, rgba(0,0,0,0) 30%, rgba(255,255,255,0) 50%, rgba(0,0,0,0.8) 70%), linear-gradient(0deg, rgba(0,0,0,1) 15%, rgba(255,255,255,0) 20%, rgba(255,255,255,0) 80%, rgba(0,0,0,1) 85%);    /* background-image: url(./assets/Shadow.svg); */
     opacity: .9;
     box-shadow: 0 0 30px 5px rgba(0, 0, 0, .3);
     z-index: 1;
@@ -250,7 +250,7 @@ body {
     /* content: ""; */
     position: absolute;
     inset: 0;
-    background: linear-gradient(180deg, #403A2F -0.24%, #706C64 20.71%, #ADAAA6 48.64%, #D9D8D6 71.58%, #F4F4F3 89.54%, #FFF 99.51%);
+    background: linear-gradient(180deg, #403A2F -0.24%, #706C64 20.71%, #ADAAA6 48.64%, #D9D8D6 71.58%, #F4F4F3 89.54%, #FFF 99.51%), ;
     opacity: 0.47;
     background-blend-mode: multiply;
     mix-blend-mode: multiply;
