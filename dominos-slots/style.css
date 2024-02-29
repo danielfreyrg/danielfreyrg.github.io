@@ -482,7 +482,7 @@ h2.tuesday-top {
         --slot-width: 65px !important;
     }
     .results {
-        bottom: -5px !important;
+        bottom: 0px !important;
     }
     .slot-wrapper {
         margin-bottom: 20px;
