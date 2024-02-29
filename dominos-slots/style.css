@@ -507,7 +507,8 @@ h2.tuesday-top {
     }
     h1.desktop.desktop.desktop {
         display: block !important;
-        margin-top: -5px;
+        margin-top: 10px;
+        line-height: .95;
     }
     .order {
         font-size: 18px !important;
