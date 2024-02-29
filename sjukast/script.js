@@ -157,7 +157,13 @@ const words = {
     'sudar': "suðar",
     'pressa': "upplifir pressu",
 };
-
+function inIframe () {
+    try {
+        return window.self !== window.top;
+    } catch (e) {
+        return true;
+    }
+}
 function splitAndFormatWord(word) {
     if (word.includes('-')) {
         return word
@@ -183,6 +189,9 @@ function splitAndFormatWord(word) {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
+    if (inIframe()) {
+        window.location.href = 'https://danielfreyrg.github.io/sjukast/banner'
+    }
 
     // Enable draggable functionality on labels within the .start container
     new Sortable(document.querySelector('.start'), {
@@ -221,7 +230,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 console.log('big word')
                 item.classList.add('big-word'); 
             }
-            if (wordCounter[evt.item.id] == 0) {
+            if (wordCounter[evt.item.id] == 0 && !evt.to.classList.contains('bg-drop-zone') && !evt.to.classList.contains('start')) {
                 var cloned = draggingElement.cloneNode(true);
                 cloned.id = item.id + "-clone-" + wordCounter[item.id];
                 cloned.addEventListener("dragstart", (event) => {
