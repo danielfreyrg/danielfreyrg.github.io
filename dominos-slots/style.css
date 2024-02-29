@@ -767,6 +767,9 @@ h2.tuesday-top {
 
 /*300x250*/
 @media screen  and (min-width: 245px) and (max-width: 325px) and (min-height: 205px) and (max-height: 255px) {
+    .main-text-mobile {
+        margin-bottom: 0 !important;
+    }
     .order {
         font-size: 14px !important;
     }
