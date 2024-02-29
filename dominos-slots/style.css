@@ -33,6 +33,9 @@ h2 {
     font-family: 'trade-cond';
 
 }
+button {
+    aspect-ratio: 1/1;
+}
 h2.tuesday-top {
     font-family: 'Pizza';
 }
@@ -780,6 +783,7 @@ h2.tuesday-top {
     h2.mobile.question {
         font-size: 18px !important;
         width: max-content;
+        margin-bottom: 10px !important;
         display: flex !important;
         justify-content: center;
         align-items: center;
