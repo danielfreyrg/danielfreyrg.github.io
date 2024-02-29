@@ -817,14 +817,14 @@ h2.tuesday-top {
     
     .content.content.content {
         display: grid !important;
-        grid-template-columns: 174px 20px;
+        grid-template-columns: 200px 20px;
         grid-template-rows: 16px 138px 50px;
         grid-template-areas:
             'text text'
             'slots buttons'
             'mobile-text mobile-text';
         /* margin-left: -100px; */
-        gap: 5px 0px;
+        gap: 10px 0px;
     }
 
    .order-main {
