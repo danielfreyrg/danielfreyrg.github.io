@@ -396,7 +396,7 @@ document.querySelector(".start-button").addEventListener("click", function () {
     document.querySelector(".background").style.animationName = "fade-in";
     document.querySelector('.background').style.display = 'block';
     document.querySelectorAll(".start > label").forEach(function (label) {
-        // label.innerHTML = '<span>' + words[label.id] + '</span>';
+        label.innerHTML = '<span>' + words[label.id] + '</span>';
              label.setAttribute('data-weight', wordWeights[label.id])
          });
     nextScene(1);
