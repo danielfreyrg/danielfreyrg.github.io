@@ -814,20 +814,25 @@ h2.tuesday-top {
     
     .content.content.content {
         display: grid !important;
-        grid-template-columns: 140px;
+        grid-template-columns: 174px 20px;
         grid-template-rows: 16px 138px 50px;
         grid-template-areas:
-            'text'
-            'slots'
-            'mobile-text';
-        margin-left: -100px;
+            'text text'
+            'slots buttons'
+            'mobile-text mobile-text';
+        /* margin-left: -100px; */
         gap: 5px 0px;
     }
+
    .order-main {
     display: none !important;
    } 
     .buttons.buttons.buttons {
         grid-gap: 0px !important;
+        grid-area: buttons;
+        animation-name: fade-in !important;
+        display: flex !important;
+        height: 100% !important;
     }
     .slot-wrapper {
         grid-area: slots;
