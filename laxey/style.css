@@ -27,6 +27,13 @@ nav ul li {
     grid-auto-flow: column;
 
 }
+img {
+    transform: rotate(0deg);
+    transition: transform 0.5s;
+}
+img:hover {
+    transform: rotate(360deg);
+}
 .logo {
     width: 300px;
     height: 300px;
