@@ -807,7 +807,7 @@ h2.tuesday-top {
     }
     #spin {
         transform: translateY(-25%);
-        margin-left: 0 !important;
+        margin-left: 5px !important;
     }
     .arrow-2 {
         left: 0;
