@@ -40,6 +40,10 @@
 
 
 
+.language-button:hover {
+    background: var(--main-red);
+    color: white;
+}
 .language-button {
     position: absolute;
     bottom: 5rem;
@@ -49,7 +53,6 @@
     padding: 10px 30px;
     font-family: 'bricolage';
     font-size: 22px;
-    color: white;
     cursor: pointer;
     transition: all 0.1s ease-in-out;
     z-index: 99;
