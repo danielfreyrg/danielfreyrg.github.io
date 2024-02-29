@@ -20,7 +20,7 @@
 }
 @font-face {
     font-family: 'trade-cond';
-    src: url(./assets/fonts/TradeGothic-BdCondTwentyObl.otf) format('opentype');
+    src: url(./assets/fonts/TradeGothic-BoldCondTwenty.otf) format('opentype');
     font-weight: normal;
     font-style: normal;
 }
@@ -403,6 +403,10 @@ body {
 }
 /* 1018x360 */
 @media screen and (min-width: 900px) {
+    .outer.outer.outer.outer {
+        justify-content: flex-start !important;
+        align-items: center !important;
+    }
     .main-text {
         display: flex;
         flex-flow: column;
