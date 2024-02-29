@@ -631,7 +631,7 @@ h2.tuesday-top {
             'text'
             'slots'
             'mobile-text';
-        margin-left: -55px;
+        margin-left: -100px;
         grid-gap: 10px;
         align-items: center;
         justify-items: start;
