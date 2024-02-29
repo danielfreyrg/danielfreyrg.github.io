@@ -381,7 +381,18 @@ document.querySelector(".done-button").addEventListener("click", function () {
 
 
 function nextScene(currentSceneNum) {
-
+    var limit = 2
+    if (currentSceneNum == 2) {
+        if (counter >= limit) {
+        document.querySelector('.scene3 #results').innerHTML = `Það lítur út fyrir að þú gætir verið í veikari stöðu í ykkar samskiptunum. `
+        } else if (counter <= -limit) {
+            document.querySelector('.scene3 #results').innerHTML = `Það lítur út fyrir að þú gætir verið í sterkari stöðu í ykkar samskiptum.`
+        
+        } else {
+            document.querySelector('.scene3 #results').innerHTML = `Það lítur út fyrir að vera gott jafnvægi í ykkar samskiptum.`
+        
+        }
+    }
     document.querySelector(".scene" + currentSceneNum).style.animationName = "slide-out";
     document
         .querySelector(".scene" + currentSceneNum)

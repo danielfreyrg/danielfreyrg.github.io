@@ -422,7 +422,18 @@ document.querySelector(".done-button").addEventListener("click", function () {
 
 
 function nextScene(currentSceneNum) {
-
+    var limit = 2
+    if (currentSceneNum == 2) {
+        if (counter >= limit) {
+        document.querySelector('.scene3 #results').innerHTML = `You seem to be in a weaker position in your relationship. `
+        } else if (counter <= -limit) {
+            document.querySelector('.scene3 #results').innerHTML = `You seem to be in a more powerful position in your relationship. `
+        
+        } else {
+            document.querySelector('.scene3 #results').innerHTML = `There seems to be a good balance in your relationship. `
+        
+        }
+    }
     document.querySelector(".scene" + currentSceneNum).style.animationName = "slide-out";
     document
         .querySelector(".scene" + currentSceneNum)
