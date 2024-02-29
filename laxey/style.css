@@ -71,3 +71,24 @@ nav {
     justify-content: center;
     align-items: center;
 }
+@media screen and (max-width: 600px) {
+    nav ul li {
+        display: block;
+        margin: 10px 0;
+    }
+    .images img {
+        width: 300px;
+    }
+    .logo {
+        width: 150px;
+        height: 150px;
+    }
+    nav {
+        flex-direction: column;
+    }
+    ul {
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+    }
+}
