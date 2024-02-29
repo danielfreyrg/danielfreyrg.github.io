@@ -55,7 +55,7 @@ const wordWeights = {
     "vill-ad-adrir-fili-sig": -1,
     "ahrifagjarn": -1,
     yngri: -2,
-    "ekki-med-fulla-medvitund": -3,
+    "ekki-med-fulla-medvitund": -50,
     feiminn: -1,
     "ad-vinna-ur-afalli": -2,
     ooruggur: -2,
