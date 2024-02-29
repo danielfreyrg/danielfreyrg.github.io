@@ -1,4 +1,24 @@
 var hasSpun = false;
+var ids = {
+  "pepperoni":1,
+  "skinka":2,
+  "hakk":3,
+  "beikonkurl":4,
+  "piparostur":8,
+  "rjómaostur":9,
+  "ananas":11,
+  "jalapeno":13,
+  "svartar ólífur":14,
+  "græn paprika":16,
+  "rauðlaukur":31,
+  "fajitas kjúklingur":34,
+  "spínat":35,
+  "sveppir":36,
+  "pulled pork":46,
+  "Vegan kjúklingur":47,
+  "ferskur chili":48,
+  "döðlur":49,
+}
 var slots_left = [ 'Spínat', 'Rjómaostur', 'Græn paprika', 'Pulled pork', 'Pepperoni', 'Sveppir']
 var slots_middle = [ "Skinka", "Piparostur", "Svartar ólífur", "Ananas", "hakk", "Vegan kjúklingur"]
 var slots_right = [ 'Fajitas kjúklingur', 'Rauðlaukur', 'Beikonkurl', 'Ferskur chili', 'Jalapeno', 'Döðlur']
@@ -24,7 +44,6 @@ function slide() {
 
 function jackpot() {
   //if all three slots are the same color, jackpot
-  // alert("JACKPOT!");
   return;
 }
 function spin() {
