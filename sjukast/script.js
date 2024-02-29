@@ -152,7 +152,7 @@ const words = {
     eldri: "eldri",
     "med-meiri-reynslu": "meiri reynsla",
     efnadur: "efnaðri",
-    "godur-i-kjaftinum": "kjaftfor",
+    "godur-i-kjaftinum": "stjórnsemi",
     'i-ojafnvaegi': "í ójafnvægi",
     'sudar': "suðar",
     'pressa': "upplifir pressu",
