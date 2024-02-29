@@ -788,6 +788,7 @@ h2.tuesday-top {
         justify-content: center;
         align-items: center;
         gap: 5px;
+        margin-top: 10px;
     }
     .slot-wrapper, .buttons {
         animation-name: slide-in-top !important;
@@ -802,7 +803,7 @@ h2.tuesday-top {
     }
     .results.results.results.results {
         font-size: 11px !important;
-        bottom: -11px !important;
+        bottom: -7px !important;
         
     }
     #spin {
