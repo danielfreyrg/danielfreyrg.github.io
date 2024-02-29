@@ -807,7 +807,7 @@ h2.tuesday-top {
     }
     #spin {
         transform: translateY(-25%);
-        margin-left: 43px;
+        margin-left: 0 !important;
     }
     .arrow-2 {
         left: 0;
@@ -823,7 +823,6 @@ h2.tuesday-top {
             'text text'
             'slots buttons'
             'mobile-text mobile-text';
-        /* margin-left: -100px; */
         gap: 10px 0px;
     }
 
@@ -836,7 +835,9 @@ h2.tuesday-top {
         animation-name: fade-in !important;
         display: flex !important;
         height: 100% !important;
-        margin: 0;
+        grid-auto-flow: row !important;
+        margin: 0  !important;
+        width: 50px;
     }
     .slot-wrapper {
         grid-area: slots;
@@ -865,15 +866,8 @@ h2.tuesday-top {
         flex-direction: row !important;
     }
 
-    .buttons.buttons {
-        grid-auto-flow: row !important;
-        /* align-self: flex-end !important; */
-        margin: 0  !important;
-        width: 50px;
-    }
 
     .main-text {
-        /* display: none; */
         grid-area: text;
         animation-name: slide-in-left !important;
 
@@ -881,8 +875,6 @@ h2.tuesday-top {
 
     .content {
         display: grid !important;
-        /* grid-template-columns: 1fr 1fr;
-        grid-template-rows: 1fr 1fr; */
         grid-template: ". ."
             "text text";
     }
