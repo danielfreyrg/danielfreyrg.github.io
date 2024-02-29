@@ -802,13 +802,12 @@ h2.tuesday-top {
         
     }
     #spin {
-        /* transform: translateY(-50%); */
+        transform: translateY(-25%);
         margin-left: 50px;
     }
     .arrow-2 {
-        left: unset;
-        right: 0;
-        transform: translate(150%, -75%) scale(-1);
+        left: 0;
+        transform: translate(-149%, 0);
 
     }
     
@@ -893,6 +892,9 @@ h2.tuesday-top {
 
     .main-text.main-text h2 {
         display: none;
+    }
+    .button-spin.mobile.spin {
+        display: none !important;
     }
 }
 /* 1018x360 */
