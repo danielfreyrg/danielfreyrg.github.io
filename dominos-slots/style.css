@@ -18,13 +18,19 @@
     font-weight: normal;
     font-style: normal;
 }
+@font-face {
+    font-family: 'trade-cond';
+    src: url(./assets/fonts/TradeGothic-BdCondTwentyObl.otf) format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
 :root {
     --slot-width: 112px;
     --slot-gap: 20px;
-    --button-size: 48px;
+    --button-size: 42px;
 }
 h2 {
-    font-family: 'trade';
+    font-family: 'trade-cond';
 
 }
 h2.tuesday-top {
