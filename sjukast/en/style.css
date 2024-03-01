@@ -646,6 +646,12 @@ span {
 }
 
 @media screen and (max-width: 1000px), screen and (hover: none) and (orientation: landscape) and (max-height: 600px) {
+    .language-button {
+        bottom: 1rem;
+        left: 1rem;
+        font-size: 1.1em;
+        padding: 5px 15px;
+    }
     .info .mobile {
         display: flex;
     }
@@ -1257,7 +1263,7 @@ img {
     .language-button {
         bottom: 1rem;
         left: 1rem;
-        font-size: 1,1em;
+        font-size: 1.1em;
         padding: 5px 15px;
     }
 }
