@@ -26,6 +26,7 @@ var slots_left_small = [ 'Spínat', 'Rjóma- <br>ostur', 'Græn <br>paprika', 'P
 var slots_middle_small = [ "Skinka", "Pipar- <br>ostur", "Svartar ólífur", "Ananas", "hakk", "Vegan <br>kjúlli"]
 var slots_right_small = [ 'Fajitas <br>kjúlli', 'Rauð- <br>laukur', 'Beikon <br>kurl', 'Ferskur chili', 'Jalapeno', 'Döðlur']
 var roll = [];
+var cleanRoll = [];
 var positionY;
 
 function updateResults() {
@@ -63,9 +64,11 @@ function spin() {
     if (index === 0) {
       if (window.innerWidth < 301 || window.innerHeight < 300) {
         roll.push(slots_left_small[random]);
+
       } else {
         roll.push(slots_left[random])
       }
+      cleanRoll.push(slots_left[random].toLowerCase())
     }
     if (index === 1) {
       if (window.innerWidth < 301 || window.innerHeight < 300) {
@@ -73,6 +76,7 @@ function spin() {
       } else {
         roll.push(slots_middle[random])
       }
+      cleanRoll.push(slots_middle[random].toLowerCase())
       
     }
     if (index === 2) {
@@ -82,6 +86,7 @@ function spin() {
       else {
       roll.push(slots_right[random]);
       }
+      cleanRoll.push(slots_right[random].toLowerCase())
     }
 
     column.style.transition =
@@ -90,7 +95,11 @@ function spin() {
       "s cubic-bezier(1,-0.08,0,1.04)";
     column.style.backgroundPositionY = positionY;
     column.setAttribute("data-index", random);
+    document.querySelectorAll('a').forEach(function (i) {
+      i.setAttribute('href', `https://www.dominos.is/panta/pizzur?toppings=${ids[cleanRoll[0]]},${ids[cleanRoll[1]]},${ids[cleanRoll[2]]}`)
 
+     
+    })
     // Update results after the last column finishes spinning
     if (index === columns.length - 1) {
       setTimeout(updateResults, (random + index + 1) * 1200);
@@ -105,6 +114,7 @@ function spin() {
 document.querySelectorAll(".spin").forEach( i => {
   i.addEventListener("click", function () {
   if (hasSpun) {
+    cleanRoll = [];
     document
       .querySelectorAll(".slot-col")
       .forEach(function (column, index, array) {
