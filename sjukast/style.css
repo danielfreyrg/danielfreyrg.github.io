@@ -1263,7 +1263,7 @@ img {
 }
 @media screen and (hover: none) {
     .language-button {
-    animation-name: slide-in-mobile;
+    animation-name: slide-in;
     animation-duration: 1s;
     animation-timing-function: ease-in-out;
     animation-fill-mode: forwards;
