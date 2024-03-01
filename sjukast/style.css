@@ -1205,6 +1205,7 @@ img {
         bottom: 1rem;
         left: 1rem;
         font-size: 1,1em;
+        padding: 5px 15px;
     }
     .scene1 .subtitle {
         max-width: 85vw !important;
