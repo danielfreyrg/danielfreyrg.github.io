@@ -1261,3 +1261,11 @@ img {
         width: 200px;
     }
 }
+@media screen and (hover: none) {
+    .language-button {
+        bottom: 1rem;
+        left: 1rem;
+        font-size: 1.1em;
+        padding: 5px 15px;
+    }
+}
