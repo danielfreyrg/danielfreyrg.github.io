@@ -1263,7 +1263,7 @@ img {
 }
 @media screen and (hover: none) {
     .language-button {
-    animation-name: slide-in;
+    animation-name: slide-in-right;
     animation-duration: 1s;
     animation-timing-function: ease-in-out;
     animation-fill-mode: forwards;
@@ -1271,5 +1271,15 @@ img {
         left: 1rem;
         font-size: 1.1em;
         padding: 5px 15px;
+    }
+}@keyframes slide-in-right {
+    0% {
+        transform: translateX(-100vw);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateX(0%);
+        opacity: 1;
     }
 }
