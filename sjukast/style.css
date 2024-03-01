@@ -1201,6 +1201,11 @@ img {
     display: none;
 }
 @media screen and (max-width: 600px) and (orientation: portrait) and (hover: none) {
+    .language-button {
+        bottom: 1rem;
+        left: 1rem;
+        font-size: 1,1em;
+    }
     .scene1 .subtitle {
         max-width: 85vw !important;
     }
