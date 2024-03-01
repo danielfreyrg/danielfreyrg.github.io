@@ -15,7 +15,7 @@ var ids = {
   "spínat":35,
   "sveppir":36,
   "pulled pork":46,
-  "Vegan kjúklingur":47,
+  "vegan kjúklingur":47,
   "ferskur chili":48,
   "döðlur":49,
 }
@@ -28,6 +28,7 @@ var slots_right_small = [ 'Fajitas <br>kjúlli', 'Rauð- <br>laukur', 'Beikon <b
 var roll = [];
 var cleanRoll = [];
 var positionY;
+
 
 function updateResults() {
   document.querySelector(".first span").innerHTML = roll[0];
