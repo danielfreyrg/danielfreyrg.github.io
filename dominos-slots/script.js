@@ -97,7 +97,7 @@ function spin() {
     column.style.backgroundPositionY = positionY;
     column.setAttribute("data-index", random);
     document.querySelectorAll('a').forEach(function (i) {
-      i.setAttribute('href', `https://www.staging.dominos.is/panta/tilbod/10?toppings=${ids[cleanRoll[0]]},${ids[cleanRoll[1]]},${ids[cleanRoll[2]]}`)
+      i.setAttribute('href', `https://staging.dominos.is/panta/tilbod/10?toppings=${ids[cleanRoll[0]]},${ids[cleanRoll[1]]},${ids[cleanRoll[2]]}`)
 
      
     })
