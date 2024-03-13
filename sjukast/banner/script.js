@@ -220,7 +220,7 @@ document.addEventListener("DOMContentLoaded", function () {
         // var weight = wordWeights[id];
         // weight = weight * 2;
         //get the weight from the data-weight attribute
-        weight = parseInt(draggingElement.getAttribute('data-weight'));
+        weight = parseInt(document.getElementById(id).getAttribute('data-weight'));
         if (weight == undefined) {
             if (id.includes('clone')) { 
                 weight = wordWeights[id.split('-')[0]];
@@ -228,7 +228,6 @@ document.addEventListener("DOMContentLoaded", function () {
             weight = wordWeights[draggingElement.id];
         }
     }
-
         if (dropzone.classList.contains("left-words")) {
             weight = -weight;
         }
