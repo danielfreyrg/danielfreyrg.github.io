@@ -9,6 +9,7 @@ var animationOut = "slide-out";
 var alreadyplaced = false;
 var scale = 1;
 var draggingElement;
+if (window.location.href.includes('vegasalt')) {
 
 if (window.innerWidth < 600) {
     animationIn = "slide-in-mobile";
@@ -60,8 +61,8 @@ const wordWeights = {
     "ad-vinna-ur-afalli": -2,
     ooruggur: -2,
     "i-ojafnvaegi": -2,
-    hraeddur: -50,
-    frosinn: -3,
+    hraeddur: -10,
+    frosinn: -10,
     "ekki-i-godu-astandi": -2,
     oreyndur: -2,
     "likamlega-sterkur": 2,
@@ -73,90 +74,33 @@ const wordWeights = {
     eldri: 2,
     "med-meiri-reynslu": 2,
     efnadur: 1,
-    "godur-i-kjaftinum": 1,
-    'stressadur-clone-0': -2,
-    "meikar-ekki-ad-beila-clone-0": -2,
-    "vill-ekki-saera-clone-0": -2,
-    "vill-ekki-bregdast-clone-0": -2,
-    "vill-ad-adrir-fili-sig-clone-0": -1,
-    "ahrifagjarn-clone-0": -1,
-    'yngri-clone-0': -2,
-    "ekki-med-fulla-medvitund-clone-0": -50,
-    'feiminn-clone-0': -1,
-    "ad-vinna-ur-afalli-clone-0": -2,
-    'ooruggur-clone-0': -2,
-    "i-ojafnvaegi": -2,
-    'hraeddur-clone-0': -50,
-    'frosinn-clone-0': -3,
-    "ekki-i-godu-astandi-clone-0": -2,
-    'oreyndur-clone-0': -2,
-    "likamlega-sterkur-clone-0": 2,
-    'fraegur-clone-0': 2,
-    'frekur-clone-0': 3,
-    'vinsaell-clone-0': 1,
-    'sjalfsoruggur-clone-0': 2,
-    'aestur-clone-0': 3,
-    'eldri-clone-0': 2,
-    'i-ojafnvaegi-clone-0': -2,
-    "med-meiri-reynslu-clone-0": 2,
-    'efnadur-clone-0': 1,
-    "godur-i-kjaftinum-clone-0": 1,
-    'stressadur-clone-1': -2,
-    "meikar-ekki-ad-beila-clone-1": -2,
-    "vill-ekki-saera-clone-1": -2,
-    "vill-ekki-bregdast-clone-1": -2,
-    "vill-ad-adrir-fili-sig-clone-1": -1,
-    "ahrifagjarn-clone-1": -1,
-    'yngri-clone-1': -2,
-    "ekki-med-fulla-medvitund-clone-1": -50,
-    'feiminn-clone-1': -1,
-    "ad-vinna-ur-afalli-clone-1": -2,
-    'ooruggur-clone-1': -2,
-    "i-ojafnvaegi-clone-1": -2,
-    'hraeddur-clone-1': -50,
-    'frosinn-clone-1': -50,
-    "ekki-i-godu-astandi-clone-1": -2,
-    'oreyndur-clone-1': -2,
-    "likamlega-sterkur-clone-1": 2,
-    'fraegur-clone-1': 2,
-    'frekur-clone-1': 3,
-    'vinsaell-clone-1': 1,
-    'sjalfsoruggur-clone-1': 2,
-    'aestur-clone-1': 3,
-    'eldri-clone-1': 2,
-    "med-meiri-reynslu-clone-1": 2,
-    'efnadur-clone-1': 1,
-    "godur-i-kjaftinum-clone-1": 1,
-    'sudar': 1,
-    'sudar-clone-0': 1,
-    'sudar-clone-1': 1,
-    'pressa-clone-0': -2,
-    'pressa-clone-1': -2,
+    "godur-i-kjaftinum": 1
     
 };
 const words = {
-    stressadur: "stressed",
-    "vill-ekki-saera": "doesn't want to hurt",
-    "ahrifagjarn": "easy to influence",
-    yngri: "younger",
-    "ekki-med-fulla-medvitund": "loss of consciousness",
-    ooruggur: "insecure",
-    hraeddur: "scared",
-    frosinn: "Petrified",
-    "likamlega-sterkur": "physically strong",
-    fraegur: "famous",
-    frekur: "pushy",
-    vinsaell: "popular",
-    sjalfsoruggur: "confident",
-    aestur: "agressive",
-    eldri: "older",
-    "med-meiri-reynslu": "more experience",
-    efnadur: "richer",
-    "godur-i-kjaftinum": "manipulative",
-    'i-ojafnvaegi': "unstable",
-    'sudar': "nagging",
-    'pressa': "feels pressured",
+    stressadur: "stress",
+    "vill-ekki-saera": "vill ekki særa",
+    "ahrifagjarn": "áhrifagirni",
+    yngri: "yngri",
+    "ekki-med-fulla-medvitund": "ekki með fulla meðvitund",
+    ooruggur: "óöryggi",
+    hraeddur: "hræðsla",
+    frosinn: "frýs",
+    "likamlega-sterkur": "líkamlegur styrkur",
+    fraegur: "frægð",
+    frekur: "frekja",
+    vinsaell: "nýtur vinsælda",
+    sjalfsoruggur: "sjálfsöryggi",
+    aestur: "æsingur",
+    eldri: "eldri",
+    "med-meiri-reynslu": "meiri reynsla",
+    efnadur: "efnaðri",
+    "godur-i-kjaftinum": "stjórnsemi",
+    'i-ojafnvaegi': "í ójafnvægi",
+    'sudar': "suðar",
+    'pressa': "upplifir pressu",
 };
+	document.querySelector('.background-plain').style.display = 'block';
 function inIframe () {
     try {
         return window.self !== window.top;
@@ -168,7 +112,6 @@ function splitAndFormatWord(word) {
     if (word.includes('-')) {
         return word
     }
-    // word = word.innerHTML
     let splitIndex = Math.ceil(word.length / 2);
 
     const prefix = "sjálfs";
@@ -189,9 +132,7 @@ function splitAndFormatWord(word) {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-    if (inIframe()) {
-        window.location.href = 'https://danielfreyrg.github.io/sjukast/banner'
-    }
+	document.querySelector('.background-plain').style.display = 'block';
 
     // Enable draggable functionality on labels within the .start container
     new Sortable(document.querySelector('.start'), {
@@ -219,15 +160,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
             var item = evt.item; // The item that was dropped
             dropzone = item.parentElement; // The zone that the item was dropped into
-            console.log(wordWeights[item.id])
-            console.log(startzone)
             updateCounter(dropzone, item.id);
             rotateBar();
             // scaleSaw()
             draggingElement = evt.item;
             evt.item.querySelector('span').innerHTML = splitAndFormatWord(evt.item.querySelector('span').innerHTML)
             if (wordWeights[item.id] > 0) { 
-                console.log('big word')
                 item.classList.add('big-word'); 
             }
             if (wordCounter[evt.item.id] == 0 && !evt.to.classList.contains('bg-drop-zone') && !evt.to.classList.contains('start')) {
@@ -287,9 +225,6 @@ document.addEventListener('DOMContentLoaded', function() {
             onEnd: function(evt) {
                 var item = evt.item; 
                 dropzone = item.parentElement; 
-                console.log(wordWeights[item.id])
-    
-                console.log(startzone)
                 updateCounter(dropzone, item.id);
                 rotateBar();
                 // scaleSaw()
@@ -312,13 +247,15 @@ document.addEventListener('DOMContentLoaded', function() {
     // Function to update counters based on current dropped words
     function updateCounter(dropzone, id) {
         alreadyplaced = false;
-        // var weight = wordWeights[id];
-        // weight = weight * 2;
-        //get the weight from the data-weight attribute
+
         weight = parseInt(draggingElement.getAttribute('data-weight'));
         if (weight == undefined) {
+            if (id.includes('clone')) { 
+                weight = wordWeights[id.split('-')[0]];
+            }  else {
             weight = wordWeights[draggingElement.id];
         }
+    }
 
         if (dropzone.classList.contains("left-words")) {
             weight = -weight;
@@ -379,7 +316,6 @@ function rotateBar() {
     } else {
         realRotation = counter;
     }
-    console.log(realRotation)
     document.querySelector(
         ".scene2 .bar"
     ).style.transform = `rotate(${realRotation}deg)`;
@@ -417,7 +353,13 @@ document.querySelector(".start-again-button").addEventListener("click", function
 document.querySelector(".done-button").addEventListener("click", function () {
     nextScene(2)
     document.querySelector('.background').style.animationName = 'fade-out';
+    document.querySelector(".background-plain").style.animationName = "fade-in";
+	    document.querySelector('.background-plain').style.display = 'block';
+
+
+    document
 });
+
 
 
 
@@ -425,12 +367,12 @@ function nextScene(currentSceneNum) {
     var limit = 2
     if (currentSceneNum == 2) {
         if (counter >= limit) {
-        document.querySelector('.scene3 #results').innerHTML = `You seem to be in a weaker position in your relationship. `
+        document.querySelector('.scene3 #results').innerHTML = `Það lítur út fyrir að þú gætir verið í veikari stöðu í ykkar samskiptum. `
         } else if (counter <= -limit) {
-            document.querySelector('.scene3 #results').innerHTML = `You seem to be in a more powerful position in your relationship. `
+            document.querySelector('.scene3 #results').innerHTML = `Það lítur út fyrir að þú gætir verið í sterkari stöðu í ykkar samskiptum.`
         
         } else {
-            document.querySelector('.scene3 #results').innerHTML = `There seems to be a good balance in your relationship. `
+            document.querySelector('.scene3 #results').innerHTML = `Það lítur út fyrir að vera gott jafnvægi í ykkar samskiptum.`
         
         }
     }
@@ -475,36 +417,6 @@ function resetSaw(bool) {
     placedwords = 0;
     alreadyplaced = false;   
     rotateBar();
-    // scaleSaw(true)
-    document.querySelector('body').click();
 }
-function scaleSaw(resetScale = false) {
-    var rightWords = document.querySelector(".right-words");
-    var leftWords = document.querySelector(".left-words");
-    var top = Math.min(rightWords.getBoundingClientRect().top, leftWords.getBoundingClientRect().top);
-    var saw = document.querySelector(".scene2 .saw");
-    if (resetScale) {
-scale = 1;
-saw.style.transform = 'scale(' + scale + ')';
-    }
 
-    // Only proceed if the right-words element is off the screen (top < 0)
-    if (top < 0 && scale > 0.2) {
-        // Calculate adjustment needed based on how far off the screen the element is
-        // This is a basic adjustment calculation and may need to be refined
-        var adjustment = Math.abs(top) / 1000; // Example adjustment calculation
-        var newScale = scale - adjustment;
-        scale = Math.max(newScale, 0.2); // Ensure scale does not go below 0.2
-
-        saw.style.transform = 'scale(' + scale + ')';
-
-        // Log the new scale for debugging
-        console.log('Adjusted scale to: ' + scale);
-    } else if (top > 0 && scale < 1) {
-        var adjustment = Math.abs(top) / 1000; // Example adjustment calculation
-        var newScale = scale + adjustment;
-        scale = Math.min(newScale, 1); // Ensure scale does not go above 1
-        saw.style.transform = 'scale(' + scale + ')';
-        console.log('Adjusted scale to: ' + scale);
-    }
 }

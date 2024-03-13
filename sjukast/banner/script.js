@@ -59,8 +59,8 @@ const wordWeights = {
     "ad-vinna-ur-afalli": -2,
     ooruggur: -2,
     "i-ojafnvaegi": -2,
-    hraeddur: -3,
-    frosinn: -3,
+    hraeddur: -10,
+    frosinn: -10,
     "ekki-i-godu-astandi": -2,
     oreyndur: -2,
     "likamlega-sterkur": 2,
@@ -72,64 +72,7 @@ const wordWeights = {
     eldri: 2,
     "med-meiri-reynslu": 2,
     efnadur: 1,
-    "godur-i-kjaftinum": 1,
-    'stressadur-clone-0': -2,
-    "meikar-ekki-ad-beila-clone-0": -2,
-    "vill-ekki-saera-clone-0": -2,
-    "vill-ekki-bregdast-clone-0": -2,
-    "vill-ad-adrir-fili-sig-clone-0": -1,
-    "ahrifagjarn-clone-0": -1,
-    'yngri-clone-0': -2,
-    "ekki-med-fulla-medvitund-clone-0": -50,
-    'feiminn-clone-0': -1,
-    "ad-vinna-ur-afalli-clone-0": -2,
-    'ooruggur-clone-0': -2,
-    "i-ojafnvaegi": -2,
-    'hraeddur-clone-0': -3,
-    'frosinn-clone-0': -3,
-    "ekki-i-godu-astandi-clone-0": -2,
-    'oreyndur-clone-0': -2,
-    "likamlega-sterkur-clone-0": 2,
-    'fraegur-clone-0': 2,
-    'frekur-clone-0': 3,
-    'vinsaell-clone-0': 1,
-    'sjalfsoruggur-clone-0': 2,
-    'aestur-clone-0': 3,
-    'eldri-clone-0': 2,
-    "med-meiri-reynslu-clone-0": 2,
-    'efnadur-clone-0': 1,
-    "godur-i-kjaftinum-clone-0": 1,
-    'stressadur-clone-1': -2,
-    "meikar-ekki-ad-beila-clone-1": -2,
-    "vill-ekki-saera-clone-1": -2,
-    "vill-ekki-bregdast-clone-1": -2,
-    "vill-ad-adrir-fili-sig-clone-1": -1,
-    "ahrifagjarn-clone-1": -1,
-    'yngri-clone-1': -2,
-    "ekki-med-fulla-medvitund-clone-1": -50,
-    'feiminn-clone-1': -1,
-    "ad-vinna-ur-afalli-clone-1": -2,
-    'ooruggur-clone-1': -2,
-    "i-ojafnvaegi-clone-1": -2,
-    'hraeddur-clone-1': -3,
-    'frosinn-clone-1': -3,
-    "ekki-i-godu-astandi-clone-1": -2,
-    'oreyndur-clone-1': -2,
-    "likamlega-sterkur-clone-1": 2,
-    'fraegur-clone-1': 2,
-    'frekur-clone-1': 3,
-    'vinsaell-clone-1': 1,
-    'sjalfsoruggur-clone-1': 2,
-    'aestur-clone-1': 3,
-    'eldri-clone-1': 2,
-    "med-meiri-reynslu-clone-1": 2,
-    'efnadur-clone-1': 1,
-    "godur-i-kjaftinum-clone-1": 1,
-    'sudar': 1,
-    'sudar-clone-0': 1,
-    'sudar-clone-1': 1,
-    'pressa-clone-0': -2,
-    'pressa-clone-1': -2,
+    "godur-i-kjaftinum": 1
     
 };
 const words = {
@@ -277,7 +220,14 @@ document.addEventListener("DOMContentLoaded", function () {
         // var weight = wordWeights[id];
         // weight = weight * 2;
         //get the weight from the data-weight attribute
-        weight = parseInt(document.getElementById(id).getAttribute('data-weight'));
+        weight = parseInt(draggingElement.getAttribute('data-weight'));
+        if (weight == undefined) {
+            if (id.includes('clone')) { 
+                weight = wordWeights[id.split('-')[0]];
+            }  else {
+            weight = wordWeights[draggingElement.id];
+        }
+    }
 
         if (dropzone.classList.contains("left-words")) {
             weight = -weight;
