@@ -11,4 +11,4 @@ x = get_menu()
 lis = []
 for i in x['menu']['allToppings']:
     if i['name'].lower() in items:
-        print('"'+i['name'] + '":' + i['id'] + ',')
+        print('"'+i['name'] + '":' + i['id'] + ',' + str(i['isHidden']))

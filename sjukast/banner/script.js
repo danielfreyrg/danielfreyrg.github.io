@@ -16,22 +16,16 @@ if (window.innerWidth < 600) {
 }
 
 const wordCounter = {
+    pressa: 0,
     stressadur: 0,
-    "meikar-ekki-ad-beila": 0,
     "vill-ekki-saera": 0,
-    "vill-ekki-bregdast": 0,
-    "vill-ad-adrir-fili-sig": 0,
     "ahrifagjarn": 0,
     yngri: 0,
     "ekki-med-fulla-medvitund": 0,
-    feiminn: 0,
-    "ad-vinna-ur-afalli": 0,
     ooruggur: 0,
     "i-ojafnvaegi": 0,
     hraeddur: 0,
     frosinn: 0,
-    "ekki-i-godu-astandi": 0,
-    oreyndur: 0,
     "likamlega-sterkur": 0,
     fraegur: 0,
     frekur: 0,
@@ -42,27 +36,19 @@ const wordCounter = {
     "med-meiri-reynslu": 0,
     efnadur: 0,
     "godur-i-kjaftinum": 0,
-    'sudar': 0,
-    'pressa': 0
+    'sudar': 0
 };
 const wordWeights = {
     pressa: -2,
     stressadur: -2,
-    "meikar-ekki-ad-beila": -2,
     "vill-ekki-saera": -2,
-    "vill-ekki-bregdast": -2,
-    "vill-ad-adrir-fili-sig": -1,
     "ahrifagjarn": -1,
     yngri: -2,
     "ekki-med-fulla-medvitund": -50,
-    feiminn: -1,
-    "ad-vinna-ur-afalli": -2,
     ooruggur: -2,
     "i-ojafnvaegi": -2,
     hraeddur: -10,
     frosinn: -10,
-    "ekki-i-godu-astandi": -2,
-    oreyndur: -2,
     "likamlega-sterkur": 2,
     fraegur: 2,
     frekur: 3,
@@ -72,16 +58,19 @@ const wordWeights = {
     eldri: 2,
     "med-meiri-reynslu": 2,
     efnadur: 1,
-    "godur-i-kjaftinum": 1
-    
+    "godur-i-kjaftinum": 1,
+    'sudar': 2
+      
 };
 const words = {
+    'pressa': "upplifir pressu",
     stressadur: "stress",
     "vill-ekki-saera": "vill ekki særa",
     "ahrifagjarn": "áhrifagirni",
     yngri: "yngri",
     "ekki-med-fulla-medvitund": "ekki með fulla meðvitund",
     ooruggur: "óöryggi",
+    'i-ojafnvaegi': "í ójafnvægi",
     hraeddur: "hræðsla",
     frosinn: "frýs",
     "likamlega-sterkur": "líkamlegur styrkur",
@@ -93,10 +82,8 @@ const words = {
     eldri: "eldri",
     "med-meiri-reynslu": "meiri reynsla",
     efnadur: "efnaðri",
-    "godur-i-kjaftinum": "stjórnsemi",
-    'i-ojafnvaegi': "í ójafnvægi",
-    'sudar': "suðar",
-    'pressa': "upplifir pressu",
+    "godur-i-kjaftinum": "kjaftfor",
+    'sudar': "suðar"
 };
 
 function splitAndFormatWord(word) {
