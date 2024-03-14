@@ -212,6 +212,7 @@ document.addEventListener('DOMContentLoaded', function() {
             fallbackTolerance: 3,
             touchStartThreshold: 0, 
             onStart: function(evt) {
+                draggingElement = evt.item;
                 var item = evt.item; 
                 
                 if (wordWeights[item.id] > 0) { 
