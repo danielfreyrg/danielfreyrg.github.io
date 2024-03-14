@@ -1492,3 +1492,17 @@ img {
 .rotate {
     display: none;
 }
+.language-button {
+    position: absolute;
+    bottom: 1rem;
+    left: 1rem;
+    padding: 4px 13px;
+    background: white;
+    border-radius: 8px;
+    border: 2px solid var(--main-red);
+    z-index: 999;
+}
+.language-button:hover {
+    background: var(--main-red);
+    color: white;
+}
