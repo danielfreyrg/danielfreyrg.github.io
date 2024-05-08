@@ -286,4 +286,4 @@ var padding = {top:20, right:40, bottom:0, left:0},
             .text("SPIN")
             .style({"font-weight":"bold", "font-size":"30px"});
         
-        
+        console.log('drasl')
