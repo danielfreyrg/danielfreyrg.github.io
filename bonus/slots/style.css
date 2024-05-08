@@ -1,14 +1,123 @@
+
+
+
+
+
 :root {
    
-    --number-height: 60px;
+    --number-height: 100px;
     --dial-height: calc(var(--number-height) * 3);
+    /* --dial-height: 148px; */
     --letter-size: calc((var(--number-height)/2));
+    --main-color: #FFE300;
 }
 @font-face {
     font-family: 'Rubik';
-    src: url('./Rubik-Black.woff2') format('woff2'),
-        url('./Rubik-Black.woff') format('woff'),
-        url('./Rubik-Black.ttf') format('truetype');
+    src: url('./Rubik/static/Rubik-MediumItalic.ttf') format('truetype');
+    font-weight: 500;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Rubik';
+    src: url('./Rubik/static/Rubik-SemiBold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Rubik';
+    src: url('./Rubik/static/Rubik-SemiBoldItalic.ttf') format('truetype');
+    font-weight: 600;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Rubik';
+    src: url('./Rubik/static/Rubik-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Rubik';
+    src: url('./Rubik/static/Rubik-LightItalic.ttf') format('truetype');
+    font-weight: 300;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Rubik';
+    src: url('./Rubik/static/Rubik-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Rubik';
+    src: url('./Rubik/static/Rubik-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Rubik';
+    src: url('./Rubik/static/Rubik-BoldItalic.ttf') format('truetype');
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Rubik';
+    src: url('./Rubik/static/Rubik-BlackItalic.ttf') format('truetype');
+    font-weight: 900;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Rubik';
+    src: url('./Rubik/static/Rubik-ExtraBold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Rubik';
+    src: url('./Rubik/static/Rubik-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Rubik';
+    src: url('./Rubik/static/Rubik-Italic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Rubik';
+    src: url('./Rubik/static/Rubik-ExtraBoldItalic.ttf') format('truetype');
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Rubik';
+    src: url('./Rubik/static/Rubik-Black.ttf') format('truetype');
     font-weight: 900;
     font-style: normal;
     font-display: swap;
@@ -17,30 +126,34 @@
 * {
 
     font-family: 'Rubik', sans-serif;
-    font-weight: 900;
+}
+.score {
+    display: flex;
+    overflow: hidden;
 }
 #lock {
+    position: relative;
     display: flex;
     justify-content: center;
     margin-top: 20px;
     overflow: hidden;
+    flex-direction: column;
   }
   
   .dial {
     width: var(--number-height);
     height: var(--dial-height);
-    overflow: hidden;
-    border: 1px solid #333;
     margin: 0 5px;
     position: relative;
   }
   
   .number {
-    height: var(--number-height); 
+    height: var(--number-height) ; 
     font-size: var(--letter-size);
     text-align: center;
     line-height: var(--number-height);
-    cursor: ns-resize;
+    cursor: grab;
+
   }
   
   button {
@@ -50,22 +163,25 @@
     font-size: 16px;
   }
   
-  .dial::after, .dial::before {
-    content: '';
+  #lock::after, #lock::before {
+    /* content: ''; */
     position: absolute;
     left: 0;
     right: 0;
     height: var(--number-height);
-    background: rgba(255, 255, 255, 0.8); /* Light overlay to highlight the selection */
+    background: rgba(255, 255, 255, 0.8); 
+    z-index: 10;
+    pointer-events: none;
   }
   
-  .dial::before {
+  #lock::before {
     top: 0;
   }
   
-  .dial::after {
+  #lock::after {
     bottom: 0;
   }
+
 .wrapper {
     height: 100vh;
     display: flex;
@@ -73,3 +189,103 @@
     align-items: center;
     flex-direction: column;
 }  
+
+.swiper-container {
+    height: var(--dial-height); 
+    width: 150px;
+    display: inline-block;
+    margin: 0 10px; 
+    background: white;
+    position: relative;
+}
+.swiper-container::after {
+    content: '';
+    position: absolute;
+    background: rgb(0,0,0);
+    background: linear-gradient(0deg,  rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
+    mix-blend-mode: multiply;
+    opacity: 0.2;
+    inset: 0;
+    z-index: 10;
+    pointer-events: none;
+}
+
+.swiper-slide {
+    height: var(--number-height);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--letter-size);
+    color: #000;
+    opacity: 0.5;
+    transition: opacity 1s ease-in-out;
+}
+
+.swiper-slide-active {
+    opacity: 1;
+    font-weight: bold;
+}
+.vs {
+    display: flex;
+    align-content: center;
+    align-items: center;
+    font-size: 60px;
+    font-weight: bolder;
+}
+h2 {
+    width: 50%;
+    font-size: 40px;
+    text-shadow: 2px 2px 2px rgba(0,0,0,0.5);
+
+}
+.names {
+    display: flex;
+    display: flex;
+    justify-content: space-evenly;
+    text-align: center;
+}
+body {
+    position: relative;
+    padding: 0;
+    margin: 0;
+    background: var(--main-color);
+}
+.corner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+}
+.hero {
+    position: absolute;
+    top: 50px;
+    left: 50px;
+}
+.hero h1 {
+    font-size: 82px;
+    font-weight: bold;
+    color: white;
+    text-shadow: 2px 2px 2px rgba(0,0,0,0.5);
+}
+.hero-info {
+    font-size: 46px;
+    color: var(--main-color);
+    font-weight: 600;
+}
+.gris {
+    position: absolute;
+    bottom: 50px;
+    right: 0;
+    height: 60%;
+}
+.swiper-container {
+    clip-path: polygon(0 10%, 100% 10%, 100% 90%, 0 90%);
+}
+.main-info {
+    position: absolute;
+    top: 10rem;
+    right:  10rem;
+    font-size: 32px;
+    max-width: 672px;
+    text-align: right;
+}
