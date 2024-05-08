@@ -63,7 +63,7 @@ transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
         min-width: unset; 
         width: 90%;
     } 
-    #chart {
+    #chart, #wheelOuter {
         width: 100%;
         max-width: 450px;
         margin: 0 auto;
@@ -87,7 +87,7 @@ transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
 
 /* Tablet and Desktop Styles */
 @media only screen and (min-width: 768px) {
-    #chart {
+    #chart, #wheelOuter {
         width: 100%;
         /* max-width: 750px; */
         margin: 0 auto;
