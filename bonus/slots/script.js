@@ -81,10 +81,6 @@ document.querySelectorAll(".spin").forEach( i => {
       .forEach(function (column, index, array) {
         column.style.transition = "none"; // Disable transition for immediate reset
         column.style.backgroundPositionY = "0"; // Reset position
-        //reset the results 
-        document.querySelector(".first").innerHTML = "<span></span>";
-        document.querySelector(".second").innerHTML = "<span></span>";
-        document.querySelector(".third").innerHTML = "<span></span>";
 
         // If it's the last column, start spinning after a short delay
         if (index === array.length - 1) {
