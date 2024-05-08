@@ -58,8 +58,8 @@ class SpinningWheel {
     }
 
     drawWheel() {
-        const pie = d3.pie().value(() => 1);
-        const arc = d3.arc().innerRadius(0).outerRadius(this.radius);
+        const pie = d3.layout.pie().value(() => 1);
+        const arc = d3.svg.arc().innerRadius(0).outerRadius(this.radius);
 
         const arcs = this.container.selectAll("g.slice")
             .data(pie(this.data))
@@ -98,13 +98,13 @@ class SpinningWheel {
 
         this.container.transition()
             .duration(spinDuration)
-            .ease(d3.easeBounce)
+            .ease("bounce")
             .attrTween("transform", () => {
                 const interpolate = d3.interpolate(this.oldRotation % 360, this.rotation);
                 return t => `rotate(${interpolate(t)})`;
             })
             .on("end", () => {
-                d3.select("#prize").html(`<h1>${this.data[picked].question}</h1>`);
+                d3.select("#prize").html(`<h1>${this.data[picked].infotext}</h1>`);
                 if (this.data[picked].src && this.data[picked].src.trim() !== "") {
                     const prizeElement = d3.select("#prize");
                     prizeElement.selectAll("img").remove(); // Remove old images if any
@@ -113,7 +113,7 @@ class SpinningWheel {
                         .attr("alt", this.data[picked].label);
                 }
                 document.getElementById("prize").classList.add('info');
-                localStorage.setItem(`${this.containerId}-savedPrize`, this.data[picked].question);
+                localStorage.setItem(`${this.containerId}-savedPrize`, this.data[picked].infotext);
                 localStorage.setItem(`${this.containerId}-savedPrizeImage`, this.data[picked].src);
                 this.oldRotation = this.rotation;
             });
@@ -131,14 +131,14 @@ class SpinningWheel {
 
 // Usage:
 const wheelData = [
-    {"label":"ÚT AÐ BORÐA", "value":1, "question":"Þú ert kominn í pottinn. Vinningshafi verður dreginn út í lok sýningar.", "src": "skull.png"},
-    {"label":"ENGINN VINNINGUR", "value":2, "question":"Gengur kannski betur næst", "src": ""},
-    {"label":"SÚKKULAÐI", "value":3, "question":"SÚKKULAÐI", "src": "apollo.png"},
-    {"label":"ENGINN VINNINGUR", "value":4, "question":"Þú grípur í tómt", "src": ""},
-    {"label":"SÚKKULAÐI", "value":5, "question":"ÞÚ VANNST GLÆNÝTT SÚKKULAÐI", "src": "hraun.png"},
-    {"label":"ENGINN VINNINGUR", "value":6, "question":"Farðu á rúntinn með Sigga sýru", "src": ""},
-    {"label":"SÚKKULAÐI", "value":7, "question":"PRETTYBOYTJOKKO", "src": "Prins_Polo.webp"},
-    {"label":"ENGINN VINNINGUR", "value":8, "question":"Stöngin út", "src": ""}
+    {"label":"ÚT AÐ BORÐA", "value":1, "infotext":"Þú ert kominn í pottinn. Vinningshafi verður dreginn út í lok sýningar.", "src": "skull.png"},
+    {"label":"ENGINN VINNINGUR", "value":2, "infotext":"Gengur kannski betur næst", "src": ""},
+    {"label":"SÚKKULAÐI", "value":3, "infotext":"SÚKKULAÐI", "src": "apollo.png"},
+    {"label":"ENGINN VINNINGUR", "value":4, "infotext":"Þú grípur í tómt", "src": ""},
+    {"label":"SÚKKULAÐI", "value":5, "infotext":"ÞÚ VANNST GLÆNÝTT SÚKKULAÐI", "src": "hraun.png"},
+    {"label":"ENGINN VINNINGUR", "value":6, "infotext":"Farðu á rúntinn með Sigga sýru", "src": ""},
+    {"label":"SÚKKULAÐI", "value":7, "infotext":"PRETTYBOYTJOKKO", "src": "Prins_Polo.webp"},
+    {"label":"ENGINN VINNINGUR", "value":8, "infotext":"Stöngin út", "src": ""}
 ];
 
 const wheelOptions = {
@@ -147,4 +147,4 @@ const wheelOptions = {
     customColors: ['#F9C200', 'rgba(0, 0, 0, 1)', '#F9C200', 'rgba(0, 0, 0, 1)', '#F9C200', 'rgba(0, 0, 0, 1)']
 };
 
-const spinningWheel = new SpinningWheel('#chart', wheelData, wheelOptions);
+const spinningWheel = new SpinningWheel('#innerWheel', wheelData, wheelOptions);
