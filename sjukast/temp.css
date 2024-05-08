@@ -1,0 +1,1198 @@
+@font-face {
+    font-family: 'TT Norms';
+    src: url('https://sjukast.is/wp-content/themes/sjukast/vegasaltid/assets/fonts/TTNorms-Bold.woff2') format('woff2'),
+        url('https://sjukast.is/wp-content/themes/sjukast/vegasaltid/assets/fonts/TTNorms-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'TT Norms';
+    src: url('https://sjukast.is/wp-content/themes/sjukast/vegasaltid/assets/fonts/TTNorms-Regular.woff2') format('woff2'),
+        url('https://sjukast.is/wp-content/themes/sjukast/vegasaltid/assets/fonts/TTNorms-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'chaney';
+    src: url('https://sjukast.is/wp-content/themes/sjukast/vegasaltid/assets/CHANEY-Regular.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'bricolage';
+    src: url('https://sjukast.is/wp-content/themes/sjukast/vegasaltid/assets/BricolageGrotesque-SemiBold.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'TT Norms';
+    src: url('https://sjukast.is/wp-content/themes/sjukast/vegasaltid/assets/fonts/TTNorms-Heavy.woff2') format('woff2'),
+        url('https://sjukast.is/wp-content/themes/sjukast/vegasaltid/assets/fonts/TTNorms-Heavy.woff') format('woff');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+
+.vegasalt-section .test {background: transparent;}
+.vegasalt-section .language-button:hover {
+    background: var(--main-red);
+    color: white;
+}
+.vegasalt-section .language-button {
+    position: absolute;
+    bottom: 1rem;
+    left: 1rem;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 30px;
+    font-family: 'bricolage';
+    font-size: 22px;
+    cursor: pointer;
+    transition: all 0.1s ease-in-out;
+    z-index: 99;
+}
+.vegasalt-section .language-button, .vegasalt-section .language-button a {
+    background: white;
+}
+.vegasalt-section .hero h1 {
+    font-family: 'chaney';
+    font-size: 40px;
+    color: var(--main-red);
+    text-align: center;
+    margin: 5px;
+}
+.vegasalt-section label {
+    cursor: pointer !important;
+}
+.vegasalt-section .buttons-container button {
+    cursor: pointer;
+    background: white !important;
+    color: var(--main-red) !important;
+    border: 2px solid var(--main-red) !important;
+}
+.vegasalt-section .buttons-container {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    padding-bottom: 20px;
+}
+.vegasalt-section .start label {
+    width: 96px;
+    height: 40px;
+}
+.vegasalt-section .left-words::after, .vegasalt-section .right-words::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    font-family: 'chaney';
+    color: white;
+    font-size: 28px;
+    z-index: -1;
+    margin-bottom: -80px;
+    }
+    .vegasalt-section .left-words::after {
+        content: "Ég";
+    }
+    .vegasalt-section .right-words::after {
+        content: "Hann/hún/hán";
+
+    }
+    .vegasalt-section .left-words, .vegasalt-section .right-words {
+        position: relative;
+    }
+* {
+    font-variant-ligatures: none !important;
+}
+
+.vegasalt-section .sortable-fallback {
+    width: max-content !important;
+    height: max-content !important;
+    opacity: 0.5;
+
+}
+.vegasalt-section .saw {
+    transform: scale(1);
+    transition: transform .5s ease-in-out;
+}
+:root {
+    --main-green: #42D3A6;
+    --main-red: rgb(238, 119, 104);
+}
+
+.vegasalt-section .base {
+    position: relative;
+
+    pointer-events: none;
+
+}
+.vegasalt-section .base, .vegasalt-section .base-back, .vegasalt-section .base-front {
+    width: 900px;
+    height: 246px;
+}
+html {
+    background: var(--main-green);
+}
+.vegasalt-section .base-front {
+    position: absolute;
+    inset: -27px 0 0 0;
+    background: url(./assets/base-front-noshadow.svg);
+    background-size: 100%;
+    background-repeat: no-repeat;
+
+    z-index: 3;
+}
+
+.vegasalt-section .base-back {
+    position: absolute;
+    inset: 0;
+    background: url(./assets/base-back.svg);
+    background-size: 100%;
+    background-repeat: no-repeat;
+
+    z-index: 1;
+}
+
+body {
+    position: relative;
+}
+.vegasalt-section .bg-drop-zone .sortable-ghost, .vegasalt-section .bg-drop-zone .sortable-fallback, .vegasalt-section .bg-drop-zone .sortable-chosen { 
+    display: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+}
+.vegasalt-section .drag {
+    max-width: 100px;
+    max-height: 40px;
+}
+
+.vegasalt-section .background {
+    background-image: url(./assets/BG-tall.svg);
+    background-size: cover;
+    position: absolute;
+    inset: 0;
+    min-height: 95dvh;
+    width: 100vw;
+    z-index: 0;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: none;
+    /* transition: all 0.5s ease-in-out; */
+
+}
+/* .left-words, .right-words {
+    border: 2px dashed rgba(238, 119, 104, 0.5) !important;
+    border-radius: 20px;
+} */
+.vegasalt-section .background-plain {
+	display: flex;
+    background: var(--main-green);
+    background-size: cover;
+    position: absolute;
+    inset: 0;
+    height: 95dvh;
+    width: 100vw;
+    z-index: 0;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* transition: all 0.5s ease-in-out; */
+    animation-name: fade-in;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+}
+.vegasalt-section .background {
+	display: block;
+    animation-name: fade-in;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+}
+.vegasalt-section button:hover {
+    background: rgb(220, 99, 83) !important;
+    color: white !important;
+}
+
+.vegasalt-section .saw .top {
+    background: url(./assets/top.svg);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    width: 900px;
+    height: 30px;
+    transform-origin: center;
+    transform: rotate(0deg);
+    transition: transform 0.5s ease-in-out;
+    pointer-events: none;
+    z-index: 2;
+    margin-bottom: -35px;
+}
+.vegasalt-section a {
+    /* margin-bottom: 10vh; */
+    text-decoration: none;
+    color: var(--main-red);
+    font-family: 'TT Norms';
+    font-weight: bold;
+}
+.vegasalt-section a:hover {
+    text-decoration: underline;
+    color: white;
+}
+.vegasalt-container {
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    position: relative;
+    z-index: 1;
+}
+
+.vegasalt-section .shadow {
+    box-shadow: 0px 123px 43px 0px rgba(0, 0, 0, 0.84);
+    background: transparent;
+    bottom: 50px;
+    pointer-events: none;
+
+}
+
+.vegasalt-section .done-button {
+    animation-name: fade-in;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+
+}
+
+.vegasalt-section .top-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    height: 40px;
+}
+
+.vegasalt-section .saw {
+    z-index: 1;
+    flex-direction: column;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+.vegasalt-section .scene1 .saw { 
+    margin-bottom: -50px;
+}
+.vegasalt-section .start {
+    display: grid;
+    align-items: center;
+    grid-template-rows: 1fr 1fr 1fr;
+    /* margin-top: 150px; */
+    grid-auto-flow: column;
+    gap: 10px 8px;
+
+    width: 100%;
+    justify-content: center;
+
+}
+
+.vegasalt-section .right-words,
+.vegasalt-section .left-words,
+.vegasalt-section .start {
+    transition: all 0.5s ease-in-out;
+    border: 2px solid transparent;
+    z-index: 0;
+}
+
+.vegasalt-section label {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-family: 'TT Norms';
+    border: 2px solid var(--main-red);
+    border-radius: 10px;
+    text-align: center;
+    font-size: 12px;
+    color: white;
+    background: var(--main-red);
+    cursor: pointer;
+    animation-name: unset;
+    animation-duration: .5s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+}
+
+.vegasalt-section .words .big-word-extra {
+    line-height: 59px;
+}
+
+.vegasalt-section .start label {
+    font-family: 'bricolage';
+}
+
+.vegasalt-section .right-words,
+.vegasalt-section .left-words {
+    padding-top: 10vh;
+    width: 95%;
+    min-height: 250px;
+    display: flex;
+    flex-flow: column-reverse;
+}
+
+.vegasalt-section .right-words label,
+.vegasalt-section .left-words label {
+    text-align: center;
+}
+
+.vegasalt-section .right-words {
+    justify-self: center;
+}
+
+.vegasalt-section .left-words {
+    justify-self: flex-start;
+}
+
+.vegasalt-section .words {
+    z-index: 3;
+    margin-bottom: -12px;
+    display: grid;
+    grid-template-columns: .7fr .7fr;
+    width: 100%;
+    align-content: center;
+    justify-content: space-between;
+    transform: rotate(0deg);
+    transition: all 0.5s ease-in-out;
+    justify-items: center;
+    transform-origin: center;
+
+}
+
+.vegasalt-section .word,
+.vegasalt-section .words label {
+    font-weight: 400;
+    text-transform: uppercase;
+    font-size: 60px;
+    font-family: "TT Norms";
+    font-style: normal;
+    padding: 5px;
+    line-height: 57px;
+    color: var(--main-red);
+    border: none;
+    /* animation-name: slide-down; */
+    animation-duration: .5s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+    background: transparent;
+}
+
+.vegasalt-section .reset-container {
+    margin-left: 30vw;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+}
+
+.vegasalt-section .words label.big-word {
+    font-weight: 900;
+}
+
+@keyframes slide-down {
+    0% {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0%);
+        opacity: 1;
+    }
+
+}
+.vegasalt-section .scene2 .sjukast-logo{
+    position: absolute;
+    top: 4.5vw;
+}
+.vegasalt-section .scene2 .sjukast-logo {
+    left: 5vw;
+}
+
+
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+
+}
+
+@keyframes fade-out-right {
+    0% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+
+}
+
+@keyframes fade-out-left {
+    0% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+
+}
+.vegasalt-section .left-words, .vegasalt-section .right-words {
+    position: absolute;
+    min-height: 300px;
+    width: 45% !important;
+    bottom: 0;
+}
+.vegasalt-section .left-words {
+    left: 0;
+}
+.vegasalt-section .right-words {
+    right: 0;
+}
+.vegasalt-section .words {
+    position: relative;
+}
+.vegasalt-section .scene2 .vegasalt-container {
+    justify-content: flex-end !important;
+}
+.vegasalt-section .scene2,
+.vegasalt-section .scene3,
+.vegasalt-section .scene4 {
+    display: none;
+}
+
+.vegasalt-section .sjukast-logo {
+    width: 15vw;
+}
+.vegasalt-section .start .reset-button {
+    padding: 7px;
+    border-radius: 7px;
+    font-size: 15px;
+    font-family: 'bricolage';
+}
+
+.vegasalt-section .scene {
+    min-height: 95dvh;
+}
+
+.vegasalt-section .scene1 .vegasalt-container,
+.vegasalt-section .scene2 .vegasalt-container,
+.vegasalt-section .scene4 .vegasalt-container {
+    justify-content: center;
+}
+
+
+
+.vegasalt-section .title {
+    font-family: 'chaney';
+    font-size: 90px;
+    color: var(--main-red);
+}
+
+.vegasalt-section .subtitle {
+	line-height: 1.1 !important;
+    font-family: 'bricolage';
+    font-size: 30px;
+    color: white;
+    text-align: center;
+    /* animation-name: slide-in-subtitle; */
+    animation-duration: 5s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+
+}
+
+.vegasalt-section .subtitle-2 {
+    animation-duration: 5.5s;
+}
+
+
+
+.vegasalt-section .scene3 .subtitle {
+    /* animation-name: fade-in; */
+    animation-duration: 3s;
+}
+.vegasalt-section .start-button {
+    z-index: 5;
+}
+.vegasalt-section .start-button,
+.vegasalt-section .genderselect button,
+.vegasalt-section .reset-button,
+.vegasalt-section button, .vegasalt-section button  {
+    background: var(--main-red);
+    border: none;
+    border-radius: 10px !important;
+    padding: 10px 30px;
+    font-family: 'bricolage';
+    color: white;
+    cursor: pointer;
+    transition: all 0.1s ease-in-out;
+}
+
+.vegasalt-section .gender-title {
+    font-family: 'bricolage';
+    font-size: 45px;
+    color: white;
+}
+
+.vegasalt-section .scene {
+    animation-name: slide-in;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+
+
+}
+
+.vegasalt-section .info {
+    font-family: 'chaney';
+    font-size: 30px;
+    color: white;
+    text-align: center;
+    pointer-events: none;
+    animation-duration: .5s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+    z-index: 4;
+
+
+}
+
+.vegasalt-section .subtitle-container {
+    display: grid;
+    grid-template-columns: 1fr;
+
+    justify-content: center;
+}
+
+.vegasalt-section .subtitle {
+    transition: all 0.5s ease-in-out;
+
+
+}
+
+.vegasalt-section .bg-drop-zone {
+    position: absolute;
+    inset: 0;
+}
+.vegasalt-section span {
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    -khtml-user-select: none;
+    -webkit-touch-callout: none;
+    -webkit-user-drag: none;
+    -webkit-tap-highlight-color: transparent;
+
+
+}
+.vegasalt-section .buttons-container {
+    z-index: 15;
+}
+.vegasalt-section .info .mobile {
+    display: none;
+
+}
+
+@media screen and (hover: none) and (orientation: landscape), screen and (max-width: 1000px), screen and (max-height: 600px) {
+	dotlottie-player.dotlottie{
+		display: none;
+	}
+	.vegasalt-section .wrapper #header , .vegasalt-section .wrapper #header {
+		background-color: unset; /* the navbar is overlapping the vegasalt on landscape mobile*/
+		z-index: 1;
+	}
+	.vegasalt-section .col-6.d-flex.align-items-center.justify-content-end, #chat-widget-container {
+		display: none !important;
+	}
+	.vegasalt-section .start {
+		z-index: 8;
+	}
+	.vegasalt-section .scene .vegasalt-container {
+		padding-bottom: 25px !important
+	}
+    .vegasalt-section .info .mobile {
+        display: flex;
+    }
+
+    .vegasalt-section .info .desktop {
+        display: none;
+    }
+    .vegasalt-section .start-button {
+        margin-bottom: 25px;
+    }
+    .vegasalt-section .scene2 .vegasalt-container {
+        display: grid !important;
+        grid-template-columns: 1fr 40%;
+        grid-template-rows:50px 1fr 50px;
+        grid-template-areas:  'info words' 'saw words' 'buttons words';
+        align-items: end;
+        justify-items: center;
+        gap: 0 !important;
+    }
+    .vegasalt-section .scene2 .info {
+        grid-area: info;
+        font-size: 14px;
+        display: flex;
+        text-align: left;
+        gap: 0px 5px;
+        line-height: 1;
+        /* max-width: 300px;  */
+        justify-self: end;
+    }
+
+    .vegasalt-section .right-words .sortable-ghost.big-word {
+        font-family: 'chaney';
+        font-weight: bold;
+    }
+    .vegasalt-section .start label {
+        /* width: 90px !important;
+        height: 30px !important; */
+        width: 100% !important;
+        height: 100% !important;
+        padding: 3px !important;
+    }
+    .vegasalt-section .scene2 .start {
+        grid-area: words;
+        justify-items: center;
+        align-self: center;
+    }
+    .vegasalt-section .scene2 .buttons-container {
+        grid-area: buttons;
+		padding-bottom: 0;
+    }
+    .vegasalt-section .scene2 .saw {
+        grid-area: saw;
+		margin-bottom: -10px
+    }
+    .vegasalt-section .hero dotlottie-player.dotlottie {
+        display: none;
+    }
+    .vegasalt-section .scene1 .vegasalt-container.vegasalt-container.vegasalt-container {
+        gap: 0px !important;
+        display: grid;
+        justify-content: space-evenly !important;
+        align-items: center;
+        justify-items: center;
+    }
+    .vegasalt-section .scene1 .sjukast-logo {
+        position: relative !important;
+        top: unset !important;
+        bottom: unset !important;
+        left: unset !important;
+        right: unset !important;
+    }
+    .vegasalt-section .scene3 .sjukast-logo {
+        width: 150px;
+    }
+    .vegasalt-section .hide-mobile {
+        display: none;
+    }
+/*     body {
+        overflow: hidden !important;
+    } */
+    .vegasalt-section .left-words::after, .vegasalt-section .right-words::after {
+        font-size: 11px;
+        margin-bottom: -22px;
+    }
+    .vegasalt-section .background.background.background {
+        background: url('./assets/BG-mobile-side.svg') !important;
+        background-repeat: no-repeat;
+        background-size: cover !important;
+    }
+    .vegasalt-section .words {
+        width: 100%;
+        margin-bottom: -10px;
+    }
+    .vegasalt-section .words label {
+        font-size: 30px;
+        line-height: 27px;
+    }
+    
+ 
+
+    dotlottie-player.dotlottie {
+        width: 100% !important;
+        height: 140px !important;
+    }
+    .vegasalt-section .rotate img {
+        width: 150px !important;
+    }
+    .vegasalt-section .scene1 .sjukast-logo {
+        width: 170px;
+    }
+    .vegasalt-section .subtitle {
+        font-size: 15px;
+        max-width: 50vw;
+        margin: 0 auto;
+    }
+
+    .vegasalt-section .gender-title {
+        font-size: 25px;
+        max-width: 80vw;
+        margin: 0 auto;
+    }
+
+    .vegasalt-section .reset-button {
+        font-size: 15px !important;
+        padding: 10px !important;
+        border-radius: 10px !important;
+    }
+
+    .vegasalt-section .scene2 .top-wrapper,
+    .vegasalt-section .scene2 img {
+        z-index: 10;
+    }
+
+    .vegasalt-section .top-wrapper {
+        top: 50px;
+    }
+
+
+
+    body:has(.vegasalt-section) {
+        overflow: auto;
+    }
+
+    .vegasalt-section .words label {
+        font-size: 20px;
+        line-height: 17px;
+    }
+
+    .vegasalt-section .words .big-word-extra {
+        line-height: 19px;
+    }
+
+    .vegasalt-section .start {
+        grid-template-rows: repeat(7, 28px);
+        grid-template-columns: .8fr .8fr .8fr;
+        grid-auto-flow: row;
+        gap: 10px;
+    }
+    .vegasalt-section .vegasalt-container {
+        min-height: 95dvh;
+    }
+    .vegasalt-section .done-button {
+        font-size: 14px;
+        z-index: 5;
+    }
+    .vegasalt-section .start label {
+        font-size: 10px;
+    }
+
+    .vegasalt-section .scene1 .saw {
+        margin-bottom: 0px;
+    }
+
+    html {
+        background: var(--main-green);
+    }
+
+    .vegasalt-section .saw .top {
+        width: 95%;
+        height: 30.5px;
+
+    }
+
+    .vegasalt-section .gender-title {
+        text-align: center;
+    }
+
+    .vegasalt-section .title {
+        font-size: 40px;
+    }
+
+    .vegasalt-section .left-words,
+    .vegasalt-section .right-words {
+        /* padding-top: 100px; */
+        width: 200px;
+        min-height: 150px;
+    }
+
+    .vegasalt-section .base {
+        position: relative;
+        width: 300px;
+        height: 82px;
+        pointer-events: none;
+
+    }
+
+    .vegasalt-section .base-front {
+        position: absolute;
+        inset: -8.3px 0 0 0;
+        background: url(./assets/base-front-noshadow.svg);
+        background-size: 100%;
+        background-repeat: no-repeat;
+        width: 300px;
+        height: 82px;
+        z-index: 3;
+    }
+
+    .vegasalt-section .base-back {
+        position: absolute;
+        inset: 0;
+        background: url(./assets/base-back.svg);
+        background-size: 100%;
+        background-repeat: no-repeat;
+        width: 300px;
+        height: 82px;
+        z-index: 1;
+    }
+
+    .vegasalt-section .info {
+        font-size: 25px;
+        bottom: 78px;
+        line-height: 27px;
+        max-width: 200px;
+        margin-bottom: 0 !important;
+
+    }
+/*     html, body {
+        overflow: hidden !important;
+    } */
+
+    .vegasalt-section .highlight {
+        background-color: rgb(255, 0, 0);
+        border-radius: 30px;
+    }
+
+    .vegasalt-section .scene {
+        animation-name: slide-in-mobile;
+    }
+}
+
+@keyframes slide-in-mobile {
+    0% {
+        transform: translateY(100%);
+        opacity: 0;
+        display: block;
+    }
+
+    100% {
+        transform: translateY(0%);
+        opacity: 1;
+        display: block;
+    }
+}
+
+@keyframes slide-out-mobile {
+    0% {
+        transform: translateY(0%);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(-100%);
+        opacity: 0;
+        display: none;
+    }
+
+}
+
+@keyframes slide-in-subtitle-1 {
+    0% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+
+    90% {
+        transform: translateX(0);
+        opacity: 1;
+
+    }
+
+    100% {
+        transform: translateX(-500px);
+        opacity: 0;
+    }
+}
+
+@keyframes slide-in-subtitle {
+    0% {
+        transform: translateX(0);
+        opacity: 0;
+    }
+
+    90% {
+        transform: translateX(0);
+        opacity: 0;
+
+    }
+
+    100% {
+        transform: translateX(-500px);
+        opacity: 1;
+    }
+}
+
+@keyframes slide-in {
+    0% {
+        transform: translateX(100%);
+        opacity: 0;
+        display: block;
+    }
+
+    100% {
+        transform: translateX(0%);
+        opacity: 1;
+        display: block;
+    }
+}
+
+@keyframes slide-out {
+    0% {
+        transform: translateX(0%);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateX(-100%);
+        opacity: 0;
+        display: none;
+    }
+
+}
+
+@keyframes fade-out {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+        display: none;
+    }
+
+}
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    40% {
+        transform: rotate(10deg);
+    }
+    60% {
+        transform: rotate(-10deg);
+    }
+    80% {
+        transform: rotate(0deg);
+    }
+
+}
+.vegasalt-section .scene1 .top {
+    animation-name: rotate;
+    animation-duration: 5s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+}
+/* 
+body {
+    overflow: hidden;
+} */
+
+.vegasalt-section img {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    -khtml-user-select: none;
+    -webkit-touch-callout: none;
+    -webkit-user-drag: none;
+    -webkit-tap-highlight-color: transparent;
+    
+}
+
+.vegasalt-section .reset-button {
+    background: transparent;
+    border: 2px solid var(--main-red);
+    color: var(--main-red);
+}
+
+.vegasalt-section .reset-button:hover {
+    background: var(--main-red);
+    color: white;
+}
+
+
+.vegasalt-section .mobile-portrait {
+    display: none;
+}
+.vegasalt-section .rotate {
+    display: none;
+}
+@media screen and (max-width: 899px) and (orientation: portrait) and (hover: none), screen and (orientation: portrait) and (max-width: 899px) {
+    .vegasalt-section .language-button {
+        bottom: 3rem;
+        left: 3rem;
+        font-size: 1,1em;
+        padding: 5px 15px;
+    }
+    .vegasalt-section .scene1 .subtitle {
+        max-width: 85vw !important;
+    }
+    .vegasalt-section .scene1 .rotate {
+        display: flex;
+        justify-content: center;
+        flex-direction: column-reverse;
+        align-items: center;
+    }
+    .vegasalt-section .scene1 .start-button {
+        display: none;
+    }
+    .vegasalt-section .rotate img {
+        width: 100px;
+    }
+    .vegasalt-section .rotate h2 {
+        font-size: 20px;
+        text-align: center;
+        color: var(--main-red);
+        font-family: 'chaney';
+        max-width: 200px;
+    }
+    .vegasalt-section .mobile-portrait {
+        display: flex;
+        position: absolute;
+        inset: 0;
+        background: var(--main-green);
+        justify-content: space-evenly;
+        align-items: center;
+        z-index: 100;
+        flex-direction: column;
+
+    }
+    .vegasalt-section .mobile-portrait h1 {
+        font-size: 39px;
+        color: var(--main-red);
+        font-family: 'chaney';
+        text-align: center;
+    }
+    .vegasalt-section .mobile-portrait h2 {
+        font-size: 30px;
+        font-weight: bold;
+        color: var(--main-red);
+        font-family: 'chaney';
+        text-align: center;
+    }
+    .vegasalt-section .mobile-portrait img {
+        display: block !important;
+        position: relative !important;
+    }
+    .vegasalt-section .mobile-portrait .logo {
+        width: 200px;
+    }
+}
+
+@media screen and (hover: none) {
+    .vegasalt-section .language-button {
+    animation-name: slide-in-right;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+        bottom: 1rem;
+        left: 1rem;
+        font-size: 1.1em;
+        padding: 5px 15px;
+    }
+}@keyframes slide-in-right {
+    0% {
+        transform: translateX(-100vw);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateX(0%);
+        opacity: 1;
+    }
+}
+.vegasalt-section .content-bg {
+	position: relative;
+}
+.vegasalt-section .content-bg, .vegasalt-section, .vegasalt-section {
+	background: var(--main-green);
+}
+.vegasalt-section .scene h1, .vegasalt-section .scene h2, .scene h3 {
+	text-transform: unset !important;
+}
+.vegasalt-section .start label, .vegasalt-section .start span, .vegasalt-section .scene button, .vegasalt-section .scene a {
+	line-height: 1 !important;
+}
+.vegasalt-section .scene .sjukast-logo {
+	display: none;
+}
+.vegasalt-section .content-bg .language-button {
+	padding: 2px 30px;
+}
+.vegasalt-section .scene .container {
+	padding-bottom: 50px !important;
+}
+body:has(.vegasalt-section) #header .container-fluid > .row > div[class^="col-"] , body:has(.vegasalt-section) #header .container-fluid > .row > div[class^="col-"] {
+	transform: translate(0) !important;
+}
+@media screen and (min-width: 990px) {
+	@media screen and (min-width: 990px) {
+    .vegasalt-section .info {
+        margin: -60px 0 5px 0;
+    }
+    .vegasalt-section .arrow-down {
+        display: none;
+    } 
+    .vegasalt-section .hero h1 {
+        display: none;
+    }
+    .vegasalt-section .vegasalt-container {
+        height: 100vh;
+    }
+}
+.vegasalt-section .subtitle a {
+	color: var(--main-red);
+	}
+}
+body:has(.vegasalt-section) #header .btn.btn-md.btn-light.d-none.d-lg-inline-flex, body:has(.vegasalt-section) #header .btn.btn-md.btn-light.d-none.d-lg-inline-flex {
+	display: none !important;
+}
+.vegasalt-section {
+    overflow: hidden;
+    position: relative;
+}

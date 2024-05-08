@@ -2,7 +2,6 @@
 <html>
 
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Vegasaltið</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -54,15 +53,12 @@
 .hero h1 {
     font-family: 'TT Norms';
     font-weight: 900;
-    font-size: 45px;
+    font-size: 40px;
     color: var(--main-red);
     text-align: center;
     margin: 5px;
-    margin-bottom: -15px;
 }
-a:hover > img {
-    filter: brightness(0) invert(1);
-}
+
 label {
     cursor: pointer !important;
 }
@@ -72,7 +68,6 @@ label {
     background: white;
     color: var(--main-red);
     border: 2px solid var(--main-red);
-    padding: 5px 10px !important;
 }
 
 .buttons-container {
@@ -81,9 +76,7 @@ label {
     gap: 10px;
     padding-bottom: 20px;
 }
-.scene, .container {
-min-height: 100vh !important;
-}
+
 .start label {
     width: 96px;
     height: 40px;
@@ -97,7 +90,7 @@ min-height: 100vh !important;
     display: flex;
     justify-content: center;
     align-items: flex-end;
-    font-family: 'chaney';
+    font-family: 'TT Norms';
     text-transform: uppercase;
     color: white;
     font-size: 28px;
@@ -111,8 +104,6 @@ min-height: 100vh !important;
 
 .right-words::after {
     content: "Hann/hún/hán";
-    margin-left: 10px;
-
 
 }
 
@@ -684,6 +675,10 @@ screen and (hover: none) and (orientation: landscape) and (max-height: 600px) {
         display: none;
     }
 
+    .start-button {
+        margin-bottom: 25px;
+    }
+
     .scene2 .container {
         display: grid !important;
         grid-template-columns: 1fr 40%;
@@ -841,7 +836,7 @@ screen and (hover: none) and (orientation: landscape) and (max-height: 600px) {
 
     .start {
         grid-template-rows: unset;
-        grid-template-columns: repeat(3, 81px);
+        grid-template-columns: .8fr .8fr .8fr;
         grid-auto-flow: row;
         gap: 10px;
     }
@@ -1106,7 +1101,6 @@ img {
 @media screen and (min-width: 900px) and (max-height: 500px) {
     .info .mobile {
         display: flex;
-        gap: 10px;
     }
 
     .info .desktop {
@@ -1114,7 +1108,7 @@ img {
     }
 
     .start-button {
-        margin-bottom: 5px;
+        margin-bottom: 25px;
     }
 
     .scene2 .container {
@@ -1192,12 +1186,12 @@ img {
 
     .left-words::after,
     .right-words::after {
-        font-size: 14px;
-        margin-bottom: -26px;
+        font-size: 11px;
+        margin-bottom: -22px;
     }
 
     .background.background.background {
-        background: url('./assets/BG-banner.svg') !important;
+        background: url('./assets/Bg-banner.svg') !important;
         background-repeat: no-repeat;
         background-size: cover !important;
     }
@@ -1271,7 +1265,7 @@ img {
 
     .start {
         grid-template-rows: unset;
-        grid-template-columns: repeat(3, 81px);
+        grid-template-columns: .8fr .8fr .8fr;
         grid-auto-flow: row;
         gap: 10px;
     }
@@ -1290,7 +1284,7 @@ img {
     }
 
     .scene1 .saw {
-        margin-bottom: -30px;
+        margin-bottom: 0px;
     }
 
     html {
@@ -1317,22 +1311,23 @@ img {
         width: 200px;
         min-height: 150px;
     }
-    .base, .base-back, .base-front {
-        width: 400px;
-        height: 109px;
-    }
+
     .base {
         position: relative;
+        width: 300px;
+        height: 82px;
         pointer-events: none;
 
     }
 
     .base-front {
         position: absolute;
-        inset: -12.4px 0 0 0;
+        inset: -8.3px 0 0 0;
         background: url(./assets/base-front-noshadow.svg);
         background-size: 100%;
         background-repeat: no-repeat;
+        width: 300px;
+        height: 82px;
         z-index: 3;
     }
 
@@ -1342,6 +1337,8 @@ img {
         background: url(./assets/base-back.svg);
         background-size: 100%;
         background-repeat: no-repeat;
+        width: 300px;
+        height: 82px;
         z-index: 1;
     }
 
@@ -1527,24 +1524,22 @@ img {
             <h1>VEGASALTIÐ</h1>
         </div>
             <div class="subtitle-container">
-            <h2 class="subtitle subtitle-1">Það er margt sem hefur áhrif og getur 
-                raskað jafnvægi í samskiptum.Sumt vegur þyngra en annað.
+            <h2 class="subtitle subtitle-1">Það er margt sem hefur áhrif og getur <br>
+                raskað jafnvægi í samskiptum. <br>Sumt vegur þyngra en annað.<br>
                 Kannaðu jafnvægið.</h2>
 
                 </div>
             <div class="saw">
 
             <div class="top bar"></div>
-            <div class="base">
-<div class="base-back"></div>
-            <div class="base-front"></div>
-</div>        </div>
+            <div class="base"><div class="base-back"></div>
+            <div class="base-front"></div></div>        </div>
             <button class="start-button">BYRJA</button>
         </div>
     </div>
 
 
-    
+    </div>
     <div class="scene scene2">
         <div class="container">
             <div class="bg-drop-zone"></div>
@@ -1561,14 +1556,10 @@ img {
                     <div class="right-words"></div>
                 </div>
                 <div class="top bar"></div>
-                <div class="base">
-<div class="base-back"></div>
-            <div class="base-front"></div>
-</div>
+                <div class="base"><div class="base-back"></div>
+            <div class="base-front"></div></div>
             </div>
-            <div class="info"><div class="mobile">
-<img src="./assets/arrow-down.svg" class="arrow-down"><span>Dragðu orðin inn á vegasaltið </span>
-</div></div>
+            <div class="info"><div class="mobile"><img src="./assets/arrow-down.svg" class="arrow-down"><span>Dragðu orðin inn á vegasaltið </span></div></div>
 
             <div id="kk" class="start">
                 <label id="yngri"><span> Yngri</span></label>
@@ -1596,20 +1587,16 @@ img {
 
 
             </div>
-            <div class="buttons-container">
-<button class="reset-button" onclick="resetSaw(true)"><span> Hreinsa</span></button><button class="done-button"><span>Ljúka</span></button>
-</div>
+            <div class="buttons-container"><button class="reset-button" onclick="resetSaw(true)"><span> Hreinsa</span></button><button class="done-button"><span>Ljúka</span></button></div>
         </div>
     </div>
     <div class="scene scene3">
         <div class="container">
             <a href="https://www.sjukast.is" target="_blank">
-                <img src="./assets/sjukast.svg" class="sjukast-logo" alt="Sjúk ást">
+                <img src="https://sjukast.is/wp-content/themes/sjukast/vegasaltid/assets/sjukast.svg" class="sjukast-logo" alt="Sjúk ást">
                 </a>
-            <h2 class="subtitle">
-<span id="results"></span><br> Sýnum hvert öðru virðingu og pælum í jafnvæginu. <br>
-				Viltu ræða málin? Kíktu á <a href="https://sjukast.is/sjuktspjall/">Sjúktspjall.</a>
-</h2> 
+            <h2 class="subtitle"><span id="results"></span><br > Sýnum hvert öðru virðingu og pælum í jafnvæginu. <br>
+				Viltu ræða málin? Kíktu á <a href="https://sjukast.is/sjuktspjall/">Sjúktspjall.</a></h2> 
             
             <button class="start-again-button">BYRJA AFTUR</button>
             
