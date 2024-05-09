@@ -339,6 +339,9 @@ img {
         font-size: 56px !important;
         margin-bottom: 10px;
     }
+    h2 {
+        margin-bottom: 10px;
+    }
     .hero-info {
         font-size: 22px !important;
     }
