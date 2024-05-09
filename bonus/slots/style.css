@@ -185,10 +185,15 @@
 
 .wrapper {
     height: 100vh;
-    display: flex;
+    display: grid;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    grid-auto-flow: column;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    justify-items: center;
+    align-items: start;
 }  
 
 .swiper-container {
