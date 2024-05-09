@@ -232,6 +232,7 @@
     align-items: center;
     font-size: 60px;
     font-weight: bolder;
+    padding: 0 20px;
 }
 h2 {
     width: 50%;
@@ -244,6 +245,7 @@ h2 {
     display: flex;
     justify-content: space-evenly;
     text-align: center;
+    gap: 75px;
 }
 body {
     position: relative;
