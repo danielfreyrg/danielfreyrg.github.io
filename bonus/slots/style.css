@@ -315,7 +315,13 @@ img {
     display: none;
 }
 @media (max-width: 850px) {
-
+    #lock {
+        width: 95%;
+    }
+    body, html {
+        overflow-x: hidden;
+        width: 100%;
+    }
     .mobile {
         display: block;
     }
@@ -329,11 +335,12 @@ img {
     .desktop {
         display: none;
     }
-    h1 {
+    .hero h1 {
         font-size: 56px !important;
+        margin-bottom: 10px;
     }
     .hero-info {
-        font-size: 32px !important;
+        font-size: 22px !important;
     }
     .hero {
     width: 100%;
@@ -344,7 +351,7 @@ img {
     }
     .gris {
         top: 10rem;
-        height: 20rem;
+        height: 15rem;
     }
     .wrapper {
         min-height: 100vh;
