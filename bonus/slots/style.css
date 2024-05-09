@@ -314,7 +314,8 @@ img {
 .mobile {
     display: none;
 }
-@media all and (max-width: 800px) {
+@media (max-width: 850px) {
+
     .mobile {
         display: block;
     }
