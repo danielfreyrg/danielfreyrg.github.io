@@ -311,3 +311,46 @@ img {
     text-align: center;
     text-shadow: var(--shadow);
 }
+.mobile {
+    display: none;
+}
+@media screen and (max-width: 700px) {
+    .mobile {
+        display: block;
+    }
+    .corner-mobile {
+        position: absolute;
+        left: 0;
+        top: 0;
+        right: 0;
+        width: 100%;
+    }
+    .desktop {
+        display: none;
+    }
+    h1 {
+        font-size: 56px !important;
+    }
+    .hero-info {
+        font-size: 32px !important;
+    }
+    .hero {
+    width: 100%;
+        padding: 30px 0;
+    }
+    .text-wrapper {
+        flex-direction: column;
+    }
+    .gris {
+        top: 10rem;
+        height: 20rem;
+    }
+    .wrapper {
+        min-height: 100vh;
+        height: unset;
+    }
+    .main-info {
+        padding-top: 150px;
+    }
+    
+}
