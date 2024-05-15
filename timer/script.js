@@ -10,6 +10,7 @@ document.getElementById('startButton').addEventListener('click', function() {
         const reactionTime = (endTime - startTime) / 1000;
         document.getElementById('timeDisplay').textContent = `Reaction time: ${reactionTime.toFixed(3)} seconds`;
         this.disabled = true; // Disable the button after stopping the timer
+        document.body.style.backgroundColor = 'white';
     }
 });
 
@@ -28,6 +29,9 @@ function updateTimerDisplay() {
         const now = new Date();
         const elapsed = now - startTime;
         document.getElementById('timeDisplay').textContent = `Time: ${(elapsed / 1000).toFixed(3)} seconds`;
+        
+
+
     }
 }
 
