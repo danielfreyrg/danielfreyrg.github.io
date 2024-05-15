@@ -36,5 +36,5 @@ function updateTimerDisplay() {
 }
 
 // Random delay between 1 and 2 seconds
-const randomDelay = Math.random() * 1000 + 1000; // 1000 to 2000 ms
+const randomDelay = Math.random() * 1000 + 3000; // 1000 to 2000 ms
 setTimeout(startReactionTest, randomDelay);
