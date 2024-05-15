@@ -1,4 +1,18 @@
 class SpinningWheel {
+    /**
+ * Represents a spinning wheel for games or random selection visuals.
+ * @class
+ * @param {string} containerId - The DOM ID of the container where the wheel will be rendered.
+ * @param {Object[]} data - An array of objects representing the segments of the wheel.
+ * @param {string} data[].label - The text label for the segment.
+ * @param {number} data[].value - The value of the segment.
+ * @param {string} data[].infotext - The text displayed when the segment is selected.
+ * @param {Object} options - Configuration options for the wheel appearance and behavior.
+ * @param {number} options.breakpoint - The viewport width at which to change sizing rules.
+ * @param {number} options.baseSize - The base size of the wheel.
+ * @param {string[]} options.customColors - An array of colors used for the wheel segments.
+ * @param {string} options.filters - SVG filter definitions for graphical effects.
+ */
     constructor(containerId, data, options) {
         this.containerId = containerId;
         this.data = data;
@@ -267,7 +281,7 @@ const wheelData = [
     {"label":"ENGINN VINNINGUR", "value":8, "infotext":"Stöngin út", "src": ""}
 ];
 
-const wheelOptions = {
+const wheelOptions1= {
     breakpoint: 768,
     baseSize: 800,
     customColors: ['#F9C200', 'rgba(0, 0, 0, 1)', '#F9C200', 'rgba(0, 0, 0, 1)', '#F9C200', 'rgba(0, 0, 0, 1)'],
@@ -289,9 +303,31 @@ const wheelOptions = {
   </filter>`
 };
 
-innerWheel = new SpinningWheel('#innerWheel', wheelData, wheelOptions);
+const wheelOptions2= {
+    breakpoint: 768,
+    baseSize: 800,
+    customColors: ['#fefefe', 'rgba(0, 0, 255, 1)', 'rgba(0, 255, 0, 1)', 'rgba(0, 0, 0, 1)', 'rgba(255, 0, 255, 1)', 'rgba(0, 0, 0, 1)'],
+    filters:     `<linearGradient id="linear-gradient" x1="94.12" y1="179.49" x2="754.59" y2="644.72" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#fad766"/>
+    <stop offset=".14" stop-color="#b4712a"/>
+    <stop offset=".29" stop-color="#cc943f"/>
+    <stop offset=".47" stop-color="#e5b854"/>
+    <stop offset=".61" stop-color="#f4ce61"/>
+    <stop offset=".71" stop-color="#fad766"/>
+    <stop offset="1" stop-color="#b4712a"/>
+  </linearGradient>
+  <filter id="drop-shadow" filterUnits="userSpaceOnUse">
+    <feOffset dx="6.74" dy="19.26"/>
+    <feGaussianBlur result="blur" stdDeviation="9.63"/>
+    <feFlood flood-color="#000" flood-opacity=".75"/>
+    <feComposite in2="blur" operator="in"/>
+    <feComposite in="SourceGraphic"/>
+  </filter>`
+};
 
-outerWheel = new SpinningWheel('#outerWheel', wheelData, wheelOptions);
+innerWheel = new SpinningWheel('#innerWheel', wheelData, wheelOptions1);
+
+outerWheel = new SpinningWheel('#outerWheel', wheelData, wheelOptions2);
  
 document.getElementById("resetButton").addEventListener("click", function() {
     outerWheel.reset();
