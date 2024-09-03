@@ -1,0 +1,33 @@
+.menu-content.visible {
+    animation: scale-in 1s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+}
+  .menu-content.visible ul {
+    animation: slide-in 2s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+  }
+  @keyframes slide-in {
+    0% {
+      height: 0;
+    }
+    50% {
+      height: 0%;
+    }
+    100% {
+      height: 100%;
+    }
+  }
+  .menu-content.visible {
+    box-shadow: 5000px 0px 0px 0px rgba(70, 123, 93, 1);
+  }
+  @keyframes scale-in {
+    0% {
+      transform: scaleX(0);
+    }
+    100% {
+      transform: scaleX(1);
+    }
+    
+  }
