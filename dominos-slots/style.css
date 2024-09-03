@@ -407,8 +407,9 @@ body {
 /* 1018x360 */
 @media screen and (min-width: 900px) {
     .outer.outer.outer.outer {
-        justify-content: flex-start !important;
-        align-items: center !important;
+        justify-content: center;
+        align-items: baseline;
+    
     }
     .main-text {
         display: flex;
