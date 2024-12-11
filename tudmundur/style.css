@@ -14,3 +14,12 @@ body {
     font-weight: bold;
     color: #333;
 }
+textarea {
+    padding: 50px;
+}
+form {
+    display: flex;
+    flex-direction: column;
+}
+button {
+    padding: 10px;
