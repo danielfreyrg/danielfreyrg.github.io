@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
     "Fer skjátíminn þinn ekki að verða búinn í dag?",
     "Það mætti ef til vill bjóða yður að bragða óhreinindi?",
     "Mæli með Bassajólum hans Jakobs hennar Rögnu Sveinbjörns, mjög gott að hlusta á í aðdraganda jóla. Algjört glimmer.",
-    "Anna Sigríður Guðmundsdóttir, 1 min ago: Tuðmundur segir: Fokkið ykkur.",
+    "Þetta reddast",
   ];
   form.addEventListener("submit", (e) => {
     e.preventDefault();
