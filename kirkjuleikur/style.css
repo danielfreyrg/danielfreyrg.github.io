@@ -78,3 +78,6 @@ button.white {
     flex-direction: row;
     gap: 10px;
 }
+.highlight {
+    background-color: #f9c7c8 !important;
+  }

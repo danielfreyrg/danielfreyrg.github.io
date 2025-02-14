@@ -4,8 +4,49 @@
 <head>
     <title>kirkjuleikur</title>
     <link rel='stylesheet' type='text/css' href='style.css'>
-    <script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
-    <script src='script.js' defer></script>
+    <script type="module">
+import Sortable, { Swap } from "https://cdn.jsdelivr.net/npm/sortablejs@1.15.2/modular/sortable.esm.js";
+
+// Register the Swap Plugin
+Sortable.mount(new Swap());
+
+// Initialize Sortable for the options container (letters)
+document.addEventListener("DOMContentLoaded", function () {
+    new Sortable(document.querySelector('.cross-options'), {
+        group: {
+            name: 'shared',
+            put: true, // Allow items to be moved out
+        },
+        animation: 150,
+        sort: false // Prevent sorting in the initial letter box
+    });
+
+    // Initialize Sortable for the cross (droppable slots)
+    document.querySelectorAll('.droppable').forEach(item => {
+        new Sortable(item, {
+            group: {
+                name: 'shared',
+                put: true, // Allow items to be dropped here
+                pull: true, // Allow items to be dragged out
+            },
+            animation: 150,
+            swap: true, // Enable swapping
+            swapClass: "highlight", // Add a visual indicator when swapping
+        });
+    });
+
+    // Make the entire cross-container sortable (for swapping inside the cross)
+    new Sortable(document.querySelector('.cross-container'), {
+        group: "shared",
+        animation: 150,
+        swap: true, // Enable swapping
+        swapClass: "highlight",
+        sort: true // Enable sorting/swapping inside the cross
+    });
+});
+
+    </script>
+    
     <meta charset=utf-8>
     <meta name=viewport content=width=device-width, initial-scale=1>
 </head>
@@ -23,7 +64,7 @@
         <div class="cross-item hide"></div>
         <div class="cross-item middle droppable"></div>
     </div>
-    <div class="cross-options">
+    <div class="cross-options" id="sortable">
             <div class="cross-option">A</div>
             <div class="cross-option">B</div>
             <div class="cross-option">C</div>

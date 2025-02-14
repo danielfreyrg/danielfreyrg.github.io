@@ -1,3 +1,5 @@
+
+
 // Initialize Sortable for the options container
 // new Sortable(document.querySelector('.cross-options'), {
 //     group: {
@@ -10,23 +12,24 @@
 //     sort: false
 // });
 // Initialize Sortable for the cross-options as a drop zone
-new Sortable(document.querySelector('.cross-options'), {
+Sortable.create(document.querySelector('.cross-options'), {
     group: {
         name: 'shared',
-        // pull: true,
-        // put: true,
-        // swap: true
+        swap: true,
+        swapClass: 'highlight'
     },
     animation: 150,
-    // sort: false,
-    // onAdd: function(evt) {
-    //     // Only allow one instance of each letter
-    //     const letters = Array.from(evt.to.children).map(child => child.textContent);
-    //     const duplicates = letters.filter((letter, index) => letters.indexOf(letter) !== index);
-    //     if (duplicates.length > 0) {
-    //         evt.to.removeChild(evt.item);
-    //     }
-    // }
+    onEnd: function(/**Event*/evt) {
+        var from = evt.item.closest('.droppable');
+        console.log(from);
+        if (evt.to.classList.contains('middle') && evt.to.children.length >= 4) {
+            //swap the last child with the new item
+            const lastChild = evt.to.lastChild;
+            const newItem = evt.item;
+            evt.to.insertBefore(newItem, lastChild);
+            console.log('middle');
+        }
+    }
 });
 
 // Initialize Sortable for each cross item
@@ -34,19 +37,9 @@ document.querySelectorAll('.droppable').forEach(item => {
     new Sortable(item, {
         group: {
             name: 'shared',
-            // pull: true,
-            put: true,
-            // swap: true
-            sort: true
+            swap: true
         },
-        animation: 150,
-        // sort: false,
-        // onAdd: function(evt) {
-        //     // Only allow one item per cross-item
-        //     if (evt.to.children.length > 1) {
-        //         evt.to.removeChild(evt.to.children[0]);
-        //     }
-        // }
+        animation: 150
     });
 });
 
