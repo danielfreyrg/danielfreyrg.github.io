@@ -8,9 +8,9 @@ window.onload = function() {
 
   // Size configuration - you can easily adjust these values
   var sizeConfig = {
-    small: { min: 8, max: 15, weight: 0.2 },    // 10% of bubbles will be small
-    medium: { min: 16, max: 150, weight: 0.3 },  // 10% of bubbles will be medium  
-    large: { min: 31, max: 350, weight: 0.5 }    // 80% of bubbles will be large
+    small: { min: 25, max: 50, weight: 0.9 },    // 60% of bubbles will be small
+    medium: { min: 75, max: 150, weight: 0.05 },  // 30% of bubbles will be medium  
+    large: { min: 30, max: 350, weight: 0.05 }    // 10% of bubbles will be large
   };
 
   // Speed configuration - adjust these values to control bubble movement speed
@@ -21,8 +21,8 @@ window.onload = function() {
 
   // Bubble count configuration - adjust these values to control the number of bubbles
   var bubbleCountConfig = {
-    smallScreen: 30,    // Number of bubbles on smaller screens
-    largeScreen: 30     // Number of bubbles on larger screens
+    smallScreen: 15,    // Number of bubbles on smaller screens (reduced from 30)
+    largeScreen: 60     // Number of bubbles on larger screens (reduced from 30)
   };
 
   // Color configuration - adjust these weights to control the distribution of each color
@@ -124,6 +124,43 @@ window.onload = function() {
   }
 
   Bubble.prototype.update = function(world) {
+    // Apply repulsion force if mouse is nearby
+    if (world.mousePosition) {
+      var dx = this.x - world.mousePosition.x;
+      var dy = this.y - world.mousePosition.y;
+      var distance = Math.sqrt(dx * dx + dy * dy);
+      var repulsionRadius = 200 + this.radius; // Increased repulsion radius for more powerful effect
+      
+      if (distance < repulsionRadius && distance > 0) {
+        var repulsionStrength = (repulsionRadius - distance) / repulsionRadius * 8.0; // Increased from 3.0 to 8.0 for stronger repulsion
+        this.x += (dx / distance) * repulsionStrength;
+        this.y += (dy / distance) * repulsionStrength;
+      }
+    }
+    
+    // Check collisions with other bubbles
+    for (var i = 0; i < world.objects.length; i++) {
+      var other = world.objects[i];
+      if (other !== this && other instanceof Bubble) {
+        var dx = this.x - other.x;
+        var dy = this.y - other.y;
+        var distance = Math.sqrt(dx * dx + dy * dy);
+        var minDistance = this.radius + other.radius;
+        
+        if (distance < minDistance && distance > 0) {
+          // Collision detected - push bubbles apart
+          var overlap = minDistance - distance;
+          var pushX = (dx / distance) * overlap * 0.5;
+          var pushY = (dy / distance) * overlap * 0.5;
+          
+          this.x += pushX;
+          this.y += pushY;
+          other.x -= pushX;
+          other.y -= pushY;
+        }
+      }
+    }
+    
     this.x = this.startX + Math.cos(this.y / 80) * this.swing;
     this.y += this.speed;
     if (this.y + this.radius < 0) {
@@ -177,7 +214,7 @@ window.onload = function() {
   };
 
   for (i = 0; i < bubblesNumber; i++) {
-    objects.push(new Bubble(Math.random() * w, Math.random() * h, -randomInRange(speedConfig.minSpeed, speedConfig.maxSpeed), getRandomSize(), randomInRange(7, 10), randomInRange(-40, 40), getRandomColor()));
+    objects.push(new Bubble(Math.random() * w, h + Math.random() * 300, -randomInRange(speedConfig.minSpeed, speedConfig.maxSpeed), getRandomSize(), randomInRange(7, 10), randomInRange(-40, 40), getRandomColor()));
   }
 
   var world = new World({
@@ -197,17 +234,59 @@ window.onload = function() {
   });
 
   window.addEventListener('mousemove', function(e) {
+    world.mousePosition = { x: e.clientX, y: e.clientY };
+  });
+
+  window.addEventListener('touchmove', function(e) {
+    world.mousePosition = { x: e.touches[0].clientX, y: e.touches[0].clientY };
+  });
+
+  window.addEventListener('mouseleave', function(e) {
+    world.mousePosition = null;
+  });
+
+  // Add click event listener for bubble popping
+  window.addEventListener('click', function(e) {
+    var clickX = e.clientX;
+    var clickY = e.clientY;
+    
+    // Check if any bubble was clicked
     for (var i = 0; i < world.objects.length; i++) {
-      if ((world.objects[i] instanceof Bubble) && (e.clientX > world.objects[i].x - world.objects[i].radius && e.clientX < world.objects[i].x + world.objects[i].radius && e.clientY < world.objects[i].y + world.objects[i].radius && e.clientY > world.objects[i].y - world.objects[i].radius)) {
-        world.objects[i].pop(world);
+      var bubble = world.objects[i];
+      if (bubble instanceof Bubble) {
+        var dx = clickX - bubble.x;
+        var dy = clickY - bubble.y;
+        var distance = Math.sqrt(dx * dx + dy * dy);
+        
+        // If click is within bubble radius, pop it
+        if (distance <= bubble.radius) {
+          bubble.pop(world);
+          break; // Only pop one bubble per click
+        }
       }
     }
   });
 
-  window.addEventListener('touchmove', function(e) {
+  // Add touch event listener for mobile devices
+  window.addEventListener('touchend', function(e) {
+    e.preventDefault();
+    var touch = e.changedTouches[0];
+    var clickX = touch.clientX;
+    var clickY = touch.clientY;
+    
+    // Check if any bubble was touched
     for (var i = 0; i < world.objects.length; i++) {
-      if ((world.objects[i] instanceof Bubble) && (e.touches[0].clientX > world.objects[i].x - world.objects[i].radius && e.touches[0].clientX < world.objects[i].x + world.objects[i].radius && e.touches[0].clientY < world.objects[i].y + world.objects[i].radius && e.touches[0].clientY > world.objects[i].y - world.objects[i].radius)) {
-        world.objects[i].pop(world);
+      var bubble = world.objects[i];
+      if (bubble instanceof Bubble) {
+        var dx = clickX - bubble.x;
+        var dy = clickY - bubble.y;
+        var distance = Math.sqrt(dx * dx + dy * dy);
+        
+        // If touch is within bubble radius, pop it
+        if (distance <= bubble.radius) {
+          bubble.pop(world);
+          break; // Only pop one bubble per touch
+        }
       }
     }
   });
