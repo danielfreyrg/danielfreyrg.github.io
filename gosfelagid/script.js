@@ -19,10 +19,25 @@ window.onload = function() {
     maxSpeed: 1.5     // Maximum upward speed (lower = slower)
   };
 
+  // Intensity configuration - controls how erratic and fast bubbles become
+  var intensityConfig = {
+    current: 10,       // Current intensity value (0-100), starts at 10
+    speedMultiplier: 0.5 + (10 / 100) * 2.5,  // Initial speed multiplier for 10
+    swingMultiplier: 0.2 + (10 / 100) * 3.8   // Initial swing multiplier for 10
+  };
+
   // Bubble count configuration - adjust these values to control the number of bubbles
   var bubbleCountConfig = {
     smallScreen: 15,    // Number of bubbles on smaller screens (reduced from 30)
     largeScreen: 60     // Number of bubbles on larger screens (reduced from 30)
+  };
+
+  // Dynamic bubble spawning based on intensity
+  var dynamicBubbleConfig = {
+    minBubbles: 15,     // Minimum bubbles at low intensity
+    maxBubbles: 200,    // Maximum bubbles at high intensity
+    spawnThreshold: 20, // Intensity level where extra bubbles start spawning
+    maxBubblesIntensity: 100 // Intensity level where max bubbles are reached
   };
 
   // Color configuration - adjust these weights to control the distribution of each color
@@ -65,6 +80,86 @@ window.onload = function() {
 
   function randomInRange(min, max) {
     return Math.random() * (max - min) + min;
+  }
+
+  function getTargetBubbleCount(intensity) {
+    if (intensity <= dynamicBubbleConfig.spawnThreshold) {
+      return dynamicBubbleConfig.minBubbles;
+    }
+    
+    // Calculate bubble count based on intensity (exponential growth)
+    var intensityRatio = (intensity - dynamicBubbleConfig.spawnThreshold) / 
+                         (dynamicBubbleConfig.maxBubblesIntensity - dynamicBubbleConfig.spawnThreshold);
+    var bubbleCount = dynamicBubbleConfig.minBubbles + 
+                      (dynamicBubbleConfig.maxBubbles - dynamicBubbleConfig.minBubbles) * 
+                      Math.pow(intensityRatio, 1.5); // Exponential growth for dramatic effect
+    
+    return Math.round(bubbleCount);
+  }
+
+  function adjustBubbleCount(targetCount, world) {
+    var currentBubbleCount = 0;
+    var bubbleObjects = [];
+    
+    // Count current bubbles and collect them
+    for (var i = 0; i < world.objects.length; i++) {
+      if (world.objects[i] instanceof Bubble) {
+        currentBubbleCount++;
+        bubbleObjects.push(world.objects[i]);
+      }
+    }
+    
+    var difference = targetCount - currentBubbleCount;
+    
+    if (difference > 0) {
+      // Need more bubbles - spawn them
+      for (var i = 0; i < difference; i++) {
+        var baseSpeed = -randomInRange(speedConfig.minSpeed, speedConfig.maxSpeed);
+        var baseSwing = randomInRange(-40, 40);
+        
+        // Apply current intensity multipliers
+        var initialSpeed = baseSpeed * intensityConfig.speedMultiplier;
+        var initialSwing = baseSwing * intensityConfig.swingMultiplier;
+        
+        world.objects.push(new Bubble(
+          Math.random() * world.physicalProperties.width, 
+          world.physicalProperties.height + Math.random() * 300, 
+          initialSpeed, 
+          getRandomSize(), 
+          randomInRange(7, 10), 
+          initialSwing, 
+          getRandomColor()
+        ));
+      }
+    } else if (difference < 0) {
+      // Need fewer bubbles - remove excess ones
+      var bubblesToRemove = Math.abs(difference);
+      
+      // Remove bubbles from the bottom of the screen first (oldest ones)
+      bubbleObjects.sort(function(a, b) {
+        return b.y - a.y; // Sort by Y position, highest Y first (bottom of screen)
+      });
+      
+      for (var i = 0; i < bubblesToRemove && i < bubbleObjects.length; i++) {
+        var bubbleIndex = world.objects.indexOf(bubbleObjects[i]);
+        if (bubbleIndex > -1) {
+          world.objects.splice(bubbleIndex, 1);
+        }
+      }
+    }
+    
+    // Update bubble count display
+    updateBubbleCountDisplay(world);
+  }
+
+  function updateBubbleCountDisplay(world) {
+    var bubbleCount = 0;
+    for (var i = 0; i < world.objects.length; i++) {
+      if (world.objects[i] instanceof Bubble) {
+        bubbleCount++;
+      }
+    }
+    document.getElementById('bubble-count-value').textContent = bubbleCount;
   }
 
   function Vector(x, y) {
@@ -117,9 +212,11 @@ window.onload = function() {
     this.y = y;
     this.startX = this.x;
     this.speed = speed;
+    this.originalSpeed = speed; // Store original speed for intensity adjustments
     this.radius = radius;
     this.fragments = fragments;
     this.swing = swing;
+    this.originalSwing = swing; // Store original swing for intensity adjustments
     this.hue = hue;
   }
 
@@ -133,6 +230,12 @@ window.onload = function() {
       
       if (distance < repulsionRadius && distance > 0) {
         var repulsionStrength = (repulsionRadius - distance) / repulsionRadius * 8.0; // Increased from 3.0 to 8.0 for stronger repulsion
+        
+        // Make repulsion more aggressive at high intensities
+        if (intensityConfig.current > 70) {
+          repulsionStrength *= 1.5; // 50% stronger repulsion at high intensity
+        }
+        
         this.x += (dx / distance) * repulsionStrength;
         this.y += (dy / distance) * repulsionStrength;
       }
@@ -161,8 +264,23 @@ window.onload = function() {
       }
     }
     
-    this.x = this.startX + Math.cos(this.y / 80) * this.swing;
-    this.y += this.speed;
+    // Add erratic movement based on intensity
+    var erraticX = 0;
+    if (intensityConfig.current > 20) {
+      // Much more chaotic movement at high intensities
+      var chaosFactor = Math.pow(intensityConfig.current / 100, 2); // Exponential increase in chaos
+      erraticX = (Math.random() - 0.5) * chaosFactor * 12; // Up to 6x more random movement
+    }
+    
+    this.x = this.startX + Math.cos(this.y / 80) * this.swing + erraticX;
+    
+    // Add random speed variations at high intensities for more chaos
+    var finalSpeed = this.speed;
+    if (intensityConfig.current > 80) {
+      finalSpeed += (Math.random() - 0.5) * 2; // Random speed variation at very high intensity
+    }
+    
+    this.y += finalSpeed;
     if (this.y + this.radius < 0) {
       this.y = world.physicalProperties.height + this.radius;
     }
@@ -214,7 +332,14 @@ window.onload = function() {
   };
 
   for (i = 0; i < bubblesNumber; i++) {
-    objects.push(new Bubble(Math.random() * w, h + Math.random() * 300, -randomInRange(speedConfig.minSpeed, speedConfig.maxSpeed), getRandomSize(), randomInRange(7, 10), randomInRange(-40, 40), getRandomColor()));
+    var baseSpeed = -randomInRange(speedConfig.minSpeed, speedConfig.maxSpeed);
+    var baseSwing = randomInRange(-40, 40);
+    
+    // Apply initial intensity multipliers
+    var initialSpeed = baseSpeed * intensityConfig.speedMultiplier;
+    var initialSwing = baseSwing * intensityConfig.swingMultiplier;
+    
+    objects.push(new Bubble(Math.random() * w, h + Math.random() * 300, initialSpeed, getRandomSize(), randomInRange(7, 10), initialSwing, getRandomColor()));
   }
 
   var world = new World({
@@ -226,6 +351,17 @@ window.onload = function() {
   $.globalCompositeOperation = blendMode;
 
   world.animate();
+
+  // Initialize bubble count display
+  updateBubbleCountDisplay(world);
+
+  // Continuous bubble count adjustment at high intensities
+  setInterval(function() {
+    if (intensityConfig.current > 60) {
+      var targetBubbleCount = getTargetBubbleCount(intensityConfig.current);
+      adjustBubbleCount(targetBubbleCount, world);
+    }
+  }, 2000); // Check every 2 seconds
 
   window.addEventListener('resize', function() {
     w = world.physicalProperties.width = c.width = window.innerWidth;
@@ -243,6 +379,34 @@ window.onload = function() {
 
   window.addEventListener('mouseleave', function(e) {
     world.mousePosition = null;
+  });
+
+  // Add intensity slider event listener
+  var intensitySlider = document.getElementById('intensity-slider');
+  var intensityValue = document.getElementById('intensity-value');
+  
+  intensitySlider.addEventListener('input', function() {
+    intensityConfig.current = parseInt(this.value);
+    intensityValue.textContent = this.value;
+    
+    // Update intensity multipliers based on slider value
+    intensityConfig.speedMultiplier = 0.5 + (intensityConfig.current / 100) * 5.5; // 0.5x to 6x speed (much faster at max)
+    intensityConfig.swingMultiplier = 0.2 + (intensityConfig.current / 100) * 7.8; // 0.2x to 8x swing (much more erratic at max)
+    
+    // Apply intensity to all existing bubbles
+    for (var i = 0; i < world.objects.length; i++) {
+      var bubble = world.objects[i];
+      if (bubble instanceof Bubble) {
+        // Update speed based on intensity
+        bubble.speed = bubble.originalSpeed * intensityConfig.speedMultiplier;
+        // Update swing based on intensity
+        bubble.swing = bubble.originalSwing * intensityConfig.swingMultiplier;
+      }
+    }
+    
+    // Dynamic bubble count adjustment based on intensity
+    var targetBubbleCount = getTargetBubbleCount(intensityConfig.current);
+    adjustBubbleCount(targetBubbleCount, world);
   });
 
   // Add click event listener for bubble popping
