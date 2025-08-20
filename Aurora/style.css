@@ -1,14 +1,94 @@
+/*
+Theme Name: auroraseafood
+Description: This is a child theme for Flatsome Theme
+Author: UX Themes
+Template: flatsome
+Version: 3.0/*
+Theme Name: auroraseafood
+Description: This is a child theme for Flatsome Theme
+Author: UX Themes
+Template: flatsome
+Version: 3.0
+*/
+
+
+:root {
+    --main-orange: #EA6E21;
+}
+
+.heading-small {
+    color: var(--main-orange);
+    font-size: 1rem;
+    text-transform: uppercase;
+}
+
+.health-benefits-heading {
+    display: flex;
+    justify-items: space-between;
+    align-items: center;
+}
+
+.cucumber-gif-container p,
+.cucumber-gif-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas: 'cucumber';
+    justify-items: center;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+
+}
+
+.cucumber-gif-container {
+    margin-bottom: -40%;
+}
+
+.dish-translate {
+    transform: translatey(-40%);
+}
+
+.cucumber-gif-container .glow {
+    transform: scale(.8);
+    filter: blur(40px);
+    grid-area: cucumber;
+}
+
+.cucumber-gif-container .cucumber-gif {
+    grid-area: cucumber;
+    z-index: 2;
+}
+
+.cucumber-section {
+    z-index: 2;
+}
+
+.cucumber-subpage-col .cucumber-gif-container {
+    position: absolute;
+    inset: 0;
+}
+
+.cucumber-subpage-col .col-inner {
+    height: 100%;
+}
+
+.front-subtitle {
+    font-weight: normal;
+    color: white;
+    font-size: 2rem;
+    text-align: center;
+}
+
 .hero {
-    min-height: 100vh;
-    min-width: 100vw;
     position: relative;
     overflow: hidden;
 }
+
 .clouds {
     opacity: 0;
     position: absolute;
     inset: 0;
-    background-image: url(images/himinn.svg);
+    background-image: url(http://auroraseafood.is/wp-content/uploads/2023/06/clouds.webp);
     background-size: cover;
     background-repeat: no-repeat;
     z-index: 0;
@@ -18,7 +98,7 @@
     opacity: 0;
     position: absolute;
     inset: 0;
-    background-image: url(images/klettur.svg);
+    background-image: url(http://auroraseafood.is/wp-content/uploads/2023/06/klettur.webp);
     background-size: 31%;
     background-position: 63% 54%;
     background-repeat: no-repeat;
@@ -28,19 +108,22 @@
     transform: rotate(-10deg);
     transition: transform 0.5s linear;
     /* animation: rug 7.5s linear infinite alternate; */
-    
+
 }
+
 .waves {
     opacity: 0;
     position: absolute;
     inset: 0;
-    background-image: url(images/aldan.png);
-    background-size: 100% 70%;
+    background-image: url(https://auroraseafood.is/wp-content/uploads/2023/11/aldan-min-e1699370605836.webp);
+    /* 	background-image: url(http://auroraseafood.is/wp-content/uploads/2023/06/waves-1.webp); */
+    background-size: 100% 65%;
     background-repeat: repeat-x;
     background-position: 0 bottom;
     z-index: 4;
     /* animation: waves 20s linear infinite alternate; */
 }
+
 .overlay {
     opacity: 0;
     position: absolute;
@@ -48,92 +131,105 @@
     background: linear-gradient(0deg, #000000 0%, rgba(0, 0, 0, 0) 57.81%);
     z-index: 7;
 }
+
 .fish {
     opacity: 0;
     position: absolute;
     inset: 0;
-    background-image: url(images/fish-top.svg);
+    background-image: url(http://auroraseafood.is/wp-content/uploads/2023/06/fish-top.svg);
     background-size: 10%;
     background-repeat: no-repeat;
     background-position: center 5%;
     z-index: 6;
 }
+
 .hanzi {
     opacity: 0;
     position: absolute;
     inset: 0;
-    background-image: url(images/hanzi.svg);
+    background-image: url(http://auroraseafood.is/wp-content/uploads/2023/06/hanzi.svg);
     background-size: 4%;
     background-repeat: no-repeat;
     background-position: center 90%;
     z-index: 7;
 }
+
 .hero-title {
     opacity: 0;
     position: absolute;
     inset: 0;
-    background-image: url(images/title.svg);
-    background-size: 30%;
+    background-image: url(https://auroraseafood.is/wp-content/uploads/2025/03/hero-text.svg);
+    background-size: 40%;
     background-repeat: no-repeat;
     background-position: center 20%;
     z-index: 1;
 }
-.loaded * {
+
+.loaded *,
+.hero * {
     opacity: 1 !important;
 }
+
 .loaded .hero-title {
     animation: rise 2s ease-out 1;
 }
-* {
-    margin: 0;
-    padding: 0;
+
+.hero {
+    min-height: 100vh;
+    min-width: 100%;
 }
-body {
-    min-height: 300vh;
-    background-color: black;
-}
+
 @keyframes rise {
     from {
         background-position: center 60%;
     }
+
     to {
         background-position: center 20%;
     }
-    
+
 }
+
 .wheel {
-    margin-left: 50px;
+
     transform: rotate(0deg);
     transition: transform 0.5s ease-in-out;
 }
+
 .wheel-container:hover .wheel {
     transform: rotate(180deg);
 }
+
 .anchor {
     transform: translateY(0px);
     transition: transform 0.5s ease-in-out;
 }
+
 .anchor-container:hover .anchor {
     transform: translateY(50px);
 }
-.footer {
-    position: absolute;
-    bottom:  0;
-    height: 100px;
-}
-.container {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    height: 100%;
-    width: 100%;
+
+.delicacy-titles {
+    margin-top: 50px;
+    color: var(--main-orange);
+    font-size: 24px;
 }
 
+.delicacy-text {
+    color: white;
+    font-size: 16px;
+}
+
+
 .cucumber-container {
+    display: flex;
+    justify-content: center;
     position: relative;
+    inset: 0;
     width: 122px;
     height: 106px;
 }
+
 .small {
     position: absolute;
     top: 0;
@@ -142,6 +238,7 @@ body {
     transition: transform 0.5s ease-in-out;
     transform-origin: center;
 }
+
 .big {
     position: absolute;
     bottom: 0;
@@ -149,28 +246,978 @@ body {
     transform: translate(0px, 0px);
     transition: transform 0.5s ease-in-out;
 }
+
 .cucumber-container:hover .small {
     transform: translate(-10px, 10px) rotate(-90deg);
 }
+
 .cucumber-container:hover .big {
     transform: translate(10px, -10px);
 }
+
+.anchor-container,
+.wheel-container {
+
+    display: flex;
+    justify-content: center;
+}
+
 @keyframes rug {
     0% {
         transform: rotate(-10deg);
 
     }
+
     100% {
         transform: rotate(10deg);
     }
 
-    
+
 }
+
 @keyframes waves {
     0% {
         background-position: 0% bottom;
     }
+
     100% {
         background-position: 100% bottom;
+    }
+}
+
+.absolute-footer {
+    display: none;
+}
+
+.header-wrapper.stuck {
+    box-shadow: none;
+}
+
+.orange-panel-overlay .col-inner {
+    min-height: 543px;
+    display: flex;
+    align-items: center;
+}
+
+.orange-panel-img {
+    position: absolute;
+    bottom: -60px;
+    left: 25%;
+}
+
+.fill-vertical {
+    position: relative;
+    top: 0;
+    bottom: 0;
+}
+
+.fill-vertical>.col-inner {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+}
+
+.map {
+    position: relative;
+    left: -7vw;
+}
+
+.preload {
+    display: none;
+}
+
+
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+
+i.icon-menu {
+    background-image: url(http://auroraseafood.is/wp-content/uploads/2023/06/hamburger-orange.png);
+    width: 24px;
+    height: 12px;
+    background-size: contain;
+    background-repeat: no-repeat;
+
+}
+
+i.icon-menu:before,
+i.icon-menu:after {
+    content: none;
+}
+
+.benefits-container-outer {
+    background: url(http://auroraseafood.is/wp-content/uploads/2023/06/person.svg);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-position: center;
+    margin-top: 100px;
+    height: 500px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+
+
+}
+
+.benefits-container-inner {
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    /*     position: absolute; */
+}
+
+.benefits-item {
+    display: grid;
+    grid-template-columns: 42px 250px 1fr;
+    align-items: center;
+    height: 82px;
+    position: relative;
+    left: 46%;
+    transition: all 0.5s ease-in-out;
+    min-width: 450px;
+}
+
+.benefits-text {
+    transition: all 0.5s ease-in-out;
+    margin-left: 1rem;
+    margin-bottom: -1rem;
+}
+
+.home .benefits-item:nth-of-type(2n) {
+    left: -46%;
+    text-align: right;
+}
+
+.benefits-text-header {
+    padding: 0;
+    margin: 0;
+    color: var(--Orange, #EA6E21);
+    font-family: Poppins;
+    font-size: 1.125rem;
+    font-weight: 700;
+    line-height: 1.5rem;
+    /* 133.333% */
+}
+
+.benefits-text-body {
+    color: #FFF;
+    font-family: Poppins;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5rem;
+    /* 150% */
+    padding: 0;
+    margin: 0;
+}
+
+.home .benefits-item:nth-of-type(2n) .benefits-text {
+    margin-left: 0;
+    margin-right: 1rem;
+}
+
+.home .benefits-item:nth-of-type(2n) {
+    grid-template-columns: 1fr 250px 42px;
+}
+
+.benefits-item.benefits-right:hover {
+    grid-template-columns: 42px 200px 1fr;
+}
+
+.benefits-item.benefits-left:hover {
+    grid-template-columns: 1fr 200px 42px;
+}
+
+.benefits-item:hover .benefits-text {
+    color: white;
+}
+
+.benefits-item.last {
+    margin-left: 1.8rem;
+}
+
+.home .benefits-item.leg {
+    left: -51% !important;
+    transform: translateY(26px);
+}
+
+
+.subpage-body .benefits-item {
+    grid-template-columns: 42px 150px 1fr;
+}
+
+.subpage-body .benefits-item:hover {
+    grid-template-columns: 42px 75px 1fr;
+}
+
+.subpage-body .benefits-item.leg {
+    left: 18%;
+    transform: translateY(26px);
+}
+
+.subpage-body .benefits-text-body {
+    color: black;
+}
+
+.subpage-body .benefits-container-outer {
+    background-size: contain;
+    background-position: left;
+    width: 100%;
+}
+
+.subpage-body .benefits-container-inner {
+    width: 100%;
+    justify-content: unset;
+    align-items: unset;
+
+}
+
+.subpage-body .benefits-right {
+    left: 15%;
+}
+
+.benefits-item:hover .benefits-line {
+    background: url(http://auroraseafood.is/wp-content/uploads/2023/06/squiggle.svg);
+    background-size: auto 7px;
+    background-position: 0 90%;
+}
+
+.subpage-body .benefits-item:hover .benefits-line {
+    background: url(https://auroraseafood.is/wp-content/uploads/2025/03/squiggle-orange-1.svg);
+}
+
+.benefits-line {
+    width: 100%;
+    height: 7px;
+    background: linear-gradient(to bottom, #D9D9D9 0%, #D9D9D9 90%);
+    background-position: 0 84%;
+    background-repeat: repeat-x;
+    background-size: auto 3px;
+}
+
+.benefits-text {
+    color: var(--main-orange);
+}
+
+.compass {
+    /*     width: 100px;
+    height: 116px; */
+    position: relative;
+    max-width: 30%;
+}
+
+.compass img {
+    position: absolute;
+    inset: 0;
+
+}
+
+@keyframes compass-point {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    50% {
+        transform: rotate(350deg);
+    }
+
+    100% {
+        transform: rotate(17deg);
+    }
+}
+
+
+.iceland-heading {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.compass-row-text {
+    color: #FFF;
+    font-family: Poppins;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.375rem;
+    /* 137.5% */
+}
+
+.iceland-heading h2 {
+    color: #FFF;
+    font-family: Poppins;
+    font-size: 2.0625rem;
+    font-weight: 700;
+    line-height: 3.4375rem;
+    /* 166.667% */
+    text-align: center;
+}
+
+.compass-arrow {
+    transform: rotate(0deg);
+    transition: transform 0.5s ease-in-out;
+    transform-origin: 51.116211% 57.142857%;
+    ;
+    /* animation: compass-point 2s linear infinite alternate; */
+}
+
+.delicacy-container img {
+    max-height: 106px;
+}
+
+.wheel-container img,
+.anchor-container-img {
+    height: 106px;
+}
+
+.waves,
+.clouds {
+    transition: all 0.1s linear;
+}
+
+@keyframes anchor-animation {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(50px);
+    }
+}
+
+@keyframes wheel-animation {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    50% {
+        transform: rotate(350deg);
+    }
+
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+@keyframes cucumber-small-animation {
+    0% {
+        transform: translate(0px, 0px) rotate(0deg);
+    }
+
+    50% {
+        transform: translate(-10px, 10px) rotate(-90deg);
+    }
+
+    100% {
+        transform: translate(0px, 0px) rotate(0deg);
+    }
+}
+
+@keyframes cucumber-big-animation {
+    0% {
+        transform: translate(0px, 0px);
+    }
+
+    50% {
+        transform: translate(10px, -10px);
+    }
+
+    100% {
+        transform: translate(0px, 0px);
+    }
+}
+
+
+.in-view .anchor-container>.anchor {
+    animation: anchor-animation 1.5s ease-in-out 1;
+}
+
+.in-view .wheel-container>.wheel {
+    animation: wheel-animation 1.5s ease-in-out 1;
+}
+
+.in-view .cucumber-container>.small {
+    animation: cucumber-small-animation 1.5s ease-in-out 1;
+}
+
+.in-view .cucumber-container>.big {
+    animation: cucumber-big-animation 1.5s ease-in-out 1;
+}
+
+.read-more-button:hover img {
+    transform: translateX(10px);
+}
+
+.read-more-button img,
+.read-more-button {
+    transform: translateX(0) scaleX(1);
+    transition: all 0.5s ease-in-out;
+}
+
+.read-more-button.rounded.filled {
+    background: var(--main-orange);
+    border-radius: 99px;
+    padding: .25rem 1rem;
+}
+
+.read-more-button.orange {
+    color: var(--main-orange);
+}
+
+.read-more-button.orange img {
+    color: var(--main-orange);
+    filter: invert(1) invert(66%) sepia(39%) saturate(7425%) hue-rotate(349deg) brightness(92%) contrast(86%);
+}
+
+.test path {
+    stroke-dasharray: 39.6961364746094;
+    stroke-dashoffset: 0;
+    transition: all 0.5s ease-in-out;
+}
+
+.test path:hover {
+
+    animation: draw 2s ease infinite;
+}
+
+@keyframes draw {
+    to {
+        stroke-dashoffset: 39.6961364746094;
+    }
+}
+
+
+
+.header-block {
+    justify-content: center;
+    display: block !important;
+}
+
+@keyframes slide-in {
+    0% {
+        height: 0%
+    }
+
+    50% {
+        height: 32%
+    }
+
+    70% {
+        height: 28%
+    }
+
+    100% {
+        height: 30%;
+    }
+}
+
+
+.hero-container * {
+    padding: 0 !important;
+}
+
+.clouds.night {
+    background-image: url(https://auroraseafood.is/wp-content/uploads/2023/11/himinn-3-min-scaled.webp) !important;
+    transition: all 0.3s ease-in-out;
+
+}
+
+.whale {
+    position: absolute;
+    transform: translate(0, 80%);
+    animation-duration: 5s;
+    animation-timing-function: linear;
+    animation-delay: 0;
+    animation-iteration-count: 1;
+    animation-direction: forwards;
+    animation-fill-mode: forwards;
+}
+
+.whale.animate {
+    animation: whale 5s linear 1 forwards;
+}
+
+@keyframes whale {
+    0% {
+        transform: translate(0%, 100%) rotate(-90deg);
+
+    }
+
+    50% {
+        transform: translate(165%, -30%) rotate(45deg);
+
+    }
+
+    70% {
+        transform: translate(205%, -30%) rotate(60deg);
+
+    }
+
+    100% {
+        transform: translate(330%, 100%) rotate(90deg);
+
+
+    }
+}
+
+.mobile-person .benefits-item {
+    left: 0;
+    text-align: center;
+    grid-template-columns: 1fr;
+}
+
+.mobile-person .benefits-container-outer {
+    background: url(http://auroraseafood.is/wp-content/uploads/2023/06/person.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    margin-top: 100px;
+    height: 500px;
+    position: relative;
+    min-width: unset;
+}
+
+.mobile-person .benefits-item.last {
+    margin-left: unset;
+}
+
+
+
+.mobile-person .benefits-container-inner {
+    position: relative;
+    left: unset;
+}
+
+.mobile-person .benefits-text {
+
+    margin: 0 !important;
+    color: black;
+    background: rgb(255 255 255 / 50%);
+    padding: 10px 30px;
+    min-width: 50%;
+    place-self: center;
+    border: 1px solid var(--main-orange);
+    border-radius: 10px;
+}
+
+.staff-section-text {
+    color: #6F6F6F;
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.about-sea-cucumbers-section strong,
+.about-sea-cucumbers-section h2 {
+    font-size: 2rem;
+    font-weight: 600;
+    color: white;
+}
+
+.home #logo {
+    filter: brightness(0) invert(1);
+}
+
+.stuck #logo {
+    /* 	filter: none; */
+}
+
+.nav-top-link {
+    font-weight: 400 !important;
+}
+
+.home .stuck .nav-top-link {
+    color: white !important;
+}
+
+.home .stuck .nav-top-link:hover {
+    color: var(--main-orange) !important;
+}
+
+/* .stuck .header-bg-container.fill {
+	background: white;
+} */
+.staff-section h2 {
+    color: var(--main-orange);
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+.staff-section .staff-name {
+    color: var(--main-orange);
+    font-size: 1.1rem;
+    font-weight: 600;
+
+}
+
+.footer-link {
+    color: white;
+    font-size: 1rem;
+}
+
+#footer i {
+    color: white;
+}
+
+.home .nav-top-link {
+    color: white;
+}
+
+.button.white.is-outline.white,
+.button.white.is-outline.white span {
+    color: white;
+    border-color: white;
+}
+
+.button.white.is-outline.white:hover span {
+    color: var(--main-orange);
+}
+
+.bioactive-text li {
+    font-family: Poppins;
+    font-size: 1rem;
+    line-height: 2rem;
+}
+
+.resource-text {
+    color: #000;
+    font-family: Poppins;
+    font-size: 1.25rem;
+    font-weight: 400;
+    line-height: 2.1875rem;
+    /* 175% */
+}
+
+.aurora-askja {
+    transform: scale(1.5);
+}
+
+.five-benefits {
+    margin: 0;
+    padding: 0;
+    white-space: nowrap;
+    color: #000;
+    font-family: Poppins;
+    font-size: 0.875rem;
+    font-weight: 400;
+    line-height: 2.1875rem;
+    /* 250% */
+}
+
+.nav.nav-sidebar .menu-item a {
+    color: white;
+    text-align: center;
+    font-family: "Open Sans";
+    font-size: 1.25rem;
+    font-weight: 400;
+    line-height: 1.5rem;
+    /* 360% */
+}
+
+.off-canvas-center.mfp-bg.mfp-ready {
+    opacity: 1 !important;
+}
+
+
+.contact-us-form {
+    display: grid;
+    padding: 50px;
+    width: 100%;
+    /* justify-content: space-evenly; */
+    grid-auto-flow: column;
+}
+
+.contact-us-form input {
+    padding: 0;
+    margin: 0;
+}
+
+.contact-us-form label span {
+    line-height: 1;
+}
+
+.wpcf7 .contact-us-info br {
+    display: block;
+}
+
+.contact-us-form label {
+    color: #6F6F6F;
+    font-family: Poppins;
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+.contact-us-form .wpcf7-submit,
+.contact-us-form textarea {
+    width: 100%;
+}
+
+.contact-us-info * {
+    color: #6F6F6F;
+    font-family: Poppins;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 2rem;
+}
+
+.contact-us-info h2 {
+    color: #6F6F6F;
+    font-size: 1.25rem;
+    font-weight: 600;
+    line-height: 2rem;
+    /* 160% */
+}
+
+.based-iceland-text {
+    color: white;
+    text-align: center;
+    font-family: Poppins;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5rem;
+    /* 150% */
+}
+
+.what-are-cucumbers-text {
+    font-family: Poppins;
+    font-size: 1.125rem;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.what-amazing-text {
+    color: #000;
+    font-family: Poppins;
+    font-size: 0.875rem;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.what-amazing-text strong {
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.our-product-text {
+    color: #000;
+    font-family: Poppins;
+    font-size: 1.125rem;
+    font-weight: 400;
+    line-height: 2rem;
+    /* 177.778% */
+}
+
+.our-product-contact-text {
+    color: #FFF;
+    font-family: Poppins;
+    font-size: 1.375rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.more-aurora-text h2 {
+    color: var(--main-orange);
+    font-family: Poppins;
+    font-size: 2.5rem;
+    font-weight: 600;
+    line-height: 3.25rem;
+    /* 130% */
+}
+
+.more-aurora-text {
+    color: #000;
+    font-family: Poppins;
+    font-size: 1.125rem;
+    font-weight: 400;
+    line-height: 2rem;
+    /* 177.778% */
+}
+
+.what-are-cucumbers-text h2 {
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.how-we-operate-text {
+    color: #000;
+    font-family: Poppins;
+    font-size: 0.875rem;
+    font-weight: 400;
+    line-height: 2rem;
+    /* 228.571% */
+}
+
+.home-text {
+    color: white;
+    text-align: center;
+    font-family: Poppins;
+    font-size: 1.125rem;
+    font-weight: 400;
+    line-height: 1.5rem;
+    /* 133.333% */
+}
+
+.about-iceland-text {
+    color: #000;
+    font-family: Poppins;
+    font-size: 0.875rem;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.choosing-aurora-text {
+    color: #FFF;
+    text-align: center;
+    font-family: Poppins;
+    font-size: 1.25rem;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.about-text {
+    color: #000;
+    font-family: Poppins;
+    font-size: 1.25rem;
+    font-weight: 400;
+    line-height: 2.1875rem;
+    /* 175% */
+}
+
+.about-text .subpage-heading {
+    color: var(--main-orange);
+    font-family: Poppins;
+    font-size: 2.8125rem;
+    font-weight: 600;
+    margin: .5em;
+    line-height: 3.3125rem;
+    /* 117.778% */
+}
+
+.subpage-heading {
+    color: var(--main-orange);
+    font-family: Poppins;
+    font-size: 2.5rem;
+    font-weight: 600;
+    line-height: 2.75rem;
+    /* 110% */
+}
+
+.topbalat-text {
+    color: #000;
+    font-family: Poppins;
+    font-size: 1.25rem;
+    font-weight: 400;
+    line-height: 2rem;
+    /* 160% */
+}
+
+.header .stuck .header-bg-container.fill .fill {
+    background: white !important
+}
+
+.home .header .stuck .header-bg-container.fill .fill {
+    background: black !important
+}
+
+.accordion-title.accordion-title.accordion-title {
+    border-color: #EA6E21 !important;
+}
+
+.start {
+    /* background: red; */
+    /*     cursor: pointer; */
+    position: absolute;
+    width: 10%;
+    height: 40%;
+    bottom: 7%;
+    left: 45%;
+    z-index: 10;
+}
+@media screen and (max-width: 900px) {
+    .subpage-heading {
+        font-size: 1.5rem;
+        line-height: 2rem;
+    }
+
+    .five-benefits {
+        display: none;
+    }
+
+    .cucumber-subpage-col .col-inner {
+        min-height: 500px;
+    }
+
+    .cucumber-gif-container {
+        margin-bottom: -85%;
+        /*     transform: translatey(30%); */
+    }
+
+    .hero-title {
+        background: url(https://auroraseafood.is/wp-content/uploads/2025/03/aurora.svg);
+        background-size: 90%;
+        background-repeat: no-repeat;
+        background-position: center 20%;
+    }
+
+    .waves {
+        background-image: url(https://auroraseafood.is/wp-content/uploads/2025/03/wave-mobile.png);
+    }
+
+    .boat {
+        background-image: url(https://auroraseafood.is/wp-content/uploads/2025/03/klettur-mobile-hd.png);
+        background-size: 110%;
+        transform: rotate(0.0089deg);
+    }
+
+    .clouds {
+        background-image: url(https://auroraseafood.is/wp-content/uploads/2025/03/himinn-mobile.png);
+    }
+
+    .hanzi {
+        background-size: 20% 40%;
+    }
+
+    .compass-col {
+        margin-top: -800px;
+        max-width: 90%;
+    }
+
+    .compass-col.compass-col .col-inner {
+        padding: 40px;
+    }
+
+    .fish {
+        display: none;
+    }
+
+    .contact-us-form {
+        grid-auto-flow: row !important;
+        background: rgba(217, 217, 217, 0.20);
+    }
+
+    .contact-us-info {
+        display: none;
+    }
+
+    .contact-us-info-mobile {
+        display: block;
+        padding: 20px;
+    }
+
+    .contact-us-info-mobile p {
+        margin: 0;
+        padding: 0;
     }
 }

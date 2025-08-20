@@ -9,7 +9,29 @@ import Sortable, { Swap } from "https://cdn.jsdelivr.net/npm/sortablejs@1.15.2/m
 
 // Register the Swap Plugin
 Sortable.mount(new Swap());
+function isDropAllowed(evt) {
+    const targetContainer = evt.to;
 
+    // Ensure targetContainer is valid before checking classList
+    if (!targetContainer) return false;
+
+    // Limit for the middle vertical part (max 4 items)
+    if (targetContainer.classList.contains("middle") && targetContainer.children.length >= 4) {
+        return false;
+    }
+
+    // Limit for the left/right parts of the cross (max 1 item each)
+    if (targetContainer.classList.contains("droppable") && !targetContainer.classList.contains("middle") && targetContainer.children.length >= 1) {
+        return false;
+    }
+    if ((targetContainer.classList.contains('right') && targetContainer.children.length >= 1) || (targetContainer.classList.contains('left') && targetContainer.children.length >= 1)) {
+        return false;
+    }
+    if (!targetContainer.classList.contains('droppable')) {
+        return false;
+    }
+    return true; // Allow drop if within limits
+}
 // Initialize Sortable for the options container (letters)
 document.addEventListener("DOMContentLoaded", function () {
     new Sortable(document.querySelector('.cross-options'), {
@@ -35,13 +57,19 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
-    // Make the entire cross-container sortable (for swapping inside the cross)
-    new Sortable(document.querySelector('.cross-container'), {
-        group: "shared",
-        animation: 150,
-        swap: true, // Enable swapping
-        swapClass: "highlight",
-        sort: true // Enable sorting/swapping inside the cross
+    document.querySelectorAll('.droppable').forEach(item => {
+        new Sortable(item, {
+            group: {
+                name: 'shared',
+                pull: true, // Allow dragging out
+                put: function(evt) {
+                    return isDropAllowed(evt); // Enforce placement limits
+                }
+            },
+            animation: 150,
+            swap: true, // Enable swapping
+            swapClass: "highlight",
+        });
     });
 });
 
@@ -56,8 +84,8 @@ document.addEventListener("DOMContentLoaded", function () {
     <div class="cross-container">
         <div class="cross-item hide"></div>
         <div class="cross-item hide"></div>
-        <div class="cross-item droppable"></div>
-        <div class="cross-item droppable"></div>
+        <div class="cross-item droppable left"></div>
+        <div class="cross-item droppable right"></div>
         <div class="cross-item hide"></div>
         <div class="cross-item hide"></div>
         <div class="cross-item hide"></div>
