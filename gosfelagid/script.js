@@ -15,8 +15,8 @@ window.onload = function() {
 
   // Speed configuration - adjust these values to control bubble movement speed
   var speedConfig = {
-    minSpeed: 0.1,    // Minimum upward speed (lower = slower)
-    maxSpeed: 0.8     // Maximum upward speed (lower = slower)
+    minSpeed: 0.8,    // Minimum upward speed (lower = slower)
+    maxSpeed: 1.5     // Maximum upward speed (lower = slower)
   };
 
   // Bubble count configuration - adjust these values to control the number of bubbles
