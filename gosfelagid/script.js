@@ -6,8 +6,8 @@ window.onload = function() {
     w = c.width = window.innerWidth,
     h = c.height = window.innerHeight;
 
-  // Size configuration - you can easily adjust these values
-  var sizeConfig = {
+
+    var sizeConfig = {
     small: { min: 25, max: 50, weight: 0.9 },    // 60% of bubbles will be small
     medium: { min: 75, max: 150, weight: 0.05 },  // 30% of bubbles will be medium  
     large: { min: 30, max: 350, weight: 0.05 }    // 10% of bubbles will be large
@@ -26,10 +26,10 @@ window.onload = function() {
     swingMultiplier: 0.2 + (10 / 100) * 3.8   // Initial swing multiplier for 10
   };
 
-  // Bubble count configuration - adjust these values to control the number of bubbles
+  // Bubble count configuratioN
   var bubbleCountConfig = {
-    smallScreen: 15,    // Number of bubbles on smaller screens (reduced from 30)
-    largeScreen: 60     // Number of bubbles on larger screens (reduced from 30)
+    smallScreen: 15,    // Number of bubbles on smaller screens 
+    largeScreen: 60     // Number of bubbles on larger screens 
   };
 
   // Dynamic bubble spawning based on intensity
@@ -97,23 +97,18 @@ window.onload = function() {
     return Math.round(bubbleCount);
   }
 
-  function adjustBubbleCount(targetCount, world) {
+  function spawnNewBubbles(targetCount, world) {
     var currentBubbleCount = 0;
-    var bubbleObjects = [];
-    
-    // Count current bubbles and collect them
     for (var i = 0; i < world.objects.length; i++) {
       if (world.objects[i] instanceof Bubble) {
         currentBubbleCount++;
-        bubbleObjects.push(world.objects[i]);
       }
     }
     
-    var difference = targetCount - currentBubbleCount;
+    var bubblesToSpawn = targetCount - currentBubbleCount;
     
-    if (difference > 0) {
-      // Need more bubbles - spawn them
-      for (var i = 0; i < difference; i++) {
+    if (bubblesToSpawn > 0) {
+      for (var i = 0; i < bubblesToSpawn; i++) {
         var baseSpeed = -randomInRange(speedConfig.minSpeed, speedConfig.maxSpeed);
         var baseSwing = randomInRange(-40, 40);
         
@@ -131,25 +126,10 @@ window.onload = function() {
           getRandomColor()
         ));
       }
-    } else if (difference < 0) {
-      // Need fewer bubbles - remove excess ones
-      var bubblesToRemove = Math.abs(difference);
       
-      // Remove bubbles from the bottom of the screen first (oldest ones)
-      bubbleObjects.sort(function(a, b) {
-        return b.y - a.y; // Sort by Y position, highest Y first (bottom of screen)
-      });
-      
-      for (var i = 0; i < bubblesToRemove && i < bubbleObjects.length; i++) {
-        var bubbleIndex = world.objects.indexOf(bubbleObjects[i]);
-        if (bubbleIndex > -1) {
-          world.objects.splice(bubbleIndex, 1);
-        }
-      }
+      // Update bubble count display
+      updateBubbleCountDisplay(world);
     }
-    
-    // Update bubble count display
-    updateBubbleCountDisplay(world);
   }
 
   function updateBubbleCountDisplay(world) {
@@ -159,7 +139,7 @@ window.onload = function() {
         bubbleCount++;
       }
     }
-    document.getElementById('bubble-count-value').textContent = bubbleCount;
+    // document.getElementById('bubble-count-value').textContent = bubbleCount;
   }
 
   function Vector(x, y) {
@@ -269,7 +249,7 @@ window.onload = function() {
     if (intensityConfig.current > 20) {
       // Much more chaotic movement at high intensities
       var chaosFactor = Math.pow(intensityConfig.current / 100, 2); // Exponential increase in chaos
-      erraticX = (Math.random() - 0.5) * chaosFactor * 12; // Up to 6x more random movement
+      erraticX = (Math.random() - 0.5) * chaosFactor * 12; 
     }
     
     this.x = this.startX + Math.cos(this.y / 80) * this.swing + erraticX;
@@ -355,11 +335,11 @@ window.onload = function() {
   // Initialize bubble count display
   updateBubbleCountDisplay(world);
 
-  // Continuous bubble count adjustment at high intensities
+  // Continuous bubble spawning at high intensities
   setInterval(function() {
     if (intensityConfig.current > 60) {
       var targetBubbleCount = getTargetBubbleCount(intensityConfig.current);
-      adjustBubbleCount(targetBubbleCount, world);
+      spawnNewBubbles(targetBubbleCount, world);
     }
   }, 2000); // Check every 2 seconds
 
@@ -404,9 +384,9 @@ window.onload = function() {
       }
     }
     
-    // Dynamic bubble count adjustment based on intensity
+    // Dynamic bubble spawning based on intensity
     var targetBubbleCount = getTargetBubbleCount(intensityConfig.current);
-    adjustBubbleCount(targetBubbleCount, world);
+    spawnNewBubbles(targetBubbleCount, world);
   });
 
   // Add click event listener for bubble popping

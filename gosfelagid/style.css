@@ -48,8 +48,8 @@ canvas{
 
 .intensity-control {
 	position: absolute;
-	top: 50px;
-	right: 50px;
+	bottom: 50px;
+	left: 50px;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -60,16 +60,16 @@ canvas{
 .intensity-control label {
 	color: rgba(0, 64, 255, 0.8);
 	font-family: Outfit;
-	font-size: 1rem;
+	font-size: 2rem;
 	font-weight: 500;
 	text-align: center;
 }
 
 .intensity-slider {
-	width: 150px;
-	height: 6px;
+	width: 300px;
+	height: 12px;
 	background: rgba(0, 64, 255, 0.2);
-	border-radius: 3px;
+	border-radius: 6px;
 	outline: none;
 	-webkit-appearance: none;
 }
@@ -77,16 +77,16 @@ canvas{
 .intensity-slider::-webkit-slider-thumb {
 	-webkit-appearance: none;
 	appearance: none;
-	width: 20px;
-	height: 20px;
+	width: 40px;
+	height: 40px;
 	background: rgba(0, 64, 255, 0.8);
 	border-radius: 50%;
 	cursor: pointer;
 }
 
 .intensity-slider::-moz-range-thumb {
-	width: 20px;
-	height: 20px;
+	width: 40px;
+	height: 40px;
 	background: rgba(0, 64, 255, 0.8);
 	border-radius: 50%;
 	cursor: pointer;
@@ -96,7 +96,7 @@ canvas{
 #intensity-value {
 	color: rgba(0, 64, 255, 0.8);
 	font-family: Outfit;
-	font-size: 1.2rem;
+	font-size: 2.4rem;
 	font-weight: 600;
 }
 
@@ -112,4 +112,22 @@ canvas{
 		flex-direction: column;
 		justify-content: center;
 	}
+	.logo {
+		top: 20px;
+	}
+	.intensity-control {
+		bottom: 20px;
+		left: 20px;
+	}
+	.left-text {
+		font-size: 1.5rem;
+		line-height: 1;
+	}
+	.right-text {
+		font-size: 1.5rem;
+		line-height: 1;
+	}
+
+
+	
 }
