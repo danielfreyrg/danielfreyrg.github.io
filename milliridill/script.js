@@ -706,6 +706,7 @@ function updateStandings() {
 getGroups()
     .then(groups => {
         if (!Array.isArray(groups) || groups.length === 0) {
+            
             console.log('No valid groups found');
             return;
         }
@@ -717,11 +718,14 @@ getGroups()
             console.log('No valid groups after filtering');
             return;
         }
+        var currentGroups = ['Group 1', 'Group 2'];
         validGroups.forEach(group => {
+            if (currentGroups.includes(group)) {
         const option = document.createElement('option');
-        option.value = group;
-        option.textContent = group;
-        document.getElementById('group').appendChild(option);
+            option.value = group;
+            option.textContent = group;
+            document.getElementById('group').appendChild(option);
+        }
     });
     
     // Set default to group 2 and load its data
