@@ -123,14 +123,7 @@ body {
     line-height: 1.6;
     color: #2d3486;
 }
-@media (max-width: 768px) {
-    .container {
-        width: 90%;
-    }
-    #h2h-table {
-        min-width: 100vw
-    }
-}
+
 table, body, html, table * {
     width: 100%;
 }
@@ -186,3 +179,22 @@ input[type="checkbox"] {
     overflow: visible;
     transition: max-height 0.3s ease-in-out;
   }
+
+  @media (max-width: 768px) {
+    .container {
+        width: 90%;
+    }
+    #h2h-table {
+        min-width: 100vw
+    }
+    #standings {
+        width: 100vw;
+        overflow-x: auto;
+        overflow-y: hidden;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+    }
+}
