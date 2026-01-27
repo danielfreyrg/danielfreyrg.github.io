@@ -170,7 +170,74 @@ if (currentTeam.stage == stage) {
     // Check if all main round matches are completed
     const gamesPerTeam = teamData.length > 0 ? (teamData.length - 1) : 0;
     const allMatchesCompleted = teamData.every(team => team.played === gamesPerTeam);
-    
+
+    // Pre-compute mini-league head-to-head stats for each group of teams tied on points
+    // This is used for both the H2H table and the main standings when all matches are completed.
+    const h2hMiniLeaguesByPoints = {};
+    if (allMatchesCompleted) {
+        // Group teams by points
+        const pointsGroups = {};
+        teamData.forEach(team => {
+            const pts = team.points;
+            if (!pointsGroups[pts]) {
+                pointsGroups[pts] = [];
+            }
+            pointsGroups[pts].push(team.teamName);
+        });
+
+        // For each group with 2+ teams, build mini-league stats
+        Object.keys(pointsGroups).forEach(pointsKey => {
+            const tiedTeams = pointsGroups[pointsKey];
+            if (tiedTeams.length < 2) return;
+
+            const stats = {};
+            tiedTeams.forEach(name => {
+                stats[name] = {
+                    points: 0,
+                    goalsFor: 0,
+                    goalsAgainst: 0
+                };
+            });
+
+            // Count only matches between teams in this tied group
+            allMatchesData.forEach(match => {
+                const score = getCurrentMatchScore(match.id);
+                if (!score) return;
+
+                const homeTeam = score.homeTeam;
+                const awayTeam = score.awayTeam;
+                const homeScore = score.home || 0;
+                const awayScore = score.away || 0;
+
+                // Only consider if both teams are in this tied group
+                if (!tiedTeams.includes(homeTeam) || !tiedTeams.includes(awayTeam)) {
+                    return;
+                }
+
+                // Only count matches that have been played
+                if (!(homeScore > 0 || awayScore > 0)) return;
+
+                // Update goals
+                stats[homeTeam].goalsFor += homeScore;
+                stats[homeTeam].goalsAgainst += awayScore;
+                stats[awayTeam].goalsFor += awayScore;
+                stats[awayTeam].goalsAgainst += homeScore;
+
+                // Update points (2/1/0 system)
+                if (homeScore > awayScore) {
+                    stats[homeTeam].points += 2;
+                } else if (awayScore > homeScore) {
+                    stats[awayTeam].points += 2;
+                } else if (homeScore === awayScore && (homeScore > 0 || awayScore > 0)) {
+                    stats[homeTeam].points += 1;
+                    stats[awayTeam].points += 1;
+                }
+            });
+
+            h2hMiniLeaguesByPoints[pointsKey] = stats;
+        });
+    }
+
     // Sort according to official rules
     teamData.sort((a, b) => {
         // 1) Points (always first)
@@ -178,22 +245,24 @@ if (currentTeam.stage == stage) {
 
         if (allMatchesCompleted) {
             // After completion of main round matches:
-            // Calculate head-to-head stats for both teams
-            const h2hA = calculateHeadToHead(a.teamName, b.teamName);
-            const h2hB = calculateHeadToHead(b.teamName, a.teamName);
-            const hasPlayed = h2hA.goalsFor + h2hA.goalsAgainst > 0;
+            // Use mini-league head-to-head table amongst teams tied on points
+            const pointsKey = String(a.points);
+            const miniLeague = h2hMiniLeaguesByPoints[pointsKey];
 
-            if (hasPlayed) {
+            if (miniLeague && miniLeague[a.teamName] && miniLeague[b.teamName]) {
+                const aStats = miniLeague[a.teamName];
+                const bStats = miniLeague[b.teamName];
+                const aGD = aStats.goalsFor - aStats.goalsAgainst;
+                const bGD = bStats.goalsFor - bStats.goalsAgainst;
+
                 // a) Higher number of points obtained in the group matches played amongst the teams in question
-                if (h2hA.points !== h2hB.points) return h2hB.points - h2hA.points;
+                if (bStats.points !== aStats.points) return bStats.points - aStats.points;
 
                 // b) Superior goal difference from the group matches played amongst the teams in question
-                if (h2hA.goalDifference !== h2hB.goalDifference) {
-                    return h2hB.goalDifference - h2hA.goalDifference;
-                }
+                if (bGD !== aGD) return bGD - aGD;
 
                 // c) Higher number of goals scored in the group matches played amongst the teams in question
-                if (h2hA.goalsFor !== h2hB.goalsFor) return h2hB.goalsFor - h2hA.goalsFor;
+                if (bStats.goalsFor !== aStats.goalsFor) return bStats.goalsFor - aStats.goalsFor;
             }
 
             // d) Superior goal difference from all group matches
