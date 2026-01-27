@@ -502,6 +502,9 @@ function createH2HTable() {
             }
         });
 
+        // Track which team pairs have played at least one match
+        const playedPairs = new Set();
+
         // Find all matches between tied teams
         allMatchesData.forEach(match => {
             const score = getCurrentMatchScore(match.id);
@@ -543,8 +546,17 @@ function createH2HTable() {
                     h2hStats[homeTeam].points += 1;
                     h2hStats[awayTeam].points += 1;
                 }
+
+                // Mark this pair as having played at least one match
+                const pair = [homeTeam, awayTeam].sort().join('|');
+                playedPairs.add(pair);
             }
         });
+
+        // Determine if all matches in this mini-league have been played
+        const totalTeamsInGroup = tiedTeams.length;
+        const expectedPairs = (totalTeamsInGroup * (totalTeamsInGroup - 1)) / 2;
+        const allMatchesPlayedInGroup = playedPairs.size === expectedPairs;
 
         // Convert to array and calculate goal difference
         const teamData = tiedTeams.map(teamName => {
@@ -559,11 +571,19 @@ function createH2HTable() {
             };
         });
 
-        // Sort by goal difference (primary), then points, then goals scored
+        // Sorting:
+        // - If all matches between tied teams have been played, sort by H2H points, then H2H goal difference, then H2H goals.
+        // - Otherwise, keep the earlier ordering (goal difference, then points, then goals) as a live snapshot.
         teamData.sort((a, b) => {
-            if (b.goalDifference !== a.goalDifference) return b.goalDifference - a.goalDifference;
-            if (b.points !== a.points) return b.points - a.points;
-            return b.goalsFor - a.goalsFor;
+            if (allMatchesPlayedInGroup) {
+                if (b.points !== a.points) return b.points - a.points;
+                if (b.goalDifference !== a.goalDifference) return b.goalDifference - a.goalDifference;
+                return b.goalsFor - a.goalsFor;
+            } else {
+                if (b.goalDifference !== a.goalDifference) return b.goalDifference - a.goalDifference;
+                if (b.points !== a.points) return b.points - a.points;
+                return b.goalsFor - a.goalsFor;
+            }
         });
 
         // Create table for this tied group
