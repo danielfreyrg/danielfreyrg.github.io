@@ -14,7 +14,7 @@ if (season % 2 == 0) {
 }
 async function getGames(date, sport) {
     try {
-        const response = await fetch(`/api/games?date=${date}`);
+        const response = await fetch(`https://milliridill-server.onrender.com/api/games?date=${date}`);
         const result = await response.json();
         if (result.response.length === 0) {
             console.log('No games found');
@@ -30,9 +30,10 @@ async function getGames(date, sport) {
 }
 
 
+
 async function getStandings(group) {
     try {
-        const response = await fetch(`/api/standings?league=${league}&season=${season}&group=${group}`);
+        const response = await fetch(`https://milliridill-server.onrender.com/api/standings?league=${league}&season=${season}&group=${group}`);
         const result = await response.json();
         return result.response;
     } catch (error) {
@@ -42,7 +43,7 @@ async function getStandings(group) {
 }
 async function getGroups() {
     try {
-        const response = await fetch(`/api/standings/groups?league=${league}&season=${season}`);
+        const response = await fetch(`https://milliridill-server.onrender.com/api/standings/groups?league=${league}&season=${season}`);
         const result = await response.json();
         return result.response;
     } catch (error) {
@@ -339,7 +340,7 @@ if (currentTeam.stage == stage) {
 }
 async function getMatches(teamId) {
     try {
-        const response = await fetch(`/api/games?team=${teamId}&season=${season}&league=${league}`);
+        const response = await fetch(`https://milliridill-server.onrender.com/api/games?team=${teamId}&season=${season}&league=${league}`);
         const result = await response.json();
         return result.response;
     } catch (error) {
