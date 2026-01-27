@@ -44,9 +44,9 @@
     <script>
         document.getElementById('show-h2h').addEventListener('change', function() {
             if (this.checked) {
-                document.getElementById('h2h-table').style.display = 'block';
+                document.getElementById('h2h-table').classList.remove('hidden');
             } else {
-                document.getElementById('h2h-table').style.display = 'none';
+                document.getElementById('h2h-table').classList.add('hidden');
             }
         });
     </script>   

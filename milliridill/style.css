@@ -175,3 +175,13 @@ input[type="checkbox"] {
     gap: 10px;
     cursor: pointer;
   }
+  .hidden {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-in-out;
+  }
+  #h2h-table:not(.hidden) {
+    max-height: 100vh;
+    overflow: visible;
+    transition: max-height 0.3s ease-in-out;
+  }
