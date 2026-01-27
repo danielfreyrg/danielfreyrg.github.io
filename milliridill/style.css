@@ -80,6 +80,9 @@ td .team-name{
     margin: 0;
     padding: 0;
 }
+#standings {
+    white-space: nowrap;
+}
 #standings .first td{
     background-color: #f8f4d9;
 }

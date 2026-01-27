@@ -447,7 +447,11 @@ function createH2HTable() {
             if (cells.length >= 8) {
                 // First cell contains "position. teamName" - extract team name
                 const firstCellText = cells[0].textContent.trim();
-                const teamName = firstCellText.replace(/^\d+\.\s*/, '').trim(); // Remove "1. " prefix
+                // Remove "1. " prefix and any qualification marker (✓) so names match API data
+                const teamName = firstCellText
+                    .replace(/^\d+\.\s*/, '') // remove leading "1. "
+                    .replace('✓', '')         // remove qualification checkmark
+                    .trim();
                 const points = parseInt(cells[7].textContent.trim()) || 0;
                 teamPoints[teamName] = points;
             }
@@ -512,7 +516,7 @@ function createH2HTable() {
             if (tiedTeams.includes(homeTeam) && tiedTeams.includes(awayTeam)) {
                 // Only count matches from the main round (after January 22)
                 const matchDate = new Date(match.date);
-                const mainRoundStartDate = new Date(season, 0, 23); // January 22 of current season year
+                // const mainRoundStartDate = new Date(season, 0, 23); // January 22 of current season year
                 const isMainRound = true; // const isMainRound = matchDate >= mainRoundStartDate; 
                 if (!isMainRound) return; // Skip preliminary round matches
                 
