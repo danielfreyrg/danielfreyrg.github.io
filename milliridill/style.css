@@ -1,0 +1,132 @@
+.match-row {
+    display: grid;
+    justify-items: stretch;
+    grid-template-columns: 1fr 1fr .5fr 1fr 1fr;
+    gap: 10px;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+}
+#matches {
+    display: grid;
+    text-align: center;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 10px;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+}
+table thead {
+    background-color: #3888ff;
+}
+table thead th {
+    padding: 22px 20px;
+    color: #fff;
+}
+table tbody {
+    background-color: #fff;
+}
+table tbody tr {
+}
+td {
+    padding: 22px 20px;
+        text-align: center;
+        font-family: 'IBM Plex Sans', sans-serif;
+        font-weight: 500;
+        line-height: 1.6;
+        color: #48535e;
+}
+th {
+    padding: 10px;
+    text-align: center;
+    font-family: 'IBM Plex Sans', sans-serif;
+    text-transform: uppercase;
+}
+tr {
+}
+tr {
+    border-bottom: 1px solid #efefef;
+}
+input[type="number"] {
+    /* width: fit-content; */
+    padding: 10px;
+    text-align: center;
+    border-radius: 5px;
+    color: #2d3486;
+    background: #fff;
+    border: none;
+    font-size: 1.2rem;
+}
+input:disabled {
+    background: #f2f2f3;
+    color: #2d3486;
+    opacity: 0.5;
+}
+.match-row .team-name {
+    color: #2d3486;
+    font-weight: 500;
+    line-height: 1.6;
+    font-size: 1.2rem;
+}
+.team-name {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    gap: 5px
+}
+td .team-name{
+    margin: 0;
+    padding: 0;
+}
+#standings .first td{
+    background-color: #f8f4d9;
+}
+.vs {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: 500;
+    line-height: 1.6;
+    color: #2d3486;
+    opacity: 0.5;
+}
+body {
+    background: #f2f2f3;
+}
+.home-team-name {
+    flex-direction: row-reverse;
+}
+.container {
+    width: 60%;
+    margin: 0 auto;
+}
+#group {
+    padding: 1rem .75rem;
+    font-size: 1.5rem;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: 500;
+    line-height: 1.6;
+    color: #2d3486;
+    background: #fff;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+    margin: 20px 0;
+}
+.align-left {
+    text-align: left;
+}
+.match-row .team-name {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: 500;
+    line-height: 1.6;
+    color: #2d3486;
+}
+@media (max-width: 768px) {
+    .container {
+        width: 90%;
+    }
+}
+table, body, html, table * {
+    width: 100%;
+}

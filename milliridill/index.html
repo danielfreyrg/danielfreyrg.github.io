@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Milliriðill</title>
+    <link rel='stylesheet' type='text/css' href='style.css'>
+    <script src='script.js' defer></script>
+    <meta charset=utf-8>
+    <meta name=viewport content=width=device-width, initial-scale=1>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+<select id="group">
+    <option value="">Select a group</option>
+</select>
+<div id="standings">
+    <table>
+        <thead>
+            <tr>
+                <th class="align-left">Team</th>
+                <th>GP</th>
+                <th>W</th>
+                <th>L</th>
+                <th>D</th>
+                <th>Goals </th>
+                <th>DIFF</th>
+                <th>PTS</th>
+            </tr>
+        </thead>
+        <tbody>
+            
+        </tbody>
+    </table>
+</div>
+
+    <h2>Head-to-Head Results</h2>
+    <input type="checkbox" checked id="show-h2h">
+    <label for="show-h2h" >Show Head-to-Head Results</label>
+    <script>
+        document.getElementById('show-h2h').addEventListener('change', function() {
+            if (this.checked) {
+                document.getElementById('h2h-table').style.display = 'block';
+            } else {
+                document.getElementById('h2h-table').style.display = 'none';
+            }
+        });
+    </script>   
+    <div id="h2h-table">
+    <div id="h2h-content"></div>
+</div>
+<div id="matches">
+    
+</div>
+</div>
+</body>
+</html>
