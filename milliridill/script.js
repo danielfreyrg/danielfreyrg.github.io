@@ -470,7 +470,12 @@ async function getMatches(teamId) {
                           matchStage === stage || 
                           (earliestMainRoundDate && matchDate >= earliestMainRoundDate);
         
-        if (isMainRound) {
+        // Check if both teams are in the current group
+        const homeTeamInGroup = groupTeams.some(team => team.name === homeTeam);
+        const awayTeamInGroup = groupTeams.some(team => team.name === awayTeam);
+        const bothTeamsInGroup = homeTeamInGroup && awayTeamInGroup;
+        
+        if (isMainRound && bothTeamsInGroup) {
             // Store original scores (only for main round matches)
             originalMatchScores[match.id] = {
                 home: homeTeamScore ?? 0,
@@ -483,7 +488,13 @@ async function getMatches(teamId) {
             // Ensure values are numbers or empty string for input elements
             const homeScoreValue = homeTeamScore != null ? homeTeamScore : '';
             const awayScoreValue = awayTeamScore != null ? awayTeamScore : '';
-            matchRow.innerHTML = `<p class="team-name home-team-name"><img src="${homeTeamLogo}" alt="${homeTeam}" width="20" height="20">${homeTeam}</p> <input ${gameStatus == 'FT' ? 'disabled' : ''} type="number" class="home-score" data-match-id="${match.id}" data-home-team="${homeTeam}" data-away-team="${awayTeam}" value="${homeScoreValue}" min="0" max="99"><span class="vs"> vs </span> <input ${gameStatus == 'FT' ? 'disabled' : ''} type="number" class="away-score" data-match-id="${match.id}" data-home-team="${homeTeam}" data-away-team="${awayTeam}" value="${awayScoreValue}" min="0" max="99"> <input type="number" value="${match.id}" hidden><p class="team-name away-team-name"><img src="${awayTeamLogo}" alt="${awayTeam}" width="20" height="20">${awayTeam}</p>`;
+            
+            // Format date and time
+            const dateStr = matchDate.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+            const timeStr = match.time ? match.time : matchDate.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', hour12: false });
+            const dateTimeStr = `${dateStr} ${timeStr}`;
+            
+            matchRow.innerHTML = `<p class="match-datetime">${dateTimeStr}</p><p class="team-name home-team-name"><img src="${homeTeamLogo}" alt="${homeTeam}" width="20" height="20">${homeTeam}</p> <input ${gameStatus == 'FT' ? 'disabled' : ''} type="number" class="home-score" data-match-id="${match.id}" data-home-team="${homeTeam}" data-away-team="${awayTeam}" value="${homeScoreValue}" min="0" max="99"><span class="vs"> vs </span> <input ${gameStatus == 'FT' ? 'disabled' : ''} type="number" class="away-score" data-match-id="${match.id}" data-home-team="${homeTeam}" data-away-team="${awayTeam}" value="${awayScoreValue}" min="0" max="99"> <input type="number" value="${match.id}" hidden><p class="team-name away-team-name"><img src="${awayTeamLogo}" alt="${awayTeam}" width="20" height="20">${awayTeam}</p>`;
             matchDom.appendChild(matchRow);
         }
     });
