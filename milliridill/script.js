@@ -705,6 +705,99 @@ function createH2HTable() {
     }
 }
 
+// Calculate standings from match results (for real-time accuracy)
+function calculateStandingsFromMatches(matches) {
+    if (!groupTeams || groupTeams.length === 0) return null;
+    
+    // Initialize team stats
+    const teamStats = {};
+    groupTeams.forEach(team => {
+        teamStats[team.name] = {
+            teamName: team.name,
+            teamId: team.id,
+            played: 0,
+            won: 0,
+            lost: 0,
+            draw: 0,
+            goalsFor: 0,
+            goalsAgainst: 0,
+            points: 0
+        };
+    });
+    
+    // Process all matches
+    matches.forEach(match => {
+        const score = getCurrentMatchScore(match.id);
+        if (!score) return;
+        
+        const homeTeam = score.homeTeam;
+        const awayTeam = score.awayTeam;
+        const homeScore = score.home || 0;
+        const awayScore = score.away || 0;
+        
+        // Only process if both teams are in the group
+        if (!teamStats[homeTeam] || !teamStats[awayTeam]) return;
+        
+        // Only count matches that have been played (have scores)
+        if (homeScore === 0 && awayScore === 0) return; // Skip unplayed matches
+        
+        // Update home team stats
+        teamStats[homeTeam].played += 1;
+        teamStats[homeTeam].goalsFor += homeScore;
+        teamStats[homeTeam].goalsAgainst += awayScore;
+        
+        // Update away team stats
+        teamStats[awayTeam].played += 1;
+        teamStats[awayTeam].goalsFor += awayScore;
+        teamStats[awayTeam].goalsAgainst += homeScore;
+        
+        // Calculate points (2 for win, 1 for draw, 0 for loss)
+        if (homeScore > awayScore) {
+            teamStats[homeTeam].won += 1;
+            teamStats[homeTeam].points += 2;
+            teamStats[awayTeam].lost += 1;
+        } else if (awayScore > homeScore) {
+            teamStats[awayTeam].won += 1;
+            teamStats[awayTeam].points += 2;
+            teamStats[homeTeam].lost += 1;
+        } else {
+            teamStats[homeTeam].draw += 1;
+            teamStats[homeTeam].points += 1;
+            teamStats[awayTeam].draw += 1;
+            teamStats[awayTeam].points += 1;
+        }
+    });
+    
+    // Convert to API-like format for createStandingsTable
+    const standings = {
+        '0': {}
+    };
+    
+    Object.values(teamStats).forEach((team, index) => {
+        standings['0'][index] = {
+            position: index + 1, // Will be recalculated after sorting
+            stage: stage,
+            team: {
+                id: team.teamId,
+                name: team.teamName
+            },
+            games: {
+                played: team.played,
+                win: { total: team.won },
+                lose: { total: team.lost },
+                draw: { total: team.draw }
+            },
+            goals: {
+                for: team.goalsFor,
+                against: team.goalsAgainst
+            },
+            points: team.points
+        };
+    });
+    
+    return standings;
+}
+
 function updateStandings() {
     if (!originalStandings || !currentGroup) return;
 
@@ -852,6 +945,7 @@ getGroups()
 document.getElementById('group').addEventListener('change', (event) => {
     currentGroup = event.target.value;
     getStandings(event.target.value).then(standings => {
+        // First, create standings table from API to populate groupTeams
         createStandingsTable(standings);
         // Wait for groupTeams to be populated, then fetch matches
         console.log('groupTeams populated:', groupTeams);
@@ -865,6 +959,13 @@ document.getElementById('group').addEventListener('change', (event) => {
                         index === self.findIndex(m => m.id === match.id)
                     );
                     createMatches(uniqueMatches);
+                    
+                    // Recalculate standings from match results for real-time accuracy
+                    const calculatedStandings = calculateStandingsFromMatches(uniqueMatches);
+                    if (calculatedStandings) {
+                        // Update standings table with calculated data
+                        createStandingsTable(calculatedStandings, false);
+                    }
                 })
                 .catch(error => {
                     console.log('error fetching matches', error);
