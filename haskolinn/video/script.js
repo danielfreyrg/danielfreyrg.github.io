@@ -1,7 +1,6 @@
 import * as THREE from 'three';
 
 const container = document.getElementById('app');
-const startBtn = document.getElementById('start-btn');
 
 // Scene + camera
 const scene = new THREE.Scene();
@@ -25,9 +24,25 @@ const video = document.createElement('video');
 video.src = './0417-web.mp4';
 video.loop = true;
 video.muted = true;
+video.autoplay = true;
 video.playsInline = true;
+video.setAttribute('playsinline', '');
+video.setAttribute('webkit-playsinline', '');
 video.crossOrigin = 'anonymous';
 video.preload = 'auto';
+
+// Kick off playback as soon as the browser will allow it. Muted + playsInline
+// satisfies autoplay policies in all modern browsers.
+video.play().catch((err) => {
+  console.warn('Autoplay blocked, will retry on first user interaction:', err);
+  const retry = () => {
+    video.play().catch(() => {});
+    window.removeEventListener('pointerdown', retry);
+    window.removeEventListener('keydown', retry);
+  };
+  window.addEventListener('pointerdown', retry);
+  window.addEventListener('keydown', retry);
+});
 
 const videoTexture = new THREE.VideoTexture(video);
 videoTexture.colorSpace = THREE.SRGBColorSpace;
@@ -90,15 +105,6 @@ window.addEventListener('resize', () => {
   renderer.setSize(window.innerWidth, window.innerHeight);
 });
 
-// Start video on user gesture (browsers block autoplay with sound otherwise)
-startBtn.addEventListener('click', async () => {
-  try {
-    await video.play();
-    startBtn.classList.add('hidden');
-  } catch (err) {
-    console.error('Could not start video:', err);
-  }
-});
 window.addEventListener('mousemove', function (e) {
   var cursor = document.querySelector('.cursor');
   if (!cursor) return;
