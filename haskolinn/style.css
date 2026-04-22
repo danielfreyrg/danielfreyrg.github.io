@@ -13,6 +13,8 @@ html, body, * {
 .cursor {
     background-image: url('./Object.png');
     background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top left;
     width: 250px;
     height: 250px;
     position: absolute;
