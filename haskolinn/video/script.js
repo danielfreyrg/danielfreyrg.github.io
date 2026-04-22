@@ -22,7 +22,7 @@ container.appendChild(renderer.domElement);
 
 // Hidden <video> element that feeds the texture
 const video = document.createElement('video');
-video.src = '../0417-web.mp4';
+video.src = './0417-web.mp4';
 video.loop = true;
 video.muted = true;
 video.playsInline = true;
