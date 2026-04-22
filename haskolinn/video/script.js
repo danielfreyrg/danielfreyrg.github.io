@@ -99,7 +99,12 @@ startBtn.addEventListener('click', async () => {
     console.error('Could not start video:', err);
   }
 });
-
+window.addEventListener('mousemove', function (e) {
+  var cursor = document.querySelector('.cursor');
+  if (!cursor) return;
+  cursor.style.left = e.clientX - 125 + 'px';
+  cursor.style.top = e.clientY - 125 + 'px';
+});
 // Render loop
 function animate() {
   requestAnimationFrame(animate);
