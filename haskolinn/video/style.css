@@ -63,7 +63,7 @@ html, body {
   height: 100vh;
 }
 html, body, * {
-  cursor: none;
+  cursor: none !important;
 }
 .cursor {
   background-image: url('../Object.png');
