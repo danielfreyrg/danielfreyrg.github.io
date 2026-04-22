@@ -1,7 +1,8 @@
-var season = new Date().getFullYear();
+var season = new Date().getFullYear()-4;
 var league = 0;
 const team = 2620 // Iceland men
-const stage = 'EHF Euro - Regular Season';
+// const stage = 'EHF Euro - Regular Season';
+var stage
 var groupTeams = [];
 var originalStandings = null;
 var allMatchesData = [];
@@ -915,14 +916,11 @@ getGroups()
             console.log('No valid groups after filtering');
             return;
         }
-        var currentGroups = ['Group 1', 'Group 2'];
         validGroups.forEach(group => {
-            if (currentGroups.includes(group)) {
         const option = document.createElement('option');
             option.value = group;
             option.textContent = group;
             document.getElementById('group').appendChild(option);
-        }
     });
     
     // Set default to group 2 and load its data
