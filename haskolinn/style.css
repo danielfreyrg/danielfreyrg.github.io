@@ -53,5 +53,7 @@ html, body, * {
     padding: 10px;
     color: white; 
     z-index: 1000;
-    font-size: 5rem;
+    font-size: 1rem;
+    user-select: none;
+    pointer-events: none;
 }
