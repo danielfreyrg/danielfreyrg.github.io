@@ -48,12 +48,12 @@ html, body, * {
 .title {
     position: absolute; 
     bottom: 100px; 
-    left: 30px; 
+    left: 0px; 
     background: #10099F;
     padding: 10px;
     color: white; 
     z-index: 1000;
-    font-size: 1rem;
+    font-size: 5rem;
     user-select: none;
     pointer-events: none;
 }
