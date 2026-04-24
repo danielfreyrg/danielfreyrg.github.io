@@ -57,3 +57,17 @@ html, body, * {
     user-select: none;
     pointer-events: none;
 }
+
+@media (max-width: 1100px) {
+    .title {
+        position: absolute;
+        bottom: 0px;
+        left: 00px;
+        font-size: 2rem;
+    }
+    .logo {
+        width: 100px;
+        top: 0px;
+        right: 0px;
+    }
+}
