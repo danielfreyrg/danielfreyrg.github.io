@@ -15,13 +15,13 @@ var sceneData = [
     image: './CAM_20260416115712_0025_D.JPG',
     initialYaw: Math.PI,
     hotspots: [
-      { yaw: 0,            pitch: 0, target: 'room1', label: 'Fara inn' },
-      { yaw: -Math.PI / 2, pitch: 0, target: 'room2', label: 'Til hliðar' }
+      { yaw: 0,            pitch: 0, target: '500kb', label: '500kb' },
+      { yaw: -Math.PI / 2, pitch: 0, target: '700kb', label: '700kb' }
     ]
   },
   {
-    id: 'room1',
-    image: './img-360-1.jpg',
+    id: '700kb',
+    image: './haskolinn-360-700kb.jpg',
     initialYaw: 0,
     hotspots: [
       { yaw: Math.PI, pitch: 0, target: 'entrance', label: 'Til baka' },
@@ -29,8 +29,8 @@ var sceneData = [
     ]
   },
   {
-    id: 'room2',
-    image: './img-360-2.jpg',
+    id: '500kb',
+    image: './haskolinn-360-500kb.jpg',
     initialYaw: 0,
     hotspots: [
       { yaw: Math.PI, pitch: 0, target: 'entrance', label: 'Til baka' },
