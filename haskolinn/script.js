@@ -107,8 +107,8 @@ scenes[sceneData[0].id].scene.switchTo();
 window.addEventListener('mousemove', function (e) {
   var cursor = document.querySelector('.cursor');
   if (!cursor) return;
-  cursor.style.left = e.clientX - 125 + 'px';
-  cursor.style.top = e.clientY - 125 + 'px';
+  cursor.style.left = e.clientX - (this.window.innerWidth < 1100 ? 50 : 125) + 'px';
+  cursor.style.top = e.clientY - (this.window.innerWidth < 1100 ? 50 : 125) + 'px';
 });
 document.querySelectorAll('.hotspot').forEach(function(hotspot) {
   let cursor = document.querySelector('.cursor');
