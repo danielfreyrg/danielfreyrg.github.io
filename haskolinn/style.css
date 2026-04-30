@@ -70,4 +70,8 @@ html, body, * {
         top: 0px;
         right: 0px;
     }
+    .cursor {
+        width: 100px;
+        height: 100px;
+    }
 }
