@@ -8,11 +8,11 @@
     height: 100vh;
 }
 html, body, * {
-    cursor: none;
+    cursor: none !important;
 }
 .cursor {
-    background-image: url('./Object.png');
-    background-size: cover;
+    background-image: url('./HI_Hendi_01.png');
+    background-size: contain;
     background-repeat: no-repeat;
     background-position: top left;
     width: 250px;

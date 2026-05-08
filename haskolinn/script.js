@@ -107,16 +107,18 @@ scenes[sceneData[0].id].scene.switchTo();
 window.addEventListener('mousemove', function (e) {
   var cursor = document.querySelector('.cursor');
   if (!cursor) return;
-  cursor.style.left = e.clientX - (this.window.innerWidth < 1100 ? 50 : 125) + 'px';
-  cursor.style.top = e.clientY - (this.window.innerWidth < 1100 ? 50 : 125) + 'px';
+  // cursor.style.left = e.clientX - (this.window.innerWidth < 1100 ? 50 : 125) + 'px';
+  // cursor.style.top = e.clientY - (this.window.innerWidth < 1100 ? 50 : 125) + 'px';
+  cursor.style.left = e.clientX  - 30 + 'px';
+  cursor.style.top = e.clientY + 'px';
 });
 document.querySelectorAll('.hotspot').forEach(function(hotspot) {
   let cursor = document.querySelector('.cursor');
   hotspot.addEventListener('mouseenter', function() {
-    cursor.style.backgroundImage = 'url(./finger.png)';
+    cursor.style.backgroundImage = 'url(./HI_Hendi_02.png)';
 
   });
   hotspot.addEventListener('mouseleave', function() {
-    cursor.style.backgroundImage = 'url(./Object.png)';
+    cursor.style.backgroundImage = 'url(./HI_Hendi_01.png)';
   });
 });
