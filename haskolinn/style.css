@@ -53,11 +53,13 @@ html, body, * {
     display: flex;
     flex-direction: column;
     gap: 10px;
+    align-items: stretch;
 }
 .title {
     display: flex;
     flex-direction: column;
     gap: 10px;
+    align-items: stretch;
 }
 .title span{
     text-align: center;
@@ -88,9 +90,13 @@ h2 {
         position: absolute;
         bottom: 0px;
         left: 00px;
+        gap: 5px;
     }
     .title span {
-        font-size: 3rem;
+        font-size: 2rem;
+    }
+    .title {
+        gap: 5px;
     }
     h2 {
         font-size: 1.5rem;
