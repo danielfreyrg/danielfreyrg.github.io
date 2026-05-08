@@ -9,6 +9,7 @@
 }
 html, body, * {
     cursor: none !important;
+    font-family: 'Jost', sans-serif;
 }
 .cursor {
     background-image: url('./HI_Hendi_01.png');
@@ -45,25 +46,54 @@ html, body, * {
     -moz-user-select: none;
     -ms-user-select: none;
 }
-.title {
+.title-container {
     position: absolute; 
     bottom: 100px; 
     left: 0px; 
-    background: #10099F;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.title {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.title span{
+    text-align: center;
+    background: white;
     padding: 10px;
-    color: white; 
+    color: #10099F; 
     z-index: 1000;
-    font-size: 5rem;
+    font-size: 6rem;
+    user-select: none;
+    pointer-events: none;
+    text-align: center;
+}
+h2 {
+
+
+    background: rgba(2, 255, 187, 1);
+    padding: 10px;
+    color: #10099F; 
+    z-index: 1000;
+    text-align: center;
+    font-size: 4rem;
     user-select: none;
     pointer-events: none;
 }
 
 @media (max-width: 1100px) {
-    .title {
+    .title-container {
         position: absolute;
         bottom: 0px;
         left: 00px;
-        font-size: 2rem;
+    }
+    .title span {
+        font-size: 3rem;
+    }
+    h2 {
+        font-size: 1.5rem;
     }
     .logo {
         width: 100px;
