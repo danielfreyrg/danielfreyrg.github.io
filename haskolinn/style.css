@@ -64,21 +64,26 @@ html, body, * {
 .title span{
     background: white;
     padding: 5px;
-    color: #10099F; 
     z-index: 1000;
-    font-size: 2rem;
     user-select: none;
     pointer-events: none;
+    color: #10099F;
+font-family: Jost;
+font-size: 31.559px;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+text-transform: uppercase;
 }
 h2 {
 
     color: #10099F;
     font-family: Jost;
-    font-size: 1rem;
+    font-size: 14.425px;
     font-style: normal;
     font-weight: 700;
     line-height: normal;
-    text-transform: uppercase;
+    /* text-transform: uppercase; */
     pointer-events: none;
     background: white;
     padding: 5px;
