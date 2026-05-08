@@ -12,7 +12,7 @@ var limiter = Marzipano.RectilinearView.limit.traditional(1024, 100 * Math.PI / 
 var sceneData = [
   {
     id: 'entrance',
-    image: './CAM_20260416115712_0025_D.JPG',
+    image: './haskolinn-360-700kb.jpg',
     initialYaw: Math.PI,
     hotspots: [
       { yaw: 0,            pitch: 0, target: '500kb', label: '500kb' },
