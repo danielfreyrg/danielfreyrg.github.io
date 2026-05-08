@@ -95,6 +95,12 @@ h2 {
     font-weight: 700;
     line-height: normal;
     background: #02FFBB;
+    text-decoration: none;
+    padding: 5px;
+}
+.button:hover {
+    background: #10099F;
+    color: #02FFBB;
 }
 @media (max-width: 1100px) {
     .title-container {
