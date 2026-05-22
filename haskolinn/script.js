@@ -9,14 +9,17 @@ var limiter = Marzipano.RectilinearView.limit.traditional(1024, 100 * Math.PI / 
 
 // Scene definitions. Each entry describes one panorama and which hotspots
 // should appear in it. A hotspot's `target` is the id of the scene to move to.
+function deg(d) { return d * Math.PI / 180; }
+
 var sceneData = [
   {
     id: 'entrance',
     image: './haskolinn-scene1.jpg',
-    initialYaw: Math.PI,
+    initialYaw: deg(45),
     hotspots: [
-      { yaw: 0,            pitch: 0, target: 'scene2', label: 'scene2' },
-      { yaw: -Math.PI / 2, pitch: 0, target: 'scene3', label: 'scene3' }
+      { yaw: 0, pitch: deg(-90)+45, target: 'scene2', label: 'Kíkja upp' }, // pitch: Math.PI / 2 moves it to the "top"/north pole
+      { yaw: deg(45), pitch: deg(-0), target: 'scene3', label: 'Leiklist' }
+ 
     ]
   },
   {
@@ -24,8 +27,10 @@ var sceneData = [
     image: './haskolinn-scene2.jpg',
     initialYaw: 0,
     hotspots: [
-      { yaw: Math.PI, pitch: 0, target: 'entrance', label: 'Til baka' },
-      { yaw: 0,       pitch: 0, target: 'scene3',    label: 'scene3' }
+      { yaw: 0, pitch: Math.PI / 2 - 45, target: 'entrance', label: 'Til baka' },
+      { yaw: deg(10), pitch: deg(0), target: 'scene3', label: 'Leiklist' }
+ 
+ 
     ]
   },
   {
@@ -34,7 +39,6 @@ var sceneData = [
     initialYaw: 0,
     hotspots: [
       { yaw: Math.PI, pitch: 0, target: 'entrance', label: 'Til baka' },
-      { yaw: 0,       pitch: 0, target: 'scene2',    label: 'scene2' }
     ]
   }
 ];
