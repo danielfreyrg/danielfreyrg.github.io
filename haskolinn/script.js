@@ -15,7 +15,9 @@ var sceneData = [
   {
     id: 'entrance',
     image: './haskolinn-scene1.jpg',
-    initialYaw: deg(45),
+    initialYaw: deg(25),
+    initialPitch: deg(-15), 
+
     hotspots: [
       { yaw: 0, pitch: deg(-90)+45, target: 'scene2', label: 'Kíkja upp' }, // pitch: Math.PI / 2 moves it to the "top"/north pole
       { yaw: deg(45), pitch: deg(-0), target: 'scene3', label: 'Leiklist' }
@@ -36,7 +38,7 @@ var sceneData = [
   {
     id: 'scene3',
     image: './haskolinn-scene3.jpg',
-    initialYaw: 0,
+    initialYaw: deg(90),
     hotspots: [
       { yaw: Math.PI, pitch: 0, target: 'entrance', label: 'Til baka' },
     ]
@@ -70,8 +72,10 @@ function createHotspotElement(label) {
 var scenes = {};
 sceneData.forEach(function (data) {
   var source = Marzipano.ImageUrlSource.fromString(data.image);
-  var view = new Marzipano.RectilinearView({ yaw: data.initialYaw || 0 }, limiter);
-
+  var view = new Marzipano.RectilinearView(
+    { yaw: data.initialYaw || 0, pitch: data.initialPitch || 0 },
+    limiter
+  );
   var marzipanoScene = viewer.createScene({
     source: source,
     geometry: geometry,
