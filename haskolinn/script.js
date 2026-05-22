@@ -12,29 +12,29 @@ var limiter = Marzipano.RectilinearView.limit.traditional(1024, 100 * Math.PI / 
 var sceneData = [
   {
     id: 'entrance',
-    image: './haskolinn-360-700kb.jpg',
+    image: './haskolinn-scene1.jpg',
     initialYaw: Math.PI,
     hotspots: [
-      { yaw: 0,            pitch: 0, target: '500kb', label: '500kb' },
-      { yaw: -Math.PI / 2, pitch: 0, target: '700kb', label: '700kb' }
+      { yaw: 0,            pitch: 0, target: 'scene2', label: 'scene2' },
+      { yaw: -Math.PI / 2, pitch: 0, target: 'scene3', label: 'scene3' }
     ]
   },
   {
-    id: '700kb',
-    image: './haskolinn-360-700kb.jpg',
+    id: 'scene2',
+    image: './haskolinn-scene2.jpg',
     initialYaw: 0,
     hotspots: [
       { yaw: Math.PI, pitch: 0, target: 'entrance', label: 'Til baka' },
-      { yaw: 0,       pitch: 0, target: 'room2',    label: 'Áfram' }
+      { yaw: 0,       pitch: 0, target: 'scene3',    label: 'scene3' }
     ]
   },
   {
-    id: '500kb',
-    image: './haskolinn-360-500kb.jpg',
+    id: 'scene3',
+    image: './haskolinn-scene3.jpg',
     initialYaw: 0,
     hotspots: [
       { yaw: Math.PI, pitch: 0, target: 'entrance', label: 'Til baka' },
-      { yaw: 0,       pitch: 0, target: 'room1',    label: 'Í hitt herbergið' }
+      { yaw: 0,       pitch: 0, target: 'scene2',    label: 'scene2' }
     ]
   }
 ];
@@ -43,10 +43,10 @@ var sceneData = [
 function createHotspotElement(label) {
   var element = document.createElement('div');
   element.className = 'hotspot';
-  element.style.width = '64px';
-  element.style.height = '64px';
+  element.style.width = '50px';
+  element.style.height = '50px';
   element.style.borderRadius = '50%';
-  element.style.background = 'rgba(20, 192, 255, 0.85)';
+  element.style.background = '#10099F';
   element.style.border = '2px solid white';
   element.style.boxShadow = '0 2px 10px rgba(0,0,0,0.3)';
   element.style.display = 'flex';
@@ -56,6 +56,7 @@ function createHotspotElement(label) {
   element.style.color = 'white';
   element.style.fontSize = '2rem';
   element.style.userSelect = 'none';
+  element.style.display = 'flex';
   element.innerHTML = '<span>&#8594;</span>';
   if (label) element.title = label;
   return element;
