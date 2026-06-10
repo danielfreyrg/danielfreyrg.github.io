@@ -1,3 +1,8 @@
+@font-face {
+    font-family: 'Jost';
+    src: url('Jost-VariableFont_wght.ttf') format('truetype');
+}
+
 * {
     padding: 0;
     margin: 0;

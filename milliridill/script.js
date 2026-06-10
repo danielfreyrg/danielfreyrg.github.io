@@ -1,4 +1,4 @@
-var season = new Date().getFullYear()-4;
+var season = new Date().getFullYear()+1;
 var league = 0;
 const team = 2620 // Iceland men
 // const stage = 'EHF Euro - Regular Season';
